@@ -1,7 +1,7 @@
 <?php
-    include ('../../Database/connect.php');
-    include ('../../Database/results.php');
-    include('../../Database/sessioncheck.php');
+    include ('Database/connect.php');
+    include ('Database/results.php');
+    include('Database/sessioncheck.php');
 
     $id = $_SESSION['id'];
     
@@ -54,7 +54,7 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <img src="assets/img/logo dental.png" alt="" class="header__img">
+            <img src="Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
 
             <a href="#" class="header__logo">Dashboard</a>
 
@@ -68,7 +68,7 @@
         <!--========== HEADER ==========-->
         <header class="header">
         <div class="header__container">
-            <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
+            <img src="Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
             <a href="#" class="header__logo">Cruz Dental Clinic</a>
 
          
@@ -87,7 +87,7 @@
             <div>
                 <a href="#" class="nav__link nav__logo">
                <i class='nav__icon'>
-               <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
+               <img src="Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
                </i>
                     <span class="nav__logo-name">Cruz Dental Clinic</span>
                 </a>
@@ -95,7 +95,7 @@
                 <div class="nav__list">
                     <div class="nav__items">
 
-                        <a href="/Modules/secretary/index.php" class="nav__link active">
+                        <a href="Modules/secretary/index.php" class="nav__link active">
                             <i class='bx bx-home nav__icon' ></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
@@ -135,19 +135,19 @@
                         </div>
 
 
-                        <a href="/Modules/secretary/billing/billing.php" class="nav__link">
+                        <a href="Modules/secretary/billing/billing.php" class="nav__link">
                             <i class='bx bx-money nav__icon' ></i>
                             <span class="nav__name">Billing</span>
                         </a>
                     </div>
 
-                    <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
+                    <a href="Modules/secretary/announcement/announcement.php" class="nav__link">
                         <i class='bx bxs-megaphone nav__icon'></i>
                         <span class="nav__name">Announcement</span>
                     </a>
                 </div>
 
-            <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+            <a href="LoginPage/login-page.php" class="nav__link nav__logout">
                 <i class='bx bx-log-out nav__icon' ></i>
                 <span class="nav__name">Log Out</span>
             </a>

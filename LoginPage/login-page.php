@@ -24,9 +24,9 @@
 
                 <form method="POST" action="Database/validatelogin.php">
                 <img src="images/298783880_5652912168104978_7318141653551353703_n.png" alt="logo"  style="width:75px;height:75px; display: block;
-  margin-left: auto;
-  margin-right: auto;
-  ">
+                    margin-left: auto;
+                    margin-right: auto;
+                    ">
                 <h4 class="text-center font-weight-bold"> Cruz Dental Clinic <br /><br /></h4>
                     <h2 class="text-center">Login</h2> 
                    
