@@ -1,0 +1,400 @@
+
+body
+{
+    background-image: url(Image/homepage1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+}
+
+
+  /*html Navbar page*/ 
+  .navbar{
+    background-color: #6147a7 !important;
+  }
+   /*end*/ 
+
+
+  /*Logo positioning*/ 
+.logo img{
+  position: static;
+    margin-left: 10px;
+    width: 8%;
+}
+
+  /*Font positioning beside logo*/ 
+.text {
+    position: fixed;
+    left: 130px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+ /*html landing  page*/ 
+ .container {
+  position: relative;
+  text-align: center; 
+  color: white;
+  font-family: 'Poppins';
+  font-size: 3.5rem;
+  bottom: 0px;
+  font-weight:bold;
+}
+
+.containr {
+  width: 500px;
+  padding: 10px;
+  height: 80px;
+  margin: 0;
+  margin-top: 8%;
+  background-color: #9D81EE;
+}
+
+.containerj {
+  width: 520px;
+  padding: 10px;
+  height: 80px;
+  margin: 0;
+  margin-top: 2%;
+  margin-left: 2%;
+  background-color: #B19BEF;
+}
+
+.containerv {
+  position: relative;
+  margin-left: 0;
+  margin-top: 0;
+  font-style: bold;
+  font-size: 45px;
+}
+
+
+.bottomleft {
+  text-align: center;
+  color: #D7A4FF;
+  font-family: 'Poppins';
+  text-transform: uppercase;  
+  padding:10px ;
+  position: absolute;
+  top: 130%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+  font-weight:bold;
+
+}
+
+.contain1 {
+  color: #b063df;
+  text-align: center;
+  font-family: 'Poppins'; 
+  padding:10px ;
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  font-size: 4rem;
+  margin-top: 2%;
+}
+
+.contain2 {
+  color: #b063df;
+  text-align: center;
+  font-family: 'Poppins'; 
+  padding:5px ;
+  position: absolute;
+  top: 135%;
+  left: 12%;
+  font-size: 3rem;
+}
+
+
+.bottomleft1 {
+  position: absolute;
+  bottom: -250px;
+  left: 3px;
+  font-size: 90px;
+  font-weight:bold;
+  color: #D7A4FF;
+}
+.btn-float-left{
+  position: absolute;
+  top: 180%;
+  left: 190px;
+  background-color: #5F46A6;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  height: auto;
+  }
+
+  .icon {
+   height: 30px;
+   float: right; 
+   width: 40%;
+   padding:10px ;   
+   right: 5%;
+   top: 40%; 
+  }
+
+.icon1 img{
+    border-radius: 15px; 
+    margin-left: -40px;
+}
+
+   /*end*/  
+  
+
+
+ /*html About page*/ 
+ #About{
+  background-color: rgba(255, 255, 255, 0.877);
+}
+
+  .containerAbout1 {
+    width: 350px;
+    padding: 10px;
+    height: 80px;
+    margin-left: 5%;
+    background-color: #B19BEF;
+    margin-top: 5%;
+  }
+
+  .containerAbout2 {
+    width: 350px;
+    padding: 10px;
+    height: 80px;
+    margin: 0;
+    margin-top: 7%;
+    margin-left: 2%;
+    background-color: #9379e1;
+  }
+
+ .centered{
+    position: relative;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins';
+    font-size: 60px;
+    bottom: 18px;
+    margin-left: -5%;
+  }
+
+  .centeredServe {
+    position: relative;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins';
+    font-size: 60px;
+    bottom: 5px;
+    margin-left: 5%;
+  }
+
+  .centeredContact {
+    position: relative;
+    text-align: center;
+    color: rgb(130, 48, 181);
+    font-family: 'Poppins';
+    font-size: 60px;
+    bottom: 5px;
+    margin-left: 5%;
+  }
+
+ .centered1 {
+    position: relative;
+    text-align: center;
+    color: black;
+    font-family: 'Poppins';
+    font-size: 17px;
+    bottom: -45px;
+    margin-left: -40%;
+  }
+
+  .centered2 {
+    position: relative;
+    text-align: center;
+    color: black;
+    font-family: 'Poppins';
+    font-size: 17px;
+    bottom: -50px;
+    margin-left: -40%;
+  }
+  .centered3 {
+    position: relative;
+    text-align: center;
+    color: black;
+    font-family: 'Poppins';
+    font-size: 35px;
+    bottom: -65px;
+    margin-left: -40%;
+  }
+
+  .aboutPicContainer {
+    width: 310px;
+    padding: 10px;
+    height: 320px;
+    margin-top: -25%;
+    margin-left: 65%;
+    background-color: #9379e1;
+  }
+
+  .aboutPicContainer img {
+    width: 110%;
+    height: 110%;
+    margin-top: 5%;
+    margin-left: -15%;
+  }
+
+.col1, .col2, .col3, .col4, .col5{
+   display:flex; 
+   flex-direction: row; 
+   align-items: center;
+   margin-left: 280px;
+   margin-top: 10px;
+}
+.col4 {
+  text-align: left;
+}
+
+ .col7, .col8, .col9, .col10, .col11, .col6 {
+   display:flex; 
+   flex-direction: row; 
+   align-items: center;
+   margin-left: 100px;
+   margin-top: 10px;
+}
+
+
+   /*end*/ 
+   
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
+
+   /*html Center logo*/ 
+  .context {
+    position: relative;
+    text-align: center;
+    color: black;
+    font-family: 'Poppins';
+    font-size: 70px;
+    bottom: -10px;
+  }
+
+
+ /*html Contact Us page*/ 
+
+.cen1, .cen2, .cen3 {  
+   display:flex; 
+   flex-direction: row; 
+   align-items: center;
+   margin-left: 30%;
+   margin-top: 40px;
+}
+
+
+
+   /*html Footer*/ 
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #EAEAEA;
+    color:black;
+    text-align: center;
+ }
+section{
+  width: 100%;
+  float: left;
+  height: 100vh;
+  position: relative;
+}
+#home{
+  background-image: url(../landingpage/Images/background.png);
+margin: 0;
+padding: 0;
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+  
+}
+
+
+#Services{
+  background-color: rgba(0, 0, 0, 0.313);
+}
+
+#Contact {
+  background-color: rgba(255, 255, 255, 0.749);
+ 
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/**********Responsive***********/
+
+@media only screen and (max-width:700px) {
+ 
+.logo img{
+  position: static;
+    margin-left: 1px;
+    margin-top: -50px;
+    width: 12%;
+}
+    
+    
+.column1 {
+  width: 100%;
+  height: 630px;
+  margin-top: -10px;
+}
+     
+    
+}
+
+
+@media (max-width:991px){
+  .container{
+    font-size:  calc(1rem +1.5rem);
+  }
+}
+
+.responsive1 {
+  width: 100%;
+  height: auto;
+}
+
+
+

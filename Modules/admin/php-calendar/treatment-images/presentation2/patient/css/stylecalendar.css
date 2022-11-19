@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+.space{
+  margin-bottom: 15px;
+}
+
+.container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/*RADIO BUTTON*/
+
+  input[type="radio"]:checked + label {
+    font-weight: bold;
+    background-color: pink;
+    border-radius: 26px;
+    border-style: solid;
+  }
+
+input[type="radio"]{
+visibility:hidden;
+}
+
+.time111 input[type="submit"]{
+  font-size: 25px;
+  border-radius: 30px;
+  color:  rgb(107, 15, 193);
+  background-color: white;
+  text-align: center;
+  margin-left: 89px;
+  
+}
+
+
+/*Border box of sched*/
+.time111{
+    display: flex;
+    margin: auto;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    width: 100%;
+    border-radius: 10px;
+    background-color: darkviolet;
+    
+} 
+
+
+label{
+  display: inline-block;
+  width: 13rem;
+  text-align: left;
+  font-size: 18px;
+  color: white;
+  padding-left: 30px;    
+  padding-top: 30px;
+    
+/*  border-style: solid; */      
+/*  border-radius: 26px; */
+    
+}
+
+/*  label:hover{         */
+/*  font-size: 22px; }   */
+
+/*  label:active{        */
+/*  font-weight: bold }  */
+
+
+#datepicker{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 35px;
+}
+
+
+input{  
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/* ---------- time field divided into 2 --------- */
+.timee input{
+    display: inline-block;
+    width: calc(50% / 2 - 16px);
+    margin-left: -8px;
+    
+}
+
+
+
+/*Time Selection*/
+
+.flex-container {
+  display: flex;
+  border: 2px solid violet;
+}
+
+.calen {
+  flex: 1;
+}  
+
+.calen:time111 {
+  margin-right: 20px;
+} 
