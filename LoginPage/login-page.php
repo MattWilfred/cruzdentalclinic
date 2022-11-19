@@ -1,4 +1,4 @@
-<?
+<?php
     include ('Database/validatelogin.php');
 
 ?>
