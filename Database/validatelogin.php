@@ -9,7 +9,8 @@ session_start();
  if user is alreadly login redirect user to index page.
 */
 if($_SESSION['loggedIn'] == 'true'){ 
-     echo  "<script> window.location='index.php'; </script>";
+     //echo  "<script> window.location='index.php'; </script>";
+     echo  "<script> window.location='/index.html'; </script>";
 }
 
 //if user clicked login button then execute code below. 
