@@ -1,7 +1,8 @@
 <?php
 //created by Bryan Joshua Bucu
 
-include __DIR__ . ('/connect.php');  
+//include __DIR__ . ('connect.php');  
+require ('connect.php');
 session_start();
 
 /*
