@@ -1,7 +1,7 @@
 <?php
 //created by Bryan Joshua Bucu
 	//connect to database
-	$host = "192.168.64.5:80";
+	$host = "192.168.64.5";
 	$user = "cruzdentalclinic";
 	$password = "";
 	$database = 'cruzdentalclinic';
