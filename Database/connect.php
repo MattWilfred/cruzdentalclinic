@@ -2,7 +2,7 @@
 //created by Bryan Joshua Bucu
 	//connect to database
 	$host = "127.0.0.1";
-	$user = "cruzdentalclinic";
+	$user = "root";
 	$password = "";
 	$database = 'cruzdentalclinic';
 	
