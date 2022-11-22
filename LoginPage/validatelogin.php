@@ -2,7 +2,7 @@
 //created by Bryan Joshua Bucu
 
 //include __DIR__ . ('/connect.php');  
-require ('/connect.php');
+require ('/Database/connect.php');
 session_start();
 
 /*
