@@ -5,7 +5,7 @@ $username = "root";
 $password = "";
 $table = "users";
 
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = mysql_connect($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
@@ -17,6 +17,6 @@ echo "Connected to MySQL Using Mysqli Successfully";
     echo "<li>" . $row['username'] . "</li>";
   }
   echo "</ol>";
-mysqli_close($conn);
+mysql_close($conn);
 
 ?>
