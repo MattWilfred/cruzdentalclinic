@@ -1,6 +1,6 @@
 <?php
 
-$host = "cruzdentalclinic:3306";
+$host = "cruzdentalclinic";
 $user = "root";
 $password = "";
 $database = 'cruzdentalclinic';
