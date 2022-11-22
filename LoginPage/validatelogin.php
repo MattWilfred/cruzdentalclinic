@@ -1,7 +1,7 @@
 <?php
 
 $host = "cruzdentalclinic:3306";
-$user = "root@localhost";
+$user = "root";
 $password = "";
 $database = 'cruzdentalclinic';
 	
