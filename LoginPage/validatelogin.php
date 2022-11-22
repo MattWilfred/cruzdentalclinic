@@ -2,7 +2,7 @@
 //created by Bryan Joshua Bucu
 
 //include __DIR__ . ('/connect.php');  
-include ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+include __DIR__ . ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 session_start();
 
 /*
@@ -86,7 +86,6 @@ if(isset($_POST['login'])){
             }
 
         } else{
-
             //Wrong password or username
                 $_SESSION['loggedIn'] = 'false';
              echo  "<script> alert('Check Username and Password'); window.location='/LoginPage/login-page.php'; </script>";
