@@ -1,7 +1,7 @@
 <?php 
 require 'notification3.php';
-include('../../../Database/sessioncheck.php');
-include('../../../Database/connect.php');	
+include('/Database/sessioncheck.php');
+include('/Database/connect.php');	
 ?>
 <!DOCTYPE html>
 <html lang=e n dir="ltr">

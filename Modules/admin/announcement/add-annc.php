@@ -1,6 +1,7 @@
 <?php
 
-    require 'dbcon.php';
+    require ('/Database/connect.php');	
+    //require 'dbcon.php';
     
     
 
