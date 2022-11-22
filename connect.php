@@ -3,7 +3,7 @@
 	//connect to database
 	$host = "127.0.0.1";
 	$user = "root";
-	$password = "cruzdentalclinic";
+	$password = "";
 	$database = 'cruzdentalclinic';
 	
 	$connection = mysqli_connect($host, $user, $password, $database);

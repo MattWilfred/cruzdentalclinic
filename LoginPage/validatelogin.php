@@ -1,19 +1,8 @@
 <?php
-
-$host = "cruzdentalclinic";
-$user = "root";
-$password = "";
-$database = 'cruzdentalclinic';
-	
-$connection = mysqli_connect($host, $user, $password, $database);
-	
-if(mysqli_connect_error()){
-	echo 'something went wrong'; 
-}
 //created by Bryan Joshua Bucu
 
 //include __DIR__ . ('/connect.php');  
-//require ('/connect.php');
+require ('/connect.php');
 session_start();
 
 /*
