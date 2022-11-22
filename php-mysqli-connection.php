@@ -13,7 +13,7 @@ die("Connection failed: " . $conn->connect_error);
 
 echo "Connected to MySQL Using Mysqli Successfully";
   echo "<h2>List Table Content</h2><ol>"; 
-  foreach($conn->query("SELECT username FROM $table") as $row) {
+  foreach($conn->query("SELECT * FROM $table") as $row) {
     echo "<li>" . $row['username'] . "</li>";
   }
   echo "</ol>";
