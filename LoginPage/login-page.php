@@ -1,5 +1,5 @@
 <?php
-    include ('/Database/validatelogin.php');
+    include ('/validatelogin.php');
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
         style="width:400px;height:400px;position:fixed;left:-100px;top:80px;">
             <div class="col-md-4 offset-md-4 form login-form">
 
-                <form method="POST" action="../Database/validatelogin.php">
+                <form method="POST" action="/validatelogin.php">
                 <img src="images/298783880_5652912168104978_7318141653551353703_n.png" alt="logo"  style="width:75px;height:75px; display: block;
                     margin-left: auto;
                     margin-right: auto;
