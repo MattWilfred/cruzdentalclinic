@@ -1,21 +1,12 @@
 <?php
 session_start();
 
-$dbServername = "localhost:8089";
-$dbUsername = "root";
-$dbPassword = "root";
-$dbName = "medicaldental";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function checkIfMissing($toothNum){
-    global $conn;
+    global $connection;
 
-    $ifMissing = mysqli_query($conn, "SELECT findings FROM diagnosis WHERE tooth_number = $toothNum AND findings = 'Missing'");
+    $ifMissing = mysqli_query($connection, "SELECT findings FROM diagnosis WHERE tooth_number = $toothNum AND findings = 'Missing'");
 
     if(mysqli_num_rows($ifMissing) > 0){
         echo "disabled";
@@ -23,9 +14,9 @@ function checkIfMissing($toothNum){
 }
 
 function colorIfMissing($toothNum){
-    global $conn;
+    global $connection;
 
-    $ifMissing = mysqli_query($conn, "SELECT findings FROM diagnosis WHERE tooth_number = $toothNum AND findings = 'Missing'");
+    $ifMissing = mysqli_query($connection, "SELECT findings FROM diagnosis WHERE tooth_number = $toothNum AND findings = 'Missing'");
 
     if(mysqli_num_rows($ifMissing) > 0){
         echo "style= 'filter: grayscale(1000%)'";

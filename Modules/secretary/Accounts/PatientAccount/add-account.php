@@ -1,16 +1,7 @@
 <?php
   //include_once 'userlogs.php';
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "root";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 if (isset($_POST['create'])){
        
@@ -52,13 +43,13 @@ if (isset($_POST['create'])){
 
     $query = "INSERT INTO users
     VALUES (DEFAULT,'$fname','$lname','$paddress','$birthdate','$username','$phonenumber','$gender','$email','$userpassword','$accrole',NULL)";
-    $query_run = mysqli_query($conn, $query);
+    $query_run = mysqli_query($connection, $query);
 
 
 
     //pour le medical background
     $querymbg = "SELECT * from users ORDER by date DESC LIMIT 1";
-    $mbgres = mysqli_query($conn,$querymbg);
+    $mbgres = mysqli_query($connection,$querymbg);
 
     if ($mbgres){
       if(mysqli_num_rows($mbgres)>0){
@@ -76,7 +67,7 @@ if (isset($_POST['create'])){
           '0','0','0','0','0','0','0','0','0','0',
           '0','0','0','')";
                             
-          $addmbgres = mysqli_query($conn,$addmbg);
+          $addmbgres = mysqli_query($connection,$addmbg);
     
         }
     

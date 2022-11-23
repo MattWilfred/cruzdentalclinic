@@ -1,38 +1,29 @@
 <?php
   //include_once 'userlogs.php';
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function fetchTransactions(){
-    global $conn;
-    $transactions = mysqli_query($conn, "SELECT * FROM transaction");
+    global $connection;
+    $transactions = mysqli_query($connection, "SELECT * FROM transaction");
     return $transactions;
   }
 
 function fetchPName(){
-    global $conn;
-    $pname = mysqli_query($conn, "SELECT * FROM patients");
+    global $connection;
+    $pname = mysqli_query($connection, "SELECT * FROM patients");
     return $pname;
   }
 
 function fetchSOADetails(){
-    global $conn;
-    $soa = mysqli_query($conn, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id INNER JOIN patients AS d ON a.user_id = d.user_id");
+    global $connection;
+    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id INNER JOIN patients AS d ON a.user_id = d.user_id");
     return $soa;
 }
 
 function getSOAid($uid){
-    global $conn;
-    $soa = mysqli_query($conn, "SELECT soa_id FROM statement_of_account WHERE id=$uid LIMIT 1");
+    global $connection;
+    $soa = mysqli_query($connection, "SELECT soa_id FROM statement_of_account WHERE id=$uid LIMIT 1");
 
     $retrieved_soa = mysqli_fetch_row($soa);
     

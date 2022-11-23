@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'dbcon.php';
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     if(isset($_GET['page']))
     {
         $page = $_GET['page'];
@@ -14,7 +14,7 @@
     $start_from = ($page-1)*05;
     
     $query = "select * from users limit $start_from,$num_per_page";
-    $result = mysqli_query($con,$query);
+    $result = mysqli_query($connection,$query);
 
 ?>
 <!DOCTYPE html>
@@ -190,17 +190,17 @@
 
                     //read rows from the database
                     $sql = "SELECT * FROM users WHERE accrole ='Administrator' ORDER BY lname ASC";
-                    $result = $con->query($sql);
+                    $result = $connection->query($sql);
 
                     if (!$result){
-                        die("Invalid query: " . $con->error);
+                        die("Invalid query: " . $connection->error);
                     }
 
 
                     if (isset($_POST["submitsearch"])){
 
                         $searchedTerm = $_POST["search"];
-                        $entries = mysqli_query($con, "SELECT * FROM users WHERE username LIKE  '$searchedTerm' AND accrole = 'Administrator'|| fname LIKE '$searchedTerm' || lname LIKE '$searchedTerm'");
+                        $entries = mysqli_query($connection, "SELECT * FROM users WHERE username LIKE  '$searchedTerm' AND accrole = 'Administrator'|| fname LIKE '$searchedTerm' || lname LIKE '$searchedTerm'");
 
                         while ($users = mysqli_fetch_assoc($entries)) {
                             echo "<tbody id='searched-div'>";

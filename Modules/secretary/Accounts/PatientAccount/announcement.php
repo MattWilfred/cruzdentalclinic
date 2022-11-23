@@ -133,7 +133,7 @@
             <div class= "data-container">
                 <div class="each-annc">
                             <?php
-                            include 'dbcon.php';
+                            require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                             /*
                              if (isset($_GET['sort'])){

@@ -1,7 +1,7 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "cruzdentalclinic");  
+ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
  $query = "SELECT * FROM bookings  ORDER BY sched_id AND timeslot asc";  
- $result = mysqli_query($connect, $query);  
+ $result = mysqli_query($connection, $query);  
 
  if(isset($_POST['ongoing'])){
 

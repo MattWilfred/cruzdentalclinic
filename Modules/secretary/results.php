@@ -3,7 +3,7 @@
 
 
 	function total(){
-		include __DIR__.('/connect.php');
+		require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 		$sql = "SELECT COUNT(*) count FROM appointment WHERE appointment_status = 'upcoming' ";
 		$result = mysqli_query($connection, $sql);
@@ -14,7 +14,7 @@
 	}
 
 	function patient(){
-		include __DIR__.('/connect.php');
+		require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 		$sql = "SELECT COUNT(*) count FROM users WHERE accrole = 'patient' ";
 		$result = mysqli_query($connection, $sql);
 		 	

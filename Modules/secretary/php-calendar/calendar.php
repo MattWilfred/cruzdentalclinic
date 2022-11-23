@@ -6,20 +6,11 @@
     $dentist = $_GET['dentistid'];
     $item =$_POST['list'];
 
-    $dbServername = "localhost";
-    $dbUsername = "root";
-    $dbPassword = "";
-    $dbName = "cruzdentalclinic";
-    
-    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-    
-if (!$conn){
-        die("Connection error!");
-}
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function fetchDatesToBlock(){
-    global $conn;
-    $holiday_queries = mysqli_query($conn, "SELECT date FROM holiday");
+    global $connection;
+    $holiday_queries = mysqli_query($connection, "SELECT date FROM holiday");
 
     $holiday_array = array();
 
@@ -32,17 +23,14 @@ function fetchDatesToBlock(){
 
 function build_calendar($month, $year) {
 
-    $conn = mysqli_connect("localhost", "root", "", "cruzdentalclinic");  
+    global $connection;
     $query = "SELECT * FROM holiday";  
     $result = mysqli_query($conn, $query); 
-    
-
     
   
     $dentist = $_GET['dentistid'];
     $id= $_GET['currentid'];
     $item =$_POST['list'];
-    $mysqli = new mysqli('localhost', 'root', '', 'cruzdentalclinic');
     
       
      // Create array containing abbreviations of days of week.

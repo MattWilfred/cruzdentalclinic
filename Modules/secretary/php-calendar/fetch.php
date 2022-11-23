@@ -2,13 +2,13 @@
  //filter.php  
  if(isset($_POST["from_date"], $_POST["to_date"]))  
  {  
-      $connect = mysqli_connect("localhost", "root", "", "cruzdentalclinic");  
+     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
       $output = '';  
       $query = "  
            SELECT * FROM bookings  
            WHERE date BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'  
       ";  
-      $result = mysqli_query($connect, $query);  
+      $result = mysqli_query($connection, $query);  
       $output .= '  
            <table class="table table-bordered">  
                 <tr>  

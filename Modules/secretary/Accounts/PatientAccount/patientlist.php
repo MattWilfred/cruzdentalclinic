@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'dbcon.php';
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 ?>
 <!DOCTYPE html>

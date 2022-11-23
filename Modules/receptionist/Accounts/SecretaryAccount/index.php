@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'dbcon.php';
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 
 ?>
@@ -169,11 +169,11 @@
             <?php 
                          //read rows from the database
                     $sql = "SELECT * FROM users WHERE accrole ='Administrator' ORDER BY lname ASC";
-                    $result = $con->query($sql);
+                    $result = $connection->query($sql);
 
               
                     if (!$result){
-                        die("Invalid query: " . $con->error);
+                        die("Invalid query: " . $connection->error);
                     }
 
                     if(mysqli_num_rows($result) > 0)

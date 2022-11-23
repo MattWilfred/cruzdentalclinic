@@ -1,11 +1,11 @@
 <?php
     include('../../Database/sessioncheck.php');
     include('../../Database/results.php');
-    include('../../Database/connect.php');
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     
- $query = "SELECT * FROM bookings  ORDER BY sched_id AND timeslot asc LIMIT 5";  
+ $query = "SELECT * FROM bookings ORDER BY sched_id AND timeslot asc LIMIT 5";  
  $result = mysqli_query($connection, $query);  
- $query = "SELECT * FROM announcement  ORDER BY date LIMIT 5";  
+ $query = "SELECT * FROM announcement ORDER BY date LIMIT 5";  
  $dateresult = mysqli_query($connection, $query);  
 
 

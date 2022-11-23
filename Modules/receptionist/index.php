@@ -1,7 +1,7 @@
 <?php
     include('../../Database/sessioncheck.php');
     include('../../Database/results.php');
-    include('../../Database/connect.php');
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     
  $query = "SELECT * FROM bookings  ORDER BY date DESC LIMIT 5";  
  $result = mysqli_query($connection, $query);  

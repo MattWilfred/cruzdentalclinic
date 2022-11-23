@@ -1,19 +1,7 @@
 <?php
 session_start();
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
-
-
-
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 
 if(isset($_GET['edit'])){
@@ -31,7 +19,7 @@ if(isset($_GET['edit'])){
         procedure_price='$epr',other_charges='$exc',other_charges_price='$eopr' 
         WHERE transaction_id = '$transaction_id'";
 
-        $edit_query_run = mysqli_query($conn, $edit_query);
+        $edit_query_run = mysqli_query($connection, $edit_query);
 
         if($edit_query_run)
         {
@@ -41,7 +29,7 @@ if(isset($_GET['edit'])){
         else
         {
             echo 'Update Fail';
-            echo $edit_query . "<br>" . mysqli_error($conn);
+            echo $edit_query . "<br>" . mysqli_error($connection);
         }
     }
 

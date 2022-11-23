@@ -1,7 +1,7 @@
 <?php
 
  //if burron update is clicked call updateprocess function
- include 'dbcon.php';
+ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 if(isset($_POST['create'])){
 
@@ -18,7 +18,7 @@ if(isset($_POST['create'])){
 
 		if (empty($picture)) {
 			$sql = " UPDATE users SET fname='$fname', lname='$lname', paddress='$address', birthdate='$bday', phonenumber='$phone', email='$email'  WHERE id='$userid'";
-			$result = mysqli_query($con, $sql);
+			$result = mysqli_query($connection, $sql);
 		}
 		else {
 			$fileName = basename($_FILES["profpic"]["name"]); 
@@ -28,7 +28,7 @@ if(isset($_POST['create'])){
 			$imgContent = addslashes(file_get_contents($image)); 
 		
 			$sql = " UPDATE users SET fname='$fname', lname='$lname', paddress='$address', birthdate='$bday', phonenumber='$phone', email='$email', profile_picture='$image'  WHERE id='$userid'";
-			$result = mysqli_query($con, $sql);
+			$result = mysqli_query($connection, $sql);
 		
 		}
 			

@@ -1,7 +1,6 @@
 <?php
     include('../../../../Database/sessioncheck.php');
-	include('../../../../Database/connect.php');
-	
+	require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
  //if burron update is clicked call updateprocess function
 
 if(isset($_POST['create'])){

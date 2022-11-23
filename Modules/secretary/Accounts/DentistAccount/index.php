@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'dbcon.php';
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 ?>
 <!DOCTYPE html>
@@ -170,17 +170,17 @@
 
 //read rows from the database
 $sql = "SELECT * FROM users WHERE accrole ='Dentist' ORDER BY lname ASC";
-$result = $con->query($sql);
+$result = $connection->query($sql);
 
 if (!$result){
-    die("Invalid query: " . $con->error);
+    die("Invalid query: " . $connection->error);
 }
 
 
 if (isset($_POST["submitsearch"])){
 
     $searchedTerm = $_POST["search"];
-    $entries = mysqli_query($con, "SELECT * FROM users WHERE username LIKE  '$searchedTerm' AND accrole = 'Dentist'|| fname LIKE '$searchedTerm' || lname LIKE '$searchedTerm'");
+    $entries = mysqli_query($connection, "SELECT * FROM users WHERE username LIKE  '$searchedTerm' AND accrole = 'Dentist'|| fname LIKE '$searchedTerm' || lname LIKE '$searchedTerm'");
 
     while ($users = mysqli_fetch_assoc($entries)) {
         echo "<tbody id='searched-div'>";

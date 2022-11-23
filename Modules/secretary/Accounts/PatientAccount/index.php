@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include ('../../../../Database/connect.php');
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 ?>
 <!DOCTYPE html>
@@ -150,7 +150,7 @@
        
                      
                            if (!$result){
-                               die("Invalid query: " . $con->error);
+                               die("Invalid query: " . $connection->error);
                            }
        
                            if(mysqli_num_rows($result) > 0)

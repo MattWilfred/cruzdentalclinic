@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'dbcon.php';
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 
 if (!$connection){

@@ -1,15 +1,6 @@
 <?php
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 /**if (isset($_REQUEST['tooth_button'])) {
 
@@ -24,9 +15,9 @@ if (!$conn){
 }**/
 
 function getToothInfo($toothNum, $uid){
-  global $conn;
+  global $connection;
   //read rows from the database
-  $toothinfo = mysqli_query($conn, "SELECT * FROM diagnosis where userid = $uid AND tooth_number = $toothNum ORDER BY date_added desc");
+  $toothinfo = mysqli_query($connection, "SELECT * FROM diagnosis where userid = $uid AND tooth_number = $toothNum ORDER BY date_added desc");
   return $toothinfo;
 }
 

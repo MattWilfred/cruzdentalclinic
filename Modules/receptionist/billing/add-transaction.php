@@ -1,20 +1,11 @@
 <?php
 //session_start();
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function getSOAid($uid){
-    global $conn;
-    $retrieved_soa = mysqli_query($conn, "SELECT * FROM statement_of_account WHERE id=$uid");
+    global $connection;
+    $retrieved_soa = mysqli_query($connection, "SELECT * FROM statement_of_account WHERE id=$uid");
     $row = mysqli_fetch_array($retrieved_soa);
     return $row['soa_id'];
 }
@@ -50,26 +41,26 @@ if(isset($_POST['save'])){
 
     $query = "INSERT INTO transaction VALUES (DEFAULT, '$uid', '$soa', '$date', '$procedurename', '$procedureprice', '$othercharges', '$otherprice', '$tot', '$amountpaid', '$ttype', '$status')";
 
-    $query_run = mysqli_query($conn, $query);
+    $query_run = mysqli_query($connection, $query);
 
     if($query_run){
 
         $soaq = "UPDATE statement_of_account SET balance='$balance' WHERE id = $uid";
 
-        $soaq_run = mysqli_query($conn, $soaq);
+        $soaq_run = mysqli_query($connection, $soaq);
         if($query_run){
         //echo 'Inserted Successfully';
             header('Location: billing.php');
         }
         else{
             echo 'Insertion Fail';
-        echo $query . "<br>" . mysqli_error($conn);
+        echo $query . "<br>" . mysqli_error($connection);
         }
     }
     else
     {
         echo 'Insertion Fail';
-        echo $query . "<br>" . mysqli_error($conn);
+        echo $query . "<br>" . mysqli_error($connection);
     }
 }
 

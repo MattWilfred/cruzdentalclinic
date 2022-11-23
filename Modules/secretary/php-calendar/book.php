@@ -8,7 +8,7 @@ $newtime1=0;
 $SS= date("h:i");
 
 
-$mysqli = new mysqli('localhost', 'root', '', 'cruzdentalclinic');
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 if(isset($_GET['date'])){
     

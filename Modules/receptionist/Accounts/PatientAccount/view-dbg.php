@@ -8,12 +8,12 @@
 
     <body>
         <?php
-        include "dbcon.php";
+        require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
         function fetchMedicalBG($uid){
-            global $conn;
+            global $connection;
 
-            $medicalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER  BY date_added DESC
+            $medicalBG = mysqli_query($connection, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER  BY date_added DESC
             LIMIT  1" );
             return $medicalBG;
           }

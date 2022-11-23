@@ -1,17 +1,7 @@
 <?php
   //include_once 'userlogs.php';
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
-
+  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 ?>
 
 
@@ -149,9 +139,9 @@ if (!$conn){
                     <?php
                     if(isset($_GET['id']))
                     {
-                        $user_id = mysqli_real_escape_string($conn, $_GET['id']);
+                        $user_id = mysqli_real_escape_string($connection, $_GET['id']);
                         $query = "SELECT * FROM users WHERE id='$user_id' ";
-                        $query_run = mysqli_query($conn, $query);
+                        $query_run = mysqli_query($connection, $query);
 
                         if(mysqli_num_rows($query_run) > 0)
                         {

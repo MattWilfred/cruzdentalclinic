@@ -1,5 +1,5 @@
 <?
-    include ('Database/validatelogin.php');
+    include ('/Database/validatelogin.php');
 ?>
     <!DOCTYPE html>
     <html lang="en">

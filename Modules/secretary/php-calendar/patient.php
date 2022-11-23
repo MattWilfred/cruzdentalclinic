@@ -21,7 +21,7 @@
 
                     
                     <?php
-                    require '../Database/connect.php';
+                    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                  
                     $drselect=$_GET['dr'];
 

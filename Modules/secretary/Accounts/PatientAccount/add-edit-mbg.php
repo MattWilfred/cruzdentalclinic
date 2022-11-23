@@ -8,18 +8,7 @@
     <?php
     session_start();
 
-    //connect to database
-    $host = "localhost";
-    $user = "root";
-    //remove password ""
-    $password = "";
-    $database = 'cruzdentalclinic';
-
-    $conn = mysqli_connect($host, $user, $password, $database);
-
-    if (!$conn){
-    die("Connection error!");
-    }
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
     $uid = $_POST['id'];
 
@@ -86,7 +75,7 @@
         '$cb31','$cb32','$cb33','$cb34','$cb35','$cb36','$cb37','$cb38','$cb39','$cb40',
         '$cb41','$cb42','$cb43','$cb44','$cb45','$cb46','$cb47','$cb48','$cb49','$cb50','$cb53')";
 
-        $query_run = mysqli_query($conn, $query);
+        $query_run = mysqli_query($connection, $query);
 
         if($query_run)
         {
@@ -96,7 +85,7 @@
         else
         {
             echo 'Insertion Fail';
-            echo $query . "<br>" . mysqli_error($conn);
+            echo $query . "<br>" . mysqli_error($connection);
         }
 
 
@@ -109,7 +98,7 @@
         '$cb31','$cb32','$cb33','$cb34','$cb35','$cb36','$cb37','$cb38','$cb39','$cb40',
         '$cb41','$cb42','$cb43','$cb44','$cb45','$cb46','$cb47','$cb48','$cb49','$cb50','$cb53', NOW())";
 
-        $edit_query_run = mysqli_query($conn, $edit_query);
+        $edit_query_run = mysqli_query($connection, $edit_query);
 
         if($edit_query_run)
         {
@@ -119,7 +108,7 @@
         else
         {
             echo 'Update Fail';
-            echo $edit_query . "<br>" . mysqli_error($conn);
+            echo $edit_query . "<br>" . mysqli_error($connection);
         }
 
 
