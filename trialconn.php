@@ -1,9 +1,8 @@
 <?php
-$servername = "localhost";
+$servername = "127.0.0.1";
 $database = "cruzdentalclinic";
 $username = "root";
 $password = "";
-$table = "users";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -13,7 +12,7 @@ die("Connection failed: " . $conn->connect_error);
 
 echo "Connected to MySQL Using Mysqli Successfully";
   echo "<h2>List Table Content</h2><ol>"; 
-  foreach($conn->query("SELECT * FROM $table") as $row) {
+  foreach($conn->query("SELECT * FROM users") as $row) {
     echo "<li>" . $row['username'] . "</li>";
   }
   echo "</ol>";
