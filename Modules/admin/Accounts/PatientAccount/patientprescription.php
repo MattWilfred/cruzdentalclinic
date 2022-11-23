@@ -1,3 +1,7 @@
+<?php 
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
 
@@ -122,7 +126,7 @@
 
     <div class="container">
     <?php
-            include 'dbcon.php';
+            
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";

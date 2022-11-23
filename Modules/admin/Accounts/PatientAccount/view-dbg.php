@@ -1,3 +1,7 @@
+<?php
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +12,6 @@
 
     <body>
         <?php
-        include "dbcon.php";
 
         function fetchMedicalBG($uid){
             global $conn;

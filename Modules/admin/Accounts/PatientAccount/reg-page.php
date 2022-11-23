@@ -1,4 +1,6 @@
-
+<?php
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+?>
     <!DOCTYPE html>
     <html lang="en">
 
