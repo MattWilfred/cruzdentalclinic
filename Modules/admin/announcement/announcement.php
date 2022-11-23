@@ -1,7 +1,7 @@
 <?php 
 require 'notification3.php';
 include('../../../Database/sessioncheck.php');
-include('../../../Database/connect.php');	
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 ?>
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
@@ -152,7 +152,7 @@ include('../../../Database/connect.php');
             <div class= "data-container">
                 <div class="each-annc">
                             <?php
-                            include 'dbcon.php';
+                            require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                             $query = "SELECT * FROM `announcement`";
                                     $query_run = mysqli_query($connection, $query);

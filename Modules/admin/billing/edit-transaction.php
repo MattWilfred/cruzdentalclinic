@@ -1,16 +1,7 @@
 <?php
 session_start();
 
-$dbServername = "localhost:8089";
-$dbUsername = "root";
-$dbPassword = "root";
-$dbName = "medicaldental";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 $transaction_id = 3;
 
