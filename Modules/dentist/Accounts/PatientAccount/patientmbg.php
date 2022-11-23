@@ -1,43 +1,34 @@
 <?php
   //include_once 'userlogs.php';
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function fetchMedicalBG($uid){
-    global $conn;
+    global $connection;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER  BY date_added DESC
+    $dentalBG = mysqli_query($connection, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER  BY date_added DESC
     LIMIT  1");
     return $dentalBG;
 }
 
 function fetchAllMedicalBackground($uid){
-    global $conn;
-    $allDentalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER BY date_added DESC");
+    global $connection;
+    $allDentalBG = mysqli_query($connection, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER BY date_added DESC");
     return $allDentalBG;
 }
 
 function fetchHistoryMedicalBG($uid, $mbgid){
-    global $conn;
+    global $connection;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE medicalbackground_id = $mbgid AND user_id = $uid ORDER BY date_added DESC
+    $dentalBG = mysqli_query($connection, "SELECT * FROM medicalbackground WHERE medicalbackground_id = $mbgid AND user_id = $uid ORDER BY date_added DESC
     LIMIT  1" );
     return $dentalBG;
 }
 
 function fetchUniqueMedicalBG($mbgid){
-    global $conn;
+    global $connection;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE medicalbackground_id = $mbgid");
+    $dentalBG = mysqli_query($connection, "SELECT * FROM medicalbackground WHERE medicalbackground_id = $mbgid");
     return $dentalBG;
 }
 ?>
@@ -163,7 +154,7 @@ function fetchUniqueMedicalBG($mbgid){
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
-            $result = mysqli_query($conn,$sql);
+            $result = mysqli_query($connection,$sql);
     
 
             if(mysqli_num_rows($result)>0){

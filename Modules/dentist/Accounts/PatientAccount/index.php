@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include ('../../../../Database/connect.php');
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 ?>
 <!DOCTYPE html>

@@ -1,17 +1,6 @@
 <?php
 
-
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
-
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -136,7 +125,6 @@ if (!$conn){
     <div class="container">
 
     <?php
-            include 'dbcon.php';
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";

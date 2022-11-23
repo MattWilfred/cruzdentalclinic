@@ -1,5 +1,5 @@
 <?php
-           include('../../../../Database/sessioncheck.php');
+           require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
            $id = $_GET['id'];
 ?>
 
@@ -123,7 +123,7 @@
 
     <div class="container">
     <?php
-            include 'dbcon.php';
+            require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";

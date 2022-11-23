@@ -1,6 +1,6 @@
 <?php
 
-    require 'dbcon.php';
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     
 
     if (isset($_POST['submit']))
