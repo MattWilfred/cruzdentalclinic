@@ -1,10 +1,10 @@
 <?php
     session_start();
-    require 'dbcon.php';
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 ?>
     <!DOCTYPE html>
-    <html lang=e n dir="ltr">
+    <html lang=en dir="ltr">
 
     <head>
      
@@ -139,9 +139,9 @@
                     <?php
                         if(isset($_GET['id']))
                         {
-                            $dentist_id = mysqli_real_escape_string($con, $_GET['id']);
+                            $dentist_id = mysqli_real_escape_string($connection, $_GET['id']);
                             $query = "SELECT * FROM users WHERE id='$dentist_id' ";
-                            $query_run = mysqli_query($con, $query);
+                            $query_run = mysqli_query($connection, $query);
  
                             if(mysqli_num_rows($query_run) > 0)
                             {

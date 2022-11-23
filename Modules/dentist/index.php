@@ -1,7 +1,7 @@
 <?php
     include('../../Database/sessioncheck.php');
     include('../../Database/results.php');
-    include('../../Database/connect.php');
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     $id = $_SESSION['id'];
     
  $query = "SELECT * FROM bookings WHERE dentist_id='$id' AND status= 1 LIMIT 5";  

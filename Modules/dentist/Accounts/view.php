@@ -1,6 +1,6 @@
 <?php
     include('../../../Database/sessioncheck.php');
-    include('../../../Database/connect.php');
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 ?>
     <!DOCTYPE html>

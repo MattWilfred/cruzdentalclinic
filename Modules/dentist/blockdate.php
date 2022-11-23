@@ -1,8 +1,9 @@
 <?php
 
-    $connect = mysqli_connect("localhost", "root", "", "cruzdentalclinic");  
-    $query = "SELECT * FROM holiday";  
-    $result = mysqli_query($connect, $query);  
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+
+$query = "SELECT * FROM holiday";  
+$result = mysqli_query($connection, $query);  
    
 
 ?>
