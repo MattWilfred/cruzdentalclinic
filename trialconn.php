@@ -1,8 +1,8 @@
 <?php
-$servername = "192.168.64.5";
+$servername = "127.0.0.1";
 $database = "cruzdentalclinic";
-$username = "cruzdentalclinic";
-$password = "cruzdentalclinic";
+$username = "root";
+$password = "";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 
