@@ -154,7 +154,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             <?php
                             require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
-                            $query = "SELECT * FROM `announcement`";
+                            $query = "SELECT * FROM `announcement` ORDER BY date DESC";
                                     $query_run = mysqli_query($connection, $query);
 
                                     if(mysqli_num_rows($query_run) > 0)
