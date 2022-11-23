@@ -1,7 +1,7 @@
 <?php
 //created by Bryan Joshua Bucu
 
-include __DIR__ . ('connect.php');  
+include __DIR__ . ('/connect.php');  
 session_start();
 
 /*
@@ -38,7 +38,7 @@ if(isset($_POST['login'])){
                 $_SESSION['access'] = $unvalidate['accrole']; //set session access.
                 $_SESSION['id'] = $unvalidate['id']; //set session access.
 
-                header("location: /Modules/admin/index.php"); //redirect user to admin.php page
+                header("location: /modules/admin/index.php"); //redirect user to admin.php page
 
             }  elseif($unvalidate['accrole'] == 'Dentist'){ //usertype is admin
                 $_SESSION['loggedIn'] = 'true'; //set session value to true

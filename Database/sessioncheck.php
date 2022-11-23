@@ -9,7 +9,7 @@
     	$_SESSION['loggedIn'] = 'false';
 
     //redirect to login page
-   header("location: /login.php");
+   header("location: /login/login-page.php");
 }	
 	  
 ?>

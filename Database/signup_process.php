@@ -20,7 +20,7 @@ if(isset($_POST['signup'])){
 	
 	if($result){
 		//redirect user to login page
-		header("location: /login.php");
+		header("location: /login/login-page.php");
 		exit();
 	} else{
 		echo "<script> alert('Something Went Wrong'); window.location='sign.php'; </script>";
