@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.body_content {
+    padding-left: 10%;
+}
+
+
+#brand {
+    background-color: rgb(166, 40, 166);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+/*-------------------------------------------------------------*/
+
+
+/* MAIN CONTENT*/
+
+/*------------------ Upcoming Appointment Container ----------------*/
+
+#title{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.contain  {   
+    width: 81.5%;
+    margin-top: -20px;
+    left: auto; 
+}
+
+.lefthead-container {
+    border: 3px solid #8d1ecd;
+    border-radius: 10px;
+    height: 350px;
+    width: 1228px;
+    text-align:left;
+    margin-top: 30px;
+}  
+
+.leftcon p{
+    margin-top: 5px;
+    border-radius: 0.9em;
+    margin-left: 20px; 
+}
+
+
+th,td{   
+    width: 1%;
+    padding: 0px;
+    padding-left: 0px;
+    font-size: 15px;
+}
+
+th{
+ text-align: center;
+ border-bottom: 4px solid #636363;
+}
+
+td{
+    text-align: center;
+}
+
+
+
+/*------------------ No. of Patients Container ----------------*/
+
+
+.container {
+    position: fixed;
+    display:inline-flex; 
+    margin: auto;
+    padding-top: 1.3em;
+    width: 100%;
+    
+}
+
+.total {
+    border: 3px solid #8d1ecd;
+    background-color: white;
+    height: 280px;
+    width: 40%;
+    color: black;
+    text-align: center;
+    border-radius: 0.9em;
+    margin-right: 30px;
+}  
+
+.total h2{
+    font-size: 24px;
+    color: dimgray;
+}
+
+.total p{
+    font-size: 25px;
+}
+
+
+
+/*------------------ Confirmed and Cancelled Container ----------------*/
+/* Create two equal columns that floats next to each other */
+.column1, .column2 {
+  float:left;
+  width: 41%;
+  padding: 10px;
+  height: 280px;
+  border: 3px solid #8d1ecd;
+}
+
+.column1 {
+   border-top-left-radius:0.9em; 
+   border-bottom-left-radius:0.9em; 
+   border-right-color: gray;
+   text-align: center;
+}
+
+.column2{
+    border-top-right-radius:0.9em; 
+    border-bottom-right-radius:0.9em;  
+    border-left-color: gray;
+    text-align: center;
+}
+
+.column1 h2, .column2 h2{
+    margin-top: 20px;
+}
+
+.column1 p, .column2 p{
+   font-size: 35px;
+}
+
+
+.row:after {
+  content: "";
+  display: inline-grid;
+  clear: both;
+  margin: 35px;  
+}
+
+/*--------------------   SEE MORE BUTTONS  --------------------*/
+
+.tab-seebutton, .up-seebutton, .tap-seebutton{
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: #69149b;
+    color: white;
+    width: 100px;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+.tab-seebutton{
+    margin-top:215px;
+    margin-left: 550px; 
+}
+
+.up-seebutton{
+    margin-top:30px;
+/*    margin-left: 470px; */
+}
+
+
+.tap-seebutton{
+    margin-top:70px;
+    margin-left: 160px; 
+}
+
+
+
+
+
+
+/*-------------------------------- Responsive for TABLET ------------------------------*/
+
+
+@media screen and (max-width: 768px) {
+
+
+    
+    
+    
+
+}
+
+
+
+
+
+
+
+
+
+

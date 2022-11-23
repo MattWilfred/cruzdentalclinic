@@ -1,0 +1,379 @@
+<!DOCTYPE html lang=e n dir="ltr">
+<html>
+    <head>
+        <link rel="stylesheet" href="billing.css">
+        <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="UTF-8">
+        <meta name="description" content="Admin Dental Clinic Web Page">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <title>Cruz Dental Clinic Website</title>
+    </head>
+    <body>
+        <div>
+            <nav>
+    
+                <header>
+                    <div class="logo"> <img src="logo dental.png" alt="dental logo"></div>
+                    Cruz Dental Clinic
+                </header>
+    
+    
+                <ul>
+    
+                    <li>
+                        <a href="index.html">
+                            <i class="fa-solid fa-house"></i> Dashboard
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="#" class="sched-btn">
+                            <i class="fa-solid fa-calendar-days"></i> Schedule
+                            <span class="fas fa-caret-down first"></span>
+                        </a>
+                        <ul class="sched-show">
+                            <li><a href="#">Calendar</a></li>
+                            <li><a href="#">Schedule List</a></li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <a href="#" class="acct-btn">
+                            <i class="fa-solid fa-user-group"></i> Accounts
+                            <span class="fas fa-caret-down second"></span>
+                        </a>
+                        <ul class="acct-show">
+                            <li>
+                                <a href="#">
+                                    <i class="fa-solid fa-tooth"></i> Dentist
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-solid fa-user"></i> Patients
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-solid fa-users-gear"></i> Administrator
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <a href="#about"> <i class="fa-solid fa-money-bill-wave"></i> Billing </a>
+                    </li>
+                    <li><a href="#announcements"><i class="fa-solid fa-bullhorn"></i> Announcements </a></li>
+                </ul>
+    
+    
+                <div class="logout">
+                    <li>
+                        <a href="#logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout </a>
+                    </li>
+    
+                </div>
+    
+    
+    
+            </nav>
+    
+        </div>
+
+        <div class="body_content">
+            <h1>Billing</h1>
+        </div>
+               <h2>Transaction Overview</h2>
+
+          <!-------  LINE CHART ------>
+                <div class = "charts">
+                <div class = "chart">
+                    <canvas id="barChart" width="50" height="20"></canvas>
+                </div>
+        </div>
+
+    <div class="cont">
+        <h2>Latest Invoice</h2>
+        <div class="add-btn"><a class="button" href="#divOne">Add Transaction</a></div>
+        </div>
+        
+        <div class="container">
+    
+        <div class="table-section"> <!--MUST BE ON TABLE FORM-->
+    
+            <div id="border">
+            
+            <table>
+                <tr>
+                    <th>Name of Patient</th>
+                    <th>Date</th>
+                    <th>Dental Procedure</th>
+                    <th>Other Charges</th>
+                    <th>Amount Paid</th>
+                    <th>Transaction Type</th>
+                    <th>Balance</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                
+                <tr>
+                    <td>Sam S.</td>
+                    <td>10-28-22</td>
+                    <td>Teeth Cleaning</td>
+                    <td> ₱ 30.00 </td>
+                    <td> ₱ 350.00</td>
+                    <td>Full Payment</td>
+                    <td> ₱ 0</td>
+                    <td> Paid</td>
+                    <td> <div class="up-btn"><a class="button1" href="#divTwo">Edit</a></div></td>
+                </tr>
+                           
+
+            </table>
+        </div>
+        </div> 
+        </div>
+        
+
+             <div class="overlay" id="divOne">
+                        <div class="wrapper">
+                        <h2>Add Transaction</h2><a class="close" href="#">&times;</a>
+                <div class="container1">
+                    <div class="content">
+
+                    
+                    <form>
+                    <div class="row1">
+                        <div class="input-box">
+                        <span class="details">Select Patient</span>
+                        <input type="name" name="pn" required>
+                        </div>
+                        
+                        <div class="input-box">
+                        <span class="details">Date</span>
+                        <input type="date" name="dob" required>
+                        </div>
+                    </div>   
+                        
+                        
+                    <div class="row2">    
+                        <div class="input-box1">
+                         <span class="details">Type of Procedure</span>
+                            <select id="dropdown" name="Procedure" class="dropdown" >
+                                <option disabled value>Choose Procedure</option>
+                                <option value="0">None</option>
+                                <option value="1">Dental Check-Up</option>
+                                <option value="2">Teeth Whitening</option>
+                                <option value="3">Dental Implants</option>
+                                <option value="4">Root Canal Treatment</option>
+                                <option value="5">Cosmetic Dentistry</option>
+                                <option value="6">Dental Crown</option>
+                                <option value="7">Dental Bridge</option>
+                                <option value="8">Orthiontics</option>
+                                <option value="9">Restoration</option>
+                                <option value="10">Fluoride Application </option>
+                                <option value="11">Odontectomy</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-box1">
+                        <span class="details">Price</span>
+                        <input type="price" name="pr" required>
+                        <button onclick="" id="plus-btn">+</button>
+                        </div>
+                    </div>
+                     
+                    <div class="row3">    
+                        <div class="input-box2">
+                        <span class="details">Other Charges</span>
+                        <input type="xcharges" name="xc" required>
+                        </div>
+                        
+                        <div class="input-box3">
+                        <span class="details">Price</span>
+                        <input type="price" name="pr" required>
+                        <button onclick="" id="plus-btn1">+</button>
+                        </div>
+                        
+                    </div>     
+                 </div>
+                </div>
+                        
+                        
+                        <div class="container2">
+                                <h2>Total Amount</h2>
+                                    <h3>₱ 7,797</h3>
+                    
+                    <div>
+                    <button onclick="" id="cancel-btn">Cancel</button>
+                    <input type="submit" value="Save" id="save-btn"></input>
+                    </div>
+                            
+                        </div>
+                  
+            
+                        </form>
+                      
+                </div>
+              </div>
+           
+        
+    
+    
+    
+    
+     <div class="overlay" id="divTwo">
+                        <div class="wrapper1">
+                       <h2>Edit Transaction</h2><a class="close" href="#">&times;</a>
+                <div class="containerr1">
+                    <div class="content">
+
+                    
+                    <form>
+                    <div class="row1">
+                        <div class="input-box">
+                        <span class="details">Select Patient</span>
+                        <input type="name" name="pn" required>
+                        </div>
+                        
+                        <div class="input-box">
+                        <span class="details">Date</span>
+                        <input type="date" name="dob" required>
+                        </div>
+                    </div>   
+                        
+                        
+                    <div class="row2">    
+                        <div class="input-box1">
+                         <span class="details">Type of Procedure</span>
+                            <select id="dropdown" name="Procedure" class="dropdown" >
+                                <option disabled value>Choose Procedure</option>
+                                <option value="0">None</option>
+                                <option value="1">Dental Check-Up</option>
+                                <option value="2">Teeth Whitening</option>
+                                <option value="3">Dental Implants</option>
+                                <option value="4">Root Canal Treatment</option>
+                                <option value="5">Cosmetic Dentistry</option>
+                                <option value="6">Dental Crown</option>
+                                <option value="7">Dental Bridge</option>
+                                <option value="8">Orthiontics</option>
+                                <option value="9">Restoration</option>
+                                <option value="10">Fluoride Application </option>
+                                <option value="11">Odontectomy</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-box1">
+                        <span class="details">Price</span>
+                        <input type="price" name="pr" required>
+                        <button onclick="" id="plus-btn">+</button>
+                        </div>
+                    </div>
+                     
+                    <div class="row3">    
+                        <div class="input-box2">
+                        <span class="details">Other Charges</span>
+                        <input type="xcharges" name="xc" required>
+                        </div>
+                        
+                        <div class="input-box3">
+                        <span class="details">Price</span>
+                        <input type="price" name="pr" required>
+                        <button onclick="" id="plus-btn1">+</button>
+                        </div>
+                        
+                    </div> 
+                        
+                        <div class="row4">    
+                        <div class="input-box1">
+                         <span class="details">Transaction type</span>
+                            <select id="dropdown" name="Procedure" class="dropdown" >
+                                <option disabled value>Choose Procedure</option>
+                                <option value="0">None</option>
+                                <option value="1">Fully Paid</option>
+                                <option value="2">Partial</option>
+                                <option value="3">Installment</option>
+
+                            </select>
+                        </div>
+                        
+                        <div class="input-box1">
+                        <span class="details">STATUS</span>
+                        <input type="status" name="stat" required>
+                        </div>
+                    </div>  
+                        
+                 </div>
+                </div>
+                        
+                        
+                        <div class="container3">
+                                <h2>Total Amount</h2>
+                                    <h3>₱ 7,797</h3>
+
+                            <h2>Amount Paid</h2>
+                                    <p>₱ 1,500</p>
+           
+                            <h2>Total Amount</h2>
+                                    <p>₱ 0</p>
+
+                        </div>
+                    <div>
+                    <input type="submit" value="Save" id="save-btn1"></input>
+                    </div>
+            
+                        </form>
+                      
+                </div>
+              </div>
+    
+    
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <script src="chart1.js"></script>
+      
+        <script>
+            $('.sched-btn').click(function() {
+                $('nav ul .sched-show').toggleClass("show");
+                $('nav ul .first').toggleClass("rotate");
+            });
+            $('.acct-btn').click(function() {
+                $('nav ul .acct-show').toggleClass("show1");
+                $('nav ul .second').toggleClass("rotate");
+            });
+            $('nav ul li').click(function() {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+    
+    
+    
+            var buttons = document.querySelectorAll(".schedule-tabs .btn-cont button");
+            var tabP = document.querySelectorAll(".schedule-tabs .tabPanel");
+    
+    
+            function showPanel(panelIndex, colorCode) {
+                buttons.forEach(function(node) {
+                    node.style.backgroundColor = "";
+                    node.style.color = "";
+                });
+                buttons[panelIndex].style.backgroundColor = colorCode;
+                buttons[panelIndex].style.color = "white";
+    
+    
+                tabP.forEach(function(node) {
+                    node.style.display = "none";
+                });
+                tabP[panelIndex].style.display = "block";
+            }
+            showPanel(0, '#8d1ecd');
+        </script>
+
+        
+    </body>
+</html>
+    

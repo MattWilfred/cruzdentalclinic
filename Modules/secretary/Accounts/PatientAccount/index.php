@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include ('../../../../Database/connect.php');
+    require 'dbcon.php';
 
 ?>
 <!DOCTYPE html>
@@ -23,16 +23,16 @@
        
     
 
-        <title>Secretary Account List</title>
+        <title>Dentist Account List</title>
     </head>
     <body>
-         <!--========== HEADER ==========-->
-         <header class="header">
+      <!--========== HEADER ==========-->
+      <header class="header">
             <div class="header__container">
-                <img src="assets/img/logo dental.png" alt="" class="header__img">
+                <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
                 <a href="#" class="header__logo">Cruz Dental Clinic</a>
     
-            
+             
     
                 <div class="header__toggle">
                     <i class='bx bx-menu' id="header-toggle"></i>
@@ -40,78 +40,80 @@
             </div>
         </header>
 
+        <!--========== NAV ==========-->
+       
 
         <div class="nav" id="navbar">
-    <nav class="nav__container">
-        <div>
-            <a href="#" class="nav__link nav__logo">
-           <i class='nav__icon'>
-           <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
-           </i>
-                <span class="nav__logo-name">Cruz Dental Clinic</span>
-            </a>
-
-            <div class="nav__list">
-                <div class="nav__items">
-
-                    <a href="/Modules/secretary/index.php" class="nav__link active">
-                        <i class='bx bx-home nav__icon' ></i>
-                        <span class="nav__name">Dashboard</span>
+            <nav class="nav__container">
+                <div>
+                    <a href="#" class="nav__link nav__logo">
+                   <i class='nav__icon'>
+                   <img class="header__img" src="assets/img/logo dental.png" alt="">
+                   </i>
+                        <span class="nav__logo-name">Cruz Dental Clinic</span>
                     </a>
-                    
-                    <div class="nav__dropdown">
-                        <a href="/Modules/secretary/index.php" class="nav__link">
-                            <i class='bx bxs-calendar nav__icon' ></i>
+    
+                    <div class="nav__list">
+                        <div class="nav__items">
+    
+                            <a href="/Modules/secretary/index.php" class="nav__link active">
+                                <i class='bx bx-home nav__icon' ></i>
+                                <span class="nav__name">Dashboard</span>
+                            </a>
                             
-                            <span class="nav__name">Schedule</span>
-                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                        </a>
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class='bx bxs-calendar nav__icon' ></i>
+                                    
+                                    <span class="nav__name">Schedule</span>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                </a>
 
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                                <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="/Modules/secretary/php-calendar/select.html" class="nav__dropdown-item">Calendar</a>
+                                        <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                       
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-user nav__icon' ></i>
+                                    <span class="nav__name">Accounts</span>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                    <a href="/Modules/secretary/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
+                                        <a href="/Modules/secretary/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
+                                        <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <a href="/Modules/secretary/billing/billing.php" class="nav__link">
+                                <i class='bx bx-money nav__icon' ></i>
+                                <span class="nav__name">Billing</span>
+                            </a>
                         </div>
+
+                        <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
+                            <i class='bx bxs-megaphone nav__icon'></i>
+                            <span class="nav__name">Announcement</span>
+                        </a>
                     </div>
 
-                    <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-user nav__icon' ></i>
-                            <span class="nav__name">Accounts</span>
-                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                        </a>
-
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                                <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <a href="/Modules/secretary/billing/billing.php" class="nav__link">
-                        <i class='bx bx-money nav__icon' ></i>
-                        <span class="nav__name">Billing</span>
-                    </a>
-                </div>
-
-                <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
-                    <i class='bx bxs-megaphone nav__icon'></i>
-                    <span class="nav__name">Announcement</span>
+                <a href="#" class="nav__link nav__logout">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Log Out</span>
                 </a>
-            </div>
-
-        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
-            <i class='bx bx-log-out nav__icon' ></i>
-            <span class="nav__name">Log Out</span>
-        </a>
-    </nav>
-</div>
-
-
+            </nav>
+        </div>
         <!--========== CONTENTS ==========-->
         <main>
 
@@ -125,7 +127,15 @@
 </div> 
             </div>
 
-           
+            <div class="subh">
+                <!--add patient acc button-->
+                <div class="addpatient-btn">
+                    <div>
+                        <i class="fa-solid fa-user-plus"></i>
+                        <a class="" type="button" href="createaccount.php">Add New Patient</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -146,7 +156,7 @@
             <?php 
                            //read rows from the database
                            $sql = "SELECT * FROM users WHERE accrole ='Patient' ORDER BY lname ASC";
-                           $result = $connection->query($sql);
+                           $result = $con->query($sql);
        
                      
                            if (!$result){

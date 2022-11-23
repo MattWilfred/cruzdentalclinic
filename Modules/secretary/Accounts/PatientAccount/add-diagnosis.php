@@ -13,7 +13,7 @@
         
 
         $query = "INSERT INTO diagnosis(tooth_number, findings, description, userid) VALUES ('$toothnumber','$findings','$description', '$id')";
-        $query_run = mysqli_query($connection, $query);
+        $query_run = mysqli_query($con, $query);
 
         if ($query_run){
             echo '<script> alert("Data Saved"); </script>';
@@ -21,7 +21,7 @@
 
         }
         else {
-            die("Invalid query: " . $connection->error);
+            die("Invalid query: " . $con->error);
         }
     }
 

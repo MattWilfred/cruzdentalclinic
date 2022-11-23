@@ -6,38 +6,38 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "cruzdentalclinic";
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+$con = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-if (!$conn){
+if (!$con){
   die("Connection error!");
 }
 
 function fetchDentalBG($uid){
-    global $conn;
+    global $con;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM dentalbackground WHERE user_id = $uid ORDER  BY date_added DESC
+    $dentalBG = mysqli_query($con, "SELECT * FROM dentalbackground WHERE user_id = $uid ORDER  BY date_added DESC
     LIMIT  1");
     return $dentalBG;
 }
 
 function fetchAllDentalBackground($uid){
-    global $conn;
-    $allDentalBG = mysqli_query($conn, "SELECT * FROM dentalbackground WHERE user_id = $uid ORDER BY date_added DESC");
+    global $con;
+    $allDentalBG = mysqli_query($con, "SELECT * FROM dentalbackground WHERE user_id = $uid ORDER BY date_added DESC");
     return $allDentalBG;
 }
 
 function fetchHistoryDentalBG($uid, $dbgid){
-    global $conn;
+    global $con;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM dentalbackground WHERE dental_background_id = $dbgid AND user_id = $uid ORDER BY date_added DESC
+    $dentalBG = mysqli_query($con, "SELECT * FROM dentalbackground WHERE dental_background_id = $dbgid AND user_id = $uid ORDER BY date_added DESC
     LIMIT  1" );
     return $dentalBG;
 }
 
 function fetchUniqueDentalBG($dbgid){
-    global $conn;
+    global $con;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM dentalbackground WHERE dental_background_id = $dbgid");
+    $dentalBG = mysqli_query($con, "SELECT * FROM dentalbackground WHERE dental_background_id = $dbgid");
     return $dentalBG;
 }
 ?>
@@ -48,7 +48,7 @@ function fetchUniqueDentalBG($dbgid){
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="patientdbg-style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/patientdbg-style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
@@ -169,7 +169,7 @@ function fetchUniqueDentalBG($dbgid){
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
-            $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($con, $sql);
     
 
             if(mysqli_num_rows($result)>0){
@@ -252,8 +252,8 @@ function fetchUniqueDentalBG($dbgid){
 
                 if(mysqli_num_rows($query) !== 0){
 
-                    echo '<div class="dbg-edit"><button id="edit-button" class="dbg-button">Add</button></div>';
-                    echo '<div class="dbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="dbg-vbutton">Dental Background History</button></div>';
+                    echo '<div class="dbg-edit"><button id="edit-button" class="dbg-button">Edit</button></div>';
+                    echo '<div class="dbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="dbg-vbutton">View Previous Entries</button></div>';
                 }
 
 

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang=e n dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="css/edit-profile.css">
+    <link rel="stylesheet" href="patient-style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dental Clinic Web Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Dra Marites Cruz Dental Clinic Website</title>
+
+</head>
+
+<body>
+    <nav>
+
+        <header>
+            <div class="logo"> <img src="logo dental.png" alt="dental logo"></div>
+            Cruz Dental Clinic
+        </header>
+
+
+        <ul>
+
+             <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="sched-btn">
+                    <i class="fa-solid fa-calendar-days"></i> Schedule
+                    <span class="fas fa-caret-down first"></span>
+                </a>
+                <ul class="sched-show">
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="ScheduleList.html">Schedule List</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="acct-btn">
+                    <i class="fa-solid fa-user-group"></i> Profile
+                    <span class="fas fa-caret-down second"></span>
+                </a>
+                <ul class="acct-show">
+                    <li><a href="#">Dentist</a></li>
+                    <li><a href="patient.html">Patients</a></li>
+                    <li><a href="#">Administrator</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#about"> <i class="fa-solid fa-money-bill-wave"></i> Billing </a>
+            </li>
+            <li><a href="announcement.html"><i class="fa-solid fa-bullhorn"></i> Announcements </a></li>
+        </ul>
+        
+
+        <div class="logout">
+            <li><a href="#logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+            
+        </div>
+       
+    </nav>
+    
+  
+    <div class="body_content">
+        <h3>Edit Profile</h3>
+        <br>
+
+       
+                
+   <section id="form-details">
+            
+<form action="">  
+
+    <div class="row1">
+       
+            <h4>ACCOUNT INFORMATION</h4>
+            <br>
+              
+            <div class="name-details">
+          
+                <div class="input-box">
+                    <span class="details">First Name <input type="text" id="fname" name="firstname" placeholder="Bryan Joshua"></span>
+                </div> 
+                
+                <div class="input-box2">
+                    <span class="details">Last Name <input type="text" id="lname" name="lastname" placeholder="Bucu"></span>
+                </div>
+            
+         </div>
+    </div>
+
+    
+    
+    <div class="row2">
+         <div class="ad-details"> 
+                 <div class="input-box">
+                    <span class="details">Address <input type="text" id="adr" name="adr" placeholder="5298 Cumberland Avenue, Montreal Quebec"></span>
+                </div>
+        </div>
+    </div>
+    
+             
+      <div class="row3">
+         <div class="per-details">             
+             
+                <div class="input-box3">
+                    <span class="details">Mobile No./Tel.  <input type="text" id="mobile" name="mobile" placeholder="514-267-3107"></span>
+                </div> 
+                                    
+                <div class="input-box4">
+                    <span class="details">Birth Date <input type="text" id="bday" name="bday" placeholder="12/31/98" disabled></span>
+                </div> 
+                       
+                <div class="input-box5">
+                    <span class="details">Gender <input type="text" id="gendr" name="gendr" placeholder="MALE "></span>
+                </div> 
+             
+          </div>
+    </div>
+             
+
+    
+    <div class="row4">
+         <div class="em-details"> 
+                <div class="input-box7">
+                    <span class="details">Email Address <input type="text" id="email" name="email" placeholder="2191793@slu.edu.ph"></span>
+                </div> 
+                
+        </div>
+    </div>
+
+               
+      
+                
+    <div class="row5">
+         <br>
+         <h4>CHANGE PASSWORD</h4>
+         <br>       
+        
+         <div class="pass-details">       
+               
+                <div class="input-box">
+                    <span class="details">Enter Current Password <input type="text" id="cPass" name="cPass" placeholder="*******" ></span>
+                </div> 
+            
+                  <div class="input-box6">
+                    <span class="details">Enter New Password <input type="text" id="nPass" name="nPass" placeholder="*******"></span>
+                </div> 
+             
+               
+        </div>
+    </div>
+
+
+        <button onclick="" id="cancel-btn">Cancel</button>
+        <input type="submit" value="Save" id="save-btn"></input>
+    
+        
+             
+        </form>
+        </section>
+        
+        
+   
+       
+                    
+    </div>
+
+    </body>
+    </html>

@@ -5,38 +5,38 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "cruzdentalclinic";
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+$con = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-if (!$conn){
+if (!$con){
   die("Connection error!");
 }
 
 function fetchMedicalBG($uid){
-    global $conn;
+    global $con;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $medicalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER BY date_added DESC
+    $medicalBG = mysqli_query($con, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER BY date_added DESC
     LIMIT  1" );
     return $medicalBG;
 }
 
 function fetchAllMedicalBackground($uid){
-    global $conn;
-    $allMedicalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER BY date_added DESC");
+    global $con;
+    $allMedicalBG = mysqli_query($con, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER BY date_added DESC");
     return $allMedicalBG;
 }
 
 function fetchHistoryMedicalBG($uid, $mbgid){
-    global $conn;
+    global $con;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $medicalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE medicalbackground_id = $mbgid AND user_id = $uid ORDER BY date_added DESC
+    $medicalBG = mysqli_query($con, "SELECT * FROM medicalbackground WHERE medicalbackground_id = $mbgid AND user_id = $uid ORDER BY date_added DESC
     LIMIT  1" );
     return $medicalBG;
 }
 
 function fetchUniqueMedicalBG($id){
-    global $conn;
+    global $con;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $medicalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE medicalbackground_id = $id");
+    $medicalBG = mysqli_query($con, "SELECT * FROM medicalbackground WHERE medicalbackground_id = $id");
     return $medicalBG;
 }
 
@@ -49,7 +49,7 @@ function fetchUniqueMedicalBG($id){
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="patientmbg-style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/patientmbg-style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
@@ -67,7 +67,7 @@ function fetchUniqueMedicalBG($id){
 <header class="header">
         <div class="header__container">
 
-            <a href="patientlist.php">
+            <a href="index.php">
                 <button>
                     <i class="fa-solid fa-angle-left"></i>
                     Back to Patient List
@@ -129,9 +129,9 @@ function fetchUniqueMedicalBG($id){
 
                                 <div class="nav__dropdown-collapse">
                                     <div class="nav__dropdown-content">
-                                        <a href="../Secretary/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
-                                        <a href="../Secretary/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                        <a href="../Secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                                    <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
+                                        <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
+                                        <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
 
                                     </div>
                                 </div>

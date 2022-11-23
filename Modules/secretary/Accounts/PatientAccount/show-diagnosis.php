@@ -5,9 +5,9 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "cruzdentalclinic";
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+$con = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-if (!$conn){
+if (!$con){
   die("Connection error!");
 }
 
@@ -24,9 +24,9 @@ if (!$conn){
 }**/
 
 function getToothInfo($toothNum, $uid){
-  global $conn;
+  global $con;
   //read rows from the database
-  $toothinfo = mysqli_query($conn, "SELECT * FROM diagnosis where userid = $uid AND tooth_number = $toothNum ORDER BY date_added desc");
+  $toothinfo = mysqli_query($con, "SELECT * FROM diagnosis where userid = $uid AND tooth_number = $toothNum ORDER BY date_added desc");
   return $toothinfo;
 }
 

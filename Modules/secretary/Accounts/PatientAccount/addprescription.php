@@ -32,7 +32,7 @@ if(isset($_POST["submit"])){
             $imgContent = addslashes(file_get_contents($image)); 
          
             // Insert image content into database 
-            $insert = $connection->query("INSERT into prescription (prescription_image, date_added, user_id) VALUES ('$imgContent', NOW(), '$id')"); 
+            $insert = $con->query("INSERT into prescription (prescription_image, date_added, id) VALUES ('$imgContent', NOW(), '$id')"); 
              
             if($insert){ 
                 $status = 'success'; 

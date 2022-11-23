@@ -1,269 +1,267 @@
 <?php
+    include ('../../Database/connect.php');
+    include ('../../Database/results.php');
     include('../../Database/sessioncheck.php');
-    include('../../Database/results.php');
-    include('../../Database/connect.php');
+
     $id = $_SESSION['id'];
     
- $query = "SELECT * FROM bookings WHERE dentist_id='$id' AND status= 1 LIMIT 5";  
- $result = mysqli_query($connection, $query);  
- $query = "SELECT * FROM announcement  ORDER BY date LIMIT 5";  
- $dateresult = mysqli_query($connection, $query);  
+    $sql = "SELECT * from users where id = $id";
+    $result = mysqli_query($connection,$sql);
+    if(mysqli_num_rows($result)>0){
+        while ($row = $result->fetch_assoc()){
+            $fname = $row['fname'];
+            $lname = $row['lname'];
+            $email = $row['email'];
+         
 
-
- $id = $_SESSION['id'];
-    
- $sql = "SELECT * from users where id = $id";
- $uname = mysqli_query($connection,$sql);
- if(mysqli_num_rows($uname)>0){
-     while ($row = $uname->fetch_assoc()){
-         $fname = $row['fname'];
-         $lname = $row['lname'];
-         $email = $row['email'];
-      
-
+        }
      }
-  }
+
+ $query = "SELECT * FROM bookings WHERE dentist_id='$id' LIMIT 5";  
+ $result = mysqli_query($connection, $query);  
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang=e n dir="ltr">
+
 <head>
-<!--========== CSS ==========-->
-<link rel="stylesheet" href="assets/css/styles.css">
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="css/receptionistdashboard-style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <!--========== BOX ICONS ==========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="css/all.min.css">
-<!--========== BOX ICONS ==========-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dental Clinic Web Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
-     <meta charset="UTF-8" />
-  <title>Dentist Dashboard</title>
-  <link rel="stylesheet" href="dashboardstyle.css" />
-  <!-- Font Awesome Cdn Link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Dra Marites Cruz Dental Clinic Website</title>
+
 </head>
 
-
-
-
 <body>
-    
-
-    <!--========== HEADER ==========-->
     <header class="header">
-    <div class="header__container">
-        <a href="/Modules/dentist/index.php" class="header__logo">Cruz Dental Clinic</a>
-        
-      
-    </div>
-</header>
+        <div class="header__container">
+            <img src="assets/img/logo dental.png" alt="" class="header__img">
 
-<!--========== NAV ==========-->
+            <a href="#" class="header__logo">Dashboard</a>
 
 
-<div class="nav" id="navbar">
-    <nav class="nav__container">
-        <div>
-            <a href="#" class="nav__link nav__logo">
-           <i class='nav__icon'>
-           <img src="/Modules/dentist/assets/img/logo dental.png" alt="" class="header__img">
-           </i>
-                <span class="nav__logo-name">Cruz Dental Clinic</span>
-            </a>
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </div>
+    </header>
 
-            <div class="nav__list">
-                <div class="nav__items">
+        <!--========== HEADER ==========-->
+        <header class="header">
+        <div class="header__container">
+            <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
+            <a href="#" class="header__logo">Cruz Dental Clinic</a>
 
-                    <a href="/Modules/dentist/index.php" class="nav__link active">
-                        <i class='bx bx-home nav__icon' ></i>
-                        <span class="nav__name">Dashboard</span>
-                    </a>
-                    
-                    <div class="nav__dropdown">
-                        <a href="/Modules/dentist/index.php" class="nav__link">
-                            <i class='bx bxs-calendar nav__icon' ></i>
-                            
-                            <span class="nav__name">Schedule</span>
-                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                        </a>
+         
 
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                            <a href="/Modules/dentist/blockdate.php" class="nav__dropdown-item">Block Date</a>
-                             
-                                <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
-                            </div>
-                        </div>
-                    </div>
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </div>
+    </header>
 
-                    <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-user nav__icon' ></i>
-                            <span class="nav__name">Accounts</span>
-                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                        </a>
+    <!--========== NAV ==========-->
+   
 
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                                <a href="/Modules/dentist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
-                            </div>
-                        </div>
-                    </div>
-
-                  
-                  </div>
-
-                <a href="/Modules/dentist/announcement/announcement.php" class="nav__link">
-                    <i class='bx bxs-megaphone nav__icon'></i>
-                    <span class="nav__name">Announcement</span>
+    <div class="nav" id="navbar">
+        <nav class="nav__container">
+            <div>
+                <a href="#" class="nav__link nav__logo">
+               <i class='nav__icon'>
+               <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
+               </i>
+                    <span class="nav__logo-name">Cruz Dental Clinic</span>
                 </a>
-            </div>
 
-        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
-            <i class='bx bx-log-out nav__icon' ></i>
-            <span class="nav__name">Log Out</span>
-        </a>
-    </nav>
-</div>
+                <div class="nav__list">
+                    <div class="nav__items">
 
-
-
-
-    
-
- <div class="indent">
-  <div class="container">
-
-    <div class="main-body">
-      <h2>Dashboard</h2>
-      <div class="promo_card">
-        <h1>Welcome <?php echo $fname ." ". $lname;?>! <a href="/Modules/dentist/Accounts/DentistAccount/view.php?id=<?php echo $id;?>"><button id="view_btn">View Profile</button></a></h1>
-
-     
-        <h4 id="stat">
-       
-
-        <?php
-        $sql_stats = "SELECT * from users WHERE id='$id' ";
-        $res = mysqli_query($connection,$sql_stats);
-                if(mysqli_num_rows($res)>0){
-        
-               while($row = mysqli_fetch_array($res)){
-                   $status = $row['status'];
-                   $idstat = $row['id'];
-                
-              
-        ?>
-
-        <a href="changestat.php?dentId=<?php echo $idstat?>&status=<?php echo $status?>">
-        <button id="status_button">Change</button>
-        </a>
-                           Current Status:
-                            <?php if($row['status']==1){
-                                        echo "ACTIVE";
-                                 } if($row['status'] == 0){ 
-                                    echo "INACTIVE";
-                                 }?>
+                        <a href="/Modules/secretary/index.php" class="nav__link active">
+                            <i class='bx bx-home nav__icon' ></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+                        
+                        <div class="nav__dropdown">
+                            <a href="#" class="nav__link">
+                                <i class='bx bxs-calendar nav__icon' ></i>
                                 
-        <?php
-                    }
-                }
-        ?>
+                                <span class="nav__name">Schedule</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                            </a>
 
-        </h4>
-        <h3 id="date">Date Today: <span id="date-time"></span></h3>
-      </div>
+                            <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a href="/Modules/dentist/php-calendar/calendar.php" class="nav__dropdown-item">Calendar</a>
+                                    <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                   
+                                </div>
+                            </div>
+                        </div>
 
-      <br />
+                        <div class="nav__dropdown">
+                            <a href="#" class="nav__link">
+                                <i class='bx bx-user nav__icon' ></i>
+                                <span class="nav__name">Accounts</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                            </a>
 
-      <div class="appt_lists">
-        <div class="upcoming">
-            <p id="heaad">Total Upcoming Appointments</p>    
-            <div class="row1">
-                <div id="total">
-                    <h1><?php overalltotalUpcomingApt();?> </h1>
+                            <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a href="/Modules/dentist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="announcement/announcement.php" class="nav__link">
+                        <i class='bx bxs-megaphone nav__icon'></i>
+                        <span class="nav__name">Announcement</span>
+                    </a>
                 </div>
-            </div>
-        </div>
 
-        <div class="Appointments">
-            <p id="heaad">Total Appointments</p>    
-            <div class="row1">
-                <div id="total1">
-                    <h1><?php overalltotalAppt(); ?></h1>
-                </div>
-            </div>
-        </div>
-
-        <div class="patients">
-            <p id="heaad">Total Patients</p>    
-            <div class="row1">
-                <div id="total2">
-                    <h1><?php overalltotalPatients();?></h1>
-                </div>
-            </div>
-        </div>
-      </div>
-      
-      <div class="history_lists">
-        <div class="list1">
-          <div class="row">
-            <h4>Upcoming Appointments</h4>
-            <a href="/Modules/dentist/php-calendar/schedule-list.php">See all</a>
-          </div>
-          <table id="tbl_appt">
-            <thead>
-              <tr>
-          
-                  <th id="appt_th">Date</th>
-                  <th id="appt_th">Time</th>
-                  <th id="appt_th">Dental in Charge</th>
-                  <th id="appt_th">Type of Appointment</th>
-              </tr>
-            </thead>
-            <tbody>
-
-            <?php 
-               while($row = mysqli_fetch_array($result))  
-               {  
-               ?>  
-             
-              <tr>
-     
-                <td id="appt_td"><?php echo $row['date']?></td>
-                <td id="appt_td"><?php echo $row['timeslot']?></td>
-                <td id="appt_td"><?php echo $row['doctor']?></td>
-                <td id="appt_td"><?php echo $row['treatment']?></td>
-              </tr>
-
-              <?php
-               }
-              ?>
-              </tbody>
-          </table>
-
-
-       </div>
-
-     
-    
-        
+            <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+                <i class='bx bx-log-out nav__icon' ></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
     </div>
-</div>
-<script>
-var dt = new Date();
-document.getElementById('date-time').innerHTML=dt;
-</script>
+
+        <div class="body_content">
+
+
+            <!-------  HEADING ------>
+            <div class="contain">
+
+                <div class="patient">
+                    <div class="patient-profile">
+                        <div class="ppic">
+                            <img src="313514291_666959545047725_4590859755006017896_n (1).jpg" alt="image" style="width: 90px" height="90px">
+                            <h2><?php echo $fname." ". $lname?></h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="patient-info ">
+                        <div class="col1">
+                            <div>
+                                <h3>Upcoming Appointments</h3>
+                                <p><?php totalUpcomingAppmts();?></p>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div>
+                                <h3>Total Appointments</h3>
+                                <p><?php total();?></p>
+                            </div>
+                        </div>
+                        <div class="col3">
+                            <div>
+                                <h3>Total No. of Patients</h3>
+                                <p><?php totalPatients();?></p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                  
+                </div>
+
+
+                <div class="appointments ">
+                    <div class="upcoming-app ">
+                        <br/>
+                        <p id="title "><b>Upcoming Appointments </b></p>
+
+                        <div class="container">
+
+                            <div class="table-section ">
+                                <!--MUST BE ON TABLE FORM-->
+
+                                <div id="border ">
+
+                                    <table class="table table-borderd">
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Dental in Charge</th>
+                                            <th>Type of Appointment</th>
+                                        </tr>
+                                    
+                                        <?php  
+                                        while($row = mysqli_fetch_array($result))  {  
+                                         ?>  
+                                            <tr>  
+                                                <td><?php echo $row["date"]; ?></td>  
+                                                 <td><?php echo $row["timeslot"]; ?></td>  
+                                                <td><?php echo $row["doctor"]; ?></td>  
+                                                <td><?php echo $row["treatment"]; ?></td>  
+                                                
+                                            <tr>
+                                            <?php  
+                                         }  
+                                        ?>    
+
+                                        
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                       <a href="php-calendar/schedule-list.php"> <button class="up-seebutton "><b>See More</b></button> </a>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+        <!--Script for calendar-->
+
+        <script>
+            $('.sched-btn').click(function() {
+                $('nav ul .sched-show').toggleClass("show ");
+                $('nav ul .first').toggleClass("rotate ");
+            });
+            $('.acct-btn').click(function() {
+                $('nav ul .acct-show').toggleClass("show1 ");
+                $('nav ul .second').toggleClass("rotate ");
+            });
+            $('nav ul li').click(function() {
+                $(this).addClass("active ").siblings().removeClass("active ");
+            });
+        </script>
 
 </body>
+
 </html>

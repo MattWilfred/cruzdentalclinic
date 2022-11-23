@@ -1,0 +1,22 @@
+h1{
+    color: rgb(107, 15, 193);
+}
+
+button{
+    border: 2px solid rgb(107, 15, 193) ;
+    background-color:rgb(107, 15, 193) ;
+    border-radius: 1.0em;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    display: block;
+    margin-left: 3.0em;
+    cursor: pointer;
+}
+
+.cont {
+    display: flex;
+}
+
+

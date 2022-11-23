@@ -1,8 +1,13 @@
 {
     "name": "kuya/cruz-dental-clinic",
+    "autoload": {
+        "psr-4": {
+            "Kuya\\CruzDentalClinic\\": "src/"
+        }
+    },
     "authors": [
         {
-            "name": "matt"
+            "name": "Matt"
         }
     ],
     "require": {}

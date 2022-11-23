@@ -6,16 +6,16 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "cruzdentalclinic";
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+$con = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-if (!$conn){
+if (!$con){
   die("Connection error!");
 }
 
 function getToothArray($uid){
-    global $conn;
+    global $con;
     //read rows from the database
-    $fetchteeth = mysqli_query($conn, "SELECT tooth_number FROM diagnosis where userid = $uid");
+    $fetchteeth = mysqli_query($con, "SELECT tooth_number FROM diagnosis where userid = $uid");
 
     $tootharray = array();
 
@@ -28,9 +28,9 @@ function getToothArray($uid){
 
 function colorTooth($toothNum, $uid){
 
-  global $conn;
+  global $con;
     //read rows from the database
-  $fetchteeth = mysqli_query($conn, "SELECT tooth_number, findings FROM diagnosis where userid = $uid AND tooth_number = $toothNum");
+  $fetchteeth = mysqli_query($con, "SELECT tooth_number, findings FROM diagnosis where userid = $uid AND tooth_number = $toothNum");
 
   //$teethquery = mysqli_fetch_assoc($fetchteeth);
 
@@ -70,9 +70,9 @@ function colorTooth($toothNum, $uid){
 }
 
 function fetchFinding($toothNum){
-    global $conn;
+    global $con;
 
-    $findtoothquery = mysqli_query($conn, "SELECT findings FROM diagnosis WHERE tooth_number = $toothNum");
+    $findtoothquery = mysqli_query($con, "SELECT findings FROM diagnosis WHERE tooth_number = $toothNum");
 
     $toothFinding= mysqli_fetch_assoc($findtoothquery);
 

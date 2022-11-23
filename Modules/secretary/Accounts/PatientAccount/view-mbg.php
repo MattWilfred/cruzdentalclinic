@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="patientmbg-style.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="css/patientmbg-style.css?v=<?php echo time(); ?>">
     </head>
 
 
@@ -11,9 +11,9 @@
         include "dbcon.php";
 
         function fetchMedicalBG($uid){
-            global $conn;
+            global $con;
 
-            $medicalBG = mysqli_query($conn, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER  BY date_added DESC
+            $medicalBG = mysqli_query($con, "SELECT * FROM medicalbackground WHERE user_id = $uid ORDER  BY date_added DESC
             LIMIT  1" );
             return $medicalBG;
           }

@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="patientprescription-style.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="css/patientprescription-style.css?v=<?php echo time(); ?>">
     </head>
 
     <?php
@@ -96,7 +96,7 @@
         else
         {
             echo 'Insertion Fail';
-            echo $query . "<br>" . mysqli_error($conn);
+            echo $query . "<br>" . mysqli_error($con);
         }
 
 
@@ -119,7 +119,7 @@
         else
         {
             echo 'Update Fail';
-            echo $edit_query . "<br>" . mysqli_error($conn);
+            echo $edit_query . "<br>" . mysqli_error($con);
         }
 
 

@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="patientprescription-style.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="css/patientprescription-style.css?v=<?php echo time(); ?>">
     </head>
 
 
@@ -17,7 +17,7 @@
         $prescid = $_POST['prescid'];
         
         $sql = "select * from prescription where prescription_id=".$prescid;
-        $result = mysqli_query($connection,$sql);
+        $result = mysqli_query($con,$sql);
         while( $row = mysqli_fetch_array($result) ){
         ?>
                     <div class="ptr">

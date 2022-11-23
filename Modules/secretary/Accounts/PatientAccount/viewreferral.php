@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="patientreferral-style.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="css/patientreferral-style.css?v=<?php echo time(); ?>">
     </head>
 
 
@@ -17,7 +17,7 @@
         $refid = $_POST['refid'];
         
         $sql = "select * from referral where referral_id=".$refid;
-        $result = mysqli_query($connection,$sql);
+        $result = mysqli_query($con,$sql);
         while( $row = mysqli_fetch_array($result) ){
         ?>
 

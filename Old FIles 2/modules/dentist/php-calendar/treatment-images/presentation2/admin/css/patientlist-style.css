@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#brand {
+    background-color: rgb(166, 40, 166);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 35px;
+    background: #c45eff;
+    user-select: none;
+    display: flex;
+}
+
+nav img {
+    height: 33px;
+    width: 30px;
+}
+
+#icon_announce img {
+    height: 50%;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    overflow-y: hidden;
+    background-color: blueviolet;
+}
+
+nav ul li {
+    line-height: 3em;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    padding-left: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+nav i {
+    color: white;
+}
+
+.logout li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding-top: 16em;
+    font-size: 19px;
+}
+
+.logout a {
+    color: white;
+    padding-left: 2em;
+    text-decoration: none;
+}
+
+
+/*TEXT FORMAT*/
+
+h1 {
+    padding-top: 0.5em;
+}
+
+#title {
+    font-size: 23px;
+}
+
+nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+    list-style: none;
+}
+
+nav ul li.active a {
+    color: rgb(244, 244, 244);
+    background: rgb(107, 15, 193);
+    border-left-color: rgb(255, 255, 255);
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul .sched-show.show {
+    display: block;
+}
+
+nav ul .acct-show.show1 {
+    display: block;
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-bottom: none;
+}
+
+nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 75px;
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: rgb(107, 15, 193);
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: rgb(177, 167, 221);
+    background: rgb(107, 15, 193);
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+
+/* ---------------------end of sidebar menu--------------------- */
+
+.page-title h1 {
+    padding-left: 30px;
+    color: #8d1ecd;
+    font-weight: bold;
+    padding-right: 150px;
+}
+
+.main-cont {
+    width: 83%;
+    margin-left: 16.8%;
+}
+
+.pl-header {
+    display: flex;
+}
+
+.subh {
+    display: flex;
+    justify-items: center;
+    vertical-align: middle;
+}
+
+.addpatient-btn {
+    padding-top: 29px;
+}
+
+.addpatient-btn div {
+    border-color: #8d1ecd;
+    background-color: #8d1ecd;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.addpatient-btn div a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* search bar */
+
+.box-cont {
+    margin-top: 30px;
+    margin-left: 30px;
+    padding-left: 20px;
+    padding-right: 12px;
+    width: 250px;
+    border: 2px solid black;
+    height: 35px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.elem-cont {
+    width: 100%;
+    height: 100%;
+}
+
+.elem-cont div {
+    display: flex;
+}
+
+.search {
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.patients-content {
+    border: 1px solid rgba(0, 0, 0, 0.385);
+    height: 655px;
+    overflow: scroll;
+}
+
+.table {
+    overflow: scroll;
+    text-align: center;
+}
