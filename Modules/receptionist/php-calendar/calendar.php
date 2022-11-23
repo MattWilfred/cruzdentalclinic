@@ -1,14 +1,20 @@
 <?php
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
+    session_start();
+   
+    $id= $_GET['currentid'];
+    $dentist = $_GET['dentistid'];
+    $item =$_POST['list'];
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
+    $dbServername = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "";
+    $dbName = "cruzdentalclinic";
+    
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+    
 if (!$conn){
-    die("Connection error!");
+        die("Connection error!");
 }
 
 function fetchDatesToBlock(){
@@ -24,21 +30,21 @@ function fetchDatesToBlock(){
     return $holiday_array;
 }
 
-    session_start();
-   
-    $id= $_GET['currentid'];
-    $item =$_POST['list'];
-
 function build_calendar($month, $year) {
 
+    $conn = mysqli_connect("localhost", "root", "", "cruzdentalclinic");  
+    $query = "SELECT * FROM holiday";  
+    $result = mysqli_query($conn, $query); 
+    
 
+    
+  
+    $dentist = $_GET['dentistid'];
     $id= $_GET['currentid'];
     $item =$_POST['list'];
-    $holiday = date('0000-00-00');
     $mysqli = new mysqli('localhost', 'root', '', 'cruzdentalclinic');
     
-    
-    
+      
      // Create array containing abbreviations of days of week.
      $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
 
@@ -70,19 +76,12 @@ function build_calendar($month, $year) {
     $calendar .= "<center><h2>$monthName $year</h2>";
 
 
-  $calendar.= "<a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id&treat=$item&month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</a> ";
+  $calendar.= "<a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id & dentist=$dentist & treat=$item&month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</a> ";
     
-    $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Current Month</a> ";
+    $calendar.= " <a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id & dentist=$dentist & treat=$item &month=".date('m')."&year=".date('Y')."'>Current Month</a> ";
     
-   $calendar.= "<a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id&treat=$item&month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a></center><br>";
- 
-
-//$calendar.= "<a class='btn btn-xs btn-primary' href='#'><</a> ";
-
-  //$calendar.= " <a class='btn btn-xs btn-primary' href='#'>Current Month</a> ";
-    
-  //$calendar.= "<a class='btn btn-xs btn-primary' href='#'>></a></center><br>";
-    
+   $calendar.= "<a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id & dentist=$dentist & treat=$item & month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a></center><br>";
+     
     
         
       $calendar .= "<tr>";
@@ -110,7 +109,7 @@ function build_calendar($month, $year) {
                 $calendar .= "<td  class='empty'></td>"; 
 
          }
-    }
+     }
     
      
      $month = str_pad($month, 2, "0", STR_PAD_LEFT);
@@ -135,21 +134,24 @@ function build_calendar($month, $year) {
             $holiday = fetchDatesToBlock();
 
         if($dayname == "sunday"){
-            $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-warning btn-lg'>Clinic Closed</button>";
+            $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-warning btn-md'>Clinic Closed</button>";
         }
+
 
         //elseif($date == $holiday){
         elseif(in_array($date, $holiday)){
-          $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-lg'>Holiday</button>";     
+                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-md'>Holiday</button>";     
         }
-        
+
         elseif($date<date('Y-m-d')){
-             $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-lg'>N/A</button>";
-         }      else{
-          
-             $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=$date&id=$id&treat=$item' class='btn btn-success btn-lg book'>Book</a>";
+             $calendar.="<td><h4>$currentDay</h4> <h5> <br /> </h5>";
          }
-            
+         
+        else{
+          
+             $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=$date&id=$id&dentist=$dentist&treat=$item' class='btn btn-success btn-md book'>Book</a>";
+         }
+
          
           $calendar .="</td>";
           // Increment counters
@@ -181,214 +183,35 @@ function build_calendar($month, $year) {
 }
     
 ?>
+<?php
+    $user = $_GET['currentid'];
+    $dentist = $_GET['dentistid']
+
+?>
 
 
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        
-
-        <!--========== CSS ==========-->
-        
-        <link href="css/styles.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="style.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="indent.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <title>Admin Module</title>
-
-    <style>
-       @media only screen and (max-width: 760px),
-        (min-device-width: 802px) and (max-device-width: 1020px) {
-
-            /* Force table to not be like tables anymore */
-            table, thead, tbody, th, td, tr {
-                display: block;
-
-            }
-            
-            
-
-            .empty {
-                display: none;
-            }
-
-            /* Hide table headers (but not display: none;, for accessibility) */
-            th {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-
-            tr {
-                border: 1px solid #ccc;
-            }
-
-            td {
-                /* Behave  like a "row" */
-                border: none;
-                border-bottom: 1px solid #eee;
-                position: relative;
-                padding-left: 50%;
-            }
-
-
-
-            /*
-		Label the data
-		*/
-            td:nth-of-type(1):before {
-                content: "Sunday";
-            }
-            td:nth-of-type(2):before {
-                content: "Monday";
-            }
-            td:nth-of-type(3):before {
-                content: "Tuesday";
-            }
-            td:nth-of-type(4):before {
-                content: "Wednesday";
-            }
-            td:nth-of-type(5):before {
-                content: "Thursday";
-            }
-            td:nth-of-type(6):before {
-                content: "Friday";
-            }
-            td:nth-of-type(7):before {
-                content: "Saturday";
-            }
-
-
-        }
-
-        /* Smartphones (portrait and landscape) ----------- */
-
-        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-            body {
-                padding: 0;
-                margin: 0;
-            }
-        }
-
-        /* iPads (portrait and landscape) ----------- */
-
-        @media only screen and (min-device-width: 802px) and (max-device-width: 1020px) {
-            body {
-                width: 495px;
-            }
-        }
-
-        @media (min-width:641px) {
-            table {
-                table-layout: fixed;
-            }
-            td {
-                width: 33%;
-            }
-        }
-        
-        .row{
-            margin-top: 20px;
-        }
-        
-        .today{
-            background:yellow;
-        }
-        
-        
-        
-    </style>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="css/calendarbootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="css/form.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/44763be3ea.js" crossorigin="anonymous"></script>
+    </head>
 
 <body>
 
-   <!--========== HEADER ==========-->
 
-  <!--========== NAV ==========-->
-  <div class="nav" id="navbar">
-    <nav class="nav__container">
-        <div>
-            <a href="#" class="nav__link nav__logo">
-           <i class='nav__icon'>
-           <img class="header__img" src="/Modules/admin/assets/img/logo dental.png" alt="" style=width:50px;height:50px;>
-           </i>
-                <span class="nav__logo-name">Cruz Dental Clinic</span>
-            </a>
-
-            <div class="nav__list">
-                <div class="nav__items">
-
-                <a href="/Modules/admin/index.php" class="nav__link active">
-                        <i class='bx bx-home nav__icon' ></i>
-                        <span class="nav__name">Dashboard</span>
-                    </a>
-                    
-                    <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
-                            <i class='bx bxs-calendar nav__icon' ></i>
-                            
-                            <span class="nav__name">Schedule</span>
-                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                        </a>
-
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                                <a href="/Modules/admin/php-calendar/select.html" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/admin/php-calendar/select.html" class="nav__dropdown-item">Schedule List</a>
-                               
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-user nav__icon' ></i>
-                            <span class="nav__name">Accounts</span>
-                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                        </a>
-
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                                <a href="../Secretary/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
-                                <a href="../Secretary/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                <a href="../Secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-money nav__icon' ></i>
-                        <span class="nav__name">Billing</span>
-                    </a>
-                </div>
-
-                <a href="announcement/announcement.php" class="nav__link">
-                    <i class='bx bxs-megaphone nav__icon'></i>
-                    <span class="nav__name">Announcement</span>
-                </a>
-            </div>
-
-        <a href="#" class="nav__link nav__logout">
-            <i class='bx bx-log-out nav__icon' ></i>
-            <span class="nav__name">Log Out</span>
-        </a>
-    </nav>
-</div>
-
-      <!--sidebar end-->
-  
-
-
-
-
+<form id="form" action="procedure.php?dentistid=<?php echo $dentist;?>&currentid=<?= $user;?>" method="POST">
+            <button type="submit" name="submit" style=' font-size:50px; color:#A14FD3;background: #ffffff;border: none;'>
+            <i class="fa-solid fa-circle-arrow-left"></i></button>
+</a>  
+</form>       
     
-    <div class="indent">
- 
+<div class="indent">
+<h1 style='text-align:center;'> SELECT AN APPOINTMENT</h1>
+    
 <?php
 
 
@@ -398,7 +221,7 @@ function build_calendar($month, $year) {
 
 
 ?>
-    </div>
+</div>
 
     
     <form action="book.php">
@@ -412,7 +235,7 @@ function build_calendar($month, $year) {
         <div class="row">
             
             
-            <div class="col-md-14">
+            <div class="col-md-12">
                 <?php
                      //$pid = $_POST['id']; 
                      $dateComponents = getdate();
@@ -446,4 +269,3 @@ function build_calendar($month, $year) {
         })
 
 </script>
-<script src="/Modules/admin/assets/js/main.js"></script>

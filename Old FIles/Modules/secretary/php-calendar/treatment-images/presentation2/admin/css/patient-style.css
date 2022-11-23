@@ -1,0 +1,1068 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.body_content h1 {
+    padding-left: 19%;
+}
+
+#brand {
+    background-color: rgb(166, 40, 166);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*.logo_content{
+    line-height: 20px;
+    background:#c45eff;
+    width: 100%;
+    height: 5%;
+}*/
+
+header {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 35px;
+    background: #c45eff;
+    user-select: none;
+    display: flex;
+}
+
+nav img {
+    height: 33px;
+    width: 30px;
+}
+
+#icon_announce img {
+    height: 50%;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    overflow-y: hidden;
+    background-color: blueviolet;
+}
+
+nav ul li {
+    line-height: 3em;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+}
+
+nav ul li a {
+    display: block;
+    padding-left: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+nav i {
+    color: white;
+}
+
+.logout li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding-top: 16em;
+    font-size: 19px;
+}
+
+.logout a {
+    color: white;
+    padding-left: 2em;
+    text-decoration: none;
+}
+
+
+/*TEXT FORMAT*/
+
+h1 {
+    padding-top: 0.5em;
+}
+
+#title {
+    font-size: 23px;
+}
+
+
+/* MAIN CONTENT*/
+
+
+/* patient info */
+
+.container {
+    display: flex;
+    margin: auto;
+    padding-top: 1em;
+    width: 90%;
+    padding-left: 14%;
+}
+
+.patient-info {
+    border: 2px solid #8d1ecd;
+    width: 33%;
+    height: 650px;
+    color: black;
+    text-align: center;
+}
+
+.patient-info img {
+    height: 140px;
+    width: 137px;
+    margin-top: 3rem;
+}
+
+
+/* end of patient info */
+
+
+/* tabs */
+
+.patient-tabs {
+    margin-left: 5px;
+    border: 2px solid #8d1ecd;
+    width: 80%;
+}
+
+.btn-cont button {
+    width: 16.6%;
+    float: left;
+    height: 100%;
+    border: 1px solid #8d1ecd;
+    font-family: "Poppins" sans-serif;
+    cursor: pointer;
+    background: white;
+}
+
+.btn-cont button :hover {
+    background-color: rgb(177, 167, 221);
+}
+
+
+/* end of tabs */
+
+
+/*medical bg tab */
+
+.medicalbg-header {
+    width: 300px;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 3%;
+}
+
+.mbg-button {
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #69149b;
+    text-decoration: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.mbg-edit,
+.medicalbg-header {
+    display: inline-flex;
+}
+
+.med-form {
+    column-count: 3;
+    column-fill: auto;
+}
+
+.med-form div {
+    margin-left: 5%;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.mbg-describe input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+}
+
+.mbgcancelorsave {
+    margin-top: 6%;
+    text-align: center;
+}
+
+.mbg-cancelbutton {
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+.mbg-savebutton {
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: #69149b;
+    color: white;
+    width: 60px;
+    cursor: pointer;
+}
+
+
+/* end of medical bg tab */
+
+
+/*diagnosis tab*/
+
+
+/*------------ top-teeth----------------- */
+
+.top-teeth {
+    margin-bottom: 1%;
+    width: 98%;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.top-button button {
+    margin-right: 10px;
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px;
+    cursor: pointer;
+    width: 70px;
+}
+
+.top-button button:hover {
+    background-color: #69149b;
+    color: white;
+}
+
+.top {
+    display: flex;
+}
+
+.t18,
+.t17,
+.t16,
+.t15,
+.t14,
+.t13,
+.t12,
+.t11,
+.t21,
+.t22,
+.t23,
+.t24,
+.t25,
+.t26,
+.t27,
+.t28,
+.b48,
+.b47,
+.b46,
+.b45,
+.b44,
+.b43,
+.b42,
+.b41,
+.b31,
+.b32,
+.b33,
+.b34,
+.b35,
+.b36,
+.b37,
+.b38 {
+    display: block;
+    text-align: center;
+}
+
+.t18:hover,
+.t17:hover,
+.t16:hover,
+.t15:hover,
+.t14:hover,
+.t13:hover,
+.t12:hover,
+.t11:hover,
+.t21:hover,
+.t22:hover,
+.t23:hover,
+.t24:hover,
+.t25:hover,
+.t26:hover,
+.t27:hover,
+.t28:hover,
+.b48:hover,
+.b47:hover,
+.b46:hover,
+.b45:hover,
+.b44:hover,
+.b43:hover,
+.b42:hover,
+.b41:hover,
+.b31:hover,
+.b32:hover,
+.b33:hover,
+.b34:hover,
+.b35:hover,
+.b36:hover,
+.b37:hover,
+.b38:hover {
+    border: 1px solid #8d1ecd;
+    border-radius: 4px;
+    background-color: #8d1ecd;
+    color: white;
+}
+
+
+/*
+.t18:active,
+.t17:active,
+.t16:active,
+.t15:active,
+.t14:active,
+.t13:active,
+.t12:active,
+.t11:active,
+.t21:active,
+.t22:active,
+.t23:active,
+.t24:active,
+.t25:active,
+.t26:active,
+.t27:active,
+.t28:active,
+.b48:active,
+.b47:active,
+.b46:active,
+.b45:active,
+.b44:active,
+.b43:active,
+.b42:active,
+.b41:active,
+.b31:active,
+.b32:active,
+.b33:active,
+.b34:active,
+.b35:active,
+.b36:active,
+.b37:active,
+.b38:active {
+    border: 1px solid #8d1ecd;
+    border-radius: 4px;
+    background-color: #8d1ecd;
+    color: white;
+} */
+
+.t18 button {
+    background-image: url("tooth-numbering-images/18.png");
+    background-size: contain;
+    height: 75px;
+    width: 44px;
+    cursor: pointer;
+    border: none;
+}
+
+.t17 button {
+    background-image: url("tooth-numbering-images/17.png");
+    background-size: contain;
+    height: 80px;
+    width: 44px;
+    cursor: pointer;
+    border: none;
+}
+
+.t16 button {
+    background-image: url("tooth-numbering-images/16.png");
+    background-size: contain;
+    height: 83px;
+    width: 46px;
+    cursor: pointer;
+    border: none;
+}
+
+.t15 button {
+    background-image: url("tooth-numbering-images/15.png");
+    background-size: contain;
+    height: 90px;
+    width: 34px;
+    cursor: pointer;
+    border: none;
+}
+
+.t14 button {
+    background-image: url("tooth-numbering-images/14.png");
+    background-size: contain;
+    height: 93px;
+    width: 37px;
+    cursor: pointer;
+    border: none;
+}
+
+.t13 button {
+    background-image: url("tooth-numbering-images/13.png");
+    background-size: contain;
+    height: 95px;
+    width: 39px;
+    cursor: pointer;
+    border: none;
+}
+
+.t12 button {
+    background-image: url("tooth-numbering-images/12.png");
+    background-size: contain;
+    height: 98px;
+    width: 40px;
+    cursor: pointer;
+    border: none;
+}
+
+.t11 button {
+    background-image: url("tooth-numbering-images/11.png");
+    background-size: contain;
+    height: 101px;
+    width: 41px;
+    cursor: pointer;
+    border: none;
+}
+
+.t21 button {
+    background-image: url("tooth-numbering-images/21.png");
+    background-size: contain;
+    height: 101px;
+    width: 39.5px;
+    cursor: pointer;
+    border: none;
+}
+
+.t22 button {
+    background-image: url("tooth-numbering-images/22.png");
+    background-size: contain;
+    height: 100px;
+    width: 39px;
+    cursor: pointer;
+    border: none;
+}
+
+.t23 button {
+    background-image: url("tooth-numbering-images/23.png");
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+    cursor: pointer;
+    border: none;
+}
+
+.t24 button {
+    background-image: url("tooth-numbering-images/24.png");
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+    cursor: pointer;
+    border: none;
+}
+
+.t25 button {
+    background-image: url("tooth-numbering-images/25.png");
+    background-size: contain;
+    height: 96px;
+    width: 36px;
+    cursor: pointer;
+    border: none;
+}
+
+.t26 button {
+    background-image: url("tooth-numbering-images/26.png");
+    background-size: contain;
+    height: 85px;
+    width: 43px;
+    cursor: pointer;
+    border: none;
+}
+
+.t27 button {
+    background-image: url("tooth-numbering-images/28.png");
+    background-size: contain;
+    height: 80px;
+    width: 47px;
+    cursor: pointer;
+    border: none;
+}
+
+.t28 button {
+    background-image: url("tooth-numbering-images/28.png");
+    background-size: contain;
+    height: 78px;
+    width: 45px;
+    cursor: pointer;
+    border: none;
+}
+
+
+/*------------ bottom-teeth----------------- */
+
+.bottom-teeth {
+    margin-bottom: 2%;
+    width: 98%;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-button button {
+    margin-right: 10px;
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px;
+    cursor: pointer;
+    width: 70px;
+}
+
+.bottom-button button:hover {
+    background-color: #69149b;
+    color: white;
+}
+
+.bottom {
+    display: flex;
+}
+
+.b48 button {
+    background-image: url("tooth-numbering-images/48.png");
+    background-size: contain;
+    height: 75px;
+    width: 43px;
+    cursor: pointer;
+    border: none;
+}
+
+.b47 button {
+    background-image: url("tooth-numbering-images/47.png");
+    background-size: contain;
+    height: 77px;
+    width: 44px;
+    cursor: pointer;
+    border: none;
+}
+
+.b46 button {
+    background-image: url("tooth-numbering-images/46.png");
+    background-size: contain;
+    height: 81px;
+    width: 46px;
+    cursor: pointer;
+    border: none;
+}
+
+.b45 button {
+    background-image: url("tooth-numbering-images/45.png");
+    background-size: contain;
+    height: 90px;
+    width: 34px;
+    cursor: pointer;
+    border: none;
+}
+
+.b44 button {
+    background-image: url("tooth-numbering-images/44.png");
+    background-size: contain;
+    height: 93px;
+    width: 36px;
+    cursor: pointer;
+    border: none;
+}
+
+.b43 button {
+    background-image: url("tooth-numbering-images/43.png");
+    background-size: contain;
+    height: 95px;
+    width: 39px;
+    cursor: pointer;
+    border: none;
+}
+
+.b42 button {
+    background-image: url("tooth-numbering-images/42.png");
+    background-size: contain;
+    height: 98px;
+    width: 40px;
+    cursor: pointer;
+    border: none;
+}
+
+.b41 button {
+    background-image: url("tooth-numbering-images/41.png");
+    background-size: contain;
+    height: 101px;
+    width: 41px;
+    cursor: pointer;
+    border: none;
+}
+
+.b31 button {
+    background-image: url("tooth-numbering-images/31.png");
+    background-size: contain;
+    height: 101px;
+    width: 39.5px;
+    cursor: pointer;
+    border: none;
+}
+
+.b32 button {
+    background-image: url("tooth-numbering-images/32.png");
+    background-size: contain;
+    height: 100px;
+    width: 39px;
+    cursor: pointer;
+    border: none;
+}
+
+.b33 button {
+    background-image: url("tooth-numbering-images/33.png");
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+    cursor: pointer;
+    border: none;
+}
+
+.b34 button {
+    background-image: url("tooth-numbering-images/34.png");
+    background-size: contain;
+    height: 98px;
+    width: 38px;
+    cursor: pointer;
+    border: none;
+}
+
+.b35 button {
+    background-image: url("tooth-numbering-images/35.png");
+    background-size: contain;
+    height: 91px;
+    width: 36px;
+    cursor: pointer;
+    border: none;
+}
+
+.b36 button {
+    background-image: url("tooth-numbering-images/36.png");
+    background-size: contain;
+    height: 80px;
+    width: 43px;
+    cursor: pointer;
+    border: none;
+}
+
+.b37 button {
+    background-image: url("tooth-numbering-images/38.png");
+    background-size: contain;
+    height: 80px;
+    width: 44px;
+    cursor: pointer;
+    border: none;
+}
+
+.b38 button {
+    background-image: url("tooth-numbering-images/38.png");
+    background-size: contain;
+    height: 78px;
+    width: 42px;
+    cursor: pointer;
+    border: none;
+}
+
+.add-desc {
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.add-desc div a {
+    text-decoration: none;
+    margin-bottom: 3%;
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #69149b;
+    background-color: #69149b;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.add-btn a:hover {
+    border: #8d1ecd;
+    background-color: #8d1ecd;
+}
+
+.diagnosis-table table {
+    width: 90%;
+    margin-left: 5%;
+    border: 1px solid #69149b;
+}
+
+.diagnosis-table table tr,
+.diagnosis-table table th {
+    border: 1px solid #69149b;
+}
+
+.date {
+    width: 20%;
+}
+
+.tooth-no {
+    width: 20%;
+}
+
+.desc {
+    width: 50%;
+}
+
+.dcancelorsave {
+    margin-top: 4%;
+    text-align: center;
+}
+
+.d-cancelbutton {
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+.d-savebutton {
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: #69149b;
+    color: white;
+    width: 60px;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wrapper {
+    margin: 100px auto;
+    padding: 10px;
+    background: #e7e7e7;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.wrapper h2 {
+    margin-top: 0;
+    color: #5F46A6;
+}
+
+.wrapper .close {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #5F46A6;
+}
+
+.wrapper .close:hover {
+    color: #4a5ac4;
+}
+
+.wrapper .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+
+/*form*/
+
+.container form label {
+    font-weight: 350;
+}
+
+.type-desc {
+    width: 450px;
+    height: 300px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+
+.disc[type="submit"] {
+    background-color: #fff;
+    color: #5F46A6;
+    padding: 10px 45px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.save[type="submit"] {
+    background-color: #5F46A6;
+    color: #fff;
+    padding: 10px 45px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.disc,
+.save {
+    text-align: center;
+}
+
+
+/*--------------------- dental bg tab------------------------- */
+
+.dentalbg-header {
+    width: 300px;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 3%;
+}
+
+.dbg-button {
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #69149b;
+    text-decoration: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.dbg-edit,
+.dentalbg-header {
+    display: inline-flex;
+}
+
+.form1st div {
+    font-size: 15px;
+    margin-left: 3%;
+    line-height: 20px;
+}
+
+.form1st label {
+    float: right;
+    padding-right: 20%;
+}
+
+.treatments label {
+    padding-right: 21.5%;
+}
+
+.form2nd {
+    margin-top: 15px;
+    margin-left: 3%;
+}
+
+.form2nd div {
+    font-size: 15px;
+    margin-left: 2%;
+    line-height: 20px;
+}
+
+.subf2 {
+    column-count: 2;
+}
+
+.dbgcancelorsave {
+    margin-top: 4%;
+    text-align: center;
+}
+
+.dbg-cancelbutton {
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+.dbg-savebutton {
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: #69149b;
+    color: white;
+    width: 60px;
+    cursor: pointer;
+}
+
+
+/* end of dental bg tab */
+
+
+/* prescription tab*/
+
+.tabPanel {
+    display: none;
+}
+
+.tabPanel h2 {
+    margin-top: 5%;
+    margin-left: 2%;
+    margin-bottom: 3%;
+}
+
+.tabPanel h3 {
+    margin-left: 5%;
+}
+
+#e-prescription p {
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 10%;
+}
+
+tab div {
+    margin-top: 3%;
+}
+
+.personal-info,
+.prescr-info,
+.prof-info {
+    border: solid 1px #8d1ecd;
+    width: 700px;
+    margin-top: 2%;
+    border-style: dashed;
+    margin-left: 4%;
+}
+
+
+/*end of prescription tab */
+
+nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+nav ul li.active a {
+    color: rgb(244, 244, 244);
+    background: rgb(107, 15, 193);
+    border-left-color: rgb(255, 255, 255);
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul .sched-show.show {
+    display: block;
+}
+
+nav ul .acct-show.show1 {
+    display: block;
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-bottom: none;
+}
+
+nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 75px;
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: rgb(107, 15, 193);
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: rgb(177, 167, 221)!important;
+    background: rgb(107, 15, 193)!important;
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}

@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    overflow: scroll;
+}
+
+.body_content {
+    padding-left: 1%;
+}
+
+.page-title h1 {
+    padding-left: 30px;
+    color: blueviolet !important;
+    font-weight: bold;
+}
+
+
+/*-----------------------   HEADING   ----------------------*/
+
+.body_content img {
+    height: auto;
+    width: 130px;
+}
+
+.contain {
+    display: inline-block;
+    grid-gap: 0px;
+    width: 100%;
+}
+
+
+/* CONTAINER OF UPCOMING APPOINTMENT */
+
+.appointments {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.upcoming-app {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 5px;
+    background-color: white;
+    height: 200px;
+    width: 85%;
+    color: black;
+    margin-bottom: 1%;
+}
+
+.app-body {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.col1 {
+    margin-top: 1%;
+}
+
+.col2,
+.col3 {
+    margin-top: 4%;
+}
+
+.col4 {
+    margin-top: 10%;
+}
+
+.col2 h4,
+.col3 h4 {
+    color: #707070;
+}
+
+.app-body p {
+    font-size: 70px;
+    font-weight: bolder;
+}
+
+.cancelbtn {
+    background-color: red;
+    border: red;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* -------------------------------- Responsive ------------------------------*/
+
+
+/* -----------MOBILE DEVICE---------*/
+
+@media screen and (max-width: 480px) {
+    .body_content img {
+        height: auto;
+        width: 70px;
+        margin-left: 10px;
+        margin-right: 20px;
+        margin-top: 30px;
+    }
+    .contain1 p {
+        color: #AE37FF;
+        font-family: 'Poppins';
+        font-size: 40px;
+        margin-left: 10px;
+        margin-top: -15px;
+    }
+    .contain2 {
+        margin-left: 80px;
+        margin-top: -10px;
+        font-family: 'Poppins';
+    }
+    .lefthead-container {
+        display: inline-block;
+        border: 3px solid #8d1ecd;
+        border-radius: 10px;
+        background-color: #8d1ecd;
+        height: auto;
+        width: 60%;
+        color: white;
+        text-align: left;
+    }
+    .leftcon p {
+        border-radius: 0.9em;
+        margin-top: 0px;
+        margin-left: 20px;
+        padding-bottom: 0px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .upcoming-app {
+        border: 3px solid #8d1ecd;
+        border-radius: 0.9em;
+        background-color: white;
+        height: 190px;
+        width: 100%;
+        color: black;
+        text-align: left;
+        margin-left: 0px;
+    }
+    .upcoming-app p {
+        margin-left: 10px;
+        margin-top: -20px;
+    }
+    .table-section {
+        margin-left: -13px;
+        padding: 10px;
+        padding-bottom: 0px;
+        margin-top: -20px;
+    }
+    th,
+    td {
+        padding: 8px;
+        text-align: center;
+        font-size: 10px;
+    }
+    #border {
+        border: transparent;
+        border-radius: 0.9em;
+        background-color: gainsboro;
+        width: 98%;
+        margin-left: 10px;
+    }
+    .up-seebutton {
+        border: solid 1px #69149b;
+        border-radius: 10px;
+        padding: 5px;
+        background: #69149b;
+        color: white;
+        width: 100px;
+        cursor: pointer;
+        font-size: 10px;
+        text-align: center;
+    }
+    .up-seebutton {
+        margin-top: 5px;
+        margin-left: 120px;
+    }
+}
+
+
+/* -----------TABLET DEVICE---------*/
+
+
+/*
+@media screen and (max-width: 600px) {
+
+.body_content img{
+    height: auto;
+    width: 130px;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-top: 60px;
+}
+    
+.contain1 p {
+    color: #AE37FF;
+    font-family: 'Poppins';
+    font-size: 80px;
+    margin-left: 10px;
+    margin-top: -35px;
+}
+
+.contain2 { 
+    margin-left: 100px;
+    margin-top: -10px;
+    font-family: 'Poppins';
+}
+    
+    
+.lefthead-container {
+    display:inline-block;
+    border: 3px solid #8d1ecd;
+    border-radius: 10px;
+    background-color: #8d1ecd;
+    height: auto;
+    width: 60%;
+    color: white;
+    text-align:left; 
+    margin-top: -120px;
+    margin-bottom: 20px;
+}  
+
+.leftcon p{
+    border-radius: 0.9em;
+    margin-top: 10px;
+    margin-left: 20px; 
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+    
+    
+.upcoming-app {
+    border: 3px solid #8d1ecd;
+    border-radius: 0.9em;
+    background-color: white;
+    height: 280px;
+    width: 100%;
+    color: black;
+    text-align: left;
+    margin-left:0px;
+}  
+
+.upcoming-app p{
+    margin-left: 10px;
+    margin-top: -10px;
+}      
+    
+
+.table-section{
+    margin-left: -10px;
+    padding: 10px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    
+}
+
+th,td{
+    padding: 8px;
+    text-align: center;
+}
+
+
+#border{
+    border: transparent;
+    border-radius: 0.9em;
+    background-color: gainsboro;
+    width: 98%;
+    margin-left: 10px;
+}
+
+
+.up-seebutton{
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: #69149b;
+    color: white;
+    width: 100px;
+    cursor: pointer;
+    font-size: 15px;
+    
+
+}
+
+.up-seebutton{
+    margin-top: 10px;
+    margin-left: 200px;
+}
+
+}

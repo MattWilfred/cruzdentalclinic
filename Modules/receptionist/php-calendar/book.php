@@ -43,6 +43,12 @@ $find_dentist = mysqli_query($mysqli,$sql);
 
 $sql = "SELECT * FROM `users` WHERE id= '$dentistid' AND accrole ='Dentist'";
 $id_dentist = mysqli_query($mysqli,$sql);
+
+$sql = "SELECT * FROM `users` WHERE id= '$userid' AND accrole ='Patient'";
+$id_patient = mysqli_query($mysqli,$sql);
+
+
+
 // The following code checks if the submit button is clicked
 // and inserts the data in the database accordingly
 if(isset($_POST['submit'])){
@@ -50,20 +56,21 @@ if(isset($_POST['submit'])){
     $timeslot = $_POST['timeslot'];
     $drselect = $_POST['Dr'];
     $dentist_id_fk = $_POST['dID'];
+    $patient_id_fk = $_POST['pID'];
     $procedure = $_POST['list'];   
     $status = $_POST['status'];
 
        
 
-    $stmt = $mysqli->prepare("INSERT INTO bookings (name, timeslot, date, doctor, treatment,status, dentist_id) VALUES (?,?,?,?,?,?,?)");
-    $stmt->bind_param('sssssss', $name, $timeslot , $date, $drselect, $procedure, $status, $dentist_id_fk);
+    $stmt = $mysqli->prepare("INSERT INTO bookings (name, timeslot, date, doctor, treatment,status, dentist_id, patient_id) VALUES (?,?,?,?,?,?,?,?)");
+    $stmt->bind_param('ssssssss', $name, $timeslot , $date, $drselect, $procedure, $status, $dentist_id_fk, $patient_id_fk);
     $stmt->execute();
     //$msg = "<div class='alert alert-success'>Booking Successfull</div>";
     $bookings[]=$timeslot;
     $stmt->close();
     $mysqli->close();
 
-    echo  "<script> alert('Booked Successfully'); window.location='/admin/php-calendar/select.html'; </script>";
+    echo  "<script> alert('Booked Successfully'); window.location='/Modules/receptionist/index.php'; </script>";
 }
 
 $newtime = computer($treat);
@@ -136,15 +143,13 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bookcss.css">
-    <link rel="stylesheet" href="indent.css">
-    <link rel="stylesheet" href="../css/navstyle.css">
-    
+    <link rel="stylesheet" href="Book.Bootstrap.min.css?v=<?php echo time(); ?>">
+
     <title></title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body>
@@ -156,13 +161,14 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     
 
     <div class="indent">
-      <h1>  Select Time For Appointment </h1>
+    <h1 style='text-align:center;'> Select Time For Appointment </h1>
+      <h1 style='text-align:center;'>Book for Date: <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr>
     </div>
 
     <div class="time">
         <div class="container">
 
-        <h1 class="text-center">Book for Date: <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr>
+        
         <div class="row">
             <div class="row"> 
                 <div class="col-md-12">
@@ -170,13 +176,13 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                 </div>
             </div>
           
-            <h1>MORNING SCHEDULE</h1>
+            <h1>MORNING SCHEDULE</h1><hr>
            <?php $timeslots = timeslotsAM($duration, $cleanup, $start,$end);
                 // $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);  
               foreach($timeslots as $ts){
             ?>
            
-           
+           <br><br>
             <div class="col-md-4">
                 <div class="form-group"> 
                     <?php if(in_array($ts,$bookings)){ ?>
@@ -190,15 +196,15 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
             <?php } ?>
             </div>
             
-
+            <br><br>     <br><br>
           <div class ="row">
               </br>
-            <h1>AFTERNOON SCHEDULE</h1>
+            <h1>AFTERNOON SCHEDULE</h1><hr>
 
             <?php $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);
                 // $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);  
               foreach($timeslots1 as $ts1){
-            ?>
+            ?>    <br><br>
            
            
             <div class="col-md-4">
@@ -233,7 +239,7 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+   
         <h4 class="modal-title">Booking: <span id="slot"></span></h4>
       </div>
       <div class="modal-body">
@@ -267,9 +273,9 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                     <div class="form-group">
                       
                     <?php
-                  // use a while loop to fetch data
-                // from the $all_categories variable
-                // and individually display as an option
+                    // use a while loop to fetch data
+                    // from the $fiind_Dentist variable
+                    // and individually display as an option
                          while ($find = mysqli_fetch_array(
                                   $find_dentist,MYSQLI_ASSOC)):;
                       ?>
@@ -282,15 +288,15 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                  
                    ?> 
                    
-                    </div>
+                    </div>  
 
 
                     <div class="form-group">
                       
                     <?php
-                  // use a while loop to fetch data
-                // from the $all_categories variable
-                // and individually display as an option
+                    // use a while loop to fetch data
+                    // from the $all_categories variable
+                    // and individually display as an option
                          while ($find = mysqli_fetch_array(
                                   $id_dentist,MYSQLI_ASSOC)):;
                       ?>
@@ -304,6 +310,30 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                    ?> 
                    
                     </div>
+
+
+
+
+                    <div class="form-group">
+                      
+                      <?php
+                    // use a while loop to fetch data
+                  // from the $all_categories variable
+                  // and individually display as an option
+                           while ($find = mysqli_fetch_array(
+                                    $id_patient,MYSQLI_ASSOC)):;
+                        ?>
+                        
+                      <input type= "hidden" readonly name="pID" value="<?php echo $find['id']; ?>"  class="form-control">
+                          
+                      <?php
+                       endwhile;
+                  // While loop must be terminated
+                   
+                     ?> 
+                     
+                      </div>
+  
 
 
 

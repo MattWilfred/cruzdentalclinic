@@ -143,15 +143,12 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bookcss.css">
-    <link rel="stylesheet" href="indent.css">
-    <link rel="stylesheet" href="../css/navstyle.css">
-    
+    <link rel="stylesheet" href="Book.Bootstrap.min.css?v=<?php echo time(); ?>">
+  
     <title></title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body>
@@ -163,13 +160,14 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     
 
     <div class="indent">
-      <h1>  Select Time For Appointment </h1>
+    <h1 style='text-align:center;'> Select Time For Appointment </h1>
+      <h1 style='text-align:center;'>Book for Date: <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr>
     </div>
 
     <div class="time">
         <div class="container">
 
-        <h1 class="text-center">Book for Date: <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr>
+        
         <div class="row">
             <div class="row"> 
                 <div class="col-md-12">
@@ -177,13 +175,14 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                 </div>
             </div>
           
-            <h1>MORNING SCHEDULE</h1>
+               
+            <h1>MORNING SCHEDULE</h1><hr>
            <?php $timeslots = timeslotsAM($duration, $cleanup, $start,$end);
                 // $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);  
               foreach($timeslots as $ts){
             ?>
            
-           
+           <br><br>
             <div class="col-md-4">
                 <div class="form-group"> 
                     <?php if(in_array($ts,$bookings)){ ?>
@@ -197,15 +196,15 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
             <?php } ?>
             </div>
             
-
+            <br><br>     <br><br>
           <div class ="row">
-              </br>
-            <h1>AFTERNOON SCHEDULE</h1>
+          </br>
+            <h1>AFTERNOON SCHEDULE</h1><hr>
 
             <?php $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);
                 // $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);  
               foreach($timeslots1 as $ts1){
-            ?>
+            ?><br><br>
            
            
             <div class="col-md-4">
@@ -240,7 +239,7 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+   
         <h4 class="modal-title">Booking: <span id="slot"></span></h4>
       </div>
       <div class="modal-body">

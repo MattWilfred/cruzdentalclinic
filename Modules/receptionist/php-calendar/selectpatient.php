@@ -1,8 +1,8 @@
 <?php
 
-    include ('../../Database/connect.php');
+    include ('../../../Database/connect.php');
     $dentist=$_GET['dentistid'];
-    echo $dentist;         
+     
     
 ?>
 
@@ -17,19 +17,20 @@
         <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     </head>
         <body>
-<!--========== HEADER ==========-->
-<header class="header">
-    <div class="header__container">
-        <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
-        <a href="#" class="header__logo">Cruz Dental Clinic</a>
+    
+         <!--========== HEADER ==========-->
+         <header class="header">
+          <div class="header__container">
+          <img class="header__img" src="/Modules/receptionist/assets/img/logo dental.png" alt="">
 
-     
-
-        <div class="header__toggle">
-            <i class='bx bx-menu' id="header-toggle"></i>
-        </div>
-    </div>
-</header>
+              <a href="#" class="header__logo">Cruz Dental Clinic</a>
+  
+  
+              <div class="header__toggle">
+                  <i class='bx bx-menu' id="header-toggle"></i>
+              </div>
+          </div>
+      </header>
 
 <!--========== NAV ==========-->
 
@@ -37,7 +38,7 @@
 <div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
-            <a href="/Modules/receptionist/index.php" class="nav__link nav__logo">
+            <a href="#" class="nav__link nav__logo">
            <i class='nav__icon'>
            <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
            </i>
@@ -53,7 +54,7 @@
                     </a>
                     
                     <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
+                        <a href="/Modules/receptionist/index.php" class="nav__link">
                             <i class='bx bxs-calendar nav__icon' ></i>
                             
                             <span class="nav__name">Schedule</span>
@@ -64,7 +65,8 @@
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/receptionist/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/receptionist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
+                                <a href="/Modules/receptionist/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -78,8 +80,6 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                            <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
                                 <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
                                
                             </div>
@@ -99,12 +99,13 @@
                 </a>
             </div>
 
-        <a href="#" class="nav__link nav__logout">
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
             <i class='bx bx-log-out nav__icon' ></i>
             <span class="nav__name">Log Out</span>
         </a>
     </nav>
 </div>
+
 
       <!--sidebar end-->
       <main>
@@ -142,69 +143,49 @@
 <table class="table " style=border-color:violet;>
     <thead>
         <tr>
+            <th>Picture</th>
             <th>Name</th>
             <th>Gender</th>
-            <th>Mobile No.</th>
+           
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>  
-    <?php 
+            <?php
+                 //read rows from the database
+              $sql = "SELECT * FROM users WHERE accrole ='Patient' ORDER BY lname ASC";
+              $result = $connection->query($sql);
 
-//read rows from the database
-$sql = "SELECT * FROM users WHERE accrole ='Patient' ORDER BY lname ASC";
-$result = $connection->query($sql);
+        
+              if (!$result){
+                  die("Invalid query: " . $connection->error);
+              }
 
-if (!$result){
-    die("Invalid query: " . $connection->error);
-}
-
-
-if (isset($_POST["submitsearch"])){
-
-    $searchedTerm = $_POST["search"];
-    $entries = mysqli_query($connection, "SELECT * FROM users WHERE username LIKE  '$searchedTerm' AND accrole = 'Patient'|| fname LIKE '$searchedTerm' || lname LIKE '$searchedTerm'");
-
-    while ($users = mysqli_fetch_assoc($entries)) {
-        echo "<tbody id='searched-div'>";
-        echo "<tr>";
-       
-        echo "<td>".$users['fname']." ".$users['lname']."</td>";
-        echo "<td>".$users['gender']."</td>";
-        echo "<td>".$users['phonenumber']."</td>";
-       
-        echo "<td><a href=view.php?id=<?=" .$users['id']. " class='btn btn-info btn-sm'>View</a></td>";
-        echo "</tr>";
-        echo "</tbody>";
-    }
-}
-
-else if(mysqli_num_rows($result) > 0)
-                {
-                    foreach($result as $users)
-                    {
-                        ?>
-                        <tbody id="original-div">
-                        <tr>
-                     
-                            <td><?= $users['fname'] . ' ' .$users['lname'];?></td>
-                            <td><?= $users['gender']; ?></td>
-                            <td><?= $users['phonenumber']; ?></td>
-                            <td>
-                            <a href="procedure.php?dentist=<?php echo $dentist?>&currentid=<?= $users['id']; ?>" class="btn btn-info btn-sm">select</a>
-                                
-                               
-                            </td>
-                        </tr>
-                        </tbody>
-                        <?php
-                    }
-                }
-                else
-                {
-                    echo "<h5> No Record Found </h5>";
-                }
-?>  
+              if(mysqli_num_rows($result) > 0)
+                              {
+                                  foreach($result as $users)
+                                  {
+                                      ?>
+                                      <tr>
+                  
+                                          <td><?= $users['fname'] . ' ' .$users['lname'];?></td>
+                                          <td><?= $users['gender']; ?></td>
+                                          <td><?= $users['phonenumber']; ?></td>
+                                          <td>
+                                              <a href="procedure.php?dentistid=<?php echo $dentist?>&currentid=<?= $users['id']; ?>" class="btn btn-info btn-sm">select</a>
+                                             
+                                          </td>
+                                      </tr>
+                                      <?php
+                                  }
+                              }
+                              else
+                              {
+                                  echo "<h5> No Record Found </h5>";
+                              }
+    
+            ?>
+        
             </tbody>
         </table>
     </div>
@@ -212,14 +193,6 @@ else if(mysqli_num_rows($result) > 0)
     
     
     </body>
-<script src="/Modules/receptionist/assets/js/main.js"></script>
-<script>
-    $(document).ready(function(){
-        $(".sbutton").on("click", function(){
-            $("original-div").hide();
-            $("searched-div").show();
-        })
-    })
-    </script>
+<script src="/Modules/admin/assets/js/main.js"></script>
 
 </html>

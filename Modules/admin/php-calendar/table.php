@@ -3,6 +3,7 @@
  $query = "SELECT * FROM bookings  ORDER BY sched_id AND timeslot asc";  
  $result = mysqli_query($connect, $query);  
 
+
  if(isset($_POST['ongoing'])){
 
  }

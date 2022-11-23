@@ -6,9 +6,9 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "cruzdentalclinic";
 
-$con = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-if (!$con){
+if (!$conn){
   die("Connection error!");
 }
 
@@ -39,7 +39,7 @@ if (!$con){
 <header class="header">
         <div class="header__container">
 
-        <a href="index.php">
+            <a href="patientlist.php">
                 <button>
                     <i class="fa-solid fa-angle-left"></i>
                     Back to Patient List
@@ -55,78 +55,77 @@ if (!$con){
         </div>
     </header>
 
-    <!--========== NAV ==========-->
-    <div class="nav" id="navbar">
-        <nav class="nav__container">
-            <div>
-                <a href="#" class="nav__link nav__logo">
-                    <i class='bx bxs-disc nav__icon'></i>
-                    <span class="nav__logo-name">Cruz Dental Clinic</span>
-                </a>
+   
+<div class="nav" id="navbar">
+    <nav class="nav__container">
+        <div>
+            <a href="#" class="nav__link nav__logo">
+           <i class='nav__icon'>
+           <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
+           </i>
+                <span class="nav__logo-name">Cruz Dental Clinic</span>
+            </a>
 
-                <div class="nav__list">
+            <div class="nav__list">
+                <div class="nav__items">
 
-                    <div class="nav__items">
-                    <a href="/Modules/admin/index.php" class="nav__link active">
-                            <i class='bx bx-home nav__icon'></i>
-                            <span class="nav__name">Dashboard</span>
+                    <a href="/Modules/secretary/index.php" class="nav__link active">
+                        <i class='bx bx-home nav__icon' ></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    
+                    <div class="nav__dropdown">
+                        <a href="/Modules/secretary/index.php" class="nav__link">
+                            <i class='bx bxs-calendar nav__icon' ></i>
+                            
+                            <span class="nav__name">Schedule</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                         </a>
-                        
 
-                        <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
-                                <i class='bx bxs-calendar nav__icon'></i>
-
-                                <span class="nav__name">Schedule</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-
-                            </a>
-
-                            <div class="nav__dropdown-collapse">
-                                <div class="nav__dropdown-content">
-                                    <a href="/php-calendar/calendar.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/php-calendar/select.html" class="nav__dropdown-item">Schedule List</a>
-
-
-                                </div>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                               
                             </div>
                         </div>
-
-                        <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class='bx bx-user nav__icon'></i>
-                                    <span class="nav__name">Accounts</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                    <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
-                                        <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                        <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-
-                                    </div>
-                                </div>
-                        </div>
-
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-money nav__icon'></i>
-                            <span class="nav__name">Billing</span>
-                        </a>
                     </div>
 
-                    <a href="#" class="nav__link">
-                        <i class='bx bxs-megaphone nav__icon'></i>
-                        <span class="nav__name">Announcement</span>
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Accounts</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="/Modules/secretary/billing/billing.php" class="nav__link">
+                        <i class='bx bx-money nav__icon' ></i>
+                        <span class="nav__name">Billing</span>
                     </a>
                 </div>
 
-                <a href="#" class="nav__link nav__logout">
-                    <i class='bx bx-log-out nav__icon'></i>
-                    <span class="nav__name">Log Out</span>
+                <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
+                    <i class='bx bxs-megaphone nav__icon'></i>
+                    <span class="nav__name">Announcement</span>
                 </a>
-        </nav>
-        </div>
+            </div>
+
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+            <i class='bx bx-log-out nav__icon' ></i>
+            <span class="nav__name">Log Out</span>
+        </a>
+    </nav>
+</div>
+
 
 
 
@@ -143,7 +142,7 @@ if (!$con){
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
-            $result = mysqli_query($con,$sql);
+            $result = mysqli_query($connection,$sql);
     
 
             if(mysqli_num_rows($result)>0){
@@ -189,6 +188,14 @@ if (!$con){
                     <div class="address">
                         <span>Address</span>
                         <p><?php echo $address ?></p>
+                    </div>
+                    <div class="edit=prf" style="text-align: center; margin-top: 15%;">
+                        <a href="patientlist.php">
+                            <button>
+                                <i class="fa-solid fa-pen"></i>
+                                Edit Profile
+                            </button>
+                        </a>
                     </div>
 
                 

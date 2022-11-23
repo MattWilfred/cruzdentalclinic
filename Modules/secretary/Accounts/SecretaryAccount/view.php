@@ -38,10 +38,7 @@
 
          
 
-            <div class="header__toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
-            </div>
-        </div>
+          </div>
     </header>
 
     <!--========== NAV ==========-->
@@ -50,7 +47,7 @@
     <div class="nav" id="navbar">
         <nav class="nav__container">
             <div>
-                <a href="#" class="nav__link nav__logo">
+               <a href="#" class="nav__link nav__logo">
                <i class='nav__icon'>
                <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
                </i>
@@ -223,7 +220,7 @@
                         
 
                             <div class="buttons">
-                            <a href="index.php">
+                            <a href="/Modules/secretary/index.php">
                             <button type="button" id="closebtn" class="btn btn-secondary">Close</button>
                             </a>
                            <a href="editprofile.php?id=<?=$currentid['id']; ?>" class="btn btn-primary">Edit</a>

@@ -183,28 +183,35 @@ function build_calendar($month, $year) {
 }
     
 ?>
+<?php
+    $user = $_GET['currentid'];
+    $dentist = $_GET['dentistid']
 
+?>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="css/calendarbootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="css/schedulelistbootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="css/styles.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="css/form.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="css/calendarbootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="css/form.css?v=<?php echo time(); ?>" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/44763be3ea.js" crossorigin="anonymous"></script>
         
-        <link href="indent.css?v=<?php echo time(); ?>" rel="stylesheet">
+        
     </head>
 
 <body>
 
 
            
-    
+<form id="form" action="procedure.php?dentistid=<?php echo $dentist;?>&currentid=<?= $user;?>" method="POST">
+            <button type="submit" name="submit" style=' font-size:50px; color:#A14FD3;background: #ffffff;border: none;'>
+            <i class="fa-solid fa-circle-arrow-left"></i></button>
+</a>  
+</form> 
 <div class="indent">
-    <h1> SELECT AN APPOINTMENT</h1>
-    
+<h1 style='text-align:center;'> SELECT AN APPOINTMENT</h1>
 <?php
 
 

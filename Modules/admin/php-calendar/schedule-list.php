@@ -37,11 +37,7 @@
             <img class="header__img" src="/Modules/admin/assets/img/logo dental.png" alt="">
                 <a href="#" class="header__logo">Cruz Dental Clinic</a>
     
-                <div class="header__search">
-                    <input type="search" placeholder="Search" class="header__input">
-                    <i class='bx bx-search header__icon'></i>
-                </div>
-    
+                
                 <div class="header__toggle">
                     <i class='bx bx-menu' id="header-toggle"></i>
                 </div>
@@ -181,7 +177,8 @@
                                <td>  
 
                            
-                                    <?php  
+                               
+                               <?php  
                                     if ($row['status']==1) {  
                                         echo "Upcoming";  
                                     }if ($row['status']==2) {  
@@ -198,7 +195,6 @@
                                 <td>  
                                 <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['sched_id'] ?>')">  
                                 <option value="">Update Status</option>  
-                                <option value="1">Upcoming</option>  
                                 <option value="2">Ongoing</option>  
                                 <option value="3">Done</option>
                                 <option value="4">Cancel</option>    

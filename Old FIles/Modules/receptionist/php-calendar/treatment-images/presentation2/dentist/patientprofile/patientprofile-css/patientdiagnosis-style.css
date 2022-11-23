@@ -1,0 +1,808 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.body_content {
+    padding-left: 19%;
+    padding-top: 2%;
+}
+
+.body_content button {
+    background-color: #8d1ecd;
+    color: white;
+    border: #8d1ecd;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.body_content button:hover {
+    background-color: #8d1ecd;
+    color: white;
+    border: #8d1ecd;
+}
+
+#brand {
+    background-color: rgb(166, 40, 166);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*.logo_content{
+    line-height: 20px;
+    background:#c45eff;
+    width: 100%;
+    height: 5%;
+}*/
+
+header {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 35px;
+    background: #c45eff;
+    user-select: none;
+    display: flex;
+}
+
+.side-menu nav img {
+    height: 33px;
+    width: 30px;
+}
+
+#icon_announce img {
+    height: 50%;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.side-menu nav {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    overflow-y: hidden;
+    background-color: blueviolet;
+}
+
+.side-menu nav ul li {
+    line-height: 3em;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+}
+
+.side-menu nav ul li a {
+    display: block;
+    padding-left: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+.side-menu nav i {
+    color: white;
+}
+
+.logout li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding-top: 16em;
+    font-size: 19px;
+}
+
+.logout a {
+    color: white;
+    padding-left: 2em;
+    text-decoration: none;
+}
+
+.side-menu nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    list-style: none;
+}
+
+.side-menu nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.side-menu nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 5px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+.side-menu nav ul li.active a {
+    color: rgb(244, 244, 244);
+    background: rgb(107, 15, 193);
+    border-left-color: rgb(255, 255, 255);
+}
+
+.side-menu nav ul ul {
+    position: static;
+    display: none;
+}
+
+.side-menu nav ul .sched-show.show {
+    display: block;
+}
+
+.side-menu nav ul .acct-show.show1 {
+    display: block;
+}
+
+.side-menu nav ul ul li {
+    line-height: 42px;
+    border-bottom: none;
+}
+
+.side-menu nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 35px;
+}
+
+.side-menu nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: rgb(107, 15, 193);
+    border-left-color: transparent;
+}
+
+.side-menu nav ul ul li a:hover {
+    color: rgb(177, 167, 221)!important;
+    background: rgb(107, 15, 193)!important;
+}
+
+.side-menu nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+.side-menu nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+
+/*TEXT FORMAT*/
+
+h1 {
+    padding-top: 7px;
+    font-weight: bolder;
+    color: blueviolet;
+}
+
+#title {
+    font-size: 23px;
+}
+
+
+/* MAIN CONTENT*/
+
+
+/* patient info */
+
+.container {
+    display: flex;
+    margin: auto;
+    width: 80%;
+    margin-left: 18%;
+}
+
+.patient-info {
+    border: 2px solid #8d1ecd;
+    width: 33%;
+    height: 650px;
+}
+
+.patient-info img {
+    height: 140px;
+    width: 137px;
+    margin-top: 3rem;
+}
+
+.info-header {
+    color: black;
+    text-align: center;
+}
+
+.pemail {
+    font-style: italic;
+}
+
+.patient-info span {
+    font-weight: bold;
+}
+
+.username {
+    justify-content: space-between;
+    display: flex;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.gender,
+.phone,
+.bday,
+.address {
+    justify-content: space-between;
+    display: flex;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+/* end of patient info */
+
+.navbar {
+    margin-left: 15px;
+    width: 75%;
+    border: 2px solid #8d1ecd;
+    display: table;
+}
+
+.topnav {
+    display: table-row;
+}
+
+.topnav {
+    position: absolute;
+    top: 0;
+    background-color: blueviolet;
+    overflow: hidden;
+}
+
+
+/* Style the links inside the navigation bar */
+
+.topnav a {
+    background-color: blueviolet;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 14.6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+/* Change the color of links on hover */
+
+.topnav a:hover {
+    background-color: white;
+    color: blueviolet;
+}
+
+
+/* Add a color to the active/current link */
+
+.topnav a.active {
+    background-color: white;
+    color: blueviolet;
+}
+
+
+/*diagnosis content*/
+
+.diagnosis {
+    margin-top: 5%;
+}
+
+.diagnosis-header {
+    margin-left: 2%;
+}
+
+.diagnosis-header h2 {
+    font-weight: bolder;
+}
+
+.top-teeth {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 92%;
+    height: 110px;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.top-ind p {
+    margin-right: 10px;
+}
+
+.top {
+    display: flex;
+}
+
+.t18,
+.t17,
+.t16,
+.t15,
+.t14,
+.t13,
+.t12,
+.t11,
+.t21,
+.t22,
+.t23,
+.t24,
+.t25,
+.t26,
+.t27,
+.t28,
+.b48,
+.b47,
+.b46,
+.b45,
+.b44,
+.b43,
+.b42,
+.b41,
+.b31,
+.b32,
+.b33,
+.b34,
+.b35,
+.b36,
+.b37,
+.b38 {
+    display: block;
+    text-align: center;
+}
+
+#diagnosis input {
+    cursor: pointer;
+}
+
+.t18 input,
+.t17 input,
+.t16 input,
+.t15 input,
+.t14 input,
+.t13 input,
+.t12 input,
+.t11 input,
+.t21 input,
+.t22 input,
+.t23 input,
+.t24 input,
+.t25 input,
+.t26 input,
+.t27 input,
+.t28 input,
+.b48 input,
+.b47 input,
+.b46 input,
+.b45 input,
+.b44 input,
+.b43 input,
+.b42 input,
+.b41 input,
+.b31 input,
+.b32 input,
+.b33 input,
+.b34 input,
+.b35 input,
+.b36 input,
+.b37 input,
+.b38 input {
+    display: none;
+}
+
+.t18 input:checked+div,
+.t17 input:checked+div,
+.t16 input:checked+div,
+.t15 input:checked+div,
+.t14 input:checked+div,
+.t13 input:checked+div,
+.t12 input:checked+div,
+.t11 input:checked+div,
+.t21 input:checked+div,
+.t22 input:checked+div,
+.t23 input:checked+div,
+.t24 input:checked+div,
+.t25 input:checked+div,
+.t26 input:checked+div,
+.t27 input:checked+div,
+.t28 input:checked+div,
+.b48 input:checked+div,
+.b47 input:checked+div,
+.b46 input:checked+div,
+.b45 input:checked+div,
+.b44 input:checked+div,
+.b43 input:checked+div,
+.b42 input:checked+div,
+.b41 input:checked+div,
+.b31 input:checked+div,
+.b32 input:checked+div,
+.b33 input:checked+div,
+.b34 input:checked+div,
+.b35 input:checked+div,
+.b36 input:checked+div,
+.b37 input:checked+div,
+.b38 input:checked+div {
+    border-color: 1px #8d1ecd;
+    border-radius: 4px;
+    background-color: #8d1ecd;
+    color: white;
+}
+
+.t18 img {
+    background-size: contain;
+    height: 75px;
+    width: 44px;
+    cursor: pointer;
+}
+
+.t17 img {
+    background-size: contain;
+    height: 80px;
+    width: 44px;
+    cursor: pointer;
+}
+
+.t16 img {
+    background-size: contain;
+    height: 83px;
+    width: 46px;
+    cursor: pointer;
+}
+
+.t15 img {
+    background-size: contain;
+    height: 90px;
+    width: 34px;
+    cursor: pointer;
+}
+
+.t14 img {
+    background-size: contain;
+    height: 93px;
+    width: 37px;
+    cursor: pointer;
+    border: none;
+}
+
+.t13 img {
+    background-size: contain;
+    height: 95px;
+    width: 39px;
+    cursor: pointer;
+    border: none;
+}
+
+.t12 img {
+    background-size: contain;
+    height: 98px;
+    width: 40px;
+    cursor: pointer;
+    border: none;
+}
+
+.t11 img {
+    background-size: contain;
+    height: 101px;
+    width: 41px;
+    cursor: pointer;
+    border: none;
+}
+
+.t21 img {
+    background-size: contain;
+    height: 101px;
+    width: 39.5px;
+    cursor: pointer;
+    border: none;
+}
+
+.t22 img {
+    background-size: contain;
+    height: 100px;
+    width: 39px;
+    cursor: pointer;
+    border: none;
+}
+
+.t23 img {
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+    cursor: pointer;
+    border: none;
+}
+
+.t24 img {
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+    cursor: pointer;
+    border: none;
+}
+
+.t25 img {
+    background-size: contain;
+    height: 96px;
+    width: 36px;
+    cursor: pointer;
+    border: none;
+}
+
+.t26 img {
+    background-size: contain;
+    height: 85px;
+    width: 43px;
+    cursor: pointer;
+    border: none;
+}
+
+.t27 img {
+    background-size: contain;
+    height: 80px;
+    width: 47px;
+    cursor: pointer;
+    border: none;
+}
+
+.t28 img {
+    background-size: contain;
+    height: 78px;
+    width: 45px;
+    cursor: pointer;
+    border: none;
+}
+
+
+/*------------ bottom-teeth----------------- */
+
+.bottom-teeth {
+    margin-bottom: 2%;
+    width: 92%;
+    height: 110px;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-ind p {
+    margin-right: 3%;
+}
+
+.bottom {
+    display: flex;
+}
+
+.b48 img {
+    background-size: contain;
+    height: 75px;
+    width: 43px;
+    cursor: pointer;
+    border: none;
+}
+
+.b47 img {
+    background-size: contain;
+    height: 77px;
+    width: 44px;
+    cursor: pointer;
+    border: none;
+}
+
+.b46 img {
+    background-size: contain;
+    height: 81px;
+    width: 46px;
+    cursor: pointer;
+    border: none;
+}
+
+.b45 img {
+    background-size: contain;
+    height: 90px;
+    width: 34px;
+    cursor: pointer;
+    border: none;
+}
+
+.b44 img {
+    background-size: contain;
+    height: 93px;
+    width: 36px;
+    cursor: pointer;
+    border: none;
+}
+
+.b43 img {
+    background-size: contain;
+    height: 95px;
+    width: 39px;
+    cursor: pointer;
+    border: none;
+}
+
+.b42 img {
+    background-size: contain;
+    height: 98px;
+    width: 40px;
+    cursor: pointer;
+    border: none;
+}
+
+.b41 img {
+    background-size: contain;
+    height: 101px;
+    width: 41px;
+    cursor: pointer;
+    border: none;
+}
+
+.b31 img {
+    background-size: contain;
+    height: 101px;
+    width: 39.5px;
+    cursor: pointer;
+    border: none;
+}
+
+.b32 img {
+    background-size: contain;
+    height: 100px;
+    width: 39px;
+    cursor: pointer;
+    border: none;
+}
+
+.b33 img {
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+    cursor: pointer;
+    border: none;
+}
+
+.b34 img {
+    background-size: contain;
+    height: 98px;
+    width: 38px;
+    cursor: pointer;
+    border: none;
+}
+
+.b35 img {
+    background-size: contain;
+    height: 91px;
+    width: 36px;
+    cursor: pointer;
+    border: none;
+}
+
+.b36 img {
+    background-size: contain;
+    height: 80px;
+    width: 43px;
+    cursor: pointer;
+    border: none;
+}
+
+.b37 img {
+    background-size: contain;
+    height: 80px;
+    width: 44px;
+    cursor: pointer;
+    border: none;
+}
+
+.b38 img {
+    background-size: contain;
+    height: 78px;
+    width: 42px;
+    cursor: pointer;
+    border: none;
+}
+
+.add-desc {
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.add-desc div button {
+    text-decoration: none;
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #69149b;
+    background-color: #69149b;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.add-btn button:hover {
+    border: 1px solid #8d1ecd!important;
+    background-color: #8d1ecd!important;
+}
+
+.add-btn button:disabled {
+    background-color: rgba(128, 128, 128, 0.405);
+    border: 1px solid rgba(128, 128, 128, 0.405);
+}
+
+.diagnosis-table {
+    height: 220px;
+    overflow: scroll;
+}
+
+.diagnosis-table table {
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.diagnosis-table table th {
+    text-align: center;
+    background-color: rgb(233, 233, 233);
+    color: #69149b;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+}
+
+.diagnosis-table table td {
+    text-align: center;
+    padding: 3px;
+}
+
+.date {
+    width: 15%;
+}
+
+.tooth-no {
+    width: 25%;
+}
+
+.desc {
+    width: 50%;
+}
+
+
+/*form*/
+
+.container form label {
+    font-weight: 350;
+}
+
+.type-desc {
+    width: 450px;
+    height: 300px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}

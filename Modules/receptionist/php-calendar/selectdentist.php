@@ -16,9 +16,8 @@
         <script src="https://kit.fontawesome.com/b0931e4ab7.js" crossorigin="anonymous"></script>
            <script src="https://kit.fontawesome.com/b0931e4ab7.js" crossorigin="anonymous"></script>
         <!--========== CSS ==========-->
-        <link rel="stylesheet" href="/Modules/receptionist/assets/css/styles.css">
-        <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
-        
+        <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
+            
      
        
     
@@ -26,29 +25,29 @@
         <title>Select Dentist</title>
     </head>
     <body>
-   <!--========== HEADER ==========-->
-   <header class="header">
-    <div class="header__container">
-        <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
-        <a href="#" class="header__logo">Cruz Dental Clinic</a>
+        <!--========== HEADER ==========-->
+        <header class="header">
+            <div class="header__container">
+                <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
 
-     
+                <a href="#" class="header__logo">Cruz Dental Clinic</a>
+    
+    
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
+                </div>
+            </div>
+        </header>
 
-        <div class="header__toggle">
-            <i class='bx bx-menu' id="header-toggle"></i>
-        </div>
-    </div>
-</header>
-
-<!--========== NAV ==========-->
+      <!--========== NAV ==========-->
 
 
 <div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
-            <a href="/Modules/receptionist/index.php" class="nav__link nav__logo">
+            <a href="#" class="nav__link nav__logo">
            <i class='nav__icon'>
-           <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
+           <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
            </i>
                 <span class="nav__logo-name">Cruz Dental Clinic</span>
             </a>
@@ -56,7 +55,7 @@
             <div class="nav__list">
                 <div class="nav__items">
 
-                    <a href="/Modules/receptionist/index.php" class="nav__link active">
+                    <a href="/Modules/secretary/index.php" class="nav__link active">
                         <i class='bx bx-home nav__icon' ></i>
                         <span class="nav__name">Dashboard</span>
                     </a>
@@ -71,8 +70,8 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/receptionist/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/receptionist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                
                             </div>
                         </div>
@@ -87,34 +86,33 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                            <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                            <a href="/Modules/secretary/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                                <a href="/Modules/secretary/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
+                                <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
                                
                             </div>
                         </div>
                     </div>
 
 
-                    <a href="/Modules/receptionist/billing/billing.php" class="nav__link">
+                    <a href="/Modules/secretary/billing/billing.php" class="nav__link">
                         <i class='bx bx-money nav__icon' ></i>
                         <span class="nav__name">Billing</span>
                     </a>
                 </div>
 
-                <a href="/Modules/receptionist/announcement/announcement.php" class="nav__link">
+                <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
                     <i class='bx bxs-megaphone nav__icon'></i>
                     <span class="nav__name">Announcement</span>
                 </a>
             </div>
 
-        <a href="#" class="nav__link nav__logout">
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
             <i class='bx bx-log-out nav__icon' ></i>
             <span class="nav__name">Log Out</span>
         </a>
     </nav>
 </div>
-
 
 
         <!--========== CONTENTS ==========-->
@@ -145,7 +143,7 @@
                           
                           
                            
-                           $sql = "SELECT * FROM users WHERE accrole ='Dentist' ORDER BY lname ASC";
+                           $sql = "SELECT * FROM users WHERE status= '1' AND accrole ='Dentist' ORDER BY lname ASC";
                            $result = $con->query($sql);
        
                      

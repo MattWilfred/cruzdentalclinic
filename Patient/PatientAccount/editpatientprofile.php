@@ -163,12 +163,12 @@ if (!$conn){
                                     <div class="row">
                                         <div class="col">
                                             First Name
-                                            <input class="form-control" class="inpt" id="nm" type="text" name="fname" value="<?=$currentid['fname'];?>"   required>
+                                            <input class="form-control" class="inpt" id="nm" type="text"  readonly name="fname" value="<?=$currentid['fname'];?>"   required>
                                             <p id="nmmsg" class="inptmsg" style="color:red"></p>
                                         </div>
                                         <div class="col">
                                             Last Name
-                                            <input class="form-control" class="inpt" id="nm" type="text" name="lname" value="<?=$currentid['lname'];?>"required>
+                                            <input class="form-control" class="inpt" id="nm" type="text" readonly name="lname" value="<?=$currentid['lname'];?>"required>
                                             <p id="nmmsg" class="inptmsg" style="color:red"></p>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@ if (!$conn){
                                         </div>
                                         <div class="col">
                                             Birthdate
-                                            <input class="form-control" id="birthday" class="inpt" type="date" name="bdate" value="<?=$currentid['birthdate'];?>" max="<?= date('Y-m-d'); ?>" required>
+                                            <input class="form-control" id="birthday" class="inpt" type="date" readonly name="bdate" value="<?=$currentid['birthdate'];?>" max="<?= date('Y-m-d'); ?>" required>
 
                                         </div>
                                     </div>

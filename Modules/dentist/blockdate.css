@@ -1,0 +1,57 @@
+body{
+  background: rgb(219, 219, 219);
+}
+
+
+.float-container {  
+    padding: 5px;
+    color: rgb(0, 0, 0);
+
+}
+
+.float-child {
+  position:absolute;
+    left:30%;   
+} 
+
+
+
+.details input{
+  height: 40px;
+  width: 30%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid blueviolet;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 65%;
+    position:absolute;
+    right:12%;
+    top:70%;  
+  }
+
+  h3{
+    position:absolute;
+   left:23%;
+    top:65%;  
+  }
+  
+  td, th {
+    text-align:left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .indent{
+    padding-left: 9%;
+  }

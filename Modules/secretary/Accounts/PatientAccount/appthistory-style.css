@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 * {
     margin: 0;
     padding: 0;
@@ -37,31 +38,38 @@ body {
 
 /*========== VARIABLES CSS ==========*/
 
+/*========== VARIABLES CSS ==========*/
 :root {
-    --header-height: 3.5rem;
-    --nav-width: 219px;
-    /*========== Colors ==========*/
-    --first-color: #6923D0;
-    --first-color-light: #F4F0FA;
-    --title-color: #19181B;
-    --text-color: #58555E;
-    --text-color1: #ffffff;
-    --text-color2: #58555E;
-    --text-color-light: #A5A1AA;
-    --body-color: #F9F6FD;
-    --container-color: #f5f5f5;
-    --container-color1: #f5f5f5;
-    --container-color2: rgb(166, 40, 166);
-    /*========== Font and typography ==========*/
-    --body-font: 'Poppins', sans-serif;
-    --normal-font-size: .938rem;
-    --small-font-size: .75rem;
-    --smaller-font-size: .75rem;
-    /*========== Font weight ==========*/
-    --font-medium: 500;
-    --font-semi-bold: 600;
-    /*========== z index ==========*/
-    --z-fixed: 100;
+  --header-height: 3.5rem;
+  --nav-width: 219px;
+
+  /*========== Colors ==========*/
+  --first-color: #fffdfd;
+  --first-color-light: #7338cb;
+  --title-color: #19181B;
+  --text-color: #58555E;
+  --text-color11: #c9c8cc;
+  --text-color1: #ffffff;
+  --text-color2: #58555E;
+
+  --text-color-light: #A5A1AA;
+  --body-color: #F9F6FD;
+  --container-color: #f5f5f5;
+  --container-color1: #f5f5f5;
+  --container-color2: rgb(104, 15, 173);
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --normal-font-size: .938rem;
+  --small-font-size: .75rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-fixed: 100;
 }
 
 @media screen and (min-width: 1024px) {
@@ -421,9 +429,9 @@ h1 {
 }
 
 .patient-info {
-    border: 2px solid #8d1ecd;
     width: 33%;
     height: 650px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .patient-info img {
@@ -463,14 +471,29 @@ h1 {
     margin-right: 30px;
 }
 
+.patient-info button {
+    background-color: #8d1ecd;
+    color: white;
+    border: #8d1ecd;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.patient-info button:hover {
+    background-color: #8d1ecd;
+    color: white;
+    border: #8d1ecd;
+}
+
 
 /* end of patient info */
 
 .navbar {
     margin-left: 15px;
+    height: 650px;
     width: 75%;
-    border: 2px solid #8d1ecd;
     display: block;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .topnav {
@@ -525,7 +548,6 @@ h1 {
 /*prescription  title */
 
 .presc-header {
-    width: 400px;
     margin-top: 2%;
     margin-left: 2%;
     margin-bottom: 2%;
@@ -535,22 +557,6 @@ h1 {
     font-weight: bolder;
 }
 
-
-/* add prescription button */
-
-.presc-button {
-    font-size: 15px;
-    color: white;
-    border-radius: 10px;
-    border-style: none;
-    background-color: #69149b;
-    text-decoration: none;
-    padding-left: 15px;
-    padding-right: 15px;
-    cursor: pointer;
-}
-
-.addpresc-btn,
 .presc-header {
     display: inline-flex;
 }
@@ -573,46 +579,45 @@ h1 {
 
 .presc-cont {
     overflow: scroll;
+    height: 520px;
 }
 
 
 /* for the prescription boxes */
 
 .presc-body {
-    border: 2px solid rgba(0, 0, 0, 0.359);
-    border-radius: 10px;
-    margin-left: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    background-color: white;
+    border-radius: 5px;
+    margin-left: 43px;
     margin-bottom: 5px;
-    width: 95%;
+    width: 90%;
+    height: 130px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
+.date {
+    margin-left: 7%;
+}
 
-/* prescription date */
+.date h4 {
+    font-weight: bolder;
+}
 
-.col1 h5 {
-    color: rgb(86, 8, 158);
+.procedure h5,
+.dentist h5 {
     font-weight: 600;
-    margin-top: 10px;
-    margin-left: 30px;
 }
 
-.col1 {
-    width: 500px;
+.dentist {
+    margin-right: 7%;
 }
 
 .no-presc {
     text-align: center;
     margin-top: 25%;
-}
-
-
-/*action buttons */
-
-.actions {
-    margin-top: 5px;
-    margin-right: 30px;
 }
 
 
@@ -626,22 +631,13 @@ h1 {
     font-weight: bolder;
 }
 
-.ptr div {
-    display: flex;
-    justify-content: space-between;
-}
-
-.ptr img {
-    max-width: 900px;
-    max-height: 600px;
-}
-
 #presc-body {
     text-align: center;
 }
 
 @media screen and (max-width: 1180px) and (orientation: landscape) {
     .topnav {
+        display: flex;
         line-height: 10px;
     }
     .prescription {
