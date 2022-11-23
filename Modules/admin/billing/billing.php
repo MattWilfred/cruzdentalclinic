@@ -45,7 +45,7 @@ function getSOAid($uid){
 <html>
     <head>
         <link href="billing.css?v=<?php echo time(); ?>" rel="stylesheet">
-       <link rel="stylesheet" href="assets/css/styles.css">
+       <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
         <link rel="stylesheet" href="css/all.min.css">
@@ -58,10 +58,10 @@ function getSOAid($uid){
         <title>Cruz Dental Clinic Website</title>
     </head>
     <body>
-          <!--========== HEADER ==========-->
-          <header class="header">
+           <!--========== HEADER ==========-->
+           <header class="header">
             <div class="header__container">
-                <img src="assets/img/logo dental.png" alt="" class="header__img">
+            <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
                 <a href="#" class="header__logo">Cruz Dental Clinic</a>
     
             
@@ -72,82 +72,80 @@ function getSOAid($uid){
             </div>
         </header>
 
-        <!--========== NAV ==========-->
-       
 
-        <div class="nav" id="navbar">
-            <nav class="nav__container">
-                <div>
-                    <a href="#" class="nav__link nav__logo">
-                   <i class='nav__icon'>
-                   <img class="header__img" src="assets/img/logo dental.png" alt="">
-                   </i>
-                        <span class="nav__logo-name">Cruz Dental Clinic</span>
+   <!--========== NAV ==========-->
+   <div class="nav" id="navbar">
+    <nav class="nav__container">
+        <div>
+            <a href="#" class="nav__link nav__logo">
+           <i class='nav__icon'>
+           <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+           </i>
+                <span class="nav__logo-name">Cruz Dental Clinic</span>
+            </a>
+
+            <div class="nav__list">
+                <div class="nav__items">
+
+                    <a href="/Modules/admin/index.php" class="nav__link active">
+                        <i class='bx bx-home nav__icon' ></i>
+                        <span class="nav__name">Dashboard</span>
                     </a>
-    
-                    <div class="nav__list">
-                        <div class="nav__items">
-    
-                            <a href="/Modules/admin/index.php" class="nav__link active">
-                                <i class='bx bx-home nav__icon' ></i>
-                                <span class="nav__name">Dashboard</span>
-                            </a>
+                    
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bxs-calendar nav__icon' ></i>
                             
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class='bx bxs-calendar nav__icon' ></i>
-                                    
-                                    <span class="nav__name">Schedule</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                        <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                                       
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class='bx bx-user nav__icon' ></i>
-                                    <span class="nav__name">Accounts</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                    <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                        <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                        <a href="/Modules/admin/Accounts/PatientAccount/patientlist.php" class="nav__dropdown-item">Patients</a>
-                                       
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <a href="/Modules/admin/billing/billing.php" class="nav__link">
-                                <i class='bx bx-money nav__icon' ></i>
-                                <span class="nav__name">Billing</span>
-                            </a>
-                        </div>
-
-                        <a href="/Modules/admin/announcement/announcement.php" class="nav__link">
-                            <i class='bx bxs-megaphone nav__icon'></i>
-                            <span class="nav__name">Announcement</span>
+                            <span class="nav__name">Schedule</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                         </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                               
+                            </div>
+                        </div>
                     </div>
 
-                <a href="#" class="nav__link nav__logout">
-                    <i class='bx bx-log-out nav__icon' ></i>
-                    <span class="nav__name">Log Out</span>
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Accounts</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                            <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                                <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
+                                <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="/Modules/admin/billing/billing.php" class="nav__link">
+                        <i class='bx bx-money nav__icon' ></i>
+                        <span class="nav__name">Billing</span>
+                    </a>
+                </div>
+
+                <a href="/Modules/admin/announcement/announcement.php" class="nav__link">
+                    <i class='bx bxs-megaphone nav__icon'></i>
+                    <span class="nav__name">Announcement</span>
                 </a>
-            </nav>
-        </div>
+            </div>
 
-
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+            <i class='bx bx-log-out nav__icon' ></i>
+            <span class="nav__name">Log Out</span>
+        </a>
+    </nav>
+</div>
+        <br /> <br />
         <div class="body_content">
             <h1>Billing</h1>
         </div>

@@ -28,83 +28,72 @@ require 'notification3.php'
 
 
 <body>
-  <!--========== HEADER ==========-->
-  <header class="header">
-        <div class="header__container">
- 
-            <div class="header__toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
-            </div>
-        </div>
-    </header>
+  
+    <!--========== HEADER ==========-->
+    <header class="header">
+    <div class="header__container">
+        <a href="/Modules/receptionist/index.php" class="header__logo">Cruz Dental Clinic</a>
+        
+      
+    </div>
+</header>
 
-          <!--========== HEADER ==========-->
-          <header class="header">
-            <div class="header__container">
-                <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
+<!--========== NAV ==========-->
 
-                <a href="#" class="header__logo">Cruz Dental Clinic</a>
-    
-    
-                <div class="header__toggle">
-                    <i class='bx bx-menu' id="header-toggle"></i>
-                </div>
-            </div>
-        </header>
 
-        <!--========== NAV ==========-->
-        <div class="nav" id="navbar">
-            <nav class="nav__container">
-                <div>
-                <a href="#" class="nav__link nav__logo">
-                   <i class='nav__icon'>
-                   <img class="header__img" src="/Modules/receptionist/assets/img/logo dental.png" alt="">
-                   </i>
-                        <span class="nav__logo-name">Cruz Dental Clinic</span>
+<div class="nav" id="navbar">
+    <nav class="nav__container">
+        <div>
+            <a href="#" class="nav__link nav__logo">
+           <i class='nav__icon'>
+           <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
+           </i>
+                <span class="nav__logo-name">Cruz Dental Clinic</span>
+            </a>
+
+            <div class="nav__list">
+                <div class="nav__items">
+
+                    <a href="/Modules/receptionist/index.php" class="nav__link active">
+                        <i class='bx bx-home nav__icon' ></i>
+                        <span class="nav__name">Dashboard</span>
                     </a>
-    
-                    <div class="nav__list">
-                        <div class="nav__items">
-    
-                        <a href="/Modules/receptionist/index.php" class="nav__link active">
-                                <i class='bx bx-home nav__icon' ></i>
-                                <span class="nav__name">Dashboard</span>
-                            </a>
+                    
+                    <div class="nav__dropdown">
+                        <a href="/Modules/receptionist/index.php" class="nav__link">
+                            <i class='bx bxs-calendar nav__icon' ></i>
                             
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class='bx bxs-calendar nav__icon' ></i>
-                                    
-                                    <span class="nav__name">Schedule</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
+                            <span class="nav__name">Schedule</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
 
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                    <a href="/Modules/receptionist/php-calendar/select.html" class="nav__dropdown-item">Calendar</a>
-                                        <a href="/Modules/receptionist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                                       
-                                    </div>
-                                </div>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/receptionist/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/receptionist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/receptionist/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                                
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class='bx bx-user nav__icon' ></i>
-                                    <span class="nav__name">Accounts</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Accounts</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
 
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                        <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                        <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                                    </div>
-                                </div>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                               
                             </div>
+                        </div>
+                    </div>
 
-                            <a href="/Modules/receptionist/billing/billing.php" class="nav__link">
+
+                    <a href="/Modules/receptionist/billing/billing.php" class="nav__link">
                         <i class='bx bx-money nav__icon' ></i>
                         <span class="nav__name">Billing</span>
                     </a>
@@ -123,6 +112,8 @@ require 'notification3.php'
     </nav>
 </div>
 
+
+
   
 
 
@@ -136,18 +127,6 @@ require 'notification3.php'
             </div>
 
 
-
-            <!--add announcement button-->
-            <div class="add-annc">
-
-                <i class="fa-solid fa-bullhorn"></i>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                 Add New Announcement
-                </button>
-                
-
-            </div>
 
             <!--drop down menu-->
 
@@ -175,13 +154,7 @@ require 'notification3.php'
                                             <p><?php echo $cruzdentalclinic['date'] ?></p>
                                             <h5><?php echo $cruzdentalclinic['message'] ?></h5>
                                             <h6> By: <?php echo  $cruzdentalclinic['user_'] ?></h6>
-                                            <section>
-                                                <form action="add-annc.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_account" value="<?=$cruzdentalclinic['annc_id'];?>" 
-                                                    class="btn btn-danger btn-sm">Delete</button>
-                                                    </form>
-                                            </section>
-                                        </div>
+                                          </div>
                                         <?php
                                         }
                                     }

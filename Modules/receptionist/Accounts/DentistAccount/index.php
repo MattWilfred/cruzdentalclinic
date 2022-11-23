@@ -72,7 +72,7 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/receptionist/php-calendar/select.html" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/receptionist/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/receptionist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                
                             </div>
@@ -88,7 +88,7 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                            <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
+                            <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
                                 <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
                                 <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
                                
@@ -152,7 +152,7 @@
                 <div class="addpatient-btn">
                     <div>
                         <i class="fa-solid fa-user-plus"></i>
-                        <a class="" type="button" href="createaccount.php">Add New Patient</a>
+                        <a class="" type="button" href="createaccount.php">Add Dentist </a>
                     </div>
                 </div>
             </div>

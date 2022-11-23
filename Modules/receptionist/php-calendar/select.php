@@ -1,5 +1,5 @@
 <?php
-    include ('../../Database/connect.php');
+    include ('../../../Database/connect.php');
 ?>
 <html>
     <head>
@@ -145,7 +145,7 @@
                                   {
                                       ?>
                                       <tr>
-                                          <td><?= $users['profile_picture'];?></td>
+                                          <td><?= $users['profilepicture'];?></td>
                                           <td><?= $users['fname'] . ' ' .$users['lname'];?></td>
                                           <td><?= $users['phonenumber']; ?></td>
                                           <td>

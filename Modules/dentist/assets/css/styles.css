@@ -7,10 +7,11 @@
   --nav-width: 219px;
 
   /*========== Colors ==========*/
-  --first-color: #6923D0;
-  --first-color-light: #F4F0FA;
+  --first-color: #fffdfd;
+  --first-color-light: #7338cb;
   --title-color: #19181B;
   --text-color: #58555E;
+  --text-color11: #c9c8cc;
   --text-color1: #ffffff;
   --text-color2: #58555E;
 
@@ -18,7 +19,7 @@
   --body-color: #F9F6FD;
   --container-color: #f5f5f5;
   --container-color1: #f5f5f5;
-  --container-color2: rgb(166, 40, 166);
+  --container-color2: rgb(104, 15, 173);
 
   /*========== Font and typography ==========*/
   --body-font: 'Poppins', sans-serif;
@@ -86,6 +87,7 @@ img {
   align-items: center;
   height: var(--header-height);
   justify-content: space-between;
+  padding-left: 94px;
 }
 
 .header__img {
@@ -229,7 +231,7 @@ img {
 .nav__dropdown-item {
   font-size: var(--smaller-font-size);
   font-weight: var(--font-medium);
-  color: var(--text-color);
+  color: var(--text-color11);
 }
 
 .nav__dropdown-item:hover {

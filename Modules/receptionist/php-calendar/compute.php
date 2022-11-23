@@ -15,7 +15,7 @@ function computer($treat){
       }elseif ($treat == "Root Canal Treatment"){
         $newtime = 90;
         
-      }elseif ($treat == "Dental Bridge"){
+      }elseif ($treat == "Dental Crown"){
         $newtime = 45;
 
       }elseif ($treat == "Restoration"){

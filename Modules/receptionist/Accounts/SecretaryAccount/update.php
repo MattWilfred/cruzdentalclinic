@@ -34,7 +34,7 @@ if(isset($_POST['create'])){
 			
 			//successful update then redirect user to admin.page
 			if($result){
-				echo "<script> alert('Data Has Been Updated'); window.location='index.php'  </script>";
+				echo "<script> alert('Data Has Been Updated'); window.location='/Modules/receptionist/index.php'  </script>";
 			}
 			//fail update then redirect user to admin page
 			else{
