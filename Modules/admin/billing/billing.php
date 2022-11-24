@@ -183,7 +183,7 @@ function getSOAid($uid){
                                 echo "<td>" .$rows['transaction_type']. "</td>";
                                 echo "<td>" .$rows["status"]. "</td>";
                                 //echo "<td> <input class='edit-transaction-h' type='hidden' name='soa-hidden' value='" .$rows['soa_id']. "'></td>";
-                                echo "<td><button class='edit-transaction' type='submit' name='edit-button' value='" .$rows['transaction_id']. "'>Edit</button></td>";
+                                echo "<td><button style='font-size: 20px;' class='edit-transaction' type='submit' name='edit-button' value='" .$rows['transaction_id']. "'>Edit</button></td>";
                                 //echo '<td> <div class="up-btn"><a class="button" href="#divTwo">Edit</a></div></td>';
 
                                 //echo "<td><button class='mbg-viewbutton' type='submit' name='view-button' value='" .$hrow['medicalbackground_id']. "'>View</button></td>";
