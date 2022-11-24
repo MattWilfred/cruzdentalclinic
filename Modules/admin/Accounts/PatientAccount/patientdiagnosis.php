@@ -195,12 +195,12 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
         <div class="navbar">
             <div class="topnav">
-                    <a href="appthistory.php? id=<?= $currentid; ?>">Appointment History</a>
-                    <a href="patientmbg.php? id=<?= $currentid; ?>">Medical Background</a>
+                    <a href="appthistory.php? id=<?= $i; ?>">Appointment History</a>
+                    <a href="patientmbg.php? id=<?= $i; ?>">Medical Background</a>
                     <a class="active">Diagnosis</a>
-                    <a href="patientdbg.php? id=<?= $currentid; ?>">Dental Background</a>
-                    <a href="patientprescription.php? id=<?= $currentid; ?>">E-Prescription</a>
-                    <a href="patientreferral.php? id=<?= $currentid; ?>">Referral</a>
+                    <a href="patientdbg.php? id=<?= $i; ?>">Dental Background</a>
+                    <a href="patientprescription.php? id=<?= $i; ?>">E-Prescription</a>
+                    <a href="patientreferral.php? id=<?= $i; ?>">Referral</a>
             </div>
 
 
@@ -545,7 +545,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                                 <?php require 'block-tooth.php'?>
                               
-                                    <input type="hidden" name="id" value="<?php echo $currentid?>">
+                                    <input type="hidden" name="id" value="<?php echo $i?>">
                                     <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
                                     <div class="modal-body">
                                         Select tooth:
@@ -913,7 +913,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                         </div>
 
                        
-                                <input type="hidden" name="id" value="<?php echo $currentid?>">
+                                <input type="hidden" name="id" value="<?php echo $i?>">
                                 <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
                             <div class="modal-body">
                                 <div class="mb-3">
