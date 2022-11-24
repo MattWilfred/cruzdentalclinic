@@ -192,8 +192,8 @@
             <thead>
               <tr>
                   
-                  <th >Date</th>
-                  <th >Time</th>
+                  <th>Date</th>
+                  <th>Time</th>
                   <th>Dental in Charge</th>
                   <th>Type of Appointment</th>
               </tr>

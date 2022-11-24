@@ -119,12 +119,10 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                 <tr>
                     <td>
 
-                    <form action="" method="GET" enctype="multipart/form-data">
-                        <div>
-                        <input type="text" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="search" placeholder="Search data">
-                            <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        </div>
-                        </form>
+                    <form method="POST">
+                        <input type="text" name="search"  class="search" placeholder="Search data">
+                        <input name="submitsearch" class="sbutton" type="submit" value="Search">       
+                    </form>
 
                     </td>
                 </tr>
@@ -160,27 +158,49 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                   die("Invalid query: " . $connection->error);
               }
 
-              if(mysqli_num_rows($result) > 0)
-                              {
-                                  foreach($result as $users)
-                                  {
-                                      ?>
-                                      <tr>
+              //read rows from the database
+
+
+                if (isset($_POST["submitsearch"])){
+
+                    $searchedTerm = $_POST["search"];
+                    $entries = mysqli_query($connection, "SELECT * FROM users WHERE username LIKE  '$searchedTerm' AND accrole = 'Patient'|| fname LIKE '$searchedTerm' || lname LIKE '$searchedTerm'");
+
+                    while ($users = mysqli_fetch_assoc($entries)) {
+                        echo "<tbody id='searched-div'>";
+                        echo "<tr>";
+                        echo "<td>".$users['id']."</td>";
+                        echo "<td>".$users['fname']." ".$users['lname']."</td>";
+                        echo "<td>".$users['gender']."</td>";
+                        echo "<td>".$users['phonenumber']."</td>";
+                        echo "<td>".$users['birthdate']."</td>";
+                        echo "<td><a href=view.php?id=<?=" .$users['id']. " class='btn btn-info btn-sm'>View</a></td>";
+                        echo "</tr>";
+                        echo "</tbody>";
+                    }
+                }
+
+
+              else if(mysqli_num_rows($result) > 0){
+                    foreach($result as $users){
+                        
+                        ?>
+                        <tr>
                   
-                                          <td><?= $users['fname'] . ' ' .$users['lname'];?></td>
-                                          <td><?= $users['gender']; ?></td>
-                                          <td><?= $users['phonenumber']; ?></td>
-                                          <td>
-                                              <a href="procedure.php?dentistid=<?php echo $dentist?>&currentid=<?= $users['id']; ?>" class="btn btn-info btn-sm">select</a>
-                                             
-                                          </td>
-                                      </tr>
-                                      <?php
+                            <td><?= $users['fname'] . ' ' .$users['lname'];?></td>
+                            <td><?= $users['gender']; ?></td>
+                            <td><?= $users['phonenumber']; ?></td>
+                            <td>
+                                <a href="procedure.php?dentistid=<?php echo $dentist?>&currentid=<?= $users['id']; ?>" class="btn btn-info btn-sm">select</a>
+                            </td>
+                        </tr>
+                        
+                        <?php
                                   }
                               }
                               else
                               {
-                                  echo "<h5> No Record Found </h5>";
+                                  echo "<h5> No Patient Found called" .$_POST["search"]. "</h5>";
                               }
     
             ?>
