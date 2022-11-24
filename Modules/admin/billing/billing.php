@@ -285,14 +285,14 @@ function getSOAid($uid){
                         </div>
                     </div>  
 
-                    <div class="container1" style="padding-left: 20%">
+                    <div class="container1">
                         <h2>Total Amount</h2>
-                        <input id="total" class="total" type="textfield" name="total" disabled="disabled" style="width: 400px; height: 80px; text-align: center;">
+                        <input id="total" class="total" type="textfield" name="total" disabled="disabled">
                     <div>
 
-                    <div class="container2" style="padding-left: 20%">
+                    <div class="container2">
                         <h2>Enter Amount to Pay</h2>
-                        <input id="amtpd" class="amtpd" type="textfield" name="amtpd" style="width: 400px; height: 80px; text-align: center;" required>
+                        <input id="amtpd" class="amtpd" type="textfield" name="amtpd" required>
                     <div>
 
                     <button onclick="" id="cancel-btn">Cancel</button>

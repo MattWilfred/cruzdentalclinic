@@ -70,6 +70,7 @@ $trow = mysqli_fetch_array($tquery);
         <link href="billing.css?v=<?php echo time(); ?>" rel="stylesheet">
         <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
         <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="billing.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset="UTF-8">
@@ -249,7 +250,7 @@ $trow = mysqli_fetch_array($tquery);
                             <h2>Total Amount</h2>
                             <h3><input id="etotal" class="total" type="textfield" name="etotal" disabled="disabled"></h3>
 
-                            <div class="container2" style="padding-left: 20%">
+                            <div class="container2">
                             <h2>Amount Paid</h2>
                                 <p><input id="eamtpd" class="amtpd" type="textfield" name="eamtpd" required></p>
                             </div>
