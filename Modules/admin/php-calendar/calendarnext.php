@@ -1,27 +1,12 @@
 <?php
     session_start();
-  
-  
-    $dbServername = "localhost";
-    $dbUsername = "root";
-    $dbPassword = "";
-    $dbName = "cruzdentalclinic";
-    
-    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-    
-
-    
-    
-if (!$conn){
-        die("Connection error!");
-}
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 
 $dentist = $_GET['dentist'];
 function fetchDatesToBlock(){
-        global $conn;
-        $holiday_queries = mysqli_query($conn, "SELECT date FROM holiday");
+        global $connection;
+        $holiday_queries = mysqli_query($connection, "SELECT date FROM holiday");
     
         $holiday_array = array();
     
@@ -33,8 +18,8 @@ function fetchDatesToBlock(){
     }
 
     function holidayDesc(){
-        global $conn;
-        $description_queries = mysqli_query($conn, "SELECT description FROM holiday");
+        global $connection;
+        $description_queries = mysqli_query($connection, "SELECT description FROM holiday");
     
         $date_array = array();
     

@@ -1,5 +1,5 @@
 <?php
-include('../../Database/connect.php');
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 if(isset($_POST['submit'])){
     $date = $_POST['date'];

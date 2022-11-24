@@ -529,7 +529,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         </form>
    
 
-
                     <!-- Modal for adding diagnosis  -->
                     <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
