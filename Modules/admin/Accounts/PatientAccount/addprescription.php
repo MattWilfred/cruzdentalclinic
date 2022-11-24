@@ -10,8 +10,7 @@
 
 <?php 
 // Include the database configuration file  
-require_once 'dbcon.php'; 
- 
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 // If file upload form is submitted 
 $status = $statusMsg = ''; 
 if(isset($_POST["submit"])){ 
