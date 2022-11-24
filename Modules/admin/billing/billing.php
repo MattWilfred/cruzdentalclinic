@@ -158,7 +158,6 @@ function getSOAid($uid){
                     <th>Amount Paid</th>
                     <th>Balance</th>
                     <th>Transaction Type</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
 
@@ -181,7 +180,6 @@ function getSOAid($uid){
                                 echo "<td>" .$rows['total_amount']. "</td>";
                                 echo "<td>" .$singleBalance. "</td>";
                                 echo "<td>" .$rows['transaction_type']. "</td>";
-                                echo "<td>" .$rows["status"]. "</td>";
                                 //echo "<td> <input class='edit-transaction-h' type='hidden' name='soa-hidden' value='" .$rows['soa_id']. "'></td>";
                                 echo "<td><button style='font-size: 20px;' class='edit-transaction' type='submit' name='edit-button' value='" .$rows['transaction_id']. "'>Edit</button></td>";
                                 //echo '<td> <div class="up-btn"><a class="button" href="#divTwo">Edit</a></div></td>';
