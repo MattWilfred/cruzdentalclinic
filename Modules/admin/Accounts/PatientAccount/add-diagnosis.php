@@ -2,10 +2,8 @@
     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     
 
-    if (isset($_POST['add-diagnosis-button']))
-    {
+    if (isset($_POST['add-diagnosis-button'])){
        
-
         $toothnumber = implode(",", $_POST['tooth']);
         $findings = $_POST['findings'];
         $description = $_POST['description'];
