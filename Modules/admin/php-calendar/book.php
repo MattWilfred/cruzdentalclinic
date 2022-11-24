@@ -15,7 +15,7 @@ if(isset($_GET['date'])){
   $date = $_GET['date'];
   $dentistid= $_GET['dentist'];
   
-    $stmt = $mysqli->prepare("select * from bookings where dentist_id='$dentistid' and date=?");
+    $stmt = $connection->prepare("select * from bookings where dentist_id='$dentistid' and date=?");
     $stmt->bind_param('s', $date);
     $bookings = array();
     if($stmt->execute()){
@@ -35,17 +35,17 @@ if(isset($_GET['date'])){
 
 // Get name of user depending on the userid from users table
 $sql = "SELECT * FROM `users` WHERE id= '$userid'";
-$all_categories = mysqli_query($mysqli,$sql);
+$all_categories = mysqli_query($connection,$sql);
 
 // Get information of the dentist based on id.
 $sql = "SELECT * FROM `users` WHERE id= '$dentistid' AND accrole ='Dentist'";
-$find_dentist = mysqli_query($mysqli,$sql);
+$find_dentist = mysqli_query($connection,$sql);
 
 $sql = "SELECT * FROM `users` WHERE id= '$dentistid' AND accrole ='Dentist'";
-$id_dentist = mysqli_query($mysqli,$sql);
+$id_dentist = mysqli_query($connection,$sql);
 
 $sql = "SELECT * FROM `users` WHERE id= '$userid' AND accrole ='Patient'";
-$id_patient = mysqli_query($mysqli,$sql);
+$id_patient = mysqli_query($connection,$sql);
 
 
 
@@ -62,13 +62,13 @@ if(isset($_POST['submit'])){
 
        
 
-    $stmt = $mysqli->prepare("INSERT INTO bookings (name, timeslot, date, doctor, treatment,status, dentist_id, patient_id) VALUES (?,?,?,?,?,?,?,?)");
+    $stmt = $connection->prepare("INSERT INTO bookings (name, timeslot, date, doctor, treatment,status, dentist_id, patient_id) VALUES (?,?,?,?,?,?,?,?)");
     $stmt->bind_param('ssssssss', $name, $timeslot , $date, $drselect, $procedure, $status, $dentist_id_fk, $patient_id_fk);
     $stmt->execute();
     //$msg = "<div class='alert alert-success'>Booking Successfull</div>";
     $bookings[]=$timeslot;
     $stmt->close();
-    $mysqli->close();
+    $connection->close();
 
     echo  "<script> alert('Booked Successfully'); window.location='/Modules/admin/index.php'; </script>";
 }
