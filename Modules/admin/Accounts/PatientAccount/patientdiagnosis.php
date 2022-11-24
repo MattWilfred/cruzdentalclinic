@@ -997,7 +997,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="modal-footer">
                                 <button type="button" id="closebtn" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="submit" id="savebtn" name="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" id="savebtn" name="add-diagnosis-button" class="btn btn-primary">Add</button>
                             </div>
                     
 

@@ -2,7 +2,7 @@
     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     
 
-    if (isset($_POST['submit']))
+    if (isset($_POST['add-diagnosis-button']))
     {
        
 
