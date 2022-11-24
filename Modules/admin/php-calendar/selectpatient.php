@@ -143,7 +143,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             <th>Picture</th>
             <th>Name</th>
             <th>Gender</th>
-           
             <th>Actions</th>
         </tr>
     </thead>
@@ -208,13 +207,11 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             </tbody>
         </table>
     </div>
-     </div>    
-    
-    
-    </body>
-
-    <script>
-    $(document).ready(function(){
+     </div> 
+     
+     <script>
+     
+     $(document).ready(function(){
         $(".sbutton").on("click", function(){
             $("original-div").hide();
             $("searched-div").show();
@@ -222,6 +219,9 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     })
     </script>
     
+    
+    </body>
+
 <script src="/Modules/admin/assets/js/main.js"></script>
 
 </html>
