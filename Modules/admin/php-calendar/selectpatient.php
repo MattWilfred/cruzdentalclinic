@@ -120,7 +120,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                     <td>
 
                     <form method="POST">
-                        <input type="text" name="search"  class="search" placeholder="Search data">
+                        <input type="text" name="search" class="search" placeholder="Search data">
                         <input name="submitsearch" class="sbutton" type="submit" value="Search">       
                     </form>
 
@@ -212,6 +212,16 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     
     
     </body>
+
+    <script>
+    $(document).ready(function(){
+        $(".sbutton").on("click", function(){
+            $("original-div").hide();
+            $("searched-div").show();
+        })
+    })
+    </script>
+    
 <script src="/Modules/admin/assets/js/main.js"></script>
 
 </html>
