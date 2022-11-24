@@ -9,6 +9,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 <html lang=e n dir="ltr">
 
 <head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="patientdiagnosis-style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/all.min.css">
