@@ -216,7 +216,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                     <div class="data-containter">
                         <div class="each-presc">
                             <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from referral WHERE user_id=$currentid ORDER by date_added DESC";
                                 $res = mysqli_query($connection,$query_presc);
@@ -287,7 +286,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- Form -->
-                    <form action="addprescription.php" method="post" enctype="multipart/form-data">
+                    <form action="addreferral.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $currentid?>">
                         <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
                         <div class="modal-body">
