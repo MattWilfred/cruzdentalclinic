@@ -3,7 +3,11 @@
 
   require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
-
+function fetchTransactions(){
+    global $connection;
+    $transactions = mysqli_query($connection, "SELECT * FROM transaction");
+    return $transactions;
+  }
 
 function fetchPName(){
     global $connection;
@@ -28,13 +32,14 @@ function getSOAid($uid){
 
 ?>
 
-<!DOCTYPE html lang=en dir="ltr">
+<!DOCTYPE html lang=e n dir="ltr">
 <html>
     <head>
         <link href="billing.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
-        <link rel="stylesheet" href="css/all.min.css">
+       <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <link rel="stylesheet" href="css/all.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset="UTF-8">
         <meta name="description" content="Admin Dental Clinic Web Page">
@@ -44,10 +49,10 @@ function getSOAid($uid){
         <title>Cruz Dental Clinic Website</title>
     </head>
     <body>
-          <!--========== HEADER ==========-->
-          <header class="header">
+           <!--========== HEADER ==========-->
+           <header class="header">
             <div class="header__container">
-                <!--<img src="assets/img/logo dental.png" alt="" class="header__img">-->
+            <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
                 <a href="#" class="header__logo">Cruz Dental Clinic</a>
     
             
@@ -58,10 +63,9 @@ function getSOAid($uid){
             </div>
         </header>
 
-      <!--========== NAV ==========-->
 
-
-<div class="nav" id="navbar">
+   <!--========== NAV ==========-->
+   <div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
             <a href="#" class="nav__link nav__logo">
@@ -132,7 +136,6 @@ function getSOAid($uid){
         </a>
     </nav>
 </div>
-
         <br /> <br />
         <div class="body_content">
             <h1>Billing</h1>
@@ -162,8 +165,6 @@ function getSOAid($uid){
                     <th>Action</th>
                 </tr>
 
-                <form name="fetch-id-form" method="GET" action="edittransactions.php">
-
                 <?php
 
                 $query = fetchSOADetails();
@@ -182,32 +183,22 @@ function getSOAid($uid){
                                 echo "<td>" .$singleBalance. "</td>";
                                 echo "<td>" .$rows['transaction_type']. "</td>";
                                 echo "<td>" .$rows["status"]. "</td>";
-                                //echo "<td> <input class='edit-transaction-h' type='hidden' name='soa-hidden' value='" .$rows['soa_id']. "'></td>";
-                                echo "<td><button class='edit-transaction' type='submit' name='edit-button' value='" .$rows['transaction_id']. "'></button></td>";
-                                //echo '<td> <div class="up-btn"><a class="button" href="#divTwo">Edit</a></div></td>';
-
-                                //echo "<td><button class='mbg-viewbutton' type='submit' name='view-button' value='" .$hrow['medicalbackground_id']. "'>View</button></td>";
-
-                                //<a class="button" href="#divOne">Add Transaction</a>
+                                echo '<td> <div class="up-btn"><a class="button1" href="#divTwo">Edit</a></div></td>';
                             echo "</tr>";
                         }
                     } else {
                         echo "";
                     }
                 ?>
-
-                </form>
            
             </table>
         </div>
         </div> 
         </div>
-
-        <!-- Div One -->
-            
+        
              <div class="overlay" id="divOne">
-                <div class="wrapper">
-                    <h2>Add Transaction</h2><a class="close" href="#">&times;</a>
+                        <div class="wrapper">
+                        <h2>Add Transaction</h2><a class="close" href="#">&times;</a>
                 <div class="content">
 
                 <!-- start of form -->
@@ -255,9 +246,9 @@ function getSOAid($uid){
                                 <option value="Dental Bridge">Dental Bridge</option>
                                 <option value="Orthiontics">Orthiontics</option>
                                 <option value="Restoration">Restoration</option>
-                                <option value="Fluoride Application"> Fluoride Application </option>
+                                <option value="Fluoride Application">Fluoride Application </option>
                                 <option value="Odontectomy">Odontectomy</option>
-                                </select>
+                            </select>
                         </div>
                         
                         <div class="input-box1" id="in-div-right">
@@ -301,13 +292,16 @@ function getSOAid($uid){
                         
                     </form>
         
-        </div>              
+                    </div>
+                </div>
+            </div>
+                            </div>                       
             <!-- Klyde's additional code -->
 
             <div class="overlay" id="divTwo">
-                <div class="wrapper">
+                        <div class="wrapper1">
                        <h2>Edit Transaction</h2><a class="close" href="#">&times;</a>
-                <div class="container">
+                <div class="containerr1">
                     <div class="content">
 
                     
@@ -403,9 +397,10 @@ function getSOAid($uid){
                     <input type="submit" value="Save" id="save-btn1"></input>
                     </div>
             
-                </form>
+                    </form>
                       
-            </div>
+                </div>
+              </div>
             
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
