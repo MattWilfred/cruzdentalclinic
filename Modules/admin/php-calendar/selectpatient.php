@@ -120,8 +120,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                     <td>
 
                     <form method="POST">
-                        <input type="text" name="search" class="search" placeholder="Search data">
-                        <input name="submitsearch" class="sbutton" type="submit" value="Search">       
+                        <span><input type="text" name="search" class="search" placeholder="Search data">
+                        <input name="submitsearch" class="sbutton" type="submit" value="Search"></span>     
                     </form>
 
                     </td>
@@ -146,7 +146,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>  
             <?php
                  //read rows from the database
               $sql = "SELECT * FROM users WHERE accrole ='Patient' ORDER BY lname ASC";
@@ -184,15 +183,16 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                     foreach($result as $users){
                         
                         ?>
-                        <tr>
-                  
+                            <tbody id='original-div'>
+                            <tr>
                             <td><?= $users['fname'] . ' ' .$users['lname'];?></td>
                             <td><?= $users['gender']; ?></td>
                             <td><?= $users['phonenumber']; ?></td>
                             <td>
                                 <a href="procedure.php?dentistid=<?php echo $dentist?>&currentid=<?= $users['id']; ?>" class="btn btn-info btn-sm">select</a>
                             </td>
-                        </tr>
+                            </tr>
+                            </tbody>
                         
                         <?php
                                   }
@@ -204,7 +204,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     
             ?>
         
-            </tbody>
         </table>
     </div>
      </div> 

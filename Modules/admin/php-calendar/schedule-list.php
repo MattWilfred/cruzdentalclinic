@@ -75,8 +75,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                                 <div class="nav__dropdown-collapse">
                                     <div class="nav__dropdown-content">
-                                        <a href="php-calendar/select.html" class="nav__dropdown-item">Calendar</a>
-                                        <a href="php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                        <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                        <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                        
                                     </div>
                                 </div>
@@ -100,13 +100,13 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
 
 
-                            <a href="#" class="nav__link">
+                            <a href="/Modules/admin/billing/billing.php" class="nav__link">
                                 <i class='bx bx-money nav__icon' ></i>
                                 <span class="nav__name">Billing</span>
                             </a>
                         </div>
 
-                        <a href="announcement/announcement.php" class="nav__link">
+                        <a href="/Modules/admin/announcement/announcement.php" class="nav__link">
                             <i class='bx bxs-megaphone nav__icon'></i>
                             <span class="nav__name">Announcement</span>
                         </a>
