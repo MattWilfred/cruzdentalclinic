@@ -34,6 +34,7 @@ function getSOAid($uid){
         <link href="billing.css?v=<?php echo time(); ?>" rel="stylesheet">
         <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
         <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="css/billing.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset="UTF-8">

@@ -18,7 +18,6 @@ body {
 
 .h1-title {
     padding-left: 1px;
-   
 }
 
 
@@ -27,7 +26,6 @@ body {
 h1 {
     padding-left: 1em;
     padding-top: 0.5em;
-    font-size: 30px;
 }
 
 #title {
@@ -75,7 +73,7 @@ h2{
     color: white;
     width: 150px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 15px;
     margin-left: 835px;
 
 }
@@ -237,14 +235,14 @@ td{
 
 .button1 {
     text-align: center;
-    font-size: 30x;
+    font-size: 1em;
     padding: 5px;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease-out;
     background: #5F46A6;
-    border-radius: 10px;
+    border-radius: 50px;
     letter-spacing: 1 px;
 }
 
@@ -259,12 +257,9 @@ td{
 
 /* ADD BUTTON   */
 
-.row1{
-    
-}
 .add-btn {
     text-align: center;
-    padding-left: 83%;
+    padding-left: 84%;
     padding-top: 23px;
 }
 
@@ -322,11 +317,10 @@ td{
     padding: 20px;
     background: #e7e7e7;
     border-radius: 10px;
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 90%;
     position: relative;
     transition: all 5s ease-in-out;
-    overflow:scroll;
 }
 
 .wrapper h2 {
@@ -350,10 +344,15 @@ td{
     color: #4a5ac4;
 }
 
+.wrapper .content {
+   
+    overflow: auto;
+}
+
 
 .container1 {
     margin-left: -30px;
-    margin-top: 1px;
+    margin-top: 10px;
 }
 
 
@@ -386,6 +385,9 @@ form .input-box input {
     transition: all 0.3s ease;
     padding-left: 20px; 
 }
+
+
+
 
 
 
@@ -663,7 +665,7 @@ input[type=text], select, textarea {
 }
 
 .wrapper1 .content {
- 
+    max-height: ;
     overflow: auto;
 }
 

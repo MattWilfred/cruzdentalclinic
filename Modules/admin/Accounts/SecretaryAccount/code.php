@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'connect.php';
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 if(isset($_POST['Update_DentistAccount']))
 {

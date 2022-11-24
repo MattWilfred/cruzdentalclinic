@@ -129,8 +129,7 @@
                             <?php
                                 
 
-                               require 'dbcon.php';
-
+                                require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                                 if (isset($_POST['submit']))
                                 {
@@ -148,11 +147,9 @@
                                     $gender = $_POST['gender'];
 
                                     //read email column
-                                    $sql_email = mysqli_query($con, "SELECT * from users where email = '$email'");
-                                    $sql_username = mysqli_query($con, "SELECT * from users where username = '$username'");
+                                    $sql_email = mysqli_query($connection, "SELECT * from users where email = '$email'");
+                                    $sql_username = mysqli_query($connection, "SELECT * from users where username = '$username'");
                                     
-
-
                                     //if statement to check if email entered already exists
                                     if(mysqli_num_rows($sql_email)>0) {
                                     
@@ -193,7 +190,7 @@
                                         $query = "INSERT INTO users(accrole,fname,lname,paddress,birthdate,username,phonenumber,gender,email,userpassword) 
                                         VALUES ('$role','$fname','$lname','$address','$bdate','$username','$phone','$gender','$email','$pw')";
 
-                                        $query_run = mysqli_query($con, $query);
+                                        $query_run = mysqli_query($connection, $query);
 
                                         if ($query_run){
 
@@ -205,7 +202,7 @@
 
                                         }
                                         else {
-                                            die("Invalid query: " . $con->error);
+                                            die("Invalid query: " . $connection->error);
                                         }
                                     }
 
