@@ -31,10 +31,9 @@ function getSOAid($uid){
 <!DOCTYPE html lang=en dir="ltr">
 <html>
     <head>
-        <link href="billing.css?v=<?php echo time(); ?>" rel="stylesheet">
         <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
         <link rel="stylesheet" href="css/all.min.css">
-        <link rel="stylesheet" href="billing.css">
+        <link rel="stylesheet" href="billing.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset="UTF-8">
@@ -285,14 +284,14 @@ function getSOAid($uid){
                         </div>
                     </div>  
 
-                    <div class="container1">
+                    <div class="container1" style="padding-left: 20%">
                         <h2>Total Amount</h2>
-                        <input id="total" class="total" type="textfield" name="total" disabled="disabled">
+                        <input id="total" class="total" type="textfield" name="total" disabled="disabled" style="width: 400px; height: 80px; text-align: center;">
                     <div>
 
-                    <div class="container2">
+                    <div class="container2" style="padding-left: 20%">
                         <h2>Enter Amount to Pay</h2>
-                        <input id="amtpd" class="amtpd" type="textfield" name="amtpd" required>
+                        <input id="amtpd" class="amtpd" type="textfield" name="amtpd" style="width: 400px; height: 80px; text-align: center;" required>
                     <div>
 
                     <button onclick="" id="cancel-btn">Cancel</button>
