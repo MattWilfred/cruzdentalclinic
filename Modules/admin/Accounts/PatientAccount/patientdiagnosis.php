@@ -28,6 +28,13 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 <body>
 <header class="header">
         <div class="header__container">
+
+            <a href="patientlist.php">
+                <button>
+                    <i class="fa-solid fa-angle-left"></i>
+                    Back to Patient List
+                </button>
+            </a>
             
             <div class="header__container">
             <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
@@ -113,13 +120,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         </a>
     </nav>
 </div>
+
     <div class="body_content">
-        <a href="patientlist.php">
-            <button>
-                <i class="fa-solid fa-angle-left"></i>
-                Back to Patient List
-            </button>
-        </a>
         <h1>Patient Profile</h1>
     </div>
 
