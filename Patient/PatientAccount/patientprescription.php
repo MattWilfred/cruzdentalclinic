@@ -28,13 +28,6 @@
 <header class="header">
         <div class="header__container">
 
-            <a href="patientlist.php">
-                <button>
-                    <i class="fa-solid fa-angle-left"></i>
-                    Back to Patient List
-                </button>
-            </a>
-
             <i class='bx bxs-bell bx-flip-horizontal bx-tada nav__icon'></i>
 
 
