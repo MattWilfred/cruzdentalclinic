@@ -40,7 +40,7 @@
             </div>
         </header>
 
-       <!--========== NAV ==========-->
+<!--========== NAV ==========-->
 
 
 <div class="nav" id="navbar">
@@ -62,7 +62,7 @@
                     </a>
                     
                     <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
+                        <a href="/Modules/dentist/index.php" class="nav__link">
                             <i class='bx bxs-calendar nav__icon' ></i>
                             
                             <span class="nav__name">Schedule</span>
@@ -71,8 +71,9 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                            <a href="/Modules/dentist/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                             
+                                <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                
                             </div>
                         </div>
@@ -93,12 +94,8 @@
                         </div>
                     </div>
 
-
-                    <a href="/Modules/dentist/billing/billing.php" class="nav__link">
-                        <i class='bx bx-money nav__icon' ></i>
-                        <span class="nav__name">Billing</span>
-                    </a>
-                </div>
+                  
+                  </div>
 
                 <a href="/Modules/dentist/announcement/announcement.php" class="nav__link">
                     <i class='bx bxs-megaphone nav__icon'></i>
