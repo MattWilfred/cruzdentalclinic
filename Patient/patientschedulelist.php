@@ -1,6 +1,6 @@
 <?php
- include('../Database/sessioncheck.php');
- include('../Database/connect.php');	
+ include('/Database/sessioncheck.php');
+ include('/Database/connect.php');	
  $id = $_SESSION['id'];
 
 ?>
@@ -76,8 +76,8 @@
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a href="/php-calendar/calendar.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/php-calendar/select.html" class="nav__dropdown-item">Schedule List</a>
+                                    <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
+                                    <a href="/Patient/patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
                                 </div>
                             </div>
                         </div>
