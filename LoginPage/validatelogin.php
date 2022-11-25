@@ -81,7 +81,7 @@ if(isset($_POST['login'])){
                 $_SESSION['access'] = $unvalidate['accrole'];
                 $_SESSION['id'] = $unvalidate['id'];
                 //redirect user to home page.
-                header("location: /Modules/Patient/index.php");
+                header("location: /Patient/index.php");
         
             }
 
