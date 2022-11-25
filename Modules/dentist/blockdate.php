@@ -51,12 +51,15 @@ $result = mysqli_query($connection, $query);
 <!--========== NAV ==========-->
 
 
+<!--========== NAV ==========-->
+
+
 <div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
             <a href="#" class="nav__link nav__logo">
            <i class='nav__icon'>
-           <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+           <img src="/Modules/dentist/assets/img/logo dental.png" alt="" class="header__img">
            </i>
                 <span class="nav__logo-name">Cruz Dental Clinic</span>
             </a>
@@ -79,7 +82,8 @@ $result = mysqli_query($connection, $query);
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/dentist/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                            <a href="/Modules/dentist/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                             
                                 <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                
                             </div>
@@ -101,12 +105,8 @@ $result = mysqli_query($connection, $query);
                         </div>
                     </div>
 
-
-                    <a href="/Modules/dentist/billing/billing.php" class="nav__link">
-                        <i class='bx bx-money nav__icon' ></i>
-                        <span class="nav__name">Billing</span>
-                    </a>
-                </div>
+                  
+                  </div>
 
                 <a href="/Modules/dentist/announcement/announcement.php" class="nav__link">
                     <i class='bx bxs-megaphone nav__icon'></i>

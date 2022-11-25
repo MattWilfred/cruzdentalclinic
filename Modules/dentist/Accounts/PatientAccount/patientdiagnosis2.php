@@ -1,15 +1,13 @@
 <?php
-  //include_once 'userlogs.php';
 
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-
 ?>
 
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
 
 <head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="patientdiagnosis-style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/all.min.css">
@@ -25,6 +23,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 </head>
 
+
 <body>
 <header class="header">
         <div class="header__container">
@@ -35,9 +34,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                     Back to Patient List
                 </button>
             </a>
-            
-            <div class="header__container">
-            <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+
+            <i class='bx bxs-bell bx-flip-horizontal bx-tada nav__icon'></i>
 
 
             <div class="header__toggle">
@@ -47,14 +45,15 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     </header>
 
    
+<!--========== NAV ==========-->
 
-   <!--========== NAV ==========-->
-   <div class="nav" id="navbar">
+
+<div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
             <a href="#" class="nav__link nav__logo">
            <i class='nav__icon'>
-           <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+           <img src="/Modules/dentist/assets/img/logo dental.png" alt="" class="header__img">
            </i>
                 <span class="nav__logo-name">Cruz Dental Clinic</span>
             </a>
@@ -62,13 +61,13 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             <div class="nav__list">
                 <div class="nav__items">
 
-                    <a href="/Modules/admin/index.php" class="nav__link active">
+                    <a href="/Modules/dentist/index.php" class="nav__link active">
                         <i class='bx bx-home nav__icon' ></i>
                         <span class="nav__name">Dashboard</span>
                     </a>
                     
                     <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
+                        <a href="/Modules/dentist/index.php" class="nav__link">
                             <i class='bx bxs-calendar nav__icon' ></i>
                             
                             <span class="nav__name">Schedule</span>
@@ -77,8 +76,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                
                             </div>
                         </div>
@@ -93,22 +91,16 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                            <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                                <a href="/Modules/dentist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
                                
                             </div>
                         </div>
                     </div>
 
+                  
+                  </div>
 
-                    <a href="/Modules/admin/billing/billing.php" class="nav__link">
-                        <i class='bx bx-money nav__icon' ></i>
-                        <span class="nav__name">Billing</span>
-                    </a>
-                </div>
-
-                <a href="/Modules/admin/announcement/announcement.php" class="nav__link">
+                <a href="/Modules/dentist/announcement/announcement.php" class="nav__link">
                     <i class='bx bxs-megaphone nav__icon'></i>
                     <span class="nav__name">Announcement</span>
                 </a>
@@ -121,6 +113,9 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     </nav>
 </div>
 
+
+
+
     <div class="body_content">
         <h1>Patient Profile</h1>
     </div>
@@ -130,10 +125,9 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     <div class="container">
 
     <?php
-            
-            $i = $_GET['id'];
+            $currentid = $_GET['id'];
 
-            $sql = "SELECT * from users where id = $i";
+            $sql = "SELECT * from users where id = $currentid";
             $result = mysqli_query($connection,$sql);
     
 
@@ -181,6 +175,14 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                         <span>Address</span>
                         <p><?php echo $address ?></p>
                     </div>
+                    <div class="edit=prf" style="text-align: center; margin-top: 15%;">
+                        <a href="patientlist.php">
+                            <button>
+                                <i class="fa-solid fa-pen"></i>
+                                Edit Profile
+                            </button>
+                        </a>
+                    </div>
 
                 
                 </div>
@@ -195,12 +197,12 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
         <div class="navbar">
             <div class="topnav">
-                    <a href="appthistory.php? id=<?= $i; ?>">Appointment History</a>
-                    <a href="patientmbg.php? id=<?= $i; ?>">Medical Background</a>
+                    <a href="appthistory.php? id=<?= $currentid; ?>">Appointment History</a>
+                    <a href="patientmbg.php? id=<?= $currentid; ?>">Medical Background</a>
                     <a class="active">Diagnosis</a>
-                    <a href="patientdbg.php? id=<?= $i; ?>">Dental Background</a>
-                    <a href="patientprescription.php? id=<?= $i; ?>">E-Prescription</a>
-                    <a href="patientreferral.php? id=<?= $i; ?>">Referral</a>
+                    <a href="patientdbg.php? id=<?= $currentid; ?>">Dental Background</a>
+                    <a href="patientprescription.php? id=<?= $currentid; ?>">E-Prescription</a>
+                    <a href="patientreferral.php? id=<?= $currentid; ?>">Referral</a>
             </div>
 
 
@@ -215,56 +217,54 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                 </div>
 
 
-                <form  method="post">
+                <form onsubmit="return false" method="post">
 
                 <?php require 'color-diagnosis.php'?>
 
                     <div class="top-teeth">
-
                         <div class="top-ind">
                             <p>Top</p>
                         </div>
 
                         <div class="top">
-
                             <div class="t18">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="18" for="ct18" <?php colorTooth(18, $i)?> >
-                                        <img src="tooth-numbering-images/18.png" >
+                                    <button type="submit" name="tooth_button" class="tbutton" value="18" for="ct18" <?php colorTooth(18, $currentid)?> >
+                                        <img src="tooth-numbering-images/18.png">
                                     </button>
                                     <p>18</p>
                                 </div>
-                            </div>
 
+                            </div>
                             <div class="t17">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="17" for="ct17" <?php colorTooth(17, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="17" for="ct17" <?php colorTooth(17, $currentid)?>>
                                         <img src="tooth-numbering-images/17.png">
                                     </button>
                                     <p>17</p>
                                 </div>
                             </div>
-
                             <div class="t16">
                                 <div>
-                                    <button for="ct16" type="submit" name="tooth_button" class="tbutton" value="16" for="ct16" <?php colorTooth(16, $i)?>>
+                                    <button for="ct16" type="submit" name="tooth_button" class="tbutton" value="16" for="ct16" <?php colorTooth(16, $currentid)?>>
                                         <img src="tooth-numbering-images/16.png">
                                     </button>
                                     <p>16</p>
                                 </div>
-                            </div>
 
+                            </div>
                             <div class="t15">
                                 <div>
-                                    <button for="ct15" type="submit" name="tooth_button" class="tbutton" value="15" for="ct15" <?php colorTooth(15, $i)?>>
+                                    <button for="ct15" type="submit" name="tooth_button" class="tbutton" value="15" for="ct15" <?php colorTooth(15, $currentid)?>>
                                         <img src="tooth-numbering-images/15.png">
                                     </button>
                                     <p>15</p>
                                 </div>
+
                             </div>
                             <div class="t14">
                                 <div>
-                                    <button for="ct14" type="submit" name="tooth_button" class="tbutton" value="14" for="ct14" <?php colorTooth(14, $i)?>>
+                                    <button for="ct14" type="submit" name="tooth_button" class="tbutton" value="14" for="ct14" <?php colorTooth(14, $currentid)?>>
                                         <img src="tooth-numbering-images/14.png">
                                     </button>
                                     <p>14</p>
@@ -273,7 +273,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t13">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="13" for="ct13" <?php colorTooth(13, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="13" for="ct13" <?php colorTooth(13, $currentid)?>>
                                         <img src="tooth-numbering-images/13.png">
                                     </button>
                                     <p>13</p>
@@ -282,7 +282,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t12">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="12" for="ct12" <?php colorTooth(12, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="12" for="ct12" <?php colorTooth(12, $currentid)?>>
                                         <img src="tooth-numbering-images/12.png">
                                     </button>
                                     <p>12</p>
@@ -291,7 +291,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t11">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="11" for="ct11" <?php colorTooth(11, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="11" for="ct11" <?php colorTooth(11, $currentid)?>>
                                         <img src="tooth-numbering-images/11.png">
                                     </button>
                                     <p>11</p>
@@ -300,7 +300,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t21">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="21" for="ct21" <?php colorTooth(21, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="21" for="ct21" <?php colorTooth(21, $currentid)?>>
                                         <img src="tooth-numbering-images/21.png">
                                     </button>
                                     <p>21</p>
@@ -309,7 +309,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t22">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="22" for="ct22" <?php colorTooth(22, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="22" for="ct22" <?php colorTooth(22, $currentid)?>>
                                         <img src="tooth-numbering-images/22.png">
                                     </button>
                                     <p>22</p>
@@ -318,7 +318,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t23">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="23" for="ct23" <?php colorTooth(23, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="23" for="ct23" <?php colorTooth(23, $currentid)?>>
                                         <img src="tooth-numbering-images/23.png">
                                     </button>
                                     <p>23</p>
@@ -327,7 +327,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t24">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="24"for="ct24" <?php colorTooth(24, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="24"for="ct24" <?php colorTooth(24, $currentid)?>>
                                         <img src="tooth-numbering-images/24.png">
                                     </button>
                                     <p>24</p>
@@ -336,7 +336,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t25">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="25" for="ct25" <?php colorTooth(25, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="25" for="ct25" <?php colorTooth(25, $currentid)?>>
                                         <img src="tooth-numbering-images/25.png">
                                     </button>
                                     <p>25</p>
@@ -345,7 +345,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t26">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="26" for="ct26" <?php colorTooth(26, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="26" for="ct26" <?php colorTooth(26, $currentid)?>>
                                         <img src="tooth-numbering-images/26.png">
                                     </button>
                                     <p>26</p>
@@ -354,7 +354,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="t27">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="27" for="ct27" <?php colorTooth(27, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="27" for="ct27" <?php colorTooth(27, $currentid)?>>
                                         <img src="tooth-numbering-images/27.png">
                                     </button>
                                     <p>27</p>
@@ -364,7 +364,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             <div class="t28">
                         
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="28" for="ct28" <?php colorTooth(28, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="28" for="ct28" <?php colorTooth(28, $currentid)?>>
                                         <img src="tooth-numbering-images/28.png">
                                     </button>
                                     <p>28</p>
@@ -383,7 +383,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                         <div class="bottom">
                             <div class="b48">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="48" for="cb48" <?php colorTooth(48, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="48" for="cb48" <?php colorTooth(48, $currentid)?>>
                                         <img src="tooth-numbering-images/48.png">
                                     </button>
                                     <p>48</p>
@@ -391,7 +391,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b47">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="47" for="cb47" <?php colorTooth(47, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="47" for="cb47" <?php colorTooth(47, $currentid)?>>
                                         <img src="tooth-numbering-images/47.png">
                                     </button>
                                     <p>47</p>
@@ -399,7 +399,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b46">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="46" for="cb46" <?php colorTooth(46, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="46" for="cb46" <?php colorTooth(46, $currentid)?>>
                                         <img src="tooth-numbering-images/46.png">
                                     </button>
                                     <p>46</p>
@@ -408,7 +408,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b45">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="45" for="cb45" <?php colorTooth(45, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="45" for="cb45" <?php colorTooth(45, $currentid)?>>
                                         <img src="tooth-numbering-images/45.png">
                                     </button>
                                     <p>45</p>
@@ -417,7 +417,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b44">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="44" for="cb44" <?php colorTooth(44, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="44" for="cb44" <?php colorTooth(44, $currentid)?>>
                                         <img src="tooth-numbering-images/44.png">
                                     </button>
                                     <p>44</p>
@@ -426,7 +426,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b43">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="43" for="cb43" <?php colorTooth(43, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="43" for="cb43" <?php colorTooth(43, $currentid)?>>
                                         <img src="tooth-numbering-images/43.png">
                                     </button>
                                     <p>43</p>
@@ -435,7 +435,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b42">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="42" for="cb42" <?php colorTooth(42, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="42" for="cb42" <?php colorTooth(42, $currentid)?>>
                                         <img src="tooth-numbering-images/42.png">
                                     </button>
                                     <p>42</p>
@@ -444,7 +444,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b41">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="41" for="cb41" <?php colorTooth(41, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="41" for="cb41" <?php colorTooth(41, $currentid)?>>
                                         <img src="tooth-numbering-images/41.png">
                                     </button>
                                     <p>41</p>
@@ -453,7 +453,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b31">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="31" for="cb31" <?php colorTooth(31, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="31" for="cb31" <?php colorTooth(31, $currentid)?>>
                                         <img src="tooth-numbering-images/31.png">
                                     </button>
                                     <p>31</p>
@@ -462,7 +462,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b32">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="32" for="cb32" <?php colorTooth(32, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="32" for="cb32" <?php colorTooth(32, $currentid)?>>
                                         <img src="tooth-numbering-images/32.png">
                                     </button>
                                     <p>32</p>
@@ -471,7 +471,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b33">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="33" for="cb33" <?php colorTooth(33, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="33" for="cb33" <?php colorTooth(33, $currentid)?>>
                                         <img src="tooth-numbering-images/33.png">
                                     </button>
                                     <p>33</p>
@@ -480,7 +480,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b34">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="34" for="cb34" <?php colorTooth(34, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="34" for="cb34" <?php colorTooth(34, $currentid)?>>
                                         <img src="tooth-numbering-images/34.png">
                                     </button>
                                     <p>34</p>
@@ -489,7 +489,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b35">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="35" for="cb35" <?php colorTooth(35, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="35" for="cb35" <?php colorTooth(35, $currentid)?>>
                                         <img src="tooth-numbering-images/35.png">
                                     </button>
                                     <p>35</p>
@@ -498,7 +498,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b36">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="36" for="cb36" <?php colorTooth(36, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="36" for="cb36" <?php colorTooth(36, $currentid)?>>
                                         <img src="tooth-numbering-images/36.png">
                                     </button>
                                     <p>36</p>
@@ -507,31 +507,33 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             </div>
                             <div class="b37">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="37" for="cb37" <?php colorTooth(37, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="37" for="cb37" <?php colorTooth(37, $currentid)?>>
                                         <img src="tooth-numbering-images/37.png">
                                     </button>
                                     <p>37</p>
                                 </div>
 
                             </div>
-
                             <div class="b38">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="38" for="cb38" <?php colorTooth(38, $i)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="38" for="cb38" <?php colorTooth(38, $currentid)?>>
                                         <img src="tooth-numbering-images/38.png">
                                     </button>
                                     <p>38</p>
                                 </div>
+
                             </div>
                         </div>
+                        </form>
                     </div>
-
-        </form>
    
+
 
                     <!-- Modal for adding diagnosis  -->
                     <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
+
+                        <form action="add-diagnosis.php" method="post">
                             <!-- Modal content-->
                             <div class="modal-content" id="add-img">
                                 <div class="modal-header">
@@ -539,12 +541,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <!-- Form -->
-
-                                <form action="add-diagnosis.php" method="post">
-
-                                <?php require 'block-tooth.php'?>
                               
-                                    <input type="hidden" name="id" value="<?php echo $i?>">
+                                    <input type="hidden" name="id" value="<?php echo $currentid?>">
                                     <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
                                     <div class="modal-body">
                                         Select tooth:
@@ -556,160 +554,159 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                         <div class="top">
                             <div class="t18">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct18" value="18" <?php echo checkIfMissing(18, $i); ?> />
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct18" value="18" />
                                 <div>
                                     <label for="ct18">
-                                        <img src="tooth-numbering-images/18.png" <?php echo colorIfMissing(18, $i); ?>>
-                                        <!-- style= 'filter: grayscale(1000%)' -->
+                                        <img src="tooth-numbering-images/18.png" >
                                     </label>
                                     <p>18</p>
                                 </div>
 
                             </div>
                             <div class="t17">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct17" value="17" <?php echo checkIfMissing(17, $i); ?> />
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct17" value="17" />
                                 <div>
                                     <label for="ct17">
-                                        <img src="tooth-numbering-images/17.png"  <?php echo colorIfMissing(17, $i); ?> >
+                                        <img src="tooth-numbering-images/17.png">
                                     </label>
                                     <p>17</p>
                                 </div>
                             </div>
                             <div class="t16">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct16" value="16" <?php echo checkIfMissing(16, $i); ?> />
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct16" value="16" />
                                 <div>
                                     <label for="ct16">
-                                        <img src="tooth-numbering-images/16.png"<?php echo colorIfMissing(16, $i); ?>>
+                                        <img src="tooth-numbering-images/16.png">
                                     </label>
                                     <p>16</p>
                                 </div>
 
                             </div>
                             <div class="t15">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct15" value="15" <?php echo checkIfMissing(15, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct15" value="15" />
                                 <div>
                                     <label for="ct15">
-                                        <img src="tooth-numbering-images/15.png"<?php echo colorIfMissing(15, $i); ?>>
+                                        <img src="tooth-numbering-images/15.png">
                                     </label>
                                     <p>15</p>
                                 </div>
 
                             </div>
                             <div class="t14">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct14" value="14" <?php echo checkIfMissing(14, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct14" value="14" />
                                 <div>
                                     <label for="ct14">
-                                        <img src="tooth-numbering-images/14.png"<?php echo colorIfMissing(14, $i); ?>>
+                                        <img src="tooth-numbering-images/14.png">
                                     </label>
                                     <p>14</p>
                                 </div>
 
                             </div>
                             <div class="t13">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct13" value="13" <?php echo checkIfMissing(13, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct13" value="13" />
                                 <div>
                                     <label for="ct13">
-                                        <img src="tooth-numbering-images/13.png"<?php echo colorIfMissing(13, $i); ?>>
+                                        <img src="tooth-numbering-images/13.png">
                                     </label>
                                     <p>13</p>
                                 </div>
 
                             </div>
                             <div class="t12">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct12" value="12" <?php echo checkIfMissing(12, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct12" value="12" />
                                 <div>
                                     <label for="ct12">
-                                        <img src="tooth-numbering-images/12.png"<?php echo colorIfMissing(12, $i); ?>>
+                                        <img src="tooth-numbering-images/12.png">
                                     </label>
                                     <p>12</p>
                                 </div>
 
                             </div>
                             <div class="t11">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct11" value="11" <?php echo checkIfMissing(11, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct11" value="11" />
                                 <div>
                                     <label for="ct11">
-                                        <img src="tooth-numbering-images/11.png"<?php echo colorIfMissing(11, $i); ?>>
+                                        <img src="tooth-numbering-images/11.png">
                                     </label>
                                     <p>11</p>
                                 </div>
 
                             </div>
                             <div class="t21">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct21" value="21" <?php echo checkIfMissing(21, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct21" value="21-Central incisor" />
                                 <div>
                                     <label for="ct21">
-                                        <img src="tooth-numbering-images/21.png"<?php echo colorIfMissing(21, $i); ?>>
+                                        <img src="tooth-numbering-images/21.png">
                                     </label>
                                     <p>21</p>
                                 </div>
 
                             </div>
                             <div class="t22">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct22" value="22" <?php echo checkIfMissing(22, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct22" value="22-Lateral incisor" />
                                 <div>
                                     <label for="ct22">
-                                        <img src="tooth-numbering-images/22.png"<?php echo colorIfMissing(22, $i); ?>>
+                                        <img src="tooth-numbering-images/22.png">
                                     </label>
                                     <p>22</p>
                                 </div>
 
                             </div>
                             <div class="t23">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct23" value="23" <?php echo checkIfMissing(23, $i); ?> />
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct23" value="23-Canine" />
                                 <div>
                                     <label for="ct23">
-                                        <img src="tooth-numbering-images/23.png"<?php echo colorIfMissing(23, $i); ?>>
+                                        <img src="tooth-numbering-images/23.png">
                                     </label>
                                     <p>23</p>
                                 </div>
 
                             </div>
                             <div class="t24">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct24" value="24" <?php echo checkIfMissing(24, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct24" value="24-1st premolar" />
                                 <div>
                                     <label for="ct24">
-                                        <img src="tooth-numbering-images/24.png"<?php echo colorIfMissing(24, $i); ?>>
+                                        <img src="tooth-numbering-images/24.png">
                                     </label>
                                     <p>24</p>
                                 </div>
 
                             </div>
                             <div class="t25">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct25" value="25" <?php echo checkIfMissing(25, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct25" value="25-2st premolar" />
                                 <div>
                                     <label for="ct25">
-                                        <img src="tooth-numbering-images/25.png"<?php echo colorIfMissing(25, $i); ?>>
+                                        <img src="tooth-numbering-images/25.png">
                                     </label>
                                     <p>25</p>
                                 </div>
 
                             </div>
                             <div class="t26">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct26" value="26" <?php echo checkIfMissing(26, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct26" value="26-1st molar" />
                                 <div>
                                     <label for="ct26">
-                                        <img src="tooth-numbering-images/26.png"<?php echo colorIfMissing(26, $i); ?>>
+                                        <img src="tooth-numbering-images/26.png">
                                     </label>
                                     <p>26</p>
                                 </div>
 
                             </div>
                             <div class="t27">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct27" value="27"<?php echo checkIfMissing(27, $i); ?> />
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct27" value="27-2st molar" />
                                 <div>
                                     <label for="ct27">
-                                        <img src="tooth-numbering-images/27.png"<?php echo colorIfMissing(27, $i); ?>>
+                                        <img src="tooth-numbering-images/27.png">
                                     </label>
                                     <p>27</p>
                                 </div>
 
                             </div>
                             <div class="t28">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct28" value="28" <?php echo checkIfMissing(28, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct28" value="28" />
                                 <div>
                                     <label for="ct28">
-                                        <img src="tooth-numbering-images/28.png"<?php echo colorIfMissing(28, $i); ?>>
+                                        <img src="tooth-numbering-images/28.png">
                                     </label>
                                     <p>28</p>
                                 </div>
@@ -726,158 +723,158 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                         <div class="bottom">
                             <div class="b48">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb48" value="48" <?php echo checkIfMissing(48, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb48" value="48" />
                                 <div>
                                     <label for="cb48">
-                                        <img src="tooth-numbering-images/48.png"<?php echo colorIfMissing(48, $i); ?>>
+                                        <img src="tooth-numbering-images/48.png">
                                     </label>
                                     <p>48</p>
                                 </div>
                             </div>
                             <div class="b47">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb47" value="47" <?php echo checkIfMissing(47, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb47" value="47" />
                                 <div>
                                     <label for="cb47">
-                                        <img src="tooth-numbering-images/47.png"<?php echo colorIfMissing(47, $i); ?>>
+                                        <img src="tooth-numbering-images/47.png">
                                     </label>
                                     <p>47</p>
                                 </div>
                             </div>
                             <div class="b46">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb46" value="46" <?php echo checkIfMissing(46, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb46" value="46" />
                                 <div>
                                     <label for="cb46">
-                                        <img src="tooth-numbering-images/46.png"<?php echo colorIfMissing(46, $i); ?>>
+                                        <img src="tooth-numbering-images/46.png">
                                     </label>
                                     <p>46</p>
                                 </div>
 
                             </div>
                             <div class="b45">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb45" value="45" <?php echo checkIfMissing(45, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb45" value="45" />
                                 <div>
                                     <label for="cb45">
-                                        <img src="tooth-numbering-images/45.png"<?php echo colorIfMissing(45, $i); ?>>
+                                        <img src="tooth-numbering-images/45.png">
                                     </label>
                                     <p>45</p>
                                 </div>
 
                             </div>
                             <div class="b44">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb44" value="44" <?php echo checkIfMissing(44, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb44" value="44" />
                                 <div>
                                     <label for="cb44">
-                                        <img src="tooth-numbering-images/44.png"<?php echo colorIfMissing(44, $i); ?>>
+                                        <img src="tooth-numbering-images/44.png">
                                     </label>
                                     <p>44</p>
                                 </div>
 
                             </div>
                             <div class="b43">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb43" value="43" <?php echo checkIfMissing(43, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb43" value="43" />
                                 <div>
                                     <label for="cb43">
-                                        <img src="tooth-numbering-images/43.png"<?php echo colorIfMissing(43, $i); ?>>
+                                        <img src="tooth-numbering-images/43.png">
                                     </label>
                                     <p>43</p>
                                 </div>
 
                             </div>
                             <div class="b42">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb42" value="42" <?php echo checkIfMissing(42, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb42" value="42" />
                                 <div>
                                     <label for="cb42">
-                                        <img src="tooth-numbering-images/42.png"<?php echo colorIfMissing(42, $i); ?>>
+                                        <img src="tooth-numbering-images/42.png">
                                     </label>
                                     <p>42</p>
                                 </div>
 
                             </div>
                             <div class="b41">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb41" value="41" <?php echo checkIfMissing(41, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb41" value="41" />
                                 <div>
                                     <label for="cb41">
-                                        <img src="tooth-numbering-images/41.png"<?php echo colorIfMissing(41, $i); ?>>
+                                        <img src="tooth-numbering-images/41.png">
                                     </label>
                                     <p>41</p>
                                 </div>
 
                             </div>
                             <div class="b31">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb31" value="31" <?php echo checkIfMissing(31, $i); ?> />
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb31" value="31 Central incisor" />
                                 <div>
                                     <label for="cb31">
-                                        <img src="tooth-numbering-images/31.png"<?php echo colorIfMissing(31, $i); ?>>
+                                        <img src="tooth-numbering-images/31.png">
                                     </label>
                                     <p>31</p>
                                 </div>
 
                             </div>
                             <div class="b32">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb32" value="32" <?php echo checkIfMissing(32, $i); ?> />
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb32" value="32-Lateral incisor" />
                                 <div>
                                     <label for="cb32">
-                                        <img src="tooth-numbering-images/32.png"<?php echo colorIfMissing(32, $i); ?>>
+                                        <img src="tooth-numbering-images/32.png">
                                     </label>
                                     <p>32</p>
                                 </div>
 
                             </div>
                             <div class="b33">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb33" value="33" <?php echo checkIfMissing(33, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb33" value="33-Canine" />
                                 <div>
                                     <label for="cb33">
-                                        <img src="tooth-numbering-images/33.png"<?php echo colorIfMissing(33, $i); ?>>
+                                        <img src="tooth-numbering-images/33.png">
                                     </label>
                                     <p>33</p>
                                 </div>
 
                             </div>
                             <div class="b34">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb34" value="34"<?php echo checkIfMissing(34, $i); ?> />
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb34" value="34-1st premolar" />
                                 <div>
                                     <label for="cb34">
-                                        <img src="tooth-numbering-images/34.png"<?php echo colorIfMissing(34, $i); ?>>
+                                        <img src="tooth-numbering-images/34.png">
                                     </label>
                                     <p>34</p>
                                 </div>
 
                             </div>
                             <div class="b35">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb35" value="35" <?php echo checkIfMissing(35, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb35" value="35-2st premolar" />
                                 <div>
                                     <label for="cb35">
-                                        <img src="tooth-numbering-images/35.png"<?php echo colorIfMissing(35, $i); ?>>
+                                        <img src="tooth-numbering-images/35.png">
                                     </label>
                                     <p>35</p>
                                 </div>
 
                             </div>
                             <div class="b36">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb36" value="36" <?php echo checkIfMissing(36, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb36" value="36-1st molar" />
                                 <div>
                                     <label for="cb36">
-                                        <img src="tooth-numbering-images/36.png"<?php echo colorIfMissing(36, $i); ?>>
+                                        <img src="tooth-numbering-images/36.png">
                                     </label>
                                     <p>36</p>
                                 </div>
 
                             </div>
                             <div class="b37">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb37" value="37" <?php echo checkIfMissing(37, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb37" value="37-2st molar" />
                                 <div>
                                     <label for="cb37">
-                                        <img src="tooth-numbering-images/37.png"<?php echo colorIfMissing(37, $i); ?>>
+                                        <img src="tooth-numbering-images/37.png">
                                     </label>
                                     <p>37</p>
                                 </div>
 
                             </div>
                             <div class="b38">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb38" value="38" <?php echo checkIfMissing(38, $i); ?>/>
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb38" value="38" />
                                 <div>
                                     <label for="cb38">
-                                        <img src="tooth-numbering-images/38.png"<?php echo colorIfMissing(38, $i); ?>>
+                                        <img src="tooth-numbering-images/38.png">
                                     </label>
                                     <p>38</p>
                                 </div>
@@ -912,7 +909,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                         </div>
 
                        
-                                <input type="hidden" name="id" value="<?php echo $i?>">
+                                <input type="hidden" name="id" value="<?php echo $currentid?>">
                                 <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
                             <div class="modal-body">
                                 <div class="mb-3">
@@ -968,14 +965,14 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                                     <select class="form-control" name="findings" id="findings" style=" border-color: blueviolet;" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}" required>
                                         <option value="" selected disabled>Select</option>
-                                        <option value="" disabled>Code Red</option>
+                                        
                                         <option value="Carries">Carries</option>
                                         <option value="Abrasion">Abrasion</option>
                                         <option value="Fracture">Fracture</option>
                                         <option value="Indicted for Extraction">Indicted for Extraction</option>
                                         <option value="Missing">Missing</option>
                                         <option value="Root Fragment">Root Fragment</option>
-                                        <option value="" disabled>Code Blue</option>
+                                        
                                         <option value="Tooth Present Without Carries">Tooth Present Without Carries </option>
                                         <option value="Composite">Composite</option>
                                         <option value="Fixed Partial Denture">Fixed Partial Denture</option>
@@ -998,18 +995,19 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                 <button type="button" id="closebtn" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                 <button type="submit" id="savebtn" name="add-diagnosis-button" class="btn btn-primary">Add</button>
                             </div>
+
+                            </form>
                     
 
 
                     </div>
             </div>
         </div>
-        </form>
 
 
 
         <div class="legends" style="width: 100%"> 
-            <div class="lsquare" style="background-color: grey; height: 10px; width: 10px;"></div>
+            <div class="lsquare" style="background-color: grey; height: 10px; width: 10px;\"></div>
             <div class="nsquare" >Missing Tooth</div>
             <div class="lsquare" style="background-color: red; height: 10px; width: 10px;"></div>
             <div class="nsquare" >Red Code</div>
@@ -1036,10 +1034,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
             }
 
-
-
             .diagnosis-table {
-                margin-top: 100px;
+                margin-top: 30px;
             }
 
             </style>
@@ -1075,38 +1071,38 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         }**/
         ?>
 
-            <tbody id="tbody18" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(18, $i) ?> </tbody>
-            <tbody id="tbody17" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(17, $i) ?> </tbody>
-            <tbody id="tbody16" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(16, $i) ?> </tbody>  
-            <tbody id="tbody15" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(15, $i) ?> </tbody>  
-            <tbody id="tbody14" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(14, $i) ?> </tbody>  
-            <tbody id="tbody13" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(13, $i) ?> </tbody>  
-            <tbody id="tbody12" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(12, $i) ?> </tbody>           
-            <tbody id="tbody11" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(11, $i) ?> </tbody>  
-            <tbody id="tbody21" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(21, $i) ?> </tbody>  
-            <tbody id="tbody22" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(22, $i) ?> </tbody>  
-            <tbody id="tbody23" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(23, $i) ?> </tbody>  
-            <tbody id="tbody24" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(24, $i) ?> </tbody>  
-            <tbody id="tbody25" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(25, $i) ?> </tbody>  
-            <tbody id="tbody26" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(26, $i) ?> </tbody>  
-            <tbody id="tbody27" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(27, $i) ?> </tbody>  
-            <tbody id="tbody28" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(28, $i) ?> </tbody>  
-            <tbody id="tbody48" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(48, $i) ?> </tbody>  
-            <tbody id="tbody47" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(47, $i) ?> </tbody>  
-            <tbody id="tbody46" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(46, $i) ?> </tbody>  
-            <tbody id="tbody45" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(45, $i) ?> </tbody>  
-            <tbody id="tbody44" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(44, $i) ?> </tbody>  
-            <tbody id="tbody43" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(43, $i) ?> </tbody>  
-            <tbody id="tbody42" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(42, $i) ?> </tbody>  
-            <tbody id="tbody41" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(41, $i) ?> </tbody>
-            <tbody id="tbody31" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(31, $i) ?> </tbody>  
-            <tbody id="tbody32" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(32, $i) ?> </tbody>  
-            <tbody id="tbody33" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(33, $i) ?> </tbody>  
-            <tbody id="tbody34" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(34, $i) ?> </tbody>  
-            <tbody id="tbody35" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(35, $i) ?> </tbody>  
-            <tbody id="tbody36" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(36, $i) ?> </tbody>  
-            <tbody id="tbody37" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(37, $i) ?> </tbody>
-            <tbody id="tbody38" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(38, $i) ?> </tbody>     
+            <tbody id="tbody18" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(18, $currentid) ?> </tbody>
+            <tbody id="tbody17" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(17, $currentid) ?> </tbody>
+            <tbody id="tbody16" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(16, $currentid) ?> </tbody>  
+            <tbody id="tbody15" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(15, $currentid) ?> </tbody>  
+            <tbody id="tbody14" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(14, $currentid) ?> </tbody>  
+            <tbody id="tbody13" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(13, $currentid) ?> </tbody>  
+            <tbody id="tbody12" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(12, $currentid) ?> </tbody>           
+            <tbody id="tbody11" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(11, $currentid) ?> </tbody>  
+            <tbody id="tbody21" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(21, $currentid) ?> </tbody>  
+            <tbody id="tbody22" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(22, $currentid) ?> </tbody>  
+            <tbody id="tbody23" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(23, $currentid) ?> </tbody>  
+            <tbody id="tbody24" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(24, $currentid) ?> </tbody>  
+            <tbody id="tbody25" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(25, $currentid) ?> </tbody>  
+            <tbody id="tbody26" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(26, $currentid) ?> </tbody>  
+            <tbody id="tbody27" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(27, $currentid) ?> </tbody>  
+            <tbody id="tbody28" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(28, $currentid) ?> </tbody>  
+            <tbody id="tbody48" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(48, $currentid) ?> </tbody>  
+            <tbody id="tbody47" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(47, $currentid) ?> </tbody>  
+            <tbody id="tbody46" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(46, $currentid) ?> </tbody>  
+            <tbody id="tbody45" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(45, $currentid) ?> </tbody>  
+            <tbody id="tbody44" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(44, $currentid) ?> </tbody>  
+            <tbody id="tbody43" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(43, $currentid) ?> </tbody>  
+            <tbody id="tbody42" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(42, $currentid) ?> </tbody>  
+            <tbody id="tbody41" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(41, $currentid) ?> </tbody>
+            <tbody id="tbody31" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(31, $currentid) ?> </tbody>  
+            <tbody id="tbody32" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(32, $currentid) ?> </tbody>  
+            <tbody id="tbody33" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(33, $currentid) ?> </tbody>  
+            <tbody id="tbody34" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(34, $currentid) ?> </tbody>  
+            <tbody id="tbody35" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(35, $currentid) ?> </tbody>  
+            <tbody id="tbody36" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(36, $currentid) ?> </tbody>  
+            <tbody id="tbody37" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(37, $currentid) ?> </tbody>
+            <tbody id="tbody38" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(38, $currentid) ?> </tbody>     
 
         <!--</tbody>-->
 
@@ -1125,7 +1121,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     <script>
 
         $(document).ready(function(){
-            $('.tbutton').on('click', function () {
+            $('.tbutton').on('click', function() {
                 if(this.value == "18"){
                     $(".tbclass").hide();
                     $("#tbody18").show();
@@ -1280,17 +1276,17 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         });
     </script>
 
-    <!--<script type='text/javascript'>
+    <script type='text/javascript'>
             $('input:checkbox').click(function(){
                 var $inputs = $('input:checkbox')
                 if($(this).is(':checked')){
                     $inputs.not(this).prop('disabled',true);
-                    /**$inputs.not(this). // <-- disable all but checked one;
+                    $inputs.not(this). // <-- disable all but checked one;
                 } else{
-                    $inputs.prop('disabled',false); // <--**/
+                    $inputs.prop('disabled',false); // <--
                 }
             })
-    </script>-->
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>

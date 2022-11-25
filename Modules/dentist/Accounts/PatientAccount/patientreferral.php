@@ -281,7 +281,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- Form -->
-                    <form action="addprescription.php" method="post" enctype="multipart/form-data">
+                    <form action="addreferral.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $currentid?>">
                         <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
                         <div class="modal-body">
