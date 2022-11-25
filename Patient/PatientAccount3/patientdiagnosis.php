@@ -62,7 +62,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             <div class="nav__list">
                 <div class="nav__items">
 
-                    <a href="/Modules/admin/index.php" class="nav__link active">
+                    <a href="/Patients/index.php" class="nav__link active">
                         <i class='bx bx-home nav__icon' ></i>
                         <span class="nav__name">Dashboard</span>
                     </a>
@@ -77,8 +77,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Patients/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Patients/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                
                             </div>
                         </div>
@@ -90,15 +90,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             <span class="nav__name">Accounts</span>
                             <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                         </a>
-
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                            <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
-                            </div>
-                        </div>
                     </div>
 
 

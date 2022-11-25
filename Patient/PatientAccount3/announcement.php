@@ -72,7 +72,7 @@
             <li>
                 <a href="billing.html"> <i class="fa-solid fa-money-bill-wave"></i> Billing </a>
             </li>
-            <li><a href="annc.html"><i class="fa-solid fa-bullhorn"></i> Announcements </a></li>
+            <li><a href="/Patient/announcement/announcement.php"><i class="fa-solid fa-bullhorn"></i> Announcements </a></li>
         </ul>
 
 

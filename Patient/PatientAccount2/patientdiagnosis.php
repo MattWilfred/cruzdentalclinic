@@ -131,7 +131,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
     <?php
             
-            $i = $_GET['id'];
+            $i = $_SESSION['id'];
 
             $sql = "SELECT * from users where id = $i";
             $result = mysqli_query($connection,$sql);

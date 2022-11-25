@@ -76,7 +76,7 @@
                 <div class="nav__list">
                     <div class="nav__items">
 
-                        <a href="/Secretary/index.php" class="nav__link active">
+                        <a href="/Modules/secretary/index.php" class="nav__link active">
                             <i class='bx bx-home nav__icon'></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
@@ -133,16 +133,6 @@
                 </a>
         </nav>
         </div>
-
-
-
-
-
-
-
-
-
-
 
         <div class="body_content">
 
