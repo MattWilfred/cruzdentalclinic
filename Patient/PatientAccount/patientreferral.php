@@ -210,8 +210,6 @@ $id = $_SESSION['id'];
                 <div class="presc-header">
                     <h2>Referrals </h2>
                 </div>
-                <div class="addpresc-btn"><button type="button" data-bs-target="#exampleModal" data-bs-toggle="modal" class="presc-button">Add</button>
-                </div>
 
                 <div class="presc-cont">
                     <div class="data-containter">
