@@ -22,7 +22,7 @@ function fetchPName(){
 
   function fetchSOADetails($uid){
     global $connection;
-    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id INNER JOIN patients AS d ON a.user_id = d.user_id WHERE user_id = $uid");
+    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id WHERE user_id = $uid");
     return $soa;
 }
 
@@ -108,9 +108,7 @@ function getSOAid($uid){
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a href="/Secretary/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
-                                    <a href="/Secretary/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                    <a href="/Secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                                    <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
 
                                 </div>
                             </div>
@@ -162,7 +160,7 @@ function getSOAid($uid){
 
                 echo "<tr>";
                 echo "<td> NAME OF PATIENT </td>";
-                echo "<td class='patient-name'>" .$row['patient_first_name']. " ".$row['patient_surname']. "</td>";
+                echo "<td class='patient-name'>" .$row['fname']. " ".$row['lname']. "</td>";
                 echo "</tr>";
 
                 echo "<th></th><th></th><th></th><th></th><th></th><th></th><th></th>";
