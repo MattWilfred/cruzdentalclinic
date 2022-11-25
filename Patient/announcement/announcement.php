@@ -36,7 +36,7 @@ $id = $_SESSION['id'];
 <body>
 <header class="header">
         <div class="header__container">
-            <img src="assets/img/logo dental.png" alt="" class="header__img">
+            <img src="/Module/admin/assets/img/logo dental.png" alt="" class="header__img">
 
             <a href="#" class="header__logo">Dashboard</a>
 
