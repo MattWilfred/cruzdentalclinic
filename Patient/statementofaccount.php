@@ -3,6 +3,8 @@
 
   include('/Database/sessioncheck.php');
   include('/Database/connect.php');	
+
+  session_start();
   $uid = $_SESSION['id'];
  
 
