@@ -41,7 +41,8 @@
                                 ?>
                                     Select Role
                                     <select class="form-control" id="role" name="role" required>
-                                        <option value="" selected disabled>Select</option>      
+                                        <option value="" selected disabled>Select</option>   
+                                        <option value="Secretary">Administrator</option>   
                                         <option value="Secretary">Secretary</option>
                                         <option value="Receptionist">Receptionist</option>
                                         <option value="Dentist">Dentist</option>
