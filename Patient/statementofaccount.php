@@ -22,7 +22,7 @@ function fetchPName(){
 
   function fetchSOADetails($uid){
     global $connection;
-    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id WHERE user_id = $uid");
+    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id WHERE a.user_id = $uid");
     return $soa;
 }
 
