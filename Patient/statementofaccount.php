@@ -1,11 +1,11 @@
 <?php
   //include_once 'userlogs.php';
 
-  include('/Database/sessioncheck.php');
-  include('/Database/connect.php');	
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+include('/Database/sessioncheck.php');	
 
-  session_start();
-  $uid = $_SESSION['id'];
+session_start();
+$uid = $_SESSION['id'];
  
 
 function fetchTransactions(){
@@ -153,6 +153,8 @@ function getSOAid($uid){
             <table>
 
                 <?php
+
+                $uid = $_SESSION['id'];
 
                 $query = fetchSOADetails($uid);
 
