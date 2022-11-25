@@ -86,14 +86,9 @@ $id = $_SESSION['id'];
                                     <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                                 </a>
 
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                    <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
-                                        <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                        <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                                    </div>
+                                <div class="nav__dropdown-content">
+                                    <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
                                 </div>
-                            </div>
 
 
                             <a href="/Modules/admin/billing/billing.php" class="nav__link">
