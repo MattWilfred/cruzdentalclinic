@@ -37,7 +37,10 @@
         </div>
     </header>
 
-    <div class="nav" id="navbar">
+    <!--========== NAV ==========-->
+
+
+<div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
             <a href="#" class="nav__link nav__logo">
@@ -67,7 +70,8 @@
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
+                                <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                              
                             </div>
                         </div>
                     </div>
@@ -207,7 +211,6 @@
                     <div class="data-containter">
                         <div class="each-presc">
                             <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from referral WHERE user_id=$currentid ORDER by date_added DESC";
                                 $res = mysqli_query($connection,$query_presc);
@@ -278,7 +281,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- Form -->
-                    <form action="addprescription.php" method="post" enctype="multipart/form-data">
+                    <form action="addreferral.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $currentid?>">
                         <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
                         <div class="modal-body">

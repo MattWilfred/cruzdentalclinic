@@ -74,6 +74,9 @@ function fetchUniqueDentalBG($dbgid){
     </header>
 
   
+<!--========== NAV ==========-->
+
+
 <div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
@@ -104,7 +107,8 @@ function fetchUniqueDentalBG($dbgid){
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
+                                <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                              
                             </div>
                         </div>
                     </div>

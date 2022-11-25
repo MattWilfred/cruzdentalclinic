@@ -133,6 +133,8 @@ function getSOAid($uid){
         </nav>
         </div>
 
+        
+
         <div class="body_content">
             <h1>Statement of Account</h1>
         </div>
