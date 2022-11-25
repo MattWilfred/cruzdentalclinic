@@ -45,81 +45,80 @@
     </header>
 
           <!--========== NAV ==========-->
-   
 
-    <div class="nav" id="navbar">
-        <nav class="nav__container">
-            <div>
-                <a href="#" class="nav__link nav__logo">
-               <i class='nav__icon'>
-               <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
-               </i>
-                    <span class="nav__logo-name">Cruz Dental Clinic</span>
-                </a>
 
-                <div class="nav__list">
-                    <div class="nav__items">
+<div class="nav" id="navbar">
+    <nav class="nav__container">
+        <div>
+            <a href="#" class="nav__link nav__logo">
+           <i class='nav__icon'>
+           <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
+           </i>
+                <span class="nav__logo-name">Cruz Dental Clinic</span>
+            </a>
 
-                        <a href="/Modules/receptionist/index.php" class="nav__link active">
-                            <i class='bx bx-home nav__icon' ></i>
-                            <span class="nav__name">Dashboard</span>
+            <div class="nav__list">
+                <div class="nav__items">
+
+                    <a href="/Modules/receptionist/index.php" class="nav__link active">
+                        <i class='bx bx-home nav__icon' ></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    
+                    <div class="nav__dropdown">
+                        <a href="/Modules/receptionist/index.php" class="nav__link">
+                            <i class='bx bxs-calendar nav__icon' ></i>
+                            
+                            <span class="nav__name">Schedule</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                         </a>
 
-                        <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
-                                <i class='bx bxs-calendar nav__icon' ></i>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/receptionist/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/receptionist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/receptionist/blockdate.php" class="nav__dropdown-item">Block Date</a>
                                 
-                                <span class="nav__name">Schedule</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                            </a>
-
-                            <div class="nav__dropdown-collapse">
-                                <div class="nav__dropdown-content">
-                                    <a href="/Modules/receptionist/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/Modules/receptionist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                                   
-                                </div>
                             </div>
                         </div>
-
-                        
-                        
-                        <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
-                                <i class='bx bx-user nav__icon' ></i>
-                                <span class="nav__name">Accounts</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                            </a>
-
-                            <div class="nav__dropdown-collapse">
-                                <div class="nav__dropdown-content">
-                                <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                    <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                    <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                                   
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <a href="/Modules/receptionist/billing/billing.php" class="nav__link">
-                            <i class='bx bx-money nav__icon' ></i>
-                            <span class="nav__name">Billing</span>
-                        </a>
                     </div>
 
-                    <a href="/Modules/receptionist/announcement/announcement.php" class="nav__link">
-                        <i class='bx bxs-megaphone nav__icon'></i>
-                        <span class="nav__name">Announcement</span>
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Accounts</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                            <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                                    <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>    
+                                    <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                           
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="/Modules/receptionist/billing/billing.php" class="nav__link">
+                        <i class='bx bx-money nav__icon' ></i>
+                        <span class="nav__name">Billing</span>
                     </a>
                 </div>
 
-            <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
-                <i class='bx bx-log-out nav__icon' ></i>
-                <span class="nav__name">Log Out</span>
-            </a>
-        </nav>
-    </div>
+                <a href="/Modules/receptionist/announcement/announcement.php" class="nav__link">
+                    <i class='bx bxs-megaphone nav__icon'></i>
+                    <span class="nav__name">Announcement</span>
+                </a>
+            </div>
+
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+            <i class='bx bx-log-out nav__icon' ></i>
+            <span class="nav__name">Log Out</span>
+        </a>
+    </nav>
+</div>
 
 
     <div class="body_content">
