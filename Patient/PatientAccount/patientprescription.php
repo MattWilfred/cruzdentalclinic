@@ -119,8 +119,7 @@
 
     <div class="container">
     <?php
-            include 'dbcon.php';
-            $currentid = $_GET['id'];
+            $id = $_SESSION['id'];
 
             $sql = "SELECT * from users where id = $currentid";
             $result = mysqli_query($connection,$sql);
@@ -204,14 +203,11 @@
                 <div class="presc-header">
                     <h2>E-Prescriptions </h2>
                 </div>
-                <div class="addpresc-btn"><button type="button" data-bs-target="#exampleModal" data-bs-toggle="modal" class="presc-button">Add</button>
-                </div>
 
                 <div class="presc-cont">
                     <div class="data-containter">
                         <div class="each-presc">
                             <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from prescription WHERE user_id=$currentid ORDER by date_added DESC";
                                 $res = mysqli_query($connection,$query_presc);

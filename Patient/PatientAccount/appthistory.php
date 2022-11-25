@@ -1,6 +1,8 @@
 <?php
-           include('../../Database/sessioncheck.php');
-           $id = $_GET['id'];
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+    include('/Database/sessioncheck.php');
+    //$id = $_GET['id'];
+    $id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -125,8 +127,7 @@
 
     <div class="container">
     <?php
-            include 'dbcon.php';
-            $currentid = $_GET['id'];
+            $currentid = $_SESSION['id'];
 
             $sql = "SELECT * from users where id = $currentid";
             $result = mysqli_query($connection,$sql);

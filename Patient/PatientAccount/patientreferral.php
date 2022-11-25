@@ -1,3 +1,8 @@
+<?php require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+
+$id = $_SESSION['id'];
+?>
+
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
 
@@ -119,7 +124,6 @@
 
     <div class="container">
     <?php
-            include 'dbcon.php';
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
@@ -211,7 +215,6 @@
                     <div class="data-containter">
                         <div class="each-presc">
                             <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from referral WHERE user_id=$currentid ORDER by date_added DESC";
                                 $res = mysqli_query($connection,$query_presc);
