@@ -1,5 +1,7 @@
 <?php
        require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+
+       session_start();
        $id = $_SESSION['id'];
    
        $sql = "SELECT * from users where id = $id";

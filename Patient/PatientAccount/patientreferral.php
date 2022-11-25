@@ -1,6 +1,7 @@
 <?php 
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 include('/Database/sessioncheck.php');
+session_start();
 
 $id = $_SESSION['id'];
 ?>

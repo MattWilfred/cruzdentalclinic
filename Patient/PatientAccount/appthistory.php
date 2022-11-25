@@ -1,6 +1,8 @@
 <?php
     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     include('/Database/sessioncheck.php');
+
+    session_start();
     //$id = $_GET['id'];
     $id = $_SESSION['id'];
 ?>
@@ -60,7 +62,7 @@
                     <div class="nav__list">
                         <div class="nav__items">
     
-                        <a href="/Modules/admin/index.php" class="nav__link active">
+                        <a href="/Patient/index.php" class="nav__link active">
                                 <i class='bx bx-home nav__icon' ></i>
                                 <span class="nav__name">Dashboard</span>
                             </a>
