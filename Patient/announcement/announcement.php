@@ -1,5 +1,4 @@
-<?php 
-require 'notification3.php';
+<?php
 
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
