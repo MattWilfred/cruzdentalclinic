@@ -46,37 +46,6 @@ if (isset($_POST['create'])){
     $query_run = mysqli_query($connection, $query);
 
 
-
-    //pour le medical background
-    $querymbg = "SELECT * from users ORDER by date DESC LIMIT 1";
-    $mbgres = mysqli_query($connection,$querymbg);
-
-    if ($mbgres){
-      if(mysqli_num_rows($mbgres)>0){
-                                
-        while($row = $mbgres->fetch_assoc()){
-    
-          $newuid = $row['id'];
-      
-          $addmbg = "INSERT INTO medicalbackground VALUES 
-          (DEFAULT, $newuid,
-          '0','0','0','0','0','0','0','0','0','',
-          '0','0','0','0','0','0','0','0','0','0',
-          '0','0','0','','0','0','0','0','0','0',
-          '0','0','0','0','0','0','0','0','0','0',
-          '0','0','0','0','0','0','0','0','0','0',
-          '0','0','0','')";
-                            
-          $addmbgres = mysqli_query($connection,$addmbg);
-    
-        }
-    
-      }
-
-    }
-
-
-
   if ($query_run){
 
 
