@@ -6,7 +6,6 @@ include('/Database/sessioncheck.php');
 
 session_start();
 $uid = $_SESSION['id'];
- 
 
 function fetchTransactions(){
     global $connection;
@@ -20,9 +19,9 @@ function fetchPName(){
     return $pname;
   }
 
-  function fetchSOADetails($uid){
+  function fetchSOADetails($id){
     global $connection;
-    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id WHERE a.user_id = $uid");
+    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id WHERE a.user_id = $id");
     return $soa;
 }
 
@@ -121,13 +120,13 @@ function getSOAid($uid){
                         </a>
                     </div>
 
-                    <a href="#" class="nav__link">
+                    <a href="/Patient/announcement/announcement.php" class="nav__link">
                         <i class='bx bxs-megaphone nav__icon'></i>
                         <span class="nav__name">Announcement</span>
                     </a>
                 </div>
 
-                <a href="#" class="nav__link nav__logout">
+                <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
                     <i class='bx bx-log-out nav__icon'></i>
                     <span class="nav__name">Log Out</span>
                 </a>
