@@ -5,7 +5,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang=e n dir="ltr">
+<html lang=en dir="ltr">
 
 <head>
     <!--========== CSS ==========-->
@@ -127,11 +127,11 @@
 
             <?php
 
-$sql = "SELECT * from bookings WHERE patient_id='$id' AND status= '1' ";
-$res = mysqli_query($connection,$sql);
+        $sql = "SELECT * from bookings WHERE patient_id='$id' AND status= '1'";
+        $res = mysqli_query($connection,$sql);
         if(mysqli_num_rows($res)>0){
 
-       while($row = mysqli_fetch_array($res)){
+            while($row = mysqli_fetch_array($res)){
 
             ?>
 
