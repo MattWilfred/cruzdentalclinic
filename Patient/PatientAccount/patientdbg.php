@@ -1,43 +1,34 @@
 <?php
   //include_once 'userlogs.php';
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function fetchDentalBG($uid){
-    global $conn;
+    global $connection;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM dentalbackground WHERE user_id = $uid ORDER  BY date_added DESC
+    $dentalBG = mysqli_query($connection, "SELECT * FROM dentalbackground WHERE user_id = $uid ORDER  BY date_added DESC
     LIMIT  1");
     return $dentalBG;
 }
 
 function fetchAllDentalBackground($uid){
-    global $conn;
-    $allDentalBG = mysqli_query($conn, "SELECT * FROM dentalbackground WHERE user_id = $uid ORDER BY date_added DESC");
+    global $connection;
+    $allDentalBG = mysqli_query($connection, "SELECT * FROM dentalbackground WHERE user_id = $uid ORDER BY date_added DESC");
     return $allDentalBG;
 }
 
 function fetchHistoryDentalBG($uid, $dbgid){
-    global $conn;
+    global $connection;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM dentalbackground WHERE dental_background_id = $dbgid AND user_id = $uid ORDER BY date_added DESC
+    $dentalBG = mysqli_query($connection, "SELECT * FROM dentalbackground WHERE dental_background_id = $dbgid AND user_id = $uid ORDER BY date_added DESC
     LIMIT  1" );
     return $dentalBG;
 }
 
 function fetchUniqueDentalBG($dbgid){
-    global $conn;
+    global $connection;
     //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
-    $dentalBG = mysqli_query($conn, "SELECT * FROM dentalbackground WHERE dental_background_id = $dbgid");
+    $dentalBG = mysqli_query($connection, "SELECT * FROM dentalbackground WHERE dental_background_id = $dbgid");
     return $dentalBG;
 }
 ?>
@@ -73,8 +64,8 @@ function fetchUniqueDentalBG($dbgid){
                 </button>
             </a>
 
-            <i class='bx bxs-bell bx-flip-horizontal bx-tada nav__icon'></i>
-
+            <div class="header__container">
+            <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
 
             <div class="header__toggle">
                 <i class='bx bx-menu' id="header-toggle"></i>
@@ -82,78 +73,81 @@ function fetchUniqueDentalBG($dbgid){
         </div>
     </header>
 
-    <!--========== NAV ==========-->
-    <div class="nav" id="navbar">
-        <nav class="nav__container">
-            <div>
-                <a href="#" class="nav__link nav__logo">
-                    <i class='bx bxs-disc nav__icon'></i>
-                    <span class="nav__logo-name">Cruz Dental Clinic</span>
-                </a>
+       
 
-                <div class="nav__list">
+   <!--========== NAV ==========-->
+   <div class="nav" id="navbar">
+    <nav class="nav__container">
+        <div>
+            <a href="#" class="nav__link nav__logo">
+           <i class='nav__icon'>
+           <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+           </i>
+                <span class="nav__logo-name">Cruz Dental Clinic</span>
+            </a>
 
-                    <div class="nav__items">
-                        <a href="/Secretary/index.php" class="nav__link active">
-                            <i class='bx bx-home nav__icon'></i>
-                            <span class="nav__name">Dashboard</span>
+            <div class="nav__list">
+                <div class="nav__items">
+
+                    <a href="/Modules/admin/index.php" class="nav__link active">
+                        <i class='bx bx-home nav__icon' ></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bxs-calendar nav__icon' ></i>
+                            
+                            <span class="nav__name">Schedule</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                         </a>
-                        
 
-                        <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
-                                <i class='bx bxs-calendar nav__icon'></i>
-
-                                <span class="nav__name">Schedule</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-
-                            </a>
-
-                            <div class="nav__dropdown-collapse">
-                                <div class="nav__dropdown-content">
-                                    <a href="/php-calendar/calendar.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/php-calendar/select.html" class="nav__dropdown-item">Schedule List</a>
-
-
-                                </div>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                               
                             </div>
                         </div>
-
-                        <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class='bx bx-user nav__icon'></i>
-                                    <span class="nav__name">Accounts</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="../Secretary/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
-                                        <a href="../Secretary/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                        <a href="../Secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-
-                                    </div>
-                                </div>
-                        </div>
-
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-money nav__icon'></i>
-                            <span class="nav__name">Billing</span>
-                        </a>
                     </div>
 
-                    <a href="#" class="nav__link">
-                        <i class='bx bxs-megaphone nav__icon'></i>
-                        <span class="nav__name">Announcement</span>
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Accounts</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                            <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                                <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
+                                <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="/Modules/admin/billing/billing.php" class="nav__link">
+                        <i class='bx bx-money nav__icon' ></i>
+                        <span class="nav__name">Billing</span>
                     </a>
                 </div>
 
-                <a href="#" class="nav__link nav__logout">
-                    <i class='bx bx-log-out nav__icon'></i>
-                    <span class="nav__name">Log Out</span>
+                <a href="/Modules/admin/announcement/announcement.php" class="nav__link">
+                    <i class='bx bxs-megaphone nav__icon'></i>
+                    <span class="nav__name">Announcement</span>
                 </a>
-        </nav>
-        </div>
+            </div>
+
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+            <i class='bx bx-log-out nav__icon' ></i>
+            <span class="nav__name">Log Out</span>
+        </a>
+    </nav>
+</div>
+
 
 
     <div class="body_content">
@@ -168,7 +162,7 @@ function fetchUniqueDentalBG($dbgid){
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
-            $result = mysqli_query($conn,$sql);
+            $result = mysqli_query($connection,$sql);
     
 
             if(mysqli_num_rows($result)>0){
@@ -259,8 +253,8 @@ function fetchUniqueDentalBG($dbgid){
 
                 if(mysqli_num_rows($query) !== 0){
 
-                    echo '<div class="dbg-edit"><button id="edit-button" class="dbg-button">Edit</button></div>';
-                    echo '<div class="dbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="dbg-vbutton">View Previous Entries</button></div>';
+                    echo '<div class="dbg-edit"><button id="edit-button" class="dbg-button">Add</button></div>';
+                    echo '<div class="dbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="dbg-vbutton">Dental Background History</button></div>';
                 }
 
                 ?>

@@ -1,6 +1,6 @@
 <?php
-    include('../../Database/sessioncheck.php');
-	include('../../Database/connect.php');
+    include('../../../../Database/sessioncheck.php');
+	require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 	
  //if burron update is clicked call updateprocess function
 
@@ -35,7 +35,7 @@ if(isset($_POST['create'])){
 			
 			//successful update then redirect user to admin.page
 			if($result){
-				echo "<script> alert('Data Has Been Updated'); window.location='/Patient/index.php'  </script>";
+				echo "<script> alert('Data Has Been Updated'); window.location='/Modules/admin/index.php'  </script>";
 			}
 			//fail update then redirect user to admin page
 			else{

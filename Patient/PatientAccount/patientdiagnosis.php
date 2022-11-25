@@ -527,8 +527,486 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                     </div>
 
         </form>
+   
 
+                    <!-- Modal for adding diagnosis  -->
+                    <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content" id="add-img">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Diagnosis</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <!-- Form -->
+
+                                <form action="add-diagnosis.php" method="post">
+
+                                <?php require 'block-tooth.php'?>
+                              
+                                    <input type="hidden" name="id" value="<?php echo $i?>">
+                                    <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
+                                    <div class="modal-body">
+                                        Select tooth:
+                                    <div class="top-teeth">
+                        <div class="top-ind">
+                            <p>Top</p>
+                        </div>
+
+
+                        <div class="top">
+                            <div class="t18">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct18" value="18" <?php echo checkIfMissing(18, $i); ?> />
+                                <div>
+                                    <label for="ct18">
+                                        <img src="tooth-numbering-images/18.png" <?php echo colorIfMissing(18, $i); ?>>
+                                        <!-- style= 'filter: grayscale(1000%)' -->
+                                    </label>
+                                    <p>18</p>
+                                </div>
+
+                            </div>
+                            <div class="t17">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct17" value="17" <?php echo checkIfMissing(17, $i); ?> />
+                                <div>
+                                    <label for="ct17">
+                                        <img src="tooth-numbering-images/17.png"  <?php echo colorIfMissing(17, $i); ?> >
+                                    </label>
+                                    <p>17</p>
+                                </div>
+                            </div>
+                            <div class="t16">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct16" value="16" <?php echo checkIfMissing(16, $i); ?> />
+                                <div>
+                                    <label for="ct16">
+                                        <img src="tooth-numbering-images/16.png"<?php echo colorIfMissing(16, $i); ?>>
+                                    </label>
+                                    <p>16</p>
+                                </div>
+
+                            </div>
+                            <div class="t15">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct15" value="15" <?php echo checkIfMissing(15, $i); ?>/>
+                                <div>
+                                    <label for="ct15">
+                                        <img src="tooth-numbering-images/15.png"<?php echo colorIfMissing(15, $i); ?>>
+                                    </label>
+                                    <p>15</p>
+                                </div>
+
+                            </div>
+                            <div class="t14">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct14" value="14" <?php echo checkIfMissing(14, $i); ?>/>
+                                <div>
+                                    <label for="ct14">
+                                        <img src="tooth-numbering-images/14.png"<?php echo colorIfMissing(14, $i); ?>>
+                                    </label>
+                                    <p>14</p>
+                                </div>
+
+                            </div>
+                            <div class="t13">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct13" value="13" <?php echo checkIfMissing(13, $i); ?>/>
+                                <div>
+                                    <label for="ct13">
+                                        <img src="tooth-numbering-images/13.png"<?php echo colorIfMissing(13, $i); ?>>
+                                    </label>
+                                    <p>13</p>
+                                </div>
+
+                            </div>
+                            <div class="t12">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct12" value="12" <?php echo checkIfMissing(12, $i); ?>/>
+                                <div>
+                                    <label for="ct12">
+                                        <img src="tooth-numbering-images/12.png"<?php echo colorIfMissing(12, $i); ?>>
+                                    </label>
+                                    <p>12</p>
+                                </div>
+
+                            </div>
+                            <div class="t11">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct11" value="11" <?php echo checkIfMissing(11, $i); ?>/>
+                                <div>
+                                    <label for="ct11">
+                                        <img src="tooth-numbering-images/11.png"<?php echo colorIfMissing(11, $i); ?>>
+                                    </label>
+                                    <p>11</p>
+                                </div>
+
+                            </div>
+                            <div class="t21">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct21" value="21" <?php echo checkIfMissing(21, $i); ?>/>
+                                <div>
+                                    <label for="ct21">
+                                        <img src="tooth-numbering-images/21.png"<?php echo colorIfMissing(21, $i); ?>>
+                                    </label>
+                                    <p>21</p>
+                                </div>
+
+                            </div>
+                            <div class="t22">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct22" value="22" <?php echo checkIfMissing(22, $i); ?>/>
+                                <div>
+                                    <label for="ct22">
+                                        <img src="tooth-numbering-images/22.png"<?php echo colorIfMissing(22, $i); ?>>
+                                    </label>
+                                    <p>22</p>
+                                </div>
+
+                            </div>
+                            <div class="t23">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct23" value="23" <?php echo checkIfMissing(23, $i); ?> />
+                                <div>
+                                    <label for="ct23">
+                                        <img src="tooth-numbering-images/23.png"<?php echo colorIfMissing(23, $i); ?>>
+                                    </label>
+                                    <p>23</p>
+                                </div>
+
+                            </div>
+                            <div class="t24">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct24" value="24" <?php echo checkIfMissing(24, $i); ?>/>
+                                <div>
+                                    <label for="ct24">
+                                        <img src="tooth-numbering-images/24.png"<?php echo colorIfMissing(24, $i); ?>>
+                                    </label>
+                                    <p>24</p>
+                                </div>
+
+                            </div>
+                            <div class="t25">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct25" value="25" <?php echo checkIfMissing(25, $i); ?>/>
+                                <div>
+                                    <label for="ct25">
+                                        <img src="tooth-numbering-images/25.png"<?php echo colorIfMissing(25, $i); ?>>
+                                    </label>
+                                    <p>25</p>
+                                </div>
+
+                            </div>
+                            <div class="t26">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct26" value="26" <?php echo checkIfMissing(26, $i); ?>/>
+                                <div>
+                                    <label for="ct26">
+                                        <img src="tooth-numbering-images/26.png"<?php echo colorIfMissing(26, $i); ?>>
+                                    </label>
+                                    <p>26</p>
+                                </div>
+
+                            </div>
+                            <div class="t27">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct27" value="27"<?php echo checkIfMissing(27, $i); ?> />
+                                <div>
+                                    <label for="ct27">
+                                        <img src="tooth-numbering-images/27.png"<?php echo colorIfMissing(27, $i); ?>>
+                                    </label>
+                                    <p>27</p>
+                                </div>
+
+                            </div>
+                            <div class="t28">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct28" value="28" <?php echo checkIfMissing(28, $i); ?>/>
+                                <div>
+                                    <label for="ct28">
+                                        <img src="tooth-numbering-images/28.png"<?php echo colorIfMissing(28, $i); ?>>
+                                    </label>
+                                    <p>28</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="bottom-teeth">
+                        <div class="bottom-ind">
+                            <p>Bottom</p>
+                        </div>
+
+                        <div class="bottom">
+                            <div class="b48">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb48" value="48" <?php echo checkIfMissing(48, $i); ?>/>
+                                <div>
+                                    <label for="cb48">
+                                        <img src="tooth-numbering-images/48.png"<?php echo colorIfMissing(48, $i); ?>>
+                                    </label>
+                                    <p>48</p>
+                                </div>
+                            </div>
+                            <div class="b47">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb47" value="47" <?php echo checkIfMissing(47, $i); ?>/>
+                                <div>
+                                    <label for="cb47">
+                                        <img src="tooth-numbering-images/47.png"<?php echo colorIfMissing(47, $i); ?>>
+                                    </label>
+                                    <p>47</p>
+                                </div>
+                            </div>
+                            <div class="b46">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb46" value="46" <?php echo checkIfMissing(46, $i); ?>/>
+                                <div>
+                                    <label for="cb46">
+                                        <img src="tooth-numbering-images/46.png"<?php echo colorIfMissing(46, $i); ?>>
+                                    </label>
+                                    <p>46</p>
+                                </div>
+
+                            </div>
+                            <div class="b45">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb45" value="45" <?php echo checkIfMissing(45, $i); ?>/>
+                                <div>
+                                    <label for="cb45">
+                                        <img src="tooth-numbering-images/45.png"<?php echo colorIfMissing(45, $i); ?>>
+                                    </label>
+                                    <p>45</p>
+                                </div>
+
+                            </div>
+                            <div class="b44">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb44" value="44" <?php echo checkIfMissing(44, $i); ?>/>
+                                <div>
+                                    <label for="cb44">
+                                        <img src="tooth-numbering-images/44.png"<?php echo colorIfMissing(44, $i); ?>>
+                                    </label>
+                                    <p>44</p>
+                                </div>
+
+                            </div>
+                            <div class="b43">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb43" value="43" <?php echo checkIfMissing(43, $i); ?>/>
+                                <div>
+                                    <label for="cb43">
+                                        <img src="tooth-numbering-images/43.png"<?php echo colorIfMissing(43, $i); ?>>
+                                    </label>
+                                    <p>43</p>
+                                </div>
+
+                            </div>
+                            <div class="b42">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb42" value="42" <?php echo checkIfMissing(42, $i); ?>/>
+                                <div>
+                                    <label for="cb42">
+                                        <img src="tooth-numbering-images/42.png"<?php echo colorIfMissing(42, $i); ?>>
+                                    </label>
+                                    <p>42</p>
+                                </div>
+
+                            </div>
+                            <div class="b41">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb41" value="41" <?php echo checkIfMissing(41, $i); ?>/>
+                                <div>
+                                    <label for="cb41">
+                                        <img src="tooth-numbering-images/41.png"<?php echo colorIfMissing(41, $i); ?>>
+                                    </label>
+                                    <p>41</p>
+                                </div>
+
+                            </div>
+                            <div class="b31">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb31" value="31" <?php echo checkIfMissing(31, $i); ?> />
+                                <div>
+                                    <label for="cb31">
+                                        <img src="tooth-numbering-images/31.png"<?php echo colorIfMissing(31, $i); ?>>
+                                    </label>
+                                    <p>31</p>
+                                </div>
+
+                            </div>
+                            <div class="b32">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb32" value="32" <?php echo checkIfMissing(32, $i); ?> />
+                                <div>
+                                    <label for="cb32">
+                                        <img src="tooth-numbering-images/32.png"<?php echo colorIfMissing(32, $i); ?>>
+                                    </label>
+                                    <p>32</p>
+                                </div>
+
+                            </div>
+                            <div class="b33">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb33" value="33" <?php echo checkIfMissing(33, $i); ?>/>
+                                <div>
+                                    <label for="cb33">
+                                        <img src="tooth-numbering-images/33.png"<?php echo colorIfMissing(33, $i); ?>>
+                                    </label>
+                                    <p>33</p>
+                                </div>
+
+                            </div>
+                            <div class="b34">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb34" value="34"<?php echo checkIfMissing(34, $i); ?> />
+                                <div>
+                                    <label for="cb34">
+                                        <img src="tooth-numbering-images/34.png"<?php echo colorIfMissing(34, $i); ?>>
+                                    </label>
+                                    <p>34</p>
+                                </div>
+
+                            </div>
+                            <div class="b35">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb35" value="35" <?php echo checkIfMissing(35, $i); ?>/>
+                                <div>
+                                    <label for="cb35">
+                                        <img src="tooth-numbering-images/35.png"<?php echo colorIfMissing(35, $i); ?>>
+                                    </label>
+                                    <p>35</p>
+                                </div>
+
+                            </div>
+                            <div class="b36">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb36" value="36" <?php echo checkIfMissing(36, $i); ?>/>
+                                <div>
+                                    <label for="cb36">
+                                        <img src="tooth-numbering-images/36.png"<?php echo colorIfMissing(36, $i); ?>>
+                                    </label>
+                                    <p>36</p>
+                                </div>
+
+                            </div>
+                            <div class="b37">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb37" value="37" <?php echo checkIfMissing(37, $i); ?>/>
+                                <div>
+                                    <label for="cb37">
+                                        <img src="tooth-numbering-images/37.png"<?php echo colorIfMissing(37, $i); ?>>
+                                    </label>
+                                    <p>37</p>
+                                </div>
+
+                            </div>
+                            <div class="b38">
+                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb38" value="38" <?php echo checkIfMissing(38, $i); ?>/>
+                                <div>
+                                    <label for="cb38">
+                                        <img src="tooth-numbering-images/38.png"<?php echo colorIfMissing(38, $i); ?>>
+                                    </label>
+                                    <p>38</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                                    
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" id="adddesc-btn" name="adddesc-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</button>
+                                    </div>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                     <!-- Modal for add description in diagnosis tab-->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content" >
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Add </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                       
+                                <input type="hidden" name="id" value="<?php echo $i?>">
+                                <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="findings" class="col-form-label">Findings:</label>
+
+                                   <!-- <select class="form-control" name="findings" id="findings" style=" border-color: blueviolet;" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}" required>
+                                        <option value="" selected disabled>Select</option>
+                                        <option value="" disabled>Code Red</option>
+                                        <option value="C">Carries</option>
+                                        <option value="Abr">Abrasion</option>
+                                        <option value="Fr">Fracture</option>
+                                        <option value="X">Indicted for Extraction</option>
+                                        <option value="M">Missing</option>
+                                        <option value="Rf">Root Fracment</option>
+                                        <option value="" disabled>Code Blue</option>
+                                        <option value="WC">Tooth present without carries</option>
+                                        <option value="Co">Composite</option>
+                                        <option value="FPD">Fixed Partial Denture</option>
+                                        <option value="Gi">Glass Ionomer</option>
+                                        <option value="I">INI24</option>
+                                        <option value="L">21</option>
+                                        <option value="Tf">Tf</option>
+                                        <option value="Vn">Unfrupied</option>
+                                        <option value="Jc">Jacket</option>
+                                        <option disabled></option>
+                                        <option value="customOption">---Other---</option>
+                                        <input class="form-control" placeholder="Enter findings here.." name="findings" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}" required>
+                                    </select>-->
+
+                                   <!--<select class="form-control" name="findings" id="findings" style=" border-color: blueviolet;" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}" required>
+                                        <option value="" selected disabled>Select</option>
+                                        <option value="" disabled>Code Red</option>
+                                        <option value="C - Carries">C - Carries</option>
+                                        <option value="Abr - Abrasion">Abr - Abrasion</option>
+                                        <option value="Fr - Fracture">Fr - Fracture</option>
+                                        <option value="X - Indicted for Extraction">X - Indicted for Extraction</option>
+                                        <option value="M - Missing">M - Missing</option>
+                                        <option value="Rf - Root Fracment">Rf - Root Fracment</option>
+                                        <option value="" disabled>Code Blue</option>
+                                        <option value=" - Tooth present without carries">✔ - Tooth present without carries</option>
+                                        <option value="Co - Composite">Co - Composite</option>
+                                        <option value="FPD - Fixed Partial Denture">FPD - Fixed Partial Denture</option>
+                                        <option value="Gi - Glass Ionomer">Gi - Glass Ionomer</option>
+                                        <option value="I - INI24">I - INI24</option>
+                                        <option value="L - 21">L - 21</option>
+                                        <option value="Tf - Temporary Filling">Tf - Temporary Filling</option>
+                                        <option value="Vn - Unfrupied">Vn - Unfrupied</option>
+                                        <option value="Jc - Jacket">Jc - Jacket</option>
+                                        <option disabled></option>
+                                        <option value="customOption">---Other---</option>
+                                        <input class="form-control" placeholder="Enter findings here.." name="findings" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}" required>
+                                    </select>-->
+
+                                    <select class="form-control" name="findings" id="findings" style=" border-color: blueviolet;" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}" required>
+                                        <option value="" selected disabled>Select</option>
+                                        <option value="" disabled>Code Red</option>
+                                        <option value="Carries">Carries</option>
+                                        <option value="Abrasion">Abrasion</option>
+                                        <option value="Fracture">Fracture</option>
+                                        <option value="Indicted for Extraction">Indicted for Extraction</option>
+                                        <option value="Missing">Missing</option>
+                                        <option value="Root Fragment">Root Fragment</option>
+                                        <option value="" disabled>Code Blue</option>
+                                        <option value="Tooth Present Without Carries">Tooth Present Without Carries </option>
+                                        <option value="Composite">Composite</option>
+                                        <option value="Fixed Partial Denture">Fixed Partial Denture</option>
+                                        <option value="Glass Ionomer">Glass Ionomer</option>
+                                        <option value="INI24">INI24</option>
+                                        <option value="21">21</option>
+                                        <option value="Temporary Filling">Temporary Filling</option>
+                                        <option value="Unfrupied">Unfrupied</option>
+                                        <option value="Jacket">Jacket</option>
+                                        <option disabled></option>
+                                        <option value="customOption">---Other---</option>
+                                        <input class="form-control" placeholder="Enter findings here.." name="findings" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}" required>
+                                    </select>
+
+                                    <label for="message-text" class="col-form-label">Description:</label>
+                                    <textarea class="form-control" placeholder="Enter text here.." name="description" style="height: 200px; border-color: blueviolet;" id="message-text" required></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="closebtn" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" id="savebtn" name="add-diagnosis-button" class="btn btn-primary">Add</button>
+                            </div>
+                    
+
+
+                    </div>
+            </div>
         </div>
+        </form>
+
+
 
         <div class="legends" style="width: 100%"> 
             <div class="lsquare" style="background-color: grey; height: 10px; width: 10px;"></div>

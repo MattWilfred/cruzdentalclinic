@@ -1,0 +1,266 @@
+.teeth-top {
+    margin-top: 7%;
+    margin-bottom: 3%;
+    width: 92%;
+    height: 110px;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.top-ind p {
+    margin-right: 10px;
+}
+
+.vtop {
+    display: flex;
+}
+
+.vt18,
+.vt17,
+.vt16,
+.vt15,
+.vt14,
+.vt13,
+.vt12,
+.vt11,
+.t21,
+.t22,
+.t23,
+.t24,
+.t25,
+.t26,
+.t27,
+.t28,
+.b48,
+.b47,
+.b46,
+.b45,
+.b44,
+.b43,
+.b42,
+.b41,
+.b31,
+.b32,
+.b33,
+.b34,
+.b35,
+.b36,
+.b37,
+.b38 {
+    display: block;
+    text-align: center;
+}
+
+.vt18 img {
+    background-size: contain;
+    height: 75px;
+    width: 44px;
+}
+
+.vt17 img {
+    background-size: contain;
+    height: 80px;
+    width: 44px;
+}
+
+.vt16 img {
+    background-size: contain;
+    height: 83px;
+    width: 46px;
+}
+
+.vt15 img {
+    background-size: contain;
+    height: 90px;
+    width: 34px;
+}
+
+.vt14 img {
+    background-size: contain;
+    height: 93px;
+    width: 37px;
+}
+
+.vt13 img {
+    background-size: contain;
+    height: 95px;
+    width: 39px;
+    cursor: pointer;
+}
+
+.vt12 img {
+    background-size: contain;
+    height: 98px;
+    width: 40px;
+}
+
+.vt11 img {
+    background-size: contain;
+    height: 101px;
+    width: 41px;
+}
+
+.t21 img {
+    background-size: contain;
+    height: 101px;
+    width: 39.5px;
+}
+
+.t22 img {
+    background-size: contain;
+    height: 100px;
+    width: 39px;
+}
+
+.t23 img {
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+}
+
+.t24 img {
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+}
+
+.t25 img {
+    background-size: contain;
+    height: 96px;
+    width: 36px;
+}
+
+.t26 img {
+    background-size: contain;
+    height: 85px;
+    width: 43px;
+}
+
+.t27 img {
+    background-size: contain;
+    height: 80px;
+    width: 47px;
+}
+
+.t28 img {
+    background-size: contain;
+    height: 78px;
+    width: 45px;
+}
+
+
+/*------------ bottom-teeth----------------- */
+
+.bottom-teeth {
+    margin-bottom: 2%;
+    width: 92%;
+    height: 110px;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-ind p {
+    margin-right: 3%;
+}
+
+.bottom {
+    display: flex;
+}
+
+.b48 img {
+    background-size: contain;
+    height: 75px;
+    width: 43px;
+}
+
+.b47 img {
+    background-size: contain;
+    height: 77px;
+    width: 44px;
+}
+
+.b46 img {
+    background-size: contain;
+    height: 81px;
+    width: 46px;
+}
+
+.b45 img {
+    background-size: contain;
+    height: 90px;
+    width: 34px;
+}
+
+.b44 img {
+    background-size: contain;
+    height: 93px;
+    width: 36px;
+}
+
+.b43 img {
+    background-size: contain;
+    height: 95px;
+    width: 39px;
+}
+
+.b42 img {
+    background-size: contain;
+    height: 98px;
+    width: 40px;
+}
+
+.b41 img {
+    background-size: contain;
+    height: 101px;
+    width: 41px;
+}
+
+.b31 img {
+    background-size: contain;
+    height: 101px;
+    width: 39.5px;
+}
+
+.b32 img {
+    background-size: contain;
+    height: 100px;
+    width: 39px;
+}
+
+.b33 img {
+    background-size: contain;
+    height: 100px;
+    width: 38px;
+}
+
+.b34 img {
+    background-size: contain;
+    height: 98px;
+    width: 38px;
+}
+
+.b35 img {
+    background-size: contain;
+    height: 91px;
+    width: 36px;
+}
+
+.b36 img {
+    background-size: contain;
+    height: 80px;
+    width: 43px;
+}
+
+.b37 img {
+    background-size: contain;
+    height: 80px;
+    width: 44px;
+}
+
+.b38 img {
+    background-size: contain;
+    height: 78px;
+    width: 42px;
+}
