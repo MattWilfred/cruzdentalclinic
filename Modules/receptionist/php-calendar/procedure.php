@@ -22,12 +22,10 @@
     </head>
     <body>
                 
-     
-     
-         <!--========== HEADER ==========-->
-         <header class="header">
+       <!--========== HEADER ==========-->
+       <header class="header">
           <div class="header__container">
-          <img class="header__img" src="/Modules/receptionist/assets/img/logo dental.png" alt="">
+          <img class="header__img" src="/Modules/secretary/assets/img/logo dental.png" alt="">
 
               <a href="#" class="header__logo">Cruz Dental Clinic</a>
   
@@ -37,7 +35,6 @@
               </div>
           </div>
       </header>
-
 <!--========== NAV ==========-->
 
 
@@ -86,8 +83,10 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
+                            <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                                    <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>    
+                                    <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                           
                             </div>
                         </div>
                     </div>
@@ -111,6 +110,7 @@
         </a>
     </nav>
 </div>
+
       <!--sidebar end-->
 
                   
@@ -216,7 +216,7 @@
             <input type="hidden" name="userid" value="<?php echo $user;?>" />
             <input type="hidden" name="userid" value="<?php echo $dentist;?>" />
             <div class="indent">
-<input type="submit" name="submit"  value="proceed booking" />
+        <input type="submit" name="submit"  value="proceed booking" />
 </div>   
           
         </form>

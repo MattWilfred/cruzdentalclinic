@@ -1,6 +1,6 @@
 <?php
 
-    include ('../../../Database/connect.php');
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     $dentist=$_GET['dentistid'];
      
     
@@ -17,21 +17,20 @@
         <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     </head>
         <body>
+       
+<!--========== HEADER ==========-->
+<header class="header">
+            <div class="header__container">
+                <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+
+                <a href="#" class="header__logo">Cruz Dental Clinic</a>
     
-         <!--========== HEADER ==========-->
-         <header class="header">
-          <div class="header__container">
-          <img class="header__img" src="/Modules/receptionist/assets/img/logo dental.png" alt="">
-
-              <a href="#" class="header__logo">Cruz Dental Clinic</a>
-  
-  
-              <div class="header__toggle">
-                  <i class='bx bx-menu' id="header-toggle"></i>
-              </div>
-          </div>
-      </header>
-
+    
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
+                </div>
+            </div>
+        </header>
 <!--========== NAV ==========-->
 
 
@@ -80,8 +79,10 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
+                            <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                                    <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>    
+                                    <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                           
                             </div>
                         </div>
                     </div>
@@ -105,8 +106,6 @@
         </a>
     </nav>
 </div>
-
-
       <!--sidebar end-->
       <main>
 
@@ -120,12 +119,10 @@
                 <tr>
                     <td>
 
-                    <form action="" method="GET" enctype="multipart/form-data">
-                        <div>
-                        <input type="text" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="search" placeholder="Search data">
-                            <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        </div>
-                        </form>
+                    <form method="POST">
+                        <span><input type="text" name="search" class="search" placeholder="Search data">
+                        <input name="submitsearch" class="sbutton" type="submit" value="Search"></span>     
+                    </form>
 
                     </td>
                 </tr>
@@ -146,11 +143,9 @@
             <th>Picture</th>
             <th>Name</th>
             <th>Gender</th>
-           
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>  
             <?php
                  //read rows from the database
               $sql = "SELECT * FROM users WHERE accrole ='Patient' ORDER BY lname ASC";
@@ -161,38 +156,71 @@
                   die("Invalid query: " . $connection->error);
               }
 
-              if(mysqli_num_rows($result) > 0)
-                              {
-                                  foreach($result as $users)
-                                  {
-                                      ?>
-                                      <tr>
-                  
-                                          <td><?= $users['fname'] . ' ' .$users['lname'];?></td>
-                                          <td><?= $users['gender']; ?></td>
-                                          <td><?= $users['phonenumber']; ?></td>
-                                          <td>
-                                              <a href="procedure.php?dentistid=<?php echo $dentist?>&currentid=<?= $users['id']; ?>" class="btn btn-info btn-sm">select</a>
-                                             
-                                          </td>
-                                      </tr>
-                                      <?php
+              //read rows from the database
+
+
+                if (isset($_POST["submitsearch"])){
+
+                    $searchedTerm = $_POST["search"];
+                    $entries = mysqli_query($connection, "SELECT * FROM users WHERE username LIKE  '$searchedTerm' AND accrole = 'Patient'|| fname LIKE '$searchedTerm' || lname LIKE '$searchedTerm'");
+
+                    while ($users = mysqli_fetch_assoc($entries)) {
+                        echo "<tbody id='searched-div'>";
+                        echo "<tr>";
+                        echo "<td>".$users['id']."</td>";
+                        echo "<td>".$users['fname']." ".$users['lname']."</td>";
+                        echo "<td>".$users['gender']."</td>";
+                        echo "<td>".$users['phonenumber']."</td>";
+                        echo "<td>".$users['birthdate']."</td>";
+                        echo "<td><a href=view.php?id=<?=" .$users['id']. " class='btn btn-info btn-sm'>View</a></td>";
+                        echo "</tr>";
+                        echo "</tbody>";
+                    }
+                }
+
+
+              else if(mysqli_num_rows($result) > 0){
+                    foreach($result as $users){
+                        
+                        ?>
+                            <tbody id='original-div'>
+                            <tr>
+                            <td><?= $users['fname'] . ' ' .$users['lname'];?></td>
+                            <td><?= $users['gender']; ?></td>
+                            <td><?= $users['phonenumber']; ?></td>
+                            <td>
+                                <a href="procedure.php?dentistid=<?php echo $dentist?>&currentid=<?= $users['id']; ?>" class="btn btn-info btn-sm">select</a>
+                            </td>
+                            </tr>
+                            </tbody>
+                        
+                        <?php
                                   }
                               }
                               else
                               {
-                                  echo "<h5> No Record Found </h5>";
+                                  echo "<h5> No Patient Found called" .$_POST["search"]. "</h5>";
                               }
     
             ?>
         
-            </tbody>
         </table>
     </div>
-     </div>    
+     </div> 
+     
+     <script>
+     
+     $(document).ready(function(){
+        $(".sbutton").on("click", function(){
+            $("original-div").hide();
+            $("searched-div").show();
+        })
+    })
+    </script>
     
     
     </body>
+
 <script src="/Modules/admin/assets/js/main.js"></script>
 
 </html>

@@ -8,14 +8,14 @@ $newtime1=0;
 $SS= date("h:i");
 
 
-$mysqli = new mysqli('localhost', 'root', '', 'cruzdentalclinic');
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 if(isset($_GET['date'])){
     
   $date = $_GET['date'];
   $dentistid= $_GET['dentist'];
   
-    $stmt = $mysqli->prepare("select * from bookings where dentist_id='$dentistid' and date=?");
+    $stmt = $connection->prepare("select * from bookings where dentist_id='$dentistid' and date=?");
     $stmt->bind_param('s', $date);
     $bookings = array();
     if($stmt->execute()){
@@ -35,17 +35,17 @@ if(isset($_GET['date'])){
 
 // Get name of user depending on the userid from users table
 $sql = "SELECT * FROM `users` WHERE id= '$userid'";
-$all_categories = mysqli_query($mysqli,$sql);
+$all_categories = mysqli_query($connection,$sql);
 
 // Get information of the dentist based on id.
 $sql = "SELECT * FROM `users` WHERE id= '$dentistid' AND accrole ='Dentist'";
-$find_dentist = mysqli_query($mysqli,$sql);
+$find_dentist = mysqli_query($connection,$sql);
 
 $sql = "SELECT * FROM `users` WHERE id= '$dentistid' AND accrole ='Dentist'";
-$id_dentist = mysqli_query($mysqli,$sql);
+$id_dentist = mysqli_query($connection,$sql);
 
 $sql = "SELECT * FROM `users` WHERE id= '$userid' AND accrole ='Patient'";
-$id_patient = mysqli_query($mysqli,$sql);
+$id_patient = mysqli_query($connection,$sql);
 
 
 
@@ -62,13 +62,13 @@ if(isset($_POST['submit'])){
 
        
 
-    $stmt = $mysqli->prepare("INSERT INTO bookings (name, timeslot, date, doctor, treatment,status, dentist_id, patient_id) VALUES (?,?,?,?,?,?,?,?)");
+    $stmt = $connection->prepare("INSERT INTO bookings (name, timeslot, date, doctor, treatment,status, dentist_id, patient_id) VALUES (?,?,?,?,?,?,?,?)");
     $stmt->bind_param('ssssssss', $name, $timeslot , $date, $drselect, $procedure, $status, $dentist_id_fk, $patient_id_fk);
     $stmt->execute();
     //$msg = "<div class='alert alert-success'>Booking Successfull</div>";
     $bookings[]=$timeslot;
     $stmt->close();
-    $mysqli->close();
+    $connection->close();
 
     echo  "<script> alert('Booked Successfully'); window.location='/Modules/receptionist/index.php'; </script>";
 }
@@ -144,12 +144,13 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bookcss.css">
     <link rel="stylesheet" href="Book.Bootstrap.min.css?v=<?php echo time(); ?>">
-
+    <link rel="stylesheet" href="indent.css?v=<?php echo time(); ?>">
     <title></title>
 
    
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     
+ 
   </head>
 
   <body>
@@ -161,14 +162,14 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     
 
     <div class="indent">
-    <h1 style='text-align:center;'> Select Time For Appointment </h1>
+      <h1 style='text-align:center;'> Select Time For Appointment </h1>
       <h1 style='text-align:center;'>Book for Date: <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr>
     </div>
 
     <div class="time">
         <div class="container">
 
-        
+      
         <div class="row">
             <div class="row"> 
                 <div class="col-md-12">
@@ -176,13 +177,15 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                 </div>
             </div>
           
-            <h1>MORNING SCHEDULE</h1><hr>
+            <h1>MORNING SCHEDULE</h1>
+            
            <?php $timeslots = timeslotsAM($duration, $cleanup, $start,$end);
                 // $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);  
               foreach($timeslots as $ts){
             ?>
-           
+
            <br><br>
+           
             <div class="col-md-4">
                 <div class="form-group"> 
                     <?php if(in_array($ts,$bookings)){ ?>
@@ -195,7 +198,7 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
              
             <?php } ?>
             </div>
-            
+         
             <br><br>     <br><br>
           <div class ="row">
               </br>
@@ -204,8 +207,8 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
             <?php $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);
                 // $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);  
               foreach($timeslots1 as $ts1){
-            ?>    <br><br>
-           
+            ?>
+            <br><br>
            
             <div class="col-md-4">
                 <div class="form-group"> 
@@ -239,7 +242,7 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-   
+        
         <h4 class="modal-title">Booking: <span id="slot"></span></h4>
       </div>
       <div class="modal-body">
@@ -259,7 +262,7 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                                   $all_categories,MYSQLI_ASSOC)):;
                       ?>
                         <label for="">Patient Name </label>
-                    <input type= "text" readonly name="Patient" value="<?php echo $category['fname']; echo $category['lname']  ;?>"  class="form-control">
+                    <input type= "text" readonly name="Patient" value="<?= $category['fname'] . ' ' .$category['lname'];?>"  class="form-control">
                         
                     <?php
                      endwhile;
@@ -280,7 +283,7 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                                   $find_dentist,MYSQLI_ASSOC)):;
                       ?>
                         <label for="">Dentist Name </label>
-                    <input type= "text" readonly name="Dr" value="<?php echo $find['fname'];  echo $find['lname']; ?>"  class="form-control">
+                    <input type= "text" readonly name="Dr" value="<?= $find['fname'] . ' ' .$find['lname'];?>"  class="form-control">
                         
                     <?php
                      endwhile;
