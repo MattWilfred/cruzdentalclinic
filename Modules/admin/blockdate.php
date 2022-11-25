@@ -1,8 +1,9 @@
 <?php
-   require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
-   $query = "SELECT * FROM holiday";  
-    $result = mysqli_query($connection, $query);  
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+
+$query = "SELECT * FROM holiday";  
+$result = mysqli_query($connection, $query);  
 
 ?>
 <!DOCTYPE html>

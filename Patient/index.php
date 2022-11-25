@@ -1,6 +1,6 @@
 <?php
        include('../Database/sessioncheck.php');
-       include('../Database/connect.php');	
+       require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
        $id = $_SESSION['id'];
    
        $sql = "SELECT * from users where id = $id";

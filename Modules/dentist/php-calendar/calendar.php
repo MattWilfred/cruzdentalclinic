@@ -1,6 +1,6 @@
 <?php
 
-    session_start();
+session_start();
    
 
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
@@ -25,9 +25,6 @@ function build_calendar($month, $year) {
     $result = mysqli_query($connection, $query); 
     
 
-    
-  
-    $mysqli = new mysqli('localhost', 'root', '', 'cruzdentalclinic');
     
       
      // Create array containing abbreviations of days of week.

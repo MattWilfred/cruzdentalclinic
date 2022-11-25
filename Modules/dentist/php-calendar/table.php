@@ -32,10 +32,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         
            <link rel="stylesheet" href="/Secretary/assets/css/styles.css">
         
-           
-        
-
-
 
       </head>  
       <body>  

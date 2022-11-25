@@ -1,20 +1,13 @@
 <?php
   //include_once 'userlogs.php';
 
-$dbServername = "localhost:8089";
-$dbUsername = "root";
-$dbPassword = "root";
-$dbName = "medicaldental";
+  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+  $uid = $_SESSION['id'];
 
 function fetchSOADetails($uid){
-    global $conn;
-    $soa = mysqli_query($conn, "SELECT * FROM transaction AS a INNER JOIN statement_of_account AS b ON a.user_id=b.user_id
+    global $connection;
+    $soa = mysqli_query($connection, "SELECT * FROM transaction AS a INNER JOIN statement_of_account AS b ON a.user_id=b.user_id
     INNER JOIN patients AS c ON a.user_id = c.user_id WHERE a.user_id = $uid ");
     return $soa;
 }
@@ -127,8 +120,6 @@ function fetchSOADetails($uid){
         </div>
 
         <?php
-
-            $uid = 2;
 
             $query = fetchSOADetails($uid);
 
