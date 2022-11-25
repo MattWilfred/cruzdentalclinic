@@ -165,14 +165,14 @@
                         <span>Address</span>
                         <p><?php echo $address ?></p>
                     </div>
-                    <div class="edit=prf" style="text-align: center; margin-top: 15%;">
+                    <!--<div class="edit=prf" style="text-align: center; margin-top: 15%;">
                         <a href="patientlist.php">
                             <button>
                                 <i class="fa-solid fa-pen"></i>
                                 Edit Profile
                             </button>
                         </a>
-                    </div>
+                    </div>-->
 
                 
                 </div>
@@ -210,7 +210,6 @@
                     <div class="data-containter">
                         <div class="each-presc">
                             <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from referral WHERE user_id=$currentid ORDER by date_added DESC";
                                 $res = mysqli_query($connection,$query_presc);
