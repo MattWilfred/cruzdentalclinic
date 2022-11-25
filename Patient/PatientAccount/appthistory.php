@@ -90,13 +90,13 @@
                                 </a>
 
                                 <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                    <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
-                                        <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                        <a href="/Modules/admin/Accounts/PatientAccount/patientlist.php" class="nav__dropdown-item">Patients</a>
-                                    </div>
+                                <div class="nav__dropdown-content">
+                                    <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
+
                                 </div>
                             </div>
+                        </div>
+
 
 
                             <a href="/Modules/admin/billing/billing.php" class="nav__link">
@@ -213,7 +213,6 @@
                         <div class="each-presc">
 
                         <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='4' OR status='3' ";
                                 $res = mysqli_query($connection,$query_presc);
