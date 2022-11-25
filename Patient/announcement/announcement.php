@@ -1,5 +1,12 @@
 <?php 
-require 'notification3.php'
+require 'notification3.php';
+
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+
+session_start();
+include('/Database/sessioncheck.php');
+$id = $_SESSION['id'];
+
 ?>
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
@@ -135,7 +142,6 @@ require 'notification3.php'
             <div class= "data-container">
                 <div class="each-annc">
                             <?php
-                            include 'dbcon.php';
 
                             $query = "SELECT * FROM `announcement`";
                                     $query_run = mysqli_query($connection, $query);
@@ -150,7 +156,7 @@ require 'notification3.php'
                                             <p><?php echo $cruzdentalclinic['date'] ?></p>
                                             <h5><?php echo $cruzdentalclinic['message'] ?></h5>
                                             <h6> By: <?php echo  $cruzdentalclinic['user_'] ?></h6>
-                                                                                   </div>
+                                            </div>
                                         <?php
                                         }
                                     }
