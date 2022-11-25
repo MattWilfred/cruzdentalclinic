@@ -145,11 +145,11 @@ $id = $_SESSION['id'];
                           
                            
                            $sql = "SELECT * FROM users WHERE accrole ='Dentist' ORDER BY lname ASC";
-                           $result = $con->query($sql);
+                           $result = $connection->query($sql);
        
                      
                            if (!$result){
-                               die("Invalid query: " . $con->error);
+                               die("Invalid query: " . $connection->error);
                            }
        
                            if(mysqli_num_rows($result) > 0)
