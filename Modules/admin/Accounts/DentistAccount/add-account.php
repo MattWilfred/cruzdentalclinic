@@ -1,7 +1,14 @@
 <?php
   //include_once 'userlogs.php';
 
-  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+
+function fetchUserID($username){
+  global $connection;
+  //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
+  $un = mysqli_query($connection, "SELECT id FROM users WHERE username = $username");
+  return $un;
+}
 
 if (isset($_POST['create'])){
        
@@ -44,6 +51,13 @@ if (isset($_POST['create'])){
     $query_run = mysqli_query($connection, $query);
 
     if ($query_run){
+
+      $user_id = fetchUserID($username);
+
+      if ($accrole == 'Administrator'){
+        $adq = "INSERT INTO `admins` (`user_id`, `admin_first_name`, `admin_surname`, `admin_email_address`, `admin_contact_number`, `admin_birthdate`) 
+        VALUES ($user_id, '$fname', '$lname', '$email', $phonenumber, '$birthdate')";
+      }
 
     echo '<script> alert("Inserted Successfully"); </script>';
     echo "<script>window.location='/Modules/admin/index.php'</script>";
