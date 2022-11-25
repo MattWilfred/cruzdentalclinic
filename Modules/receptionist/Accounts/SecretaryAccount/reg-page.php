@@ -28,7 +28,7 @@
                     <form method="POST" action="add-account.php">
 
                         <h4 class="text-center font-weight-bold"> Cruz Dental Clinic <br /><br /></h4>
-                        <h2 class="text-center">Create Account</h2>
+                        <h2 class="text-center">Add New Account</h2>
 
                         <div>
                             <div style="text-align: center; display: flex; align-items: center;">
@@ -41,7 +41,8 @@
                                 ?>
                                     Select Role
                                     <select class="form-control" id="role" name="role" required>
-                                        <option value="" selected disabled>Select</option>      
+                                        <option value="" selected disabled>Select</option>   
+                                        <option value="Secretary">Administrator</option>   
                                         <option value="Secretary">Secretary</option>
                                         <option value="Receptionist">Receptionist</option>
                                         <option value="Dentist">Dentist</option>

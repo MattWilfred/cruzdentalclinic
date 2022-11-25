@@ -1,11 +1,17 @@
 <?php
   //include_once 'userlogs.php';
 
-  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+
+function fetchUserID($username){
+  global $connection;
+  //$defaultData = mysqli_query($conn, "SELECT * FROM logs ORDER BY logs_id DESC");
+  $un = mysqli_query($connection, "SELECT id FROM users WHERE username = $username");
+  return $un;
+}
 
 if (isset($_POST['create'])){
        
-
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
   $paddress = $_POST['address'];
@@ -23,77 +29,55 @@ if (isset($_POST['create'])){
   $pw_sql = mysqli_query($conn, "SELECT * FROM users WHERE userpassword='$userpassword'");
 
   if (mysqli_num_rows($un_sql) > 0) {
-    $un_error = "Sorry... Username already taken";
-    echo $un_error;
+    echo '<script> alert("Sorry... Username already taken"); </script>';
+    echo "<script>window.location='reg-page.php'</script>";
 
   } else if(mysqli_num_rows($em_sql) > 0){
-    $em_error = "Sorry... Email already taken";
-    echo $em_error;
+    echo '<script> alert("Sorry... Email already taken"); </script>';
+    echo "<script>window.location='reg-page.php'</script>";
 
   } else if(mysqli_num_rows($pw_sql) > 0){
-    $pw_error = "Sorry... Password already taken"; 	
-    echo $pw_error;
+    echo '<script> alert("Sorry... Password already taken"); </script>';
+    echo "<script>window.location='reg-page.php'</script>";
 
   } else if ($userpassword != $cuserpassword){
-    $cpw_error = "Passwords do not match";
-    echo $cpw_error;
+    echo '<script> alert("Passwords do not match"); </script>';
+    echo "<script>window.location='reg-page.php'</script>";
 
   } else {
         
-
-    $query = "INSERT INTO users
-    VALUES (DEFAULT,'$fname','$lname','$paddress','$birthdate','$username','$phonenumber','$gender','$email','$userpassword','$accrole',NULL)";
+    $query = "INSERT INTO users (fname, lname, paddress, birthdate, username, phonenumber, gender, email, userpassword, accrole, profilepicture, status)
+    VALUES ('$fname','$lname','$paddress','$birthdate','$username',$phonenumber,'$gender','$email','$userpassword','$accrole',NULL, 0)";
     $query_run = mysqli_query($connection, $query);
 
+    if ($query_run){
 
+      $user_id = fetchUserID($username);
 
-    //pour le medical background
-    $querymbg = "SELECT * from users ORDER by date DESC LIMIT 1";
-    $mbgres = mysqli_query($connection,$querymbg);
+      if ($accrole == 'Administrator'){
+        $adq = "INSERT INTO `admins` (`user_id`, `admin_first_name`, `admin_surname`, `admin_email_address`, `admin_contact_number`, `admin_birthdate`) 
+        VALUES ($user_id, '$fname', '$lname', '$email', $phonenumber, '$birthdate')";
 
-    if ($mbgres){
-      if(mysqli_num_rows($mbgres)>0){
-                                
-        while($row = $mbgres->fetch_assoc()){
-    
-          $newuid = $row['id'];
-      
-          $addmbg = "INSERT INTO medicalbackground VALUES 
-          (DEFAULT, $newuid,
-          '0','0','0','0','0','0','0','0','0','',
-          '0','0','0','0','0','0','0','0','0','0',
-          '0','0','0','','0','0','0','0','0','0',
-          '0','0','0','0','0','0','0','0','0','0',
-          '0','0','0','0','0','0','0','0','0','0',
-          '0','0','0','')";
-                            
-          $addmbgres = mysqli_query($connection,$addmbg);
-    
-        }
-    
+        $adq_run = mysqli_query($connection, $adq);
+      } else if ($accrole == 'Secretary'){
+        $req = "INSERT INTO `secretary` (`user_id`, `secretary_first_name`, `secretary_surname`, `secretary_email_address`, `secretary_contact_number`,`secretary_gender`, `secretary_birthdate`) 
+        VALUES ($user_id, '$fname', '$lname', '$email', $phonenumber,'$gender', '$birthdate')";
+
+        $req_run = mysqli_query($connection, $req);
       }
 
+    echo '<script> alert("Inserted Successfully"); </script>';
+    echo "<script>window.location='/Modules/admin/index.php'</script>";
+    
+    } else {
+      echo '<script> alert("error"); </script>';
+      echo $query . "<br>" . mysqli_error($connection);
     }
-
-
-
-  if ($query_run){
-
-
-
-     // $newsoa = "INSERT INTO statement_of_account VALUES (DEFAULT, \)"
-  //echo '<script> alert('$row['id']'); </script>';
-
-  //echo '<script language="javascript">window.location = "reg-page.php";</script>';  
-  echo '<script> alert("Inserted Successfully"); </script>';
-  header("Location: patientlist.php");
-  //header("Location: index.php");
-        //header("Location: {$_REQUEST["url"]}");
-  } else {
-    echo '<script> alert("error"); </script>';
   }
+
 }
-}
+
+
 
 
 ?>

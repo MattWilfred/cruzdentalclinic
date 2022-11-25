@@ -145,7 +145,7 @@
                 <div class="addpatient-btn">
                     <div>
                         <i class="fa-solid fa-user-plus"></i>
-                        <a class="" type="button" href="createaccount.php">Add New Employee</a>
+                        <a class="" type="button" href="createaccount.php">Add New Account</a>
                     </div>
                 </div>
             </div>
