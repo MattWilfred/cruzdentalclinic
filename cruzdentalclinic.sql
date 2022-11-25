@@ -612,8 +612,8 @@ CREATE TABLE IF NOT EXISTS `statement_of_account` (
 --
 
 INSERT INTO `statement_of_account` (`soa_id`, `user_id`, `balance`) VALUES
-(1, 1, 0),
-(2, 3, 0),
+(1, 2, 0),
+(2, 1, 0),
 (3, 9, 0);
 
 -- --------------------------------------------------------

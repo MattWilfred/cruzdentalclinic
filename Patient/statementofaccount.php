@@ -160,7 +160,7 @@ function getSOAid($uid){
 
                 echo "<tr>";
                 echo "<td> NAME OF PATIENT </td>";
-                echo "<td class='patient-name'>" .$row['fname']. " ".$row['lname']. "</td>";
+                echo "<td class='patient-name'>" .$row['fname']. " " .$row['lname']. "</td>";
                 echo "</tr>";
 
                 echo "<th></th><th></th><th></th><th></th><th></th><th></th><th></th>";
