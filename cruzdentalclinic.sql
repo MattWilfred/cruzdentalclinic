@@ -668,6 +668,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `accrole` text NOT NULL,
   `profilepicture` text NULL,
   `status` int(11) NOT NULL,
+  `code` varchar(10) NULL,
+  `updated_time` timestamp NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
@@ -675,17 +677,17 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fname`, `lname`, `paddress`, `birthdate`, `username`, `phonenumber`, `gender`, `email`, `userpassword`, `accrole`, `profilepicture`, `status`) VALUES
-(1, 'Christine ', 'May', 'baguio city', '2022-11-09', 'christinesakalam', '555', 'Female', 'christine@gmail.com', 'christ', 'Patient', '', 1),
-(2, 'Gerard', 'Mabato-bato', 'iLocos Sur ', '1997-11-18', 'berns', '09075645112', 'Male', 'bernal@gmail.com', 'berns', 'Dentist', '', 1),
-(3, 'Bryan ', 'Bucu', 'baguio', '2022-11-19', 'bryan', '514', 'Male', 'bryan@gmail.com', 'bryan02', 'Patient', '', 0),
-(4, 'Klyde', 'Marasigan', 'Ilocos Sur ', '2022-11-19', 'klydiee', '90754463123', 'Male', 'klyde@gmail.com', 'klyde', 'Administrator', '', 0),
-(5, 'Matt', 'Salvador', 'baguio city', '2022-11-07', 'matt', '9999', 'Male', 'matt@gmail.com', 'matt', 'Administrator', '', 0),
-(6, 'LALA', 'MOVEIT', 'ilocos-sur', '2022-11-19', 'lala', '0909090909', 'Male', 'lala@gmail.com', 'move', 'Secretary', '', 0),
-(7, 'Marites ', 'Cruz', 'Angeles Pampanga', '1995-11-24', 'goat', '9007564312', 'Female', 'thegoat@gmail.com', 'goat', 'Dentist', '', 0),
-(8, 'Cardo', 'Dalisay', 'province ng manila', '2012-11-13', 'cardo', '11231410', 'Male', 'cardo@gmail.com', 'cardo', 'Receptionist', '', 0),
-(9, 'Jose Marie', 'Chan', 'Baguio City, Bakakeng North', '1995-12-25', 'mariechan', '0925311234', 'Male', 'josemariechan@gmail.com', 'jose', 'Patient', '', 0),
-(10, 'Reina', 'Lin', 'Baguio City, North Sanitary Camp', '1997-12-03', 'lin', '0905443761', 'Female', 'lin@gmail.com', 'lin11', 'Dentist', '', 0);
+INSERT INTO `users` (`id`, `fname`, `lname`, `paddress`, `birthdate`, `username`, `phonenumber`, `gender`, `email`, `userpassword`, `accrole`, `profilepicture`, `status`, `code`, `updated_time`) VALUES
+(1, 'Christine ', 'May', 'baguio city', '2022-11-09', 'christinesakalam', '555', 'Female', 'christine@gmail.com', 'christ', 'Patient', '', 1, NULL, NULL),
+(2, 'Gerard', 'Mabato-bato', 'iLocos Sur ', '1997-11-18', 'berns', '09075645112', 'Male', 'bernal@gmail.com', 'berns', 'Dentist', '', 1, NULL, NULL),
+(3, 'Bryan ', 'Bucu', 'baguio', '2022-11-19', 'bryan', '514', 'Male', 'bryan@gmail.com', 'bryan02', 'Patient', '', 0, NULL, NULL),
+(4, 'Klyde', 'Marasigan', 'Ilocos Sur ', '2022-11-19', 'klydiee', '90754463123', 'Male', 'klyde@gmail.com', 'klyde', 'Administrator', '', 0, NULL, NULL),
+(5, 'Matt', 'Salvador', 'baguio city', '2022-11-07', 'matt', '9999', 'Male', 'matt@gmail.com', 'matt', 'Administrator', '', 0, NULL, NULL),
+(6, 'LALA', 'MOVEIT', 'ilocos-sur', '2022-11-19', 'lala', '0909090909', 'Male', 'lala@gmail.com', 'move', 'Secretary', '', 0, NULL, NULL),
+(7, 'Marites ', 'Cruz', 'Angeles Pampanga', '1995-11-24', 'goat', '9007564312', 'Female', 'thegoat@gmail.com', 'goat', 'Dentist', '', 0, NULL, NULL),
+(8, 'Cardo', 'Dalisay', 'province ng manila', '2012-11-13', 'cardo', '11231410', 'Male', 'cardo@gmail.com', 'cardo', 'Receptionist', '', 0, NULL, NULL),
+(9, 'Jose Marie', 'Chan', 'Baguio City, Bakakeng North', '1995-12-25', 'mariechan', '0925311234', 'Male', 'josemariechan@gmail.com', 'jose', 'Patient', '', 0, NULL, NULL),
+(10, 'Reina', 'Lin', 'Baguio City, North Sanitary Camp', '1997-12-03', 'lin', '0905443761', 'Female', 'lin@gmail.com', 'lin11', 'Dentist', '', 0, NULL, NULL);
 
 --
 -- Constraints for dumped tables

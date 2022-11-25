@@ -198,7 +198,7 @@
     ?>
         <div class="navbar">
             <div class="topnav">
-                <a href="active">Appointment History</a>
+                <a href="appthistory.php? id=<?= $currentid; ?>">Appointment History</a>
             </div>
 
             <div class="prescription">
