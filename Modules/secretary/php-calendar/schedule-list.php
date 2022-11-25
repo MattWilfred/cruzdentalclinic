@@ -13,7 +13,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
  if (isset($_GET['sched_id']) && isset($_GET['status'])) {  
     $id=$_GET['sched_id'];  
     $status=$_GET['status'];  
-    mysqli_query($connect,"update bookings set status='$status' where sched_id='$id'");  
+    mysqli_query($connection,"update bookings set status='$status' where sched_id='$id'");  
     header("location: schedule-list.php");  
     die();  
 }  
@@ -37,15 +37,14 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             <img class="header__img" src="/Modules/admin/assets/img/logo dental.png" alt="">
                 <a href="#" class="header__logo">Cruz Dental Clinic</a>
     
-             
-    
+                
                 <div class="header__toggle">
                     <i class='bx bx-menu' id="header-toggle"></i>
                 </div>
             </div>
         </header>
 
-<!--========== NAV ==========-->
+        <!--========== NAV ==========-->
 
 
 <div class="nav" id="navbar">
@@ -78,7 +77,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
+                                <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                              
                             </div>
                         </div>
                     </div>
@@ -117,6 +117,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         </a>
     </nav>
 </div>
+
+
 
         <br><br><br>
 		<div class="container">
@@ -176,6 +178,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                <td><?php echo $row["doctor"]; ?></td>  
                                <td>  
 
+                           
+                               
                                <?php  
                                     if ($row['status']==1) {  
                                         echo "Upcoming";  

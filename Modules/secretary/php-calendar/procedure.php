@@ -51,13 +51,13 @@
             <div class="nav__list">
                 <div class="nav__items">
 
-                    <a href="/Modules/secretary/index.php" class="nav__link active">
+                    <a href="/Modules/admin/index.php" class="nav__link active">
                         <i class='bx bx-home nav__icon' ></i>
                         <span class="nav__name">Dashboard</span>
                     </a>
                     
                     <div class="nav__dropdown">
-                        <a href="/Modules/secretary/index.php" class="nav__link">
+                        <a href="#" class="nav__link">
                             <i class='bx bxs-calendar nav__icon' ></i>
                             
                             <span class="nav__name">Schedule</span>
@@ -66,8 +66,8 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                
                             </div>
                         </div>
@@ -82,20 +82,22 @@
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                            <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                                <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
+                                <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
                                
                             </div>
                         </div>
                     </div>
 
 
-                    <a href="/Modules/secretary/billing/billing.php" class="nav__link">
+                    <a href="/Modules/admin/billing/billing.php" class="nav__link">
                         <i class='bx bx-money nav__icon' ></i>
                         <span class="nav__name">Billing</span>
                     </a>
                 </div>
 
-                <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
+                <a href="/Modules/admin/announcement/announcement.php" class="nav__link">
                     <i class='bx bxs-megaphone nav__icon'></i>
                     <span class="nav__name">Announcement</span>
                 </a>
@@ -107,9 +109,6 @@
         </a>
     </nav>
 </div>
-
-
-
 
       <!--sidebar end-->
 
@@ -216,7 +215,7 @@
             <input type="hidden" name="userid" value="<?php echo $user;?>" />
             <input type="hidden" name="userid" value="<?php echo $dentist;?>" />
             <div class="indent">
-<input type="submit" name="submit"  value="proceed booking" />
+        <input type="submit" name="submit"  value="proceed booking" />
 </div>   
           
         </form>

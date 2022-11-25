@@ -17,8 +17,7 @@
            <script src="https://kit.fontawesome.com/b0931e4ab7.js" crossorigin="anonymous"></script>
         <!--========== CSS ==========-->
         <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
-        <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
-        
+            
      
        
     
@@ -48,7 +47,7 @@
         <div>
             <a href="#" class="nav__link nav__logo">
            <i class='nav__icon'>
-           <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+           <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
            </i>
                 <span class="nav__logo-name">Cruz Dental Clinic</span>
             </a>
@@ -73,7 +72,8 @@
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
+                                <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                              
                             </div>
                         </div>
                     </div>
@@ -113,10 +113,6 @@
     </nav>
 </div>
 
-
-
-
-
         <!--========== CONTENTS ==========-->
         <main>
         <div class="pl-header">
@@ -145,7 +141,7 @@
                           
                           
                            
-                           $sql = "SELECT * FROM users WHERE status='1' AND accrole ='Dentist' ORDER BY lname ASC";
+                           $sql = "SELECT * FROM users WHERE status= '1' AND accrole ='Dentist' ORDER BY lname ASC";
                            $result = $connection->query($sql);
        
                      

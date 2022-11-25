@@ -55,7 +55,7 @@
         <div>
             <a href="#" class="nav__link nav__logo">
            <i class='nav__icon'>
-           <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+           <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
            </i>
                 <span class="nav__logo-name">Cruz Dental Clinic</span>
             </a>
@@ -81,7 +81,7 @@
                                 <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                 <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
-                             
+                              
                             </div>
                         </div>
                     </div>
@@ -120,8 +120,6 @@
         </a>
     </nav>
 </div>
-
-
 
 
 

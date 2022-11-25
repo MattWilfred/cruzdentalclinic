@@ -1,8 +1,10 @@
 <?php
+
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
  //filter.php  
  if(isset($_POST["from_date"], $_POST["to_date"]))  
  {  
-     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+      global $connection;
       $output = '';  
       $query = "  
            SELECT * FROM bookings  
