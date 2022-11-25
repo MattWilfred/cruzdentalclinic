@@ -197,10 +197,14 @@
         
     ?>
 
-        <div class="navbar">
             <div class="topnav">
-                <a class="active">Appointment History</a>
-        </div>
+                <a href="active">Appointment History</a>
+                <a href="patientmbg.php? id=<?= $currentid; ?>">Medical Background</a>
+                <a href="patientdiagnosis.php? id=<?= $currentid; ?>">Diagnosis</a>
+                <a href="patientdbg.php? id=<?= $currentid; ?>">Dental Background</a>
+                <a href="patientprescription.php? id=<?= $currentid; ?>" >E-Prescription</a>
+                <a class="patientreferral.php? id=<?= $currentid; ?>" >Referral</a>
+            </div>
 
             <div class="prescription">
                 <div class="presc-header">
