@@ -40,8 +40,7 @@
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="login" value="Login">
                     </div>
-                    <div class="link login-link text-center"><a href="forgot-password.php">Forgot password?</a></div>
-                    <div class="link login-link text-center"><a href="CreateAccount.html">Create Account</a></div>
+                    <div class="link login-link text-center"><a href="forgot-password.php">Forgot Password?</a></div>
                 </form>
             </div>
         </div>
