@@ -65,11 +65,9 @@
                             </a>
 
                             <div class="nav__dropdown-collapse">
-                                <div class="nav__dropdown-content">
-                                    <a href="/php-calendar/calendar.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/php-calendar/select.html" class="nav__dropdown-item">Schedule List</a>
-
-
+                            <div class="nav__dropdown-content">
+                                <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
+                                    <a href="/Patient/patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
                                 </div>
                             </div>
                         </div>
@@ -84,24 +82,23 @@
                                 <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
                                     <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
-
                                 </div>
                             </div>
                         </div>
 
-                        <a href="#" class="nav__link">
+                        <a href="/Patient/statementofaccount.php" class="nav__link">
                             <i class='bx bx-money nav__icon'></i>
                             <span class="nav__name">Billing</span>
                         </a>
                     </div>
 
-                    <a href="#" class="nav__link">
+                    <a href="/Patient/announcement/announcement.php" class="nav__link">
                         <i class='bx bxs-megaphone nav__icon'></i>
                         <span class="nav__name">Announcement</span>
                     </a>
                 </div>
 
-                <a href="#" class="nav__link nav__logout">
+                <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
                     <i class='bx bx-log-out nav__icon'></i>
                     <span class="nav__name">Log Out</span>
                 </a>

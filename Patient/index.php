@@ -94,8 +94,6 @@
                                 <div class="nav__dropdown-content">
                                     <a href="patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
                                     <a href="patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
-
-
                                 </div>
                             </div>
                         </div>
@@ -116,7 +114,7 @@
                         </div>
 
 
-                        <a href="#" class="nav__link">
+                        <a href="/Patient/statementofaccount.php" class="nav__link">
                             <i class='bx bx-money nav__icon'></i>
                             <span class="nav__name">Billing</span>
                         </a>

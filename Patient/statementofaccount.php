@@ -60,15 +60,12 @@
             </li>
             <li><a href="announcement.html"><i class="fa-solid fa-bullhorn"></i> Announcements </a></li>
         </ul>
-        
-
+    
         <div class="logout">
             <li><a href="#logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
             
         </div>
     
-
-
     </nav>
 
     <br>
@@ -79,10 +76,6 @@
        </div>     
 
     </div>
-
-
-
-
 
 
     <!--Script for calendar-->

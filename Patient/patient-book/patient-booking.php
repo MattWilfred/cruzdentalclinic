@@ -73,7 +73,7 @@ $id = $_SESSION['id'];
                                 <div class="nav__dropdown-collapse">
                                     <div class="nav__dropdown-content">
                                     <a href="/Patient/patient-book/patient-booking" class="nav__dropdown-item">Calendar</a>
-                                        <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                        <a href="/Patient/patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
                                        
                                     </div>
                                 </div>
@@ -91,19 +91,19 @@ $id = $_SESSION['id'];
                                 </div>
 
 
-                            <a href="/Modules/admin/billing/billing.php" class="nav__link">
+                            <a href="/Patient/statementofaccount.php" class="nav__link">
                                 <i class='bx bx-money nav__icon' ></i>
                                 <span class="nav__name">Billing</span>
                             </a>
                         </div>
 
-                        <a href="#" class="nav__link">
+                        <a href="/Patient/announcement/announcement.php" class="nav__link">
                             <i class='bx bxs-megaphone nav__icon'></i>
                             <span class="nav__name">Announcement</span>
                         </a>
                     </div>
 
-                <a href="#" class="nav__link nav__logout">
+                <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
                     <i class='bx bx-log-out nav__icon' ></i>
                     <span class="nav__name">Log Out</span>
                 </a>

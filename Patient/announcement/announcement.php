@@ -60,7 +60,7 @@ $id = $_SESSION['id'];
                 <div class="nav__list">
                     <div class="nav__items">
 
-                        <a href="/Modules/dentist/index.php" class="nav__link active">
+                        <a href="/Patient/index.php" class="nav__link active">
                             <i class='bx bx-home nav__icon' ></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
@@ -75,8 +75,8 @@ $id = $_SESSION['id'];
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                <a href="/php-calendar/calendar.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/php-calendar/select.html" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
+                                    <a href="/Patient/patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
                                    
                                    
                                 </div>
@@ -92,23 +92,24 @@ $id = $_SESSION['id'];
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                               
-                                    <a href="/Modules/dentist/Accounts/PatientAccount/patientlist.php" class="nav__dropdown-item">Patients</a>
-                                   
+                                    <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
                                 </div>
                             </div>
                         </div>
 
+                        <a href="/Patient/statementofaccount.php" class="nav__link">
+                                <i class='bx bx-money nav__icon' ></i>
+                                <span class="nav__name">Billing</span>
+                            </a>
+                        </div>
 
-                    
-
-                    <a href="/Modules/dentist/announcement/announcement.php" class="nav__link">
+                    <a href="/Patient/announcement/announcement.php" class="nav__link">
                         <i class='bx bxs-megaphone nav__icon'></i>
                         <span class="nav__name">Announcement</span>
                     </a>
                 </div>
 
-            <a href="#" class="nav__link nav__logout">
+            <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
                 <i class='bx bx-log-out nav__icon' ></i>
                 <span class="nav__name">Log Out</span>
             </a>

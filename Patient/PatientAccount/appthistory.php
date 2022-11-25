@@ -106,7 +106,7 @@
                         </a>
                     </div>
 
-                <a href="#" class="nav__link nav__logout">
+                <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
                     <i class='bx bx-log-out nav__icon' ></i>
                     <span class="nav__name">Log Out</span>
                 </a>
