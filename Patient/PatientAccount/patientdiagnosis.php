@@ -1,16 +1,7 @@
 <?php
+  //include_once 'userlogs.php';
 
-
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 ?>
 
@@ -18,7 +9,7 @@ if (!$conn){
 <html lang=e n dir="ltr">
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="patientdiagnosis-style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/all.min.css">
@@ -34,7 +25,6 @@ if (!$conn){
 
 </head>
 
-
 <body>
 <header class="header">
         <div class="header__container">
@@ -45,8 +35,9 @@ if (!$conn){
                     Back to Patient List
                 </button>
             </a>
-
-            <i class='bx bxs-bell bx-flip-horizontal bx-tada nav__icon'></i>
+            
+            <div class="header__container">
+            <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
 
 
             <div class="header__toggle">
@@ -55,80 +46,80 @@ if (!$conn){
         </div>
     </header>
 
-    <!--========== NAV ==========-->
-    <div class="nav" id="navbar">
-        <nav class="nav__container">
-            <div>
-                <a href="#" class="nav__link nav__logo">
-                    <i class='bx bxs-disc nav__icon'></i>
-                    <span class="nav__logo-name">Cruz Dental Clinic</span>
-                </a>
+   
 
-                <div class="nav__list">
+   <!--========== NAV ==========-->
+   <div class="nav" id="navbar">
+    <nav class="nav__container">
+        <div>
+            <a href="#" class="nav__link nav__logo">
+           <i class='nav__icon'>
+           <img src="/Modules/admin/assets/img/logo dental.png" alt="" class="header__img">
+           </i>
+                <span class="nav__logo-name">Cruz Dental Clinic</span>
+            </a>
 
-                    <div class="nav__items">
-                        <a href="/Secretary/index.php" class="nav__link active">
-                            <i class='bx bx-home nav__icon'></i>
-                            <span class="nav__name">Dashboard</span>
+            <div class="nav__list">
+                <div class="nav__items">
+
+                    <a href="/Modules/admin/index.php" class="nav__link active">
+                        <i class='bx bx-home nav__icon' ></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bxs-calendar nav__icon' ></i>
+                            
+                            <span class="nav__name">Schedule</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                         </a>
-                        
 
-                        <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
-                                <i class='bx bxs-calendar nav__icon'></i>
-
-                                <span class="nav__name">Schedule</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-
-                            </a>
-
-                            <div class="nav__dropdown-collapse">
-                                <div class="nav__dropdown-content">
-                                    <a href="/php-calendar/calendar.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/php-calendar/select.html" class="nav__dropdown-item">Schedule List</a>
-
-
-                                </div>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                               
                             </div>
                         </div>
-
-                        <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class='bx bx-user nav__icon'></i>
-                                    <span class="nav__name">Accounts</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="../Secretary/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Secretary</a>
-                                        <a href="../Secretary/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                        <a href="../Secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-
-                                    </div>
-                                </div>
-                        </div>
-
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-money nav__icon'></i>
-                            <span class="nav__name">Billing</span>
-                        </a>
                     </div>
 
-                    <a href="#" class="nav__link">
-                        <i class='bx bxs-megaphone nav__icon'></i>
-                        <span class="nav__name">Announcement</span>
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Accounts</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                            <a href="/Modules/admin/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                                <a href="/Modules/admin/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
+                                <a href="/Modules/admin/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="/Modules/admin/billing/billing.php" class="nav__link">
+                        <i class='bx bx-money nav__icon' ></i>
+                        <span class="nav__name">Billing</span>
                     </a>
                 </div>
 
-                <a href="#" class="nav__link nav__logout">
-                    <i class='bx bx-log-out nav__icon'></i>
-                    <span class="nav__name">Log Out</span>
+                <a href="/Modules/admin/announcement/announcement.php" class="nav__link">
+                    <i class='bx bxs-megaphone nav__icon'></i>
+                    <span class="nav__name">Announcement</span>
                 </a>
-        </nav>
-        </div>
+            </div>
 
-
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+            <i class='bx bx-log-out nav__icon' ></i>
+            <span class="nav__name">Log Out</span>
+        </a>
+    </nav>
+</div>
 
     <div class="body_content">
         <h1>Patient Profile</h1>
@@ -139,10 +130,10 @@ if (!$conn){
     <div class="container">
 
     <?php
-            include 'dbcon.php';
-            $currentid = $_GET['id'];
+            
+            $i = $_GET['id'];
 
-            $sql = "SELECT * from users where id = $currentid";
+            $sql = "SELECT * from users where id = $i";
             $result = mysqli_query($connection,$sql);
     
 
@@ -190,14 +181,6 @@ if (!$conn){
                         <span>Address</span>
                         <p><?php echo $address ?></p>
                     </div>
-                    <div class="edit=prf" style="text-align: center; margin-top: 15%;">
-                        <a href="patientlist.php">
-                            <button>
-                                <i class="fa-solid fa-pen"></i>
-                                Edit Profile
-                            </button>
-                        </a>
-                    </div>
 
                 
                 </div>
@@ -212,12 +195,12 @@ if (!$conn){
 
         <div class="navbar">
             <div class="topnav">
-                    <a href="appthistory.php? id=<?= $currentid; ?>">Appointment History</a>
-                    <a href="patientmbg.php? id=<?= $currentid; ?>">Medical Background</a>
+                    <a href="appthistory.php? id=<?= $i; ?>">Appointment History</a>
+                    <a href="patientmbg.php? id=<?= $i; ?>">Medical Background</a>
                     <a class="active">Diagnosis</a>
-                    <a href="patientdbg.php? id=<?= $currentid; ?>">Dental Background</a>
-                    <a href="patientprescription.php? id=<?= $currentid; ?>">E-Prescription</a>
-                    <a href="patientreferral.php? id=<?= $currentid; ?>">Referral</a>
+                    <a href="patientdbg.php? id=<?= $i; ?>">Dental Background</a>
+                    <a href="patientprescription.php? id=<?= $i; ?>">E-Prescription</a>
+                    <a href="patientreferral.php? id=<?= $i; ?>">Referral</a>
             </div>
 
 
@@ -232,54 +215,56 @@ if (!$conn){
                 </div>
 
 
-                <form onsubmit="return false" method="post">
+                <form  method="post">
 
                 <?php require 'color-diagnosis.php'?>
 
                     <div class="top-teeth">
+
                         <div class="top-ind">
                             <p>Top</p>
                         </div>
 
                         <div class="top">
+
                             <div class="t18">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="18" for="ct18" <?php colorTooth(18, $currentid)?> >
-                                        <img src="tooth-numbering-images/18.png">
+                                    <button type="submit" name="tooth_button" class="tbutton" value="18" for="ct18" <?php colorTooth(18, $i)?> >
+                                        <img src="tooth-numbering-images/18.png" >
                                     </button>
                                     <p>18</p>
                                 </div>
-
                             </div>
+
                             <div class="t17">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="17" for="ct17" <?php colorTooth(17, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="17" for="ct17" <?php colorTooth(17, $i)?>>
                                         <img src="tooth-numbering-images/17.png">
                                     </button>
                                     <p>17</p>
                                 </div>
                             </div>
+
                             <div class="t16">
                                 <div>
-                                    <button for="ct16" type="submit" name="tooth_button" class="tbutton" value="16" for="ct16" <?php colorTooth(16, $currentid)?>>
+                                    <button for="ct16" type="submit" name="tooth_button" class="tbutton" value="16" for="ct16" <?php colorTooth(16, $i)?>>
                                         <img src="tooth-numbering-images/16.png">
                                     </button>
                                     <p>16</p>
                                 </div>
-
                             </div>
+
                             <div class="t15">
                                 <div>
-                                    <button for="ct15" type="submit" name="tooth_button" class="tbutton" value="15" for="ct15" <?php colorTooth(15, $currentid)?>>
+                                    <button for="ct15" type="submit" name="tooth_button" class="tbutton" value="15" for="ct15" <?php colorTooth(15, $i)?>>
                                         <img src="tooth-numbering-images/15.png">
                                     </button>
                                     <p>15</p>
                                 </div>
-
                             </div>
                             <div class="t14">
                                 <div>
-                                    <button for="ct14" type="submit" name="tooth_button" class="tbutton" value="14" for="ct14" <?php colorTooth(14, $currentid)?>>
+                                    <button for="ct14" type="submit" name="tooth_button" class="tbutton" value="14" for="ct14" <?php colorTooth(14, $i)?>>
                                         <img src="tooth-numbering-images/14.png">
                                     </button>
                                     <p>14</p>
@@ -288,7 +273,7 @@ if (!$conn){
                             </div>
                             <div class="t13">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="13" for="ct13" <?php colorTooth(13, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="13" for="ct13" <?php colorTooth(13, $i)?>>
                                         <img src="tooth-numbering-images/13.png">
                                     </button>
                                     <p>13</p>
@@ -297,7 +282,7 @@ if (!$conn){
                             </div>
                             <div class="t12">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="12" for="ct12" <?php colorTooth(12, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="12" for="ct12" <?php colorTooth(12, $i)?>>
                                         <img src="tooth-numbering-images/12.png">
                                     </button>
                                     <p>12</p>
@@ -306,7 +291,7 @@ if (!$conn){
                             </div>
                             <div class="t11">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="11" for="ct11" <?php colorTooth(11, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="11" for="ct11" <?php colorTooth(11, $i)?>>
                                         <img src="tooth-numbering-images/11.png">
                                     </button>
                                     <p>11</p>
@@ -315,7 +300,7 @@ if (!$conn){
                             </div>
                             <div class="t21">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="21" for="ct21" <?php colorTooth(21, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="21" for="ct21" <?php colorTooth(21, $i)?>>
                                         <img src="tooth-numbering-images/21.png">
                                     </button>
                                     <p>21</p>
@@ -324,7 +309,7 @@ if (!$conn){
                             </div>
                             <div class="t22">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="22" for="ct22" <?php colorTooth(22, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="22" for="ct22" <?php colorTooth(22, $i)?>>
                                         <img src="tooth-numbering-images/22.png">
                                     </button>
                                     <p>22</p>
@@ -333,7 +318,7 @@ if (!$conn){
                             </div>
                             <div class="t23">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="23" for="ct23" <?php colorTooth(23, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="23" for="ct23" <?php colorTooth(23, $i)?>>
                                         <img src="tooth-numbering-images/23.png">
                                     </button>
                                     <p>23</p>
@@ -342,7 +327,7 @@ if (!$conn){
                             </div>
                             <div class="t24">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="24"for="ct24" <?php colorTooth(24, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="24"for="ct24" <?php colorTooth(24, $i)?>>
                                         <img src="tooth-numbering-images/24.png">
                                     </button>
                                     <p>24</p>
@@ -351,7 +336,7 @@ if (!$conn){
                             </div>
                             <div class="t25">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="25" for="ct25" <?php colorTooth(25, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="25" for="ct25" <?php colorTooth(25, $i)?>>
                                         <img src="tooth-numbering-images/25.png">
                                     </button>
                                     <p>25</p>
@@ -360,7 +345,7 @@ if (!$conn){
                             </div>
                             <div class="t26">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="26" for="ct26" <?php colorTooth(26, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="26" for="ct26" <?php colorTooth(26, $i)?>>
                                         <img src="tooth-numbering-images/26.png">
                                     </button>
                                     <p>26</p>
@@ -369,7 +354,7 @@ if (!$conn){
                             </div>
                             <div class="t27">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="27" for="ct27" <?php colorTooth(27, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="27" for="ct27" <?php colorTooth(27, $i)?>>
                                         <img src="tooth-numbering-images/27.png">
                                     </button>
                                     <p>27</p>
@@ -379,7 +364,7 @@ if (!$conn){
                             <div class="t28">
                         
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="28" for="ct28" <?php colorTooth(28, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="28" for="ct28" <?php colorTooth(28, $i)?>>
                                         <img src="tooth-numbering-images/28.png">
                                     </button>
                                     <p>28</p>
@@ -398,7 +383,7 @@ if (!$conn){
                         <div class="bottom">
                             <div class="b48">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="48" for="cb48" <?php colorTooth(48, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="48" for="cb48" <?php colorTooth(48, $i)?>>
                                         <img src="tooth-numbering-images/48.png">
                                     </button>
                                     <p>48</p>
@@ -406,7 +391,7 @@ if (!$conn){
                             </div>
                             <div class="b47">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="47" for="cb47" <?php colorTooth(47, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="47" for="cb47" <?php colorTooth(47, $i)?>>
                                         <img src="tooth-numbering-images/47.png">
                                     </button>
                                     <p>47</p>
@@ -414,7 +399,7 @@ if (!$conn){
                             </div>
                             <div class="b46">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="46" for="cb46" <?php colorTooth(46, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="46" for="cb46" <?php colorTooth(46, $i)?>>
                                         <img src="tooth-numbering-images/46.png">
                                     </button>
                                     <p>46</p>
@@ -423,7 +408,7 @@ if (!$conn){
                             </div>
                             <div class="b45">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="45" for="cb45" <?php colorTooth(45, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="45" for="cb45" <?php colorTooth(45, $i)?>>
                                         <img src="tooth-numbering-images/45.png">
                                     </button>
                                     <p>45</p>
@@ -432,7 +417,7 @@ if (!$conn){
                             </div>
                             <div class="b44">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="44" for="cb44" <?php colorTooth(44, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="44" for="cb44" <?php colorTooth(44, $i)?>>
                                         <img src="tooth-numbering-images/44.png">
                                     </button>
                                     <p>44</p>
@@ -441,7 +426,7 @@ if (!$conn){
                             </div>
                             <div class="b43">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="43" for="cb43" <?php colorTooth(43, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="43" for="cb43" <?php colorTooth(43, $i)?>>
                                         <img src="tooth-numbering-images/43.png">
                                     </button>
                                     <p>43</p>
@@ -450,7 +435,7 @@ if (!$conn){
                             </div>
                             <div class="b42">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="42" for="cb42" <?php colorTooth(42, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="42" for="cb42" <?php colorTooth(42, $i)?>>
                                         <img src="tooth-numbering-images/42.png">
                                     </button>
                                     <p>42</p>
@@ -459,7 +444,7 @@ if (!$conn){
                             </div>
                             <div class="b41">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="41" for="cb41" <?php colorTooth(41, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="41" for="cb41" <?php colorTooth(41, $i)?>>
                                         <img src="tooth-numbering-images/41.png">
                                     </button>
                                     <p>41</p>
@@ -468,7 +453,7 @@ if (!$conn){
                             </div>
                             <div class="b31">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="31" for="cb31" <?php colorTooth(31, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="31" for="cb31" <?php colorTooth(31, $i)?>>
                                         <img src="tooth-numbering-images/31.png">
                                     </button>
                                     <p>31</p>
@@ -477,7 +462,7 @@ if (!$conn){
                             </div>
                             <div class="b32">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="32" for="cb32" <?php colorTooth(32, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="32" for="cb32" <?php colorTooth(32, $i)?>>
                                         <img src="tooth-numbering-images/32.png">
                                     </button>
                                     <p>32</p>
@@ -486,7 +471,7 @@ if (!$conn){
                             </div>
                             <div class="b33">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="33" for="cb33" <?php colorTooth(33, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="33" for="cb33" <?php colorTooth(33, $i)?>>
                                         <img src="tooth-numbering-images/33.png">
                                     </button>
                                     <p>33</p>
@@ -495,7 +480,7 @@ if (!$conn){
                             </div>
                             <div class="b34">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="34" for="cb34" <?php colorTooth(34, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="34" for="cb34" <?php colorTooth(34, $i)?>>
                                         <img src="tooth-numbering-images/34.png">
                                     </button>
                                     <p>34</p>
@@ -504,7 +489,7 @@ if (!$conn){
                             </div>
                             <div class="b35">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="35" for="cb35" <?php colorTooth(35, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="35" for="cb35" <?php colorTooth(35, $i)?>>
                                         <img src="tooth-numbering-images/35.png">
                                     </button>
                                     <p>35</p>
@@ -513,7 +498,7 @@ if (!$conn){
                             </div>
                             <div class="b36">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="36" for="cb36" <?php colorTooth(36, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="36" for="cb36" <?php colorTooth(36, $i)?>>
                                         <img src="tooth-numbering-images/36.png">
                                     </button>
                                     <p>36</p>
@@ -522,507 +507,31 @@ if (!$conn){
                             </div>
                             <div class="b37">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="37" for="cb37" <?php colorTooth(37, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="37" for="cb37" <?php colorTooth(37, $i)?>>
                                         <img src="tooth-numbering-images/37.png">
                                     </button>
                                     <p>37</p>
                                 </div>
 
                             </div>
+
                             <div class="b38">
                                 <div>
-                                    <button type="submit" name="tooth_button" class="tbutton" value="38" for="cb38" <?php colorTooth(38, $currentid)?>>
+                                    <button type="submit" name="tooth_button" class="tbutton" value="38" for="cb38" <?php colorTooth(38, $i)?>>
                                         <img src="tooth-numbering-images/38.png">
                                     </button>
                                     <p>38</p>
                                 </div>
-
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-   
-
-
-                    <!-- Modal for adding diagnosis  -->
-                    <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-
-                        <form action="add-diagnosis.php" method="post">
-                            <!-- Modal content-->
-                            <div class="modal-content" id="add-img">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Add Diagnosis</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <!-- Form -->
-                              
-                                    <input type="hidden" name="id" value="<?php echo $currentid?>">
-                                    <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
-                                    <div class="modal-body">
-                                        Select tooth:
-                                    <div class="top-teeth">
-                        <div class="top-ind">
-                            <p>Top</p>
-                        </div>
-
-
-                        <div class="top">
-                            <div class="t18">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct18" value="18" />
-                                <div>
-                                    <label for="ct18">
-                                        <img src="tooth-numbering-images/18.png" >
-                                    </label>
-                                    <p>18</p>
-                                </div>
-
-                            </div>
-                            <div class="t17">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct17" value="17" />
-                                <div>
-                                    <label for="ct17">
-                                        <img src="tooth-numbering-images/17.png">
-                                    </label>
-                                    <p>17</p>
-                                </div>
-                            </div>
-                            <div class="t16">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct16" value="16" />
-                                <div>
-                                    <label for="ct16">
-                                        <img src="tooth-numbering-images/16.png">
-                                    </label>
-                                    <p>16</p>
-                                </div>
-
-                            </div>
-                            <div class="t15">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct15" value="15" />
-                                <div>
-                                    <label for="ct15">
-                                        <img src="tooth-numbering-images/15.png">
-                                    </label>
-                                    <p>15</p>
-                                </div>
-
-                            </div>
-                            <div class="t14">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct14" value="14" />
-                                <div>
-                                    <label for="ct14">
-                                        <img src="tooth-numbering-images/14.png">
-                                    </label>
-                                    <p>14</p>
-                                </div>
-
-                            </div>
-                            <div class="t13">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct13" value="13" />
-                                <div>
-                                    <label for="ct13">
-                                        <img src="tooth-numbering-images/13.png">
-                                    </label>
-                                    <p>13</p>
-                                </div>
-
-                            </div>
-                            <div class="t12">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct12" value="12" />
-                                <div>
-                                    <label for="ct12">
-                                        <img src="tooth-numbering-images/12.png">
-                                    </label>
-                                    <p>12</p>
-                                </div>
-
-                            </div>
-                            <div class="t11">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct11" value="11" />
-                                <div>
-                                    <label for="ct11">
-                                        <img src="tooth-numbering-images/11.png">
-                                    </label>
-                                    <p>11</p>
-                                </div>
-
-                            </div>
-                            <div class="t21">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct21" value="21-Central incisor" />
-                                <div>
-                                    <label for="ct21">
-                                        <img src="tooth-numbering-images/21.png">
-                                    </label>
-                                    <p>21</p>
-                                </div>
-
-                            </div>
-                            <div class="t22">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct22" value="22-Lateral incisor" />
-                                <div>
-                                    <label for="ct22">
-                                        <img src="tooth-numbering-images/22.png">
-                                    </label>
-                                    <p>22</p>
-                                </div>
-
-                            </div>
-                            <div class="t23">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct23" value="23-Canine" />
-                                <div>
-                                    <label for="ct23">
-                                        <img src="tooth-numbering-images/23.png">
-                                    </label>
-                                    <p>23</p>
-                                </div>
-
-                            </div>
-                            <div class="t24">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct24" value="24-1st premolar" />
-                                <div>
-                                    <label for="ct24">
-                                        <img src="tooth-numbering-images/24.png">
-                                    </label>
-                                    <p>24</p>
-                                </div>
-
-                            </div>
-                            <div class="t25">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct25" value="25-2st premolar" />
-                                <div>
-                                    <label for="ct25">
-                                        <img src="tooth-numbering-images/25.png">
-                                    </label>
-                                    <p>25</p>
-                                </div>
-
-                            </div>
-                            <div class="t26">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct26" value="26-1st molar" />
-                                <div>
-                                    <label for="ct26">
-                                        <img src="tooth-numbering-images/26.png">
-                                    </label>
-                                    <p>26</p>
-                                </div>
-
-                            </div>
-                            <div class="t27">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct27" value="27-2st molar" />
-                                <div>
-                                    <label for="ct27">
-                                        <img src="tooth-numbering-images/27.png">
-                                    </label>
-                                    <p>27</p>
-                                </div>
-
-                            </div>
-                            <div class="t28">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="ct28" value="28" />
-                                <div>
-                                    <label for="ct28">
-                                        <img src="tooth-numbering-images/28.png">
-                                    </label>
-                                    <p>28</p>
-                                </div>
-
                             </div>
                         </div>
                     </div>
 
+        </form>
 
-                    <div class="bottom-teeth">
-                        <div class="bottom-ind">
-                            <p>Bottom</p>
-                        </div>
-
-                        <div class="bottom">
-                            <div class="b48">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb48" value="48" />
-                                <div>
-                                    <label for="cb48">
-                                        <img src="tooth-numbering-images/48.png">
-                                    </label>
-                                    <p>48</p>
-                                </div>
-                            </div>
-                            <div class="b47">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb47" value="47" />
-                                <div>
-                                    <label for="cb47">
-                                        <img src="tooth-numbering-images/47.png">
-                                    </label>
-                                    <p>47</p>
-                                </div>
-                            </div>
-                            <div class="b46">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb46" value="46" />
-                                <div>
-                                    <label for="cb46">
-                                        <img src="tooth-numbering-images/46.png">
-                                    </label>
-                                    <p>46</p>
-                                </div>
-
-                            </div>
-                            <div class="b45">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb45" value="45" />
-                                <div>
-                                    <label for="cb45">
-                                        <img src="tooth-numbering-images/45.png">
-                                    </label>
-                                    <p>45</p>
-                                </div>
-
-                            </div>
-                            <div class="b44">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb44" value="44" />
-                                <div>
-                                    <label for="cb44">
-                                        <img src="tooth-numbering-images/44.png">
-                                    </label>
-                                    <p>44</p>
-                                </div>
-
-                            </div>
-                            <div class="b43">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb43" value="43" />
-                                <div>
-                                    <label for="cb43">
-                                        <img src="tooth-numbering-images/43.png">
-                                    </label>
-                                    <p>43</p>
-                                </div>
-
-                            </div>
-                            <div class="b42">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb42" value="42" />
-                                <div>
-                                    <label for="cb42">
-                                        <img src="tooth-numbering-images/42.png">
-                                    </label>
-                                    <p>42</p>
-                                </div>
-
-                            </div>
-                            <div class="b41">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb41" value="41" />
-                                <div>
-                                    <label for="cb41">
-                                        <img src="tooth-numbering-images/41.png">
-                                    </label>
-                                    <p>41</p>
-                                </div>
-
-                            </div>
-                            <div class="b31">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb31" value="31 Central incisor" />
-                                <div>
-                                    <label for="cb31">
-                                        <img src="tooth-numbering-images/31.png">
-                                    </label>
-                                    <p>31</p>
-                                </div>
-
-                            </div>
-                            <div class="b32">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb32" value="32-Lateral incisor" />
-                                <div>
-                                    <label for="cb32">
-                                        <img src="tooth-numbering-images/32.png">
-                                    </label>
-                                    <p>32</p>
-                                </div>
-
-                            </div>
-                            <div class="b33">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb33" value="33-Canine" />
-                                <div>
-                                    <label for="cb33">
-                                        <img src="tooth-numbering-images/33.png">
-                                    </label>
-                                    <p>33</p>
-                                </div>
-
-                            </div>
-                            <div class="b34">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb34" value="34-1st premolar" />
-                                <div>
-                                    <label for="cb34">
-                                        <img src="tooth-numbering-images/34.png">
-                                    </label>
-                                    <p>34</p>
-                                </div>
-
-                            </div>
-                            <div class="b35">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb35" value="35-2st premolar" />
-                                <div>
-                                    <label for="cb35">
-                                        <img src="tooth-numbering-images/35.png">
-                                    </label>
-                                    <p>35</p>
-                                </div>
-
-                            </div>
-                            <div class="b36">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb36" value="36-1st molar" />
-                                <div>
-                                    <label for="cb36">
-                                        <img src="tooth-numbering-images/36.png">
-                                    </label>
-                                    <p>36</p>
-                                </div>
-
-                            </div>
-                            <div class="b37">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb37" value="37-2st molar" />
-                                <div>
-                                    <label for="cb37">
-                                        <img src="tooth-numbering-images/37.png">
-                                    </label>
-                                    <p>37</p>
-                                </div>
-
-                            </div>
-                            <div class="b38">
-                                <input class="tcheckbox" name="tooth[]" type="checkbox" id="cb38" value="38" />
-                                <div>
-                                    <label for="cb38">
-                                        <img src="tooth-numbering-images/38.png">
-                                    </label>
-                                    <p>38</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                                    
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                        <button type="button" id="adddesc-btn" name="adddesc-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</button>
-                                    </div>
-                                
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-                     <!-- Modal for add description in diagnosis tab-->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content" >
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Add </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-
-                       
-                                <input type="hidden" name="id" value="<?php echo $currentid?>">
-                                <input type="hidden" name="url" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="findings" class="col-form-label">Findings:</label>
-
-                                   <!-- <select class="form-control" name="findings" id="findings" style=" border-color: blueviolet;" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}" required>
-                                        <option value="" selected disabled>Select</option>
-                                        <option value="" disabled>Code Red</option>
-                                        <option value="C">Carries</option>
-                                        <option value="Abr">Abrasion</option>
-                                        <option value="Fr">Fracture</option>
-                                        <option value="X">Indicted for Extraction</option>
-                                        <option value="M">Missing</option>
-                                        <option value="Rf">Root Fracment</option>
-                                        <option value="" disabled>Code Blue</option>
-                                        <option value="WC">Tooth present without carries</option>
-                                        <option value="Co">Composite</option>
-                                        <option value="FPD">Fixed Partial Denture</option>
-                                        <option value="Gi">Glass Ionomer</option>
-                                        <option value="I">INI24</option>
-                                        <option value="L">21</option>
-                                        <option value="Tf">Tf</option>
-                                        <option value="Vn">Unfrupied</option>
-                                        <option value="Jc">Jacket</option>
-                                        <option disabled></option>
-                                        <option value="customOption">---Other---</option>
-                                        <input class="form-control" placeholder="Enter findings here.." name="findings" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}" required>
-                                    </select>-->
-
-                                   <!--<select class="form-control" name="findings" id="findings" style=" border-color: blueviolet;" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}" required>
-                                        <option value="" selected disabled>Select</option>
-                                        <option value="" disabled>Code Red</option>
-                                        <option value="C - Carries">C - Carries</option>
-                                        <option value="Abr - Abrasion">Abr - Abrasion</option>
-                                        <option value="Fr - Fracture">Fr - Fracture</option>
-                                        <option value="X - Indicted for Extraction">X - Indicted for Extraction</option>
-                                        <option value="M - Missing">M - Missing</option>
-                                        <option value="Rf - Root Fracment">Rf - Root Fracment</option>
-                                        <option value="" disabled>Code Blue</option>
-                                        <option value=" - Tooth present without carries">✔ - Tooth present without carries</option>
-                                        <option value="Co - Composite">Co - Composite</option>
-                                        <option value="FPD - Fixed Partial Denture">FPD - Fixed Partial Denture</option>
-                                        <option value="Gi - Glass Ionomer">Gi - Glass Ionomer</option>
-                                        <option value="I - INI24">I - INI24</option>
-                                        <option value="L - 21">L - 21</option>
-                                        <option value="Tf - Temporary Filling">Tf - Temporary Filling</option>
-                                        <option value="Vn - Unfrupied">Vn - Unfrupied</option>
-                                        <option value="Jc - Jacket">Jc - Jacket</option>
-                                        <option disabled></option>
-                                        <option value="customOption">---Other---</option>
-                                        <input class="form-control" placeholder="Enter findings here.." name="findings" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}" required>
-                                    </select>-->
-
-                                    <select class="form-control" name="findings" id="findings" style=" border-color: blueviolet;" onchange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this,this.nextSibling); this.selectedIndex='0';}" required>
-                                        <option value="" selected disabled>Select</option>
-                                        
-                                        <option value="Carries">Carries</option>
-                                        <option value="Abrasion">Abrasion</option>
-                                        <option value="Fracture">Fracture</option>
-                                        <option value="Indicted for Extraction">Indicted for Extraction</option>
-                                        <option value="Missing">Missing</option>
-                                        <option value="Root Fragment">Root Fragment</option>
-                                        
-                                        <option value="Tooth Present Without Carries">Tooth Present Without Carries </option>
-                                        <option value="Composite">Composite</option>
-                                        <option value="Fixed Partial Denture">Fixed Partial Denture</option>
-                                        <option value="Glass Ionomer">Glass Ionomer</option>
-                                        <option value="INI24">INI24</option>
-                                        <option value="21">21</option>
-                                        <option value="Temporary Filling">Temporary Filling</option>
-                                        <option value="Unfrupied">Unfrupied</option>
-                                        <option value="Jacket">Jacket</option>
-                                        <option disabled></option>
-                                        <option value="customOption">---Other---</option>
-                                        <input class="form-control" placeholder="Enter findings here.." name="findings" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}" required>
-                                    </select>
-
-                                    <label for="message-text" class="col-form-label">Description:</label>
-                                    <textarea class="form-control" placeholder="Enter text here.." name="description" style="height: 200px; border-color: blueviolet;" id="message-text" required></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" id="closebtn" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="submit" id="savebtn" name="add-diagnosis-button" class="btn btn-primary">Add</button>
-                            </div>
-
-                            </form>
-                    
-
-
-                    </div>
-            </div>
         </div>
 
-
-
         <div class="legends" style="width: 100%"> 
-            <div class="lsquare" style="background-color: grey; height: 10px; width: 10px;\"></div>
+            <div class="lsquare" style="background-color: grey; height: 10px; width: 10px;"></div>
             <div class="nsquare" >Missing Tooth</div>
             <div class="lsquare" style="background-color: red; height: 10px; width: 10px;"></div>
             <div class="nsquare" >Red Code</div>
@@ -1049,8 +558,10 @@ if (!$conn){
 
             }
 
+
+
             .diagnosis-table {
-                margin-top: 30px;
+                margin-top: 100px;
             }
 
             </style>
@@ -1086,38 +597,38 @@ if (!$conn){
         }**/
         ?>
 
-            <tbody id="tbody18" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(18, $currentid) ?> </tbody>
-            <tbody id="tbody17" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(17, $currentid) ?> </tbody>
-            <tbody id="tbody16" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(16, $currentid) ?> </tbody>  
-            <tbody id="tbody15" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(15, $currentid) ?> </tbody>  
-            <tbody id="tbody14" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(14, $currentid) ?> </tbody>  
-            <tbody id="tbody13" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(13, $currentid) ?> </tbody>  
-            <tbody id="tbody12" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(12, $currentid) ?> </tbody>           
-            <tbody id="tbody11" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(11, $currentid) ?> </tbody>  
-            <tbody id="tbody21" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(21, $currentid) ?> </tbody>  
-            <tbody id="tbody22" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(22, $currentid) ?> </tbody>  
-            <tbody id="tbody23" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(23, $currentid) ?> </tbody>  
-            <tbody id="tbody24" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(24, $currentid) ?> </tbody>  
-            <tbody id="tbody25" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(25, $currentid) ?> </tbody>  
-            <tbody id="tbody26" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(26, $currentid) ?> </tbody>  
-            <tbody id="tbody27" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(27, $currentid) ?> </tbody>  
-            <tbody id="tbody28" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(28, $currentid) ?> </tbody>  
-            <tbody id="tbody48" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(48, $currentid) ?> </tbody>  
-            <tbody id="tbody47" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(47, $currentid) ?> </tbody>  
-            <tbody id="tbody46" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(46, $currentid) ?> </tbody>  
-            <tbody id="tbody45" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(45, $currentid) ?> </tbody>  
-            <tbody id="tbody44" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(44, $currentid) ?> </tbody>  
-            <tbody id="tbody43" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(43, $currentid) ?> </tbody>  
-            <tbody id="tbody42" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(42, $currentid) ?> </tbody>  
-            <tbody id="tbody41" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(41, $currentid) ?> </tbody>
-            <tbody id="tbody31" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(31, $currentid) ?> </tbody>  
-            <tbody id="tbody32" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(32, $currentid) ?> </tbody>  
-            <tbody id="tbody33" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(33, $currentid) ?> </tbody>  
-            <tbody id="tbody34" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(34, $currentid) ?> </tbody>  
-            <tbody id="tbody35" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(35, $currentid) ?> </tbody>  
-            <tbody id="tbody36" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(36, $currentid) ?> </tbody>  
-            <tbody id="tbody37" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(37, $currentid) ?> </tbody>
-            <tbody id="tbody38" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(38, $currentid) ?> </tbody>     
+            <tbody id="tbody18" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(18, $i) ?> </tbody>
+            <tbody id="tbody17" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(17, $i) ?> </tbody>
+            <tbody id="tbody16" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(16, $i) ?> </tbody>  
+            <tbody id="tbody15" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(15, $i) ?> </tbody>  
+            <tbody id="tbody14" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(14, $i) ?> </tbody>  
+            <tbody id="tbody13" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(13, $i) ?> </tbody>  
+            <tbody id="tbody12" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(12, $i) ?> </tbody>           
+            <tbody id="tbody11" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(11, $i) ?> </tbody>  
+            <tbody id="tbody21" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(21, $i) ?> </tbody>  
+            <tbody id="tbody22" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(22, $i) ?> </tbody>  
+            <tbody id="tbody23" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(23, $i) ?> </tbody>  
+            <tbody id="tbody24" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(24, $i) ?> </tbody>  
+            <tbody id="tbody25" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(25, $i) ?> </tbody>  
+            <tbody id="tbody26" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(26, $i) ?> </tbody>  
+            <tbody id="tbody27" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(27, $i) ?> </tbody>  
+            <tbody id="tbody28" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(28, $i) ?> </tbody>  
+            <tbody id="tbody48" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(48, $i) ?> </tbody>  
+            <tbody id="tbody47" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(47, $i) ?> </tbody>  
+            <tbody id="tbody46" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(46, $i) ?> </tbody>  
+            <tbody id="tbody45" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(45, $i) ?> </tbody>  
+            <tbody id="tbody44" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(44, $i) ?> </tbody>  
+            <tbody id="tbody43" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(43, $i) ?> </tbody>  
+            <tbody id="tbody42" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(42, $i) ?> </tbody>  
+            <tbody id="tbody41" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(41, $i) ?> </tbody>
+            <tbody id="tbody31" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(31, $i) ?> </tbody>  
+            <tbody id="tbody32" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(32, $i) ?> </tbody>  
+            <tbody id="tbody33" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(33, $i) ?> </tbody>  
+            <tbody id="tbody34" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(34, $i) ?> </tbody>  
+            <tbody id="tbody35" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(35, $i) ?> </tbody>  
+            <tbody id="tbody36" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(36, $i) ?> </tbody>  
+            <tbody id="tbody37" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(37, $i) ?> </tbody>
+            <tbody id="tbody38" class="tbclass" style="display:none; overflow-y:scroll"> <?php echo displayToothInfo(38, $i) ?> </tbody>     
 
         <!--</tbody>-->
 
@@ -1136,7 +647,7 @@ if (!$conn){
     <script>
 
         $(document).ready(function(){
-            $('.tbutton').on('click', function() {
+            $('.tbutton').on('click', function () {
                 if(this.value == "18"){
                     $(".tbclass").hide();
                     $("#tbody18").show();
@@ -1291,17 +802,17 @@ if (!$conn){
         });
     </script>
 
-    <script type='text/javascript'>
+    <!--<script type='text/javascript'>
             $('input:checkbox').click(function(){
                 var $inputs = $('input:checkbox')
                 if($(this).is(':checked')){
                     $inputs.not(this).prop('disabled',true);
-                    $inputs.not(this). // <-- disable all but checked one;
+                    /**$inputs.not(this). // <-- disable all but checked one;
                 } else{
-                    $inputs.prop('disabled',false); // <--
+                    $inputs.prop('disabled',false); // <--**/
                 }
             })
-    </script>
+    </script>-->
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
