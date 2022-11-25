@@ -133,7 +133,7 @@
                 <div class="addpatient-btn">
                     <div>
                         <i class="fa-solid fa-user-plus"></i>
-                        <a class="" type="button" href="reg-page.php">Add New Patient</a>
+                        <a class="" type="button" href="reg-page.php">Add New Account</a>
                     </div>
                 </div>
             </div>
