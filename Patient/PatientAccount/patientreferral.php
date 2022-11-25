@@ -1,4 +1,6 @@
-<?php require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+<?php 
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+include('/Database/sessioncheck.php');
 
 $id = $_SESSION['id'];
 ?>
@@ -124,7 +126,7 @@ $id = $_SESSION['id'];
 
     <div class="container">
     <?php
-            $currentid = $_GET['id'];
+            $currentid = $_SESSION['id'];
 
             $sql = "SELECT * from users where id = $currentid";
             $result = mysqli_query($connection,$sql);
@@ -136,6 +138,7 @@ $id = $_SESSION['id'];
                     $lname = $row['lname'];
                     $email = $row['email'];
                     $username = $row['username'];
+
                     $gender = $row['gender'];
                     $phone = $row['phonenumber'];
                     $bday = $row['birthdate'];

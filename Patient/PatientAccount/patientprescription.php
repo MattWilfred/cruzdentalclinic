@@ -1,3 +1,8 @@
+<?php
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+    include('/Database/sessioncheck.php');
+    $id = $_SESSION['id'];
+?>
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
 
@@ -119,7 +124,7 @@
 
     <div class="container">
     <?php
-            $id = $_SESSION['id'];
+            $currentid = $_SESSION['id'];
 
             $sql = "SELECT * from users where id = $currentid";
             $result = mysqli_query($connection,$sql);
