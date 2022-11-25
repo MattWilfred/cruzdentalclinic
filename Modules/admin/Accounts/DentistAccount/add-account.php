@@ -1,16 +1,7 @@
 <?php
   //include_once 'userlogs.php';
 
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "cruzdentalclinic";
-
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn){
-  die("Connection error!");
-}
+  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 if (isset($_POST['create'])){
        
@@ -50,16 +41,16 @@ if (isset($_POST['create'])){
         
     $query = "INSERT INTO users (fname, lname, paddress, birthdate, username, phonenumber, gender, email, userpassword, accrole, profilepicture, status)
     VALUES ('$fname','$lname','$paddress','$birthdate','$username',$phonenumber,'$gender','$email','$userpassword','$accrole',NULL, 0)";
-    $query_run = mysqli_query($conn, $query);
+    $query_run = mysqli_query($connection, $query);
 
     if ($query_run){
 
     echo '<script> alert("Inserted Successfully"); </script>';
-    echo "<script>window.location='reg-page.php'</script>";
+    echo "<script>window.location='/Modules/admin/index.php'</script>";
     
     } else {
       echo '<script> alert("error"); </script>';
-      echo $query . "<br>" . mysqli_error($conn);
+      echo $query . "<br>" . mysqli_error($connection);
     }
   }
 
