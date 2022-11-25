@@ -1,6 +1,4 @@
-<?php 
-require 'notification3.php'
-?>
+
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
 
@@ -86,8 +84,10 @@ require 'notification3.php'
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
+                            <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
+                            <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>    
+                            <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                           
                             </div>
                         </div>
                     </div>
@@ -111,10 +111,6 @@ require 'notification3.php'
         </a>
     </nav>
 </div>
-
-
-
-  
 
 
 
