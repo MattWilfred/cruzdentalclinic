@@ -1,8 +1,10 @@
 <?php
-require "dbcon.php";
-include('../../Database/sessioncheck.php');	
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+include('/Database/sessioncheck.php');
+session_start();
 
-   $id = $_SESSION['id']; 
+$id = $_SESSION['id']; 
+
 ?>
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
@@ -55,7 +57,7 @@ include('../../Database/sessioncheck.php');
                     <div class="nav__list">
                         <div class="nav__items">
     
-                        <a href="/Modules/admin/index.php" class="nav__link active">
+                        <a href="/Patient/index.php" class="nav__link active">
                                 <i class='bx bx-home nav__icon' ></i>
                                 <span class="nav__name">Dashboard</span>
                             </a>
@@ -70,7 +72,7 @@ include('../../Database/sessioncheck.php');
 
                                 <div class="nav__dropdown-collapse">
                                     <div class="nav__dropdown-content">
-                                    <a href="/Modules/admin/php-calendar/select.html" class="nav__dropdown-item">Calendar</a>
+                                    <a href="/Patient/patient-book/patient-booking" class="nav__dropdown-item">Calendar</a>
                                         <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                        
                                     </div>
