@@ -196,7 +196,7 @@
 
         
     ?>
-
+        <div class="navbar">
             <div class="topnav">
                 <a href="active">Appointment History</a>
                 <a href="patientmbg.php? id=<?= $currentid; ?>">Medical Background</a>
