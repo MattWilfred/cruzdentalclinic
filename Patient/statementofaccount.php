@@ -77,7 +77,7 @@ function getSOAid($uid){
                 <div class="nav__list">
                     <div class="nav__items">
 
-                        <a href="/Secretary/index.php" class="nav__link active">
+                        <a href="/Modules/secretary/index.php" class="nav__link active">
                             <i class='bx bx-home nav__icon'></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
@@ -92,8 +92,8 @@ function getSOAid($uid){
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/Patient/patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
+                                    <a href="patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
+                                    <a href="patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ function getSOAid($uid){
                         </div>
 
 
-                        <a href="#" class="nav__link">
+                        <a href="/Patient/statementofaccount.php" class="nav__link">
                             <i class='bx bx-money nav__icon'></i>
                             <span class="nav__name">Billing</span>
                         </a>
