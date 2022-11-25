@@ -1,11 +1,19 @@
 <?php
   //include_once 'userlogs.php';
 
-require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+$dbServername = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "cruzdentalclinic";
+
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+
+if (!$conn){
+  die("Connection error!");
+}
 
 if (isset($_POST['create'])){
        
-
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
   $paddress = $_POST['address'];
@@ -18,9 +26,9 @@ if (isset($_POST['create'])){
   $cuserpassword = $_POST['cpassword'];
   $accrole = $_POST['role'];
 
-  $un_sql = mysqli_query($connection, "SELECT * FROM users WHERE username='$username'");
-  $em_sql = mysqli_query($connection, "SELECT * FROM users WHERE email='$email'");
-  $pw_sql = mysqli_query($connection, "SELECT * FROM users WHERE userpassword='$userpassword'");
+  $un_sql = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
+  $em_sql = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+  $pw_sql = mysqli_query($conn, "SELECT * FROM users WHERE userpassword='$userpassword'");
 
   if (mysqli_num_rows($un_sql) > 0) {
     echo '<script> alert("Sorry... Username already taken"); </script>';
@@ -40,29 +48,24 @@ if (isset($_POST['create'])){
 
   } else {
         
+    $query = "INSERT INTO users (fname, lname, paddress, birthdate, username, phonenumber, gender, email, userpassword, accrole, profilepicture, status)
+    VALUES ('$fname','$lname','$paddress','$birthdate','$username',$phonenumber,'$gender','$email','$userpassword','$accrole',NULL, 0)";
+    $query_run = mysqli_query($conn, $query);
 
-    $query = "INSERT INTO users
-    VALUES (DEFAULT,'$fname','$lname','$paddress','$birthdate','$username','$phonenumber','$gender','$email','$userpassword','$accrole',NULL)";
-    $query_run = mysqli_query($connection, $query);
+    if ($query_run){
 
-
-  if ($query_run){
-
-
-
-     // $newsoa = "INSERT INTO statement_of_account VALUES (DEFAULT, \)"
-  //echo '<script> alert('$row['id']'); </script>';
-
-  //echo '<script language="javascript">window.location = "reg-page.php";</script>';  
-  echo '<script> alert("Inserted Successfully"); </script>';
-  echo "<script>window.location='reg-page.php'</script>";
-  //header("Location: index.php");
-        //header("Location: {$_REQUEST["url"]}");
-  } else {
-    echo '<script> alert("error"); </script>';
+    echo '<script> alert("Inserted Successfully"); </script>';
+    echo "<script>window.location='reg-page.php'</script>";
+    
+    } else {
+      echo '<script> alert("error"); </script>';
+      echo $query . "<br>" . mysqli_error($conn);
+    }
   }
+
 }
-}
+
+
 
 
 ?>

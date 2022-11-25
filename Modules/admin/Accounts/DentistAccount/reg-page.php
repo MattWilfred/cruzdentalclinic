@@ -1,6 +1,4 @@
-<?php
-require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-?>
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -8,7 +6,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         <meta charset="UTF-8">
         <title>Create Account</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="regpage-css.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="css/regpage-css.css?v=<?php echo time(); ?>">
         <script src="https://kit.fontawesome.com/44763be3ea.js" crossorigin="anonymous"></script>
     </head>
 
