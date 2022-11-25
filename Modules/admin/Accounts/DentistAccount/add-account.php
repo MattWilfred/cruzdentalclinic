@@ -57,6 +57,13 @@ if (isset($_POST['create'])){
       if ($accrole == 'Administrator'){
         $adq = "INSERT INTO `admins` (`user_id`, `admin_first_name`, `admin_surname`, `admin_email_address`, `admin_contact_number`, `admin_birthdate`) 
         VALUES ($user_id, '$fname', '$lname', '$email', $phonenumber, '$birthdate')";
+
+        $adq_run = mysqli_query($connection, $adq);
+      } else if ($accrole == 'Secretary'){
+        $req = "INSERT INTO `secretary` (`user_id`, `secretary_first_name`, `secretary_surname`, `secretary_email_address`, `secretary_contact_number`,`secretary_gender`, `secretary_birthdate`) 
+        VALUES ($user_id, '$fname', '$lname', '$email', $phonenumber,'$gender', '$birthdate')";
+
+        $req_run = mysqli_query($connection, $req);
       }
 
     echo '<script> alert("Inserted Successfully"); </script>';
