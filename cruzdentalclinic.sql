@@ -666,7 +666,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(100) NOT NULL,
   `userpassword` varchar(100) NOT NULL,
   `accrole` text NOT NULL,
-  `profilepicture` text NOT NULL,
+  `profilepicture` text NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
