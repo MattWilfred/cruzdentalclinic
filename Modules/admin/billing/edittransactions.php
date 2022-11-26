@@ -292,7 +292,7 @@ $trow = mysqli_fetch_array($tquery);
 
                     if ($edit_query_run){
                         //echo 'Updated Successfully';
-                        header('Location: billing.php');
+                        header('Location: /Modules/admin/billing/billing.php');
                     } else {
                         echo 'Update Fail';
                         echo $edit_query . "<br>" . mysqli_error($connection);
