@@ -114,7 +114,7 @@ function getSOAid($uid){
                         </div>
 
 
-                        <a href="/Patient/statementofaccount.php" class="nav__link">
+                        <a href="/Patient/statement_of_account.php" class="nav__link">
                             <i class='bx bx-money nav__icon'></i>
                             <span class="nav__name">Billing</span>
                         </a>
@@ -224,111 +224,6 @@ function getSOAid($uid){
         </div> 
         </div>
 
-            <!-- Klyde's additional code -->
-
-            <div class="overlay" id="divTwo">
-                        <div class="wrapper1">
-                       <h2>Edit Transaction</h2><a class="close" href="#">&times;</a>
-                <div class="containerr1">
-                    <div class="content">
-
-                    
-                    <form>
-                    <div class="row1">
-                        <div class="input-box">
-                        <span class="details">Select Patient</span>
-                        <input type="name" name="pn" required>
-                        </div>
-                        
-                        <div class="input-box">
-                        <span class="details">Date</span>
-                        <input type="date" name="edit-dob" required>
-                        </div>
-                    </div>   
-                        
-                    <div class="row2">    
-                        <div class="input-box1">
-                         <span class="details">Type of Procedure</span>
-                            <select id="dropdown" name="edit-procedure" class="dropdown" >
-                                <option disabled value>Choose Procedure</option>
-                                <option value="0">None</option>
-                                <option value="1">Dental Check-Up</option>
-                                <option value="2">Teeth Whitening</option>
-                                <option value="3">Dental Implants</option>
-                                <option value="4">Root Canal Treatment</option>
-                                <option value="5">Cosmetic Dentistry</option>
-                                <option value="6">Dental Crown</option>
-                                <option value="7">Dental Bridge</option>
-                                <option value="8">Orthiontics</option>
-                                <option value="9">Restoration</option>
-                                <option value="10">Fluoride Application </option>
-                                <option value="11">Odontectomy</option>
-                            </select>
-                        </div>
-                        
-                        <div class="input-box1">
-                        <span class="details">Price</span>
-                        <input type="price" name="edit-pr" required>
-                        <button onclick="" id="plus-btn">+</button>
-                        </div>
-                    </div>
-                     
-                    <div class="row3">    
-                        <div class="input-box2">
-                        <span class="details">Other Charges</span>
-                        <input type="xcharges" name="edit-xc[]" required>
-                        </div>
-                        
-                        <div class="input-box3">
-                        <span class="details">Price</span>
-                        <input type="price" name="edit-opr[]" required>
-                        <button onclick="" id="plus-btn1">+</button>
-                        </div>
-                        
-                    </div> 
-                        
-                        <div class="row4">    
-                        <div class="input-box1">
-                         <span class="details">Transaction type</span>
-                            <select id="dropdown" name="Procedure" class="dropdown" >
-                                <option disabled value>Choose Procedure</option>
-                                <option value="0">None</option>
-                                <option value="1">Fully Paid</option>
-                                <option value="2">Partial</option>
-                                <option value="3">Installment</option>
-
-                            </select>
-                        </div>
-                        
-                        <div class="input-box1">
-                        <span class="details">STATUS</span>
-                        <input type="status" name="stat" required>
-                        </div>
-                    </div>  
-                        
-                 </div>
-                </div>
-                        
-                        
-                        <div class="container3">
-                            <h2>Total Amount</h2>
-                                <h3>₱ 7,797</h3>
-
-                            <h2>Amount Paid</h2>
-                                <p>₱ 1,500</p>
-           
-                            <h2>Total Amount</h2>
-                                <p>₱ 0</p>
-
-                        </div>
-                    <div>
-                    <input type="submit" value="Save" id="save-btn1"></input>
-                    </div>
-            
-                    </form>
-                      
-                </div>
-              </div>
             
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
