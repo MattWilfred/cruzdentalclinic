@@ -40,7 +40,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Password Reset';
-        $mail->Body    = 'To reset your password click <a href="http://127.0.0.1/change_password.php?code='.$code.'">here </a>. </br>Reset your password in a day.';
+        $mail->Body    = 'To reset your password click <a href="http://192.168.64.5/LoginPage/forgotpassword/change_password.php?code='.$code.'">here </a>. </br>Reset your password in a day.';
 
 
         if($connection->connect_error) {
