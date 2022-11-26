@@ -4,8 +4,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 session_start();
 $id = $_SESSION['id'];
-
- global $connection; 
+ 
  $query = "SELECT * FROM bookings WHERE dentist_id='$id'  ORDER BY sched_id AND timeslot asc";  
  $result = mysqli_query($connection, $query);  
 
@@ -82,6 +81,7 @@ $id = $_SESSION['id'];
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/dentist/blockdate.php" class="nav__dropdown-item">Block Date</a>
                                
                             </div>
                         </div>
@@ -136,7 +136,6 @@ $id = $_SESSION['id'];
 								<option value="1">Upcoming</option>
 								<option value="2">Ongoing</option>
 								<option value="3">Done</option>
-								<option value="4">Cancelled</option>
 								
 							</select>
 						</div>
@@ -180,15 +179,13 @@ $id = $_SESSION['id'];
                                <td>  
 
                            
-                                    <?php  
+                               <?php  
                                     if ($row['status']==1) {  
                                         echo "Upcoming";  
                                     }if ($row['status']==2) {  
                                         echo "Ongoing";  
                                     }if ($row['status']==3) {  
                                         echo "Done";  
-                                    }if ($row['status']==4) {  
-                                      echo "Cancelled";
                                     }  
                                     ?>  
                             
@@ -197,11 +194,11 @@ $id = $_SESSION['id'];
                                 <td>  
                                 <select onchange="status_update(this.options[this.selectedIndex].value,'<?php echo $row['sched_id'] ?>')">  
                                 <option value="">Update Status</option>  
-                                <option value="1">Upcoming</option>  
                                 <option value="2">Ongoing</option>  
                                 <option value="3">Done</option>
-                                <option value="4">Cancel</option>    
-                                </select> 
+                                </select>
+                                
+                                <a href="cancelappointment.php?id=<?php echo $row['sched_id']?>"><button>Cancel</button></a>
                                 </td> 
                                 
           <td><?php echo $row['status']?></td>

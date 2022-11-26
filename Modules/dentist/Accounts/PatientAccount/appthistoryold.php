@@ -1,15 +1,12 @@
 <?php
-require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-include('/Database/sessioncheck.php');
-$id = $_GET['id'];
+           require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+           $id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
 
 <head>
-
-    
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="appthistory-style.css?v=<?php echo time(); ?>">
@@ -31,7 +28,7 @@ $id = $_GET['id'];
 <header class="header">
         <div class="header__container">
 
-            <a href="/Modules/secretary/Accounts/PatientAccount/index.php">
+            <a href="index.php">
                 <button>
                     <i class="fa-solid fa-angle-left"></i>
                     Back to Patient List
@@ -47,13 +44,16 @@ $id = $_GET['id'];
         </div>
     </header>
 
-      
+     
+<!--========== NAV ==========-->
+
+
 <div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
             <a href="#" class="nav__link nav__logo">
            <i class='nav__icon'>
-           <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
+           <img src="/Modules/dentist/assets/img/logo dental.png" alt="" class="header__img">
            </i>
                 <span class="nav__logo-name">Cruz Dental Clinic</span>
             </a>
@@ -61,13 +61,13 @@ $id = $_GET['id'];
             <div class="nav__list">
                 <div class="nav__items">
 
-                    <a href="/Modules/secretary/index.php" class="nav__link active">
+                    <a href="/Modules/dentist/index.php" class="nav__link active">
                         <i class='bx bx-home nav__icon' ></i>
                         <span class="nav__name">Dashboard</span>
                     </a>
                     
                     <div class="nav__dropdown">
-                        <a href="/Modules/secretary/index.php" class="nav__link">
+                        <a href="/Modules/dentist/index.php" class="nav__link">
                             <i class='bx bxs-calendar nav__icon' ></i>
                             
                             <span class="nav__name">Schedule</span>
@@ -76,9 +76,7 @@ $id = $_GET['id'];
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                            <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                                <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                                <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                
                             </div>
                         </div>
@@ -93,20 +91,16 @@ $id = $_GET['id'];
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                                <a href="/Modules/dentist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
                                
                             </div>
                         </div>
                     </div>
 
+                  
+                  </div>
 
-                    <a href="/Modules/secretary/billing/billing.php" class="nav__link">
-                        <i class='bx bx-money nav__icon' ></i>
-                        <span class="nav__name">Billing</span>
-                    </a>
-                </div>
-
-                <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
+                <a href="/Modules/dentist/announcement/announcement.php" class="nav__link">
                     <i class='bx bxs-megaphone nav__icon'></i>
                     <span class="nav__name">Announcement</span>
                 </a>
@@ -122,7 +116,6 @@ $id = $_GET['id'];
 
 
     <div class="body_content">
-        
         <h1>Patient Profile</h1>
     </div>
 
@@ -130,6 +123,7 @@ $id = $_GET['id'];
 
     <div class="container">
     <?php
+            require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
@@ -154,7 +148,7 @@ $id = $_GET['id'];
 <div class="patient-info">
                     <div class="info-header">
                         <img src="user-logo.png" alt="user logo">
-                        <h1><?php echo $fname ?><?php echo $lname ?> </h1>
+                        <h1><?php echo $fname ?> <?php echo $lname ?> </h1>
                         <p class="pemail"><?php echo $email ?> </p>
 
                     </div>
@@ -181,10 +175,7 @@ $id = $_GET['id'];
                         <p><?php echo $address ?></p>
                     </div>
 
-                    <div class="edit=prf" style="text-align: center; margin-top: 15%;">
-                    <a href="editpatientprofile.php?id=<?php echo $id; ?>">
-                         </a>
-                    </div>
+                    
                 </div>
             <?php
 
@@ -217,7 +208,7 @@ $id = $_GET['id'];
                         <?php
                                 include 'dbcon.php';
 
-                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='3' ";
+                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='4' OR status='3' ";
                                 $res = mysqli_query($connection,$query_presc);
 
                                 if(mysqli_num_rows($res)>0){

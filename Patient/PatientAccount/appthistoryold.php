@@ -1,6 +1,7 @@
 <?php
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-include('/Database/sessioncheck.php');
+session_start();
+include('../../Database/sessioncheck.php');
 $id = $_GET['id'];
 ?>
 
@@ -8,8 +9,6 @@ $id = $_GET['id'];
 <html lang=e n dir="ltr">
 
 <head>
-
-    
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="appthistory-style.css?v=<?php echo time(); ?>">
@@ -28,101 +27,94 @@ $id = $_GET['id'];
 </head>
 
 <body>
-<header class="header">
-        <div class="header__container">
 
-            <a href="/Modules/secretary/Accounts/PatientAccount/index.php">
-                <button>
-                    <i class="fa-solid fa-angle-left"></i>
-                    Back to Patient List
-                </button>
-            </a>
-
-            <i class='bx bxs-bell bx-flip-horizontal bx-tada nav__icon'></i>
-
-
-            <div class="header__toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
-            </div>
-        </div>
-    </header>
-
+   
+    <!--========== HEADER ==========-->
+    <header class="header">
+    <div class="header__container">
+        <a href="/Modules/admin/index.php" class="header__logo">Cruz Dental Clinic</a>
+        
       
-<div class="nav" id="navbar">
-    <nav class="nav__container">
-        <div>
-            <a href="#" class="nav__link nav__logo">
-           <i class='nav__icon'>
-           <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
-           </i>
-                <span class="nav__logo-name">Cruz Dental Clinic</span>
-            </a>
+    </div>
+</header>
 
-            <div class="nav__list">
-                <div class="nav__items">
+        <!--========== NAV ==========-->
 
-                    <a href="/Modules/secretary/index.php" class="nav__link active">
-                        <i class='bx bx-home nav__icon' ></i>
-                        <span class="nav__name">Dashboard</span>
-                    </a>
-                    
-                    <div class="nav__dropdown">
-                        <a href="/Modules/secretary/index.php" class="nav__link">
-                            <i class='bx bxs-calendar nav__icon' ></i>
-                            
-                            <span class="nav__name">Schedule</span>
-                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+
+
+        <div class="nav" id="navbar">
+        <nav class="nav__container">
+            <div>
+                <a href="#" class="nav__link nav__logo">
+            <i class='nav__icon'>
+            <img src="/Patient/assets/img/logo dental.png" alt="" class="header__img">
+            </i>
+                    <span class="nav__logo-name">Cruz Dental Clinic</span>
+                </a>
+
+                <div class="nav__list">
+                    <div class="nav__items">
+
+                        <a href="/Patient/index.php" class="nav__link active">
+                            <i class='bx bx-home nav__icon' ></i>
+                            <span class="nav__name">Dashboard</span>
                         </a>
+                        
+                        <div class="nav__dropdown">
+                            <a href="#" class="nav__link">
+                                <i class='bx bxs-calendar nav__icon' ></i>
+                                
+                                <span class="nav__name">Schedule</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                            </a>
 
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                            <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                                <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
-                               
+                            <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
+                                    <a href="/Patient/patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
+                                
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-user nav__icon' ></i>
-                            <span class="nav__name">Accounts</span>
-                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                        </a>
+                        <div class="nav__dropdown">
+                            <a href="#" class="nav__link">
+                                <i class='bx bx-user nav__icon' ></i>
+                                <span class="nav__name">Accounts</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                            </a>
 
-                        <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                                <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
+                            <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
+                                
+                                </div>
                             </div>
                         </div>
+
+
+                        <a href="/Patient/statement_of_account.php" class="nav__link">
+                            <i class='bx bx-money nav__icon' ></i>
+                            <span class="nav__name">Billing Transaction</span>
+                        </a>
                     </div>
 
-
-                    <a href="/Modules/secretary/billing/billing.php" class="nav__link">
-                        <i class='bx bx-money nav__icon' ></i>
-                        <span class="nav__name">Billing</span>
+                    <a href="/Patient/announcement/announcement.php" class="nav__link">
+                        <i class='bx bxs-megaphone nav__icon'></i>
+                        <span class="nav__name">Announcement</span>
                     </a>
                 </div>
 
-                <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
-                    <i class='bx bxs-megaphone nav__icon'></i>
-                    <span class="nav__name">Announcement</span>
-                </a>
-            </div>
-
-        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
-            <i class='bx bx-log-out nav__icon' ></i>
-            <span class="nav__name">Log Out</span>
-        </a>
-    </nav>
-</div>
+            <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+                <i class='bx bx-log-out nav__icon' ></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
 
 
 
     <div class="body_content">
-        
         <h1>Patient Profile</h1>
     </div>
 
@@ -151,10 +143,10 @@ $id = $_GET['id'];
                 }
                 ?>
 
-<div class="patient-info">
+                    <div class="patient-info">
                     <div class="info-header">
                         <img src="user-logo.png" alt="user logo">
-                        <h1><?php echo $fname ?><?php echo $lname ?> </h1>
+                        <h1><?php echo $fname ?> <?php echo $lname ?> </h1>
                         <p class="pemail"><?php echo $email ?> </p>
 
                     </div>
@@ -181,9 +173,13 @@ $id = $_GET['id'];
                         <p><?php echo $address ?></p>
                     </div>
 
-                    <div class="edit=prf" style="text-align: center; margin-top: 15%;">
-                    <a href="editpatientprofile.php?id=<?php echo $id; ?>">
-                         </a>
+                    <div class="edit=prf" style="text-align: center; margin-top: 10%;">
+                        <a href="editpatientprofile.php?id=<?php echo $id; ?>">
+                            <button>
+                                <i class="fa-solid fa-pen"></i>
+                                Edit Profile
+                            </button>
+                        </a>
                     </div>
                 </div>
             <?php
@@ -197,9 +193,6 @@ $id = $_GET['id'];
         <div class="navbar">
             <div class="topnav">
                 <a class="active">Appointment History</a>
-                <a href="patientmbg.php? id=<?= $currentid; ?>">Medical Background</a>
-                <a href="patientdiagnosis.php? id=<?= $currentid; ?>">Diagnosis</a>
-                <a href="patientdbg.php? id=<?= $currentid; ?>">Dental Background</a>
                 <a href="patientprescription.php? id=<?= $currentid; ?>">E-Prescription</a>
                 <a href="patientreferral.php? id=<?= $currentid; ?>">Referral</a>
             </div>
@@ -215,9 +208,8 @@ $id = $_GET['id'];
                         <div class="each-presc">
 
                         <?php
-                                include 'dbcon.php';
 
-                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='3' ";
+                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='4' OR status='3' ORDER BY date DESC";
                                 $res = mysqli_query($connection,$query_presc);
 
                                 if(mysqli_num_rows($res)>0){

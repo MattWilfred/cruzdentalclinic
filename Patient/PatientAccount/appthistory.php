@@ -1,8 +1,7 @@
 <?php
-require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-session_start();
-include('../../Database/sessioncheck.php');
-$id = $_GET['id'];
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+    include('/Database/sessioncheck.php');
+    $id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +37,11 @@ $id = $_GET['id'];
     </div>
 </header>
 
-        <!--========== NAV ==========-->
+    <!--========== NAV ==========-->
 
 
 
-        <div class="nav" id="navbar">
+    <div class="nav" id="navbar">
         <nav class="nav__container">
             <div>
                 <a href="#" class="nav__link nav__logo">
@@ -93,7 +92,7 @@ $id = $_GET['id'];
                         </div>
 
 
-                        <a href="/Patient/statement_of_account.php" class="nav__link">
+                        <a href="/Patient/SOA/soa.php" class="nav__link">
                             <i class='bx bx-money nav__icon' ></i>
                             <span class="nav__name">Billing Transaction</span>
                         </a>
@@ -111,7 +110,6 @@ $id = $_GET['id'];
             </a>
         </nav>
     </div>
-
 
 
     <div class="body_content">
@@ -208,8 +206,9 @@ $id = $_GET['id'];
                         <div class="each-presc">
 
                         <?php
+                                include 'dbcon.php';
 
-                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='4' OR status='3' ORDER BY date DESC";
+                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='3' ORDER BY date DESC";
                                 $res = mysqli_query($connection,$query_presc);
 
                                 if(mysqli_num_rows($res)>0){

@@ -37,14 +37,15 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             <img class="header__img" src="/Modules/admin/assets/img/logo dental.png" alt="">
                 <a href="#" class="header__logo">Cruz Dental Clinic</a>
     
-                
+             
+    
                 <div class="header__toggle">
                     <i class='bx bx-menu' id="header-toggle"></i>
                 </div>
             </div>
         </header>
 
-        <!--========== NAV ==========-->
+<!--========== NAV ==========-->
 
 
 <div class="nav" id="navbar">
@@ -75,10 +76,10 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                            <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                 <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
-                              
+                               
                             </div>
                         </div>
                     </div>
@@ -118,8 +119,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     </nav>
 </div>
 
-
-
         <br><br><br>
 		<div class="container">
 			<div class="content">
@@ -135,7 +134,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 								<option value="1">Upcoming</option>
 								<option value="2">Ongoing</option>
 								<option value="3">Done</option>
-								<option value="4">Cancelled</option>
 								
 							</select>
 						</div>
@@ -178,8 +176,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                <td><?php echo $row["doctor"]; ?></td>  
                                <td>  
 
-                           
-                               
                                <?php  
                                     if ($row['status']==1) {  
                                         echo "Upcoming";  
@@ -187,8 +183,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                         echo "Ongoing";  
                                     }if ($row['status']==3) {  
                                         echo "Done";  
-                                    }if ($row['status']==4) {  
-                                      echo "Cancelled";
                                     }  
                                     ?>  
                             
@@ -199,9 +193,10 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                 <option value="">Update Status</option>  
                                 <option value="2">Ongoing</option>  
                                 <option value="3">Done</option>
-                                <option value="4">Cancel</option>    
-                                </select> 
-                                </td> 
+                                </select>
+                                
+                                <a href="cancelappointment.php?id=<?php echo $row['sched_id']?>"><button>Cancel</button></a>
+                                </td>
                                 
           <td><?php echo $row['status']?></td>
                           </tr>  

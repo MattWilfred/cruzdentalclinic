@@ -1,6 +1,7 @@
 <?php  
 
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+
  $query = "SELECT * FROM bookings  ORDER BY sched_id AND timeslot asc";  
  $result = mysqli_query($connection, $query);  
 
@@ -31,20 +32,16 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 		<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 	</head>
 	<body>
-          <!--========== HEADER ==========-->
-          <header class="header">
-            <div class="header__container">
-            <img class="header__img" src="/Modules/admin/assets/img/logo dental.png" alt="">
-                <a href="#" class="header__logo">Cruz Dental Clinic</a>
-    
-                
-                <div class="header__toggle">
-                    <i class='bx bx-menu' id="header-toggle"></i>
-                </div>
-            </div>
-        </header>
+      <!--========== HEADER ==========-->
+      <header class="header">
+    <div class="header__container">
+        <a href="/Modules/receptionist/index.php" class="header__logo">Cruz Dental Clinic</a>
+        
+      
+    </div>
+</header>
 
-       <!--========== NAV ==========-->
+<!--========== NAV ==========-->
 
 
 <div class="nav" id="navbar">
@@ -95,7 +92,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
                                     <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>    
                                     <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                           
+                               
                             </div>
                         </div>
                     </div>
@@ -119,7 +116,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         </a>
     </nav>
 </div>
-
 
         <br><br><br>
 		<div class="container">
@@ -180,7 +176,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                <td>  
 
                            
-                               
                                <?php  
                                     if ($row['status']==1) {  
                                         echo "Upcoming";  
@@ -188,8 +183,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                         echo "Ongoing";  
                                     }if ($row['status']==3) {  
                                         echo "Done";  
-                                    }if ($row['status']==4) {  
-                                      echo "Cancelled";
                                     }  
                                     ?>  
                             
@@ -200,8 +193,9 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                 <option value="">Update Status</option>  
                                 <option value="2">Ongoing</option>  
                                 <option value="3">Done</option>
-                                <option value="4">Cancel</option>    
-                                </select> 
+                                </select>
+                                
+                                <a href="cancelappointment.php?id=<?php echo $row['sched_id']?>"><button>Cancel</button></a>
                                 </td> 
                                 
           <td><?php echo $row['status']?></td>

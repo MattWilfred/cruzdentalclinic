@@ -1,7 +1,6 @@
 <?php
-require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-include('/Database/sessioncheck.php');
-$id = $_GET['id'];
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+    $id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +30,7 @@ $id = $_GET['id'];
 <header class="header">
         <div class="header__container">
 
-            <a href="/Modules/secretary/Accounts/PatientAccount/index.php">
+            <a href="patientlist.php">
                 <button>
                     <i class="fa-solid fa-angle-left"></i>
                     Back to Patient List
@@ -48,6 +47,9 @@ $id = $_GET['id'];
     </header>
 
       
+<!--========== NAV ==========-->
+
+
 <div class="nav" id="navbar">
     <nav class="nav__container">
         <div>
@@ -76,10 +78,10 @@ $id = $_GET['id'];
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                            <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
                                 <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
-                               
+                              
                             </div>
                         </div>
                     </div>
@@ -130,6 +132,7 @@ $id = $_GET['id'];
 
     <div class="container">
     <?php
+            require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
@@ -154,7 +157,7 @@ $id = $_GET['id'];
 <div class="patient-info">
                     <div class="info-header">
                         <img src="user-logo.png" alt="user logo">
-                        <h1><?php echo $fname ?><?php echo $lname ?> </h1>
+                        <h1><?php echo $fname ?> <?php echo $lname ?> </h1>
                         <p class="pemail"><?php echo $email ?> </p>
 
                     </div>
@@ -217,7 +220,7 @@ $id = $_GET['id'];
                         <?php
                                 include 'dbcon.php';
 
-                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='3' ";
+                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='4' OR status='3' ";
                                 $res = mysqli_query($connection,$query_presc);
 
                                 if(mysqli_num_rows($res)>0){

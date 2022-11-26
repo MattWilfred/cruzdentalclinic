@@ -1,6 +1,7 @@
 <?php
-           require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-           $id = $_GET['id'];
+    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+    include('/Database/sessioncheck.php');
+    $id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@
 <header class="header">
         <div class="header__container">
 
-            <a href="index.php">
+            <a href="/Modules/dentist/Accounts/PatientAccount/index.php">
                 <button>
                     <i class="fa-solid fa-angle-left"></i>
                     Back to Patient List
@@ -77,6 +78,7 @@
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/dentist/blockdate.php" class="nav__dropdown-item">Block Date</a>
                                
                             </div>
                         </div>
@@ -123,7 +125,6 @@
 
     <div class="container">
     <?php
-            require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
@@ -208,7 +209,7 @@
                         <?php
                                 include 'dbcon.php';
 
-                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='4' OR status='3' ";
+                                $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='3' ";
                                 $res = mysqli_query($connection,$query_presc);
 
                                 if(mysqli_num_rows($res)>0){

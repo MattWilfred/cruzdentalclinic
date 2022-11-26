@@ -1,6 +1,6 @@
 <?php
- include('/Database/sessioncheck.php');
- require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+ include('../Database/sessioncheck.php');
+ include('../Database/connect.php');	
  $id = $_SESSION['id'];
 
 ?>
