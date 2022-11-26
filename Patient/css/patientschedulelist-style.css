@@ -66,7 +66,7 @@ body {
 }
 
 .col1 {
-    margin-top: 1%;
+    margin-top: 3%;
 }
 
 .col2,
@@ -75,7 +75,8 @@ body {
 }
 
 .col4 {
-    margin-top: 10%;
+    margin-top: 13%;
+    margin-right: -8%;
 }
 
 .col2 h4,
@@ -84,12 +85,12 @@ body {
 }
 
 .app-body p {
-    font-size: 70px;
+    font-size: 45px;
     font-weight: bolder;
 }
 
 .cancelbtn {
-    background-color: red;
+    background-color: rgb(207, 4, 4);
     border: red;
     padding: 7px;
     border-radius: 5px;

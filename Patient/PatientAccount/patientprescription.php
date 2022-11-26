@@ -1,9 +1,6 @@
 <?php
     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-
     session_start();
-    include('/Database/sessioncheck.php');
-    $id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
@@ -25,70 +22,75 @@
 </head>
 
 <body>
-<header class="header">
-        <div class="header__container">
 
-            <i class='bx bxs-bell bx-flip-horizontal bx-tada nav__icon'></i>
-
-
-            <div class="header__toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
-            </div>
-        </div>
-    </header>
+   
+    <!--========== HEADER ==========-->
+    <header class="header">
+    <div class="header__container">
+        <a href="/Modules/admin/index.php" class="header__logo">Cruz Dental Clinic</a>
+        
+      
+    </div>
+</header>
 
     <!--========== NAV ==========-->
+
+
+
     <div class="nav" id="navbar">
         <nav class="nav__container">
             <div>
                 <a href="#" class="nav__link nav__logo">
-                    <i class='bx bxs-disc nav__icon'></i>
+            <i class='nav__icon'>
+            <img src="/Patient/assets/img/logo dental.png" alt="" class="header__img">
+            </i>
                     <span class="nav__logo-name">Cruz Dental Clinic</span>
                 </a>
 
                 <div class="nav__list">
-
                     <div class="nav__items">
-                        <a href="/Secretary/index.php" class="nav__link active">
-                            <i class='bx bx-home nav__icon'></i>
+
+                        <a href="/Patient/index.php" class="nav__link active">
+                            <i class='bx bx-home nav__icon' ></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
                         
-
                         <div class="nav__dropdown">
                             <a href="#" class="nav__link">
-                                <i class='bx bxs-calendar nav__icon'></i>
-
+                                <i class='bx bxs-calendar nav__icon' ></i>
+                                
                                 <span class="nav__name">Schedule</span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-
                             </a>
 
                             <div class="nav__dropdown-collapse">
-                            <div class="nav__dropdown-content">
-                                <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
+                                <div class="nav__dropdown-content">
+                                    <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
                                     <a href="/Patient/patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
+                                
                                 </div>
                             </div>
                         </div>
 
                         <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class='bx bx-user nav__icon'></i>
-                                    <span class="nav__name">Accounts</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
+                            <a href="#" class="nav__link">
+                                <i class='bx bx-user nav__icon' ></i>
+                                <span class="nav__name">Accounts</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                            </a>
 
-                                <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
                                     <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
+                                
                                 </div>
                             </div>
                         </div>
 
-                        <a href="/Patient/statementofaccount.php" class="nav__link">
-                            <i class='bx bx-money nav__icon'></i>
-                            <span class="nav__name">Billing</span>
+
+                        <a href="/Patient/SOA/soa.php" class="nav__link">
+                            <i class='bx bx-money nav__icon' ></i>
+                            <span class="nav__name">Billing Transaction</span>
                         </a>
                     </div>
 
@@ -98,12 +100,13 @@
                     </a>
                 </div>
 
-                <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
-                    <i class='bx bx-log-out nav__icon'></i>
-                    <span class="nav__name">Log Out</span>
-                </a>
+            <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+                <i class='bx bx-log-out nav__icon' ></i>
+                <span class="nav__name">Log Out</span>
+            </a>
         </nav>
-        </div>
+    </div>
+
 
 
     <div class="body_content">
@@ -114,9 +117,10 @@
 
     <div class="container">
     <?php
-            $currentid = $_SESSION['id'];
 
-            $sql = "SELECT * from users where id = $currentid";
+    $id = $_SESSION['id'];
+
+            $sql = "SELECT * from users where id = $id";
             $result = mysqli_query($connection,$sql);
     
 
@@ -151,7 +155,7 @@
                         <span>Gender</span>
                         <p><?php echo $gender ?></p>
                     </div>
-                    <div class="phone">
+                    <div class="phone"> 
                         <span>Phone</span>
                         <p><?php echo $phone ?></p>
                     </div>
@@ -163,7 +167,14 @@
                         <span>Address</span>
                         <p><?php echo $address ?></p>
                     </div>
-                    
+                    <div class="edit=prf" style="text-align: center; margin-top: 10%;">
+                        <a href="editpatientprofile.php?id=<?php echo $id; ?>">
+                            <button>
+                                <i class="fa-solid fa-pen"></i>
+                                Edit Profile
+                            </button>
+                        </a>
+                    </div>
 
                 
                 </div>
@@ -180,9 +191,9 @@
 
         <div class="navbar">
             <div class="topnav">
-                <a href="appthistory.php? id=<?= $currentid; ?>">Appointment History</a>
+                <a href="appthistory.php? id=<?= $id; ?>">Appointment History</a>
                 <a class="active">E-Prescription</a>
-                <a href="patientreferral.php? id=<?= $currentid; ?>">Referral</a>
+                <a href="patientreferral.php? id=<?= $id; ?>">Referral</a>
             </div>
                                             
         
@@ -191,13 +202,13 @@
                 <div class="presc-header">
                     <h2>E-Prescriptions </h2>
                 </div>
-
+             
                 <div class="presc-cont">
                     <div class="data-containter">
                         <div class="each-presc">
                             <?php
 
-                                $query_presc = "SELECT * from prescription WHERE user_id=$currentid ORDER by date_added DESC";
+                                $query_presc = "SELECT * from prescription WHERE user_id=$id ORDER by date_added DESC";
                                 $res = mysqli_query($connection,$query_presc);
 
                                 if(mysqli_num_rows($res)>0){

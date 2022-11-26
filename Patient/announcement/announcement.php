@@ -1,11 +1,6 @@
-<?php
-
+<?php 
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-
 session_start();
-include('/Database/sessioncheck.php');
-$id = $_SESSION['id'];
-
 ?>
 <!DOCTYPE html>
 <html lang=e n dir="ltr">
@@ -34,26 +29,26 @@ $id = $_SESSION['id'];
 
 
 <body>
-<header class="header">
-        <div class="header__container">
-            <img src="/Module/admin/assets/img/logo dental.png" alt="" class="header__img">
-
-            <a href="#" class="header__logo">Dashboard</a>
-
-
-            <div class="header__toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
-            </div>
-        </div>
-    </header>
+    <!--========== HEADER ==========-->
+    <header class="header">
+    <div class="header__container">
+        <a href="/Modules/admin/index.php" class="header__logo">Cruz Dental Clinic</a>
+        
+      
+    </div>
+</header>
 
     <!--========== NAV ==========-->
+
+
 
     <div class="nav" id="navbar">
         <nav class="nav__container">
             <div>
                 <a href="#" class="nav__link nav__logo">
-                    <i class='bx bxs-disc nav__icon' ></i>
+            <i class='nav__icon'>
+            <img src="/Patient/assets/img/logo dental.png" alt="" class="header__img">
+            </i>
                     <span class="nav__logo-name">Cruz Dental Clinic</span>
                 </a>
 
@@ -75,10 +70,9 @@ $id = $_SESSION['id'];
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
+                                    <a href="/Patient/patient-book/patient-booking.php" class="nav__dropdown-item">Calendar</a>
                                     <a href="/Patient/patientschedulelist.php" class="nav__dropdown-item">Schedule List</a>
-                                   
-                                   
+                                
                                 </div>
                             </div>
                         </div>
@@ -93,15 +87,17 @@ $id = $_SESSION['id'];
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
                                     <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
+                                
                                 </div>
                             </div>
                         </div>
 
-                        <a href="/Patient/statementofaccount.php" class="nav__link">
-                                <i class='bx bx-money nav__icon' ></i>
-                                <span class="nav__name">Billing</span>
-                            </a>
-                        </div>
+
+                        <a href="/Patient/statement_of_account.php" class="nav__link">
+                            <i class='bx bx-money nav__icon' ></i>
+                            <span class="nav__name">Billing Transaction</span>
+                        </a>
+                    </div>
 
                     <a href="/Patient/announcement/announcement.php" class="nav__link">
                         <i class='bx bxs-megaphone nav__icon'></i>
@@ -115,6 +111,10 @@ $id = $_SESSION['id'];
             </a>
         </nav>
     </div>
+
+
+
+
 
 
 
@@ -156,7 +156,7 @@ $id = $_SESSION['id'];
                                             <p><?php echo $cruzdentalclinic['date'] ?></p>
                                             <h5><?php echo $cruzdentalclinic['message'] ?></h5>
                                             <h6> By: <?php echo  $cruzdentalclinic['user_'] ?></h6>
-                                            </div>
+                                                                                   </div>
                                         <?php
                                         }
                                     }

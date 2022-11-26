@@ -24,7 +24,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
             $changeQuery = $conn->query("UPDATE users SET userpassword = '$new_password' WHERE email = '$email' and code = '$code' and updated_time >= NOW() - INTERVAL 1 DAY");
 
             if($changeQuery) {
-                header("Location: /LoginPage/forgotpassword/success.php");
+                header("Location: /success.php");
             }
         }
         $connection->close();

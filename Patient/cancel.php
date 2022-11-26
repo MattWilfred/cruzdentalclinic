@@ -1,5 +1,6 @@
 <?php
     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+    session_start();
     $id = $_GET['schedid']; 
     
     echo $id;
