@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="login" value="Login">
                     </div>
-                    <div class="link login-link text-center"><a href="/forgotpassword/forgot-password.php">Forgot Password?</a></div>
+                    <div class="link login-link text-center"><a href="/LoginPage/forgotpassword/forgot-password.php">Forgot Password?</a></div>
                 </form>
             </div>
         </div>
