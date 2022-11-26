@@ -1,5 +1,4 @@
 <?php
-require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 require "compute.php";
 $userid = $_GET['id'];
 $dentistid= $_GET['dentist'];
@@ -9,13 +8,14 @@ $newtime1=0;
 $SS= date("h:i");
 
 
+$mysqli = new mysqli('localhost', 'root', '', 'cruzdentalclinic');
+
 if(isset($_GET['date'])){
-  global $connection;
     
   $date = $_GET['date'];
   $dentistid= $_GET['dentist'];
   
-    $stmt = $connection->prepare("select * from bookings where dentist_id='$dentistid' and date=?");
+    $stmt = $mysqli->prepare("select * from bookings where dentist_id='$dentistid' and date=?");
     $stmt->bind_param('s', $date);
     $bookings = array();
     if($stmt->execute()){
@@ -35,22 +35,22 @@ if(isset($_GET['date'])){
 
 // Get name of user depending on the userid from users table
 $sql = "SELECT * FROM `users` WHERE id= '$userid'";
-$all_categories = mysqli_query($connection,$sql);
+$all_categories = mysqli_query($mysqli,$sql);
 
 // Get information of the dentist based on id.
 $sql = "SELECT * FROM `users` WHERE id= '$dentistid' AND accrole ='Dentist'";
-$find_dentist = mysqli_query($connection,$sql);
+$find_dentist = mysqli_query($mysqli,$sql);
 
 $sql = "SELECT * FROM `users` WHERE id= '$dentistid' AND accrole ='Dentist'";
-$id_dentist = mysqli_query($connection,$sql);
+$id_dentist = mysqli_query($mysqli,$sql);
 
 $sql = "SELECT * FROM `users` WHERE id= '$userid' AND accrole ='Patient'";
-$id_patient = mysqli_query($connection,$sql);
+$id_patient = mysqli_query($mysqli,$sql);
 
 
 
-// The following code checks if the submit button is clicked
-// and inserts the data in the database accordingly
+// code checks if the submit button is clicked
+// and inserts the data in the database.
 if(isset($_POST['submit'])){
     $name = $_POST['Patient'];
     $timeslot = $_POST['timeslot'];
@@ -62,13 +62,13 @@ if(isset($_POST['submit'])){
 
        
 
-    $stmt = $connection->prepare("INSERT INTO bookings (name, timeslot, date, doctor, treatment,status, dentist_id, patient_id) VALUES (?,?,?,?,?,?,?,?)");
+    $stmt = $mysqli->prepare("INSERT INTO bookings (name, timeslot, date, doctor, treatment,status, dentist_id, patient_id) VALUES (?,?,?,?,?,?,?,?)");
     $stmt->bind_param('ssssssss', $name, $timeslot , $date, $drselect, $procedure, $status, $dentist_id_fk, $patient_id_fk);
     $stmt->execute();
     //$msg = "<div class='alert alert-success'>Booking Successfull</div>";
     $bookings[]=$timeslot;
     $stmt->close();
-    $connection->close();
+    $mysqli->close();
 
     echo  "<script> alert('Booked Successfully'); window.location='/Patient/index.php'; </script>";
 }
@@ -143,15 +143,12 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bookcss.css">
-    <link rel="stylesheet" href="indent.css">
-    <link rel="stylesheet" href="../css/navstyle.css">
-    
+    <link rel="stylesheet" href="Book.Bootstrap.min.css?v=<?php echo time(); ?>">
+  
     <title></title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body>
@@ -163,13 +160,14 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     
 
     <div class="indent">
-      <h1>  Select Time For Appointment </h1>
+    <h1 style='text-align:center;'> Select Time For Appointment </h1>
+      <h1 style='text-align:center;'>Book for Date: <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr>
     </div>
 
     <div class="time">
         <div class="container">
 
-        <h1 class="text-center">Book for Date: <?php echo date('m/d/Y', strtotime($date)); ?></h1><hr>
+        
         <div class="row">
             <div class="row"> 
                 <div class="col-md-12">
@@ -177,13 +175,14 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
                 </div>
             </div>
           
-            <h1>MORNING SCHEDULE</h1>
+               
+            <h1>MORNING SCHEDULE</h1><hr>
            <?php $timeslots = timeslotsAM($duration, $cleanup, $start,$end);
                 // $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);  
               foreach($timeslots as $ts){
             ?>
            
-           
+           <br><br>
             <div class="col-md-4">
                 <div class="form-group"> 
                     <?php if(in_array($ts,$bookings)){ ?>
@@ -197,15 +196,15 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
             <?php } ?>
             </div>
             
-
+            <br><br>     <br><br>
           <div class ="row">
-              </br>
-            <h1>AFTERNOON SCHEDULE</h1>
+          </br>
+            <h1>AFTERNOON SCHEDULE</h1><hr>
 
             <?php $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);
                 // $timeslots1 = timeslotsPM($duration1, $cleanup1, $start1,$end1);  
               foreach($timeslots1 as $ts1){
-            ?>
+            ?><br><br>
            
            
             <div class="col-md-4">
@@ -240,7 +239,7 @@ function timeslotsPM($duration1, $cleanup1,$start1,$end1){
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+   
         <h4 class="modal-title">Booking: <span id="slot"></span></h4>
       </div>
       <div class="modal-body">

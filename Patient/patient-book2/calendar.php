@@ -1,20 +1,25 @@
 <?php
 
-require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-
     session_start();
    
     $id= $_GET['currentid'];
     $dentist = $_GET['dentistid'];
     $item =$_POST['list'];
+
+    $dbServername = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "";
+    $dbName = "cruzdentalclinic";
     
-if (!$connection){
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+    
+if (!$conn){
         die("Connection error!");
 }
 
 function fetchDatesToBlock(){
-    global $connection;
-    $holiday_queries = mysqli_query($connection, "SELECT date FROM holiday");
+    global $conn;
+    $holiday_queries = mysqli_query($conn, "SELECT date FROM holiday");
 
     $holiday_array = array();
 
@@ -27,9 +32,9 @@ function fetchDatesToBlock(){
 
 function build_calendar($month, $year) {
 
-    global $connection; 
+    $conn = mysqli_connect("localhost", "root", "", "cruzdentalclinic");  
     $query = "SELECT * FROM holiday";  
-    $result = mysqli_query($connection, $query); 
+    $result = mysqli_query($conn, $query); 
     
 
     
@@ -37,30 +42,24 @@ function build_calendar($month, $year) {
     $dentist = $_GET['dentistid'];
     $id= $_GET['currentid'];
     $item =$_POST['list'];
+    $mysqli = new mysqli('localhost', 'root', '', 'cruzdentalclinic');
     
       
-     // Create array containing abbreviations of days of week.
+     // Create array containing days of week.
      $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
 
-     // What is the first day of the month in question?
+     
      $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
 
-     // How many days does this month contain?
      $numberDays = date('t',$firstDayOfMonth);
 
-     // Retrieve some information about the first day of the
-     // month in question.
      $dateComponents = getdate($firstDayOfMonth);
 
-     // What is the name of the month in question?
      $monthName = $dateComponents['month'];
 
-     // What is the index value (0-6) of the first day of the
-     // month in question.
      $dayOfWeek = $dateComponents['wday'];
 
-     // Create the table tag opener and day headers
-
+     
      
     $datetoday = date("Y-m-d");
     
@@ -70,11 +69,11 @@ function build_calendar($month, $year) {
     $calendar .= "<center><h2>$monthName $year</h2>";
 
 
-    $calendar.= "<a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id & dentist=$dentist & treat=$item&month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</a> ";
+  $calendar.= "<a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id & dentist=$dentist & treat=$item&month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</a> ";
     
     $calendar.= " <a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id & dentist=$dentist & treat=$item &month=".date('m')."&year=".date('Y')."'>Current Month</a> ";
     
-    $calendar.= "<a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id & dentist=$dentist & treat=$item & month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a></center><br>";
+   $calendar.= "<a class='btn btn-xs btn-primary' href='calendarnext.php?name=$id & dentist=$dentist & treat=$item & month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a></center><br>";
      
     
         
@@ -134,7 +133,7 @@ function build_calendar($month, $year) {
 
         //elseif($date == $holiday){
         elseif(in_array($date, $holiday)){
-                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-md'>Holiday</button>";     
+                $calendar.="<td><h4>$currentDay</h4> <p> Not Available </p>";     
         }
 
         elseif($date<date('Y-m-d')){
@@ -177,27 +176,33 @@ function build_calendar($month, $year) {
 }
     
 ?>
+<?php
+    $user = $_GET['currentid'];
+    $dentist = $_GET['dentistid']
 
+?>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="css/calendarbootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="css/schedulelistbootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="css/styles.css?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="css/form.css?v=<?php echo time(); ?>" rel="stylesheet">
-        
-        <link href="indent.css?v=<?php echo time(); ?>" rel="stylesheet">
-    </head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="css/calendarbootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="css/form.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/44763be3ea.js" crossorigin="anonymous"></script>
 
 <body>
 
 
            
+ 
+<form id="form" action="procedure.php?dentistid=<?php echo $dentist;?>&currentid=<?= $id;?>" method="POST">
+            <button type="submit" name="submit" style=' font-size:50px; color:#A14FD3;background: #ffffff;border: none;'>
+            <i class="fa-solid fa-circle-arrow-left"></i></button>
+</a>  
+</form>       
     
 <div class="indent">
-    <h1> SELECT AN APPOINTMENT</h1>
+<h1 style='text-align:center;'> SELECT AN APPOINTMENT</h1>
     
 <?php
 

@@ -2,22 +2,26 @@
     session_start();
   
   
-    require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+    $dbServername = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "";
+    $dbName = "cruzdentalclinic";
     
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
     
 
     
     
-if (!$connection){
+if (!$conn){
         die("Connection error!");
 }
 
 
-
+$dentist = $_GET['dentist'];
 function fetchDatesToBlock(){
-        global $connection;
-        $holiday_queries = mysqli_query($connection, "SELECT date FROM holiday");
+        global $conn;
+        $holiday_queries = mysqli_query($conn, "SELECT date FROM holiday");
     
         $holiday_array = array();
     
@@ -29,8 +33,8 @@ function fetchDatesToBlock(){
     }
 
     function holidayDesc(){
-        global $connection;
-        $description_queries = mysqli_query($connection, "SELECT description FROM holiday");
+        global $conn;
+        $description_queries = mysqli_query($conn, "SELECT description FROM holiday");
     
         $date_array = array();
     
@@ -54,27 +58,20 @@ function build_calendar($month, $year) {
     
     
     
-     // Create array containing abbreviations of days of week.
+     // Create array containing  days of week.
      $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
 
-     // What is the first day of the month in question?
+
      $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
 
-     // How many days does this month contain?
      $numberDays = date('t',$firstDayOfMonth);
 
-     // Retrieve some information about the first day of the
-     // month in question.
      $dateComponents = getdate($firstDayOfMonth);
 
-     // What is the name of the month in question?
      $monthName = $dateComponents['month'];
 
-     // What is the index value (0-6) of the first day of the
-     // month in question.
      $dayOfWeek = $dateComponents['wday'];
 
-     // Create the table tag opener and day headers
 
      
     $datetoday = date("Y-m-d");
@@ -143,7 +140,7 @@ function build_calendar($month, $year) {
         //elseif($date == $holiday){
         elseif(in_array($date, $holiday)){
             
-                $calendar.="<td><h4>$currentDay</h4>  <button class='btn btn-secondary btn-md'>Holiday</button>";     
+                $calendar.="<td><h4>$currentDay</h4>  <p> Not Available </p>";     
               }
         
         elseif($date<date('Y-m-d')){
@@ -184,143 +181,34 @@ function build_calendar($month, $year) {
 }
     
 ?>
-
-
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="indent.css">
-  
-    <style>
-       @media only screen and (max-width: 760px),
-        (min-device-width: 802px) and (max-device-width: 1020px) {
-
-            /* Force table to not be like tables anymore */
-            table, thead, tbody, th, td, tr {
-                display: block;
-
-            }
-            
-            
-
-            .empty {
-                display: none;
-            }
-
-            /* Hide table headers (but not display: none;, for accessibility) */
-            th {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-
-            tr {
-                border: 1px solid #ccc;
-            }
-
-            td {
-                /* Behave  like a "row" */
-                border: none;
-                border-bottom: 1px solid #eee;
-                position: relative;
-                padding-left: 50%;
-            }
-
-
-
-            /*
-		Label the data
-		*/
-            td:nth-of-type(1):before {
-                content: "Sunday";
-            }
-            td:nth-of-type(2):before {
-                content: "Monday";
-            }
-            td:nth-of-type(3):before {
-                content: "Tuesday";
-            }
-            td:nth-of-type(4):before {
-                content: "Wednesday";
-            }
-            td:nth-of-type(5):before {
-                content: "Thursday";
-            }
-            td:nth-of-type(6):before {
-                content: "Friday";
-            }
-            td:nth-of-type(7):before {
-                content: "Saturday";
-            }
-
-
-        }
-
-        /* Smartphones (portrait and landscape) ----------- */
-
-        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-            body {
-                padding: 0;
-                margin: 0;
-            }
-        }
-
-        /* iPads (portrait and landscape) ----------- */
-
-        @media only screen and (min-device-width: 802px) and (max-device-width: 1020px) {
-            body {
-                width: 495px;
-            }
-        }
-
-        @media (min-width:641px) {
-            table {
-                table-layout: fixed;
-            }
-            td {
-                width: 33%;
-            }
-        }
-        
-        .row{
-            margin-top: 20px;
-        }
-        
-        .today{
-            background:yellow;
-        }
-        
-        
-        
-    </style>
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="css/calendarbootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="css/form.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/44763be3ea.js" crossorigin="anonymous"></script>
 
 <body>
 
 
-      <!--sidebar end-->
-  
-
-
-
-
+           
+ 
+<form id="form" action="patient-booking.php">
+            <button type="submit" name="submit" style=' font-size:50px; color:#A14FD3;background: #ffffff;border: none;'>
+            <i class="fa-solid fa-circle-arrow-left"></i></button>
+</a>  
+</form>       
     
-    <div class="indent">
-    <h1> SELECT AN APPOINTMENT</h1>
+<div class="indent">
+<h1 style='text-align:center;'> SELECT AN APPOINTMENT</h1>
     
 <?php
 
 
-// optional
-// echo "You chose the following color(s): <br>";
-
-
-
 ?>
-    </div>
+</div>
 
     
     <form action="book.php">
@@ -355,6 +243,8 @@ function build_calendar($month, $year) {
         </div>
     </div>
     </div>
+
+
 
 </body>
 

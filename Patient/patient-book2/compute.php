@@ -26,6 +26,8 @@ function computer($treat){
 
       }elseif ($treat == "Orhtodontics"){
         $newtime = 15;
+      }elseif ($treat == "Dental Implants"){
+        $newtime = 90;
       }
 
       return $newtime;
