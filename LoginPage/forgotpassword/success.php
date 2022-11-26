@@ -8,6 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-    <div class="m-3 p-3 bg-light bg-gradient text-center rounded-3">Password is sucessfully change, login <a href="index.php">here</a></div>
+    <div class="m-3 p-3 bg-light bg-gradient text-center rounded-3">Password is sucessfully change, login <a href="/index.html">here</a></div>
 </body>
 </html>

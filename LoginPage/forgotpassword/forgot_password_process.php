@@ -40,23 +40,22 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Password Reset';
-        $mail->Body    = 'To reset your password click <a href="http://localhost:8080/change_password.php?code='.$code.'">here </a>. </br>Reset your password in a day.';
+        $mail->Body    = 'To reset your password click <a href="http://127.0.0.1/change_password.php?code='.$code.'">here </a>. </br>Reset your password in a day.';
 
-        $conn = new mySqli('localhost:8089', 'root', 'root', 'medicaldental');
 
-        if($conn->connect_error) {
+        if($connection->connect_error) {
             die('Could not connect to the database.');
         }
 
-        $verifyQuery = $conn->query("SELECT * FROM users_credentials WHERE email = '$email'");
+        $verifyQuery = $connection->query("SELECT * FROM users WHERE email = '$email'");
 
         if($verifyQuery->num_rows) {
-            $codeQuery = $conn->query("UPDATE users_credentials SET code = '$code' WHERE email = '$email'");
+            $codeQuery = $connection->query("UPDATE users SET code = '$code' WHERE email = '$email'");
                 
             $mail->send();
             echo 'Message has been sent, check your email';
         }
-        $conn->close();
+        $connection->close();
     
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
