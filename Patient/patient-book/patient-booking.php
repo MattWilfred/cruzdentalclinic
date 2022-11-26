@@ -91,7 +91,7 @@ $id = $_SESSION['id'];
                                 </div>
 
 
-                            <a href="/Patient/statementofaccount.php" class="nav__link">
+                            <a href="/Patient/statement_of_account.php" class="nav__link">
                                 <i class='bx bx-money nav__icon' ></i>
                                 <span class="nav__name">Billing</span>
                             </a>

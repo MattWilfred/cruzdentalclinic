@@ -159,16 +159,19 @@ function getSOAid($uid){
 
                 $row= mysqli_fetch_assoc($query);
 
-                echo "<tr>";
-                echo "<td> NAME OF PATIENT </td>";
-                echo "<td class='patient-name'>" .$row['fname']. " " .$row['lname']. "</td>";
-                echo "</tr>";
 
-                echo "<th></th><th></th><th></th><th></th><th></th><th></th><th></th>";
+                    if(mysqli_num_rows($query) > 0){
+
+                    echo "<tr>";
+                    echo "<td> NAME OF PATIENT </td>";
+                    echo "<td class='patient-name'>" .$row['fname']. " " .$row['lname']. "</td>";
+                    echo "</tr>";
+
+                    echo "<th></th><th></th><th></th><th></th><th></th><th></th><th></th>";
                     echo "<tr></tr>";
                     echo "<tr></tr>";
 
-                echo "<tr>";
+                    echo "<tr>";
                     echo "<th>DATE</th>";
                     echo "<th>DENTAL PROCEDURE</th>";
                     echo "<th>TRANSACTION TYPE</th>";
@@ -177,8 +180,6 @@ function getSOAid($uid){
                     echo "<th>AMOUNT PAID</th>";
                     echo "<th>INVOICE BALANCE</th>";
                     echo "</tr>";
-
-                    if(mysqli_num_rows($query) > 0){
 
                         while($rows= mysqli_fetch_assoc($query)){
 
@@ -197,9 +198,6 @@ function getSOAid($uid){
                             $totalAmountPaid += $rows['amount_paid'];
                             $totalBalance += $singleBalance;
                         }
-                    } else {
-                        echo "";
-                    }
 
                     echo "<td></td><td></td><td></td><td></td><th></th><th></th><th></th>";
                     echo "<tr></tr>";
@@ -216,6 +214,11 @@ function getSOAid($uid){
                     echo "<td> TOTAL BALANCE </td>";
                     echo "<td>" .$totalBalance. "</td>";
                     echo "</tr>";
+
+                    } else {
+                        echo "No Past Transactions";
+                    }
+
 
                 ?>
            
