@@ -13,7 +13,7 @@ function fetchPName(){
 
 function fetchSOADetails(){
     global $connection;
-    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id INNER JOIN patients AS d ON a.user_id = d.user_id");
+    $soa = mysqli_query($connection, "SELECT * FROM statement_of_account AS a INNER JOIN transaction AS b ON a.soa_id = b.soa_id INNER JOIN users AS c ON a.user_id=c.id WHERE accrole = 'Patient'");
     return $soa;
 }
 
@@ -174,7 +174,7 @@ function getSOAid($uid){
                             $singleBalance = $rows['total_amount'] - $rows['amount_paid'];
 
                             echo "<tr>";
-                                echo "<td class='patient-name'>" .$rows['patient_first_name']. " ".$rows['patient_surname']. "</td>";
+                                echo "<td class='patient-name'>" .$rows['fname']. " ".$rows['lname']. "</td>";
                                 echo "<td class='date'>" .$rows['transaction_date']. "</td>";
                                 echo "<td class='tprocedure'>" .$rows['type_of_procedure']. "</td>";
                                 echo "<td>" .$rows['total_amount']. "</td>";
