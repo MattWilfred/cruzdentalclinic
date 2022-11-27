@@ -13,7 +13,12 @@ body {
 }
 
 .body_content {
-    padding-left: 10%;
+    padding-left: 5.5%;
+}
+
+.h1-title {
+    padding-left: 1px;
+   
 }
 
 
@@ -22,6 +27,7 @@ body {
 h1 {
     padding-left: 1em;
     padding-top: 0.5em;
+    font-size: 30px;
 }
 
 #title {
@@ -39,11 +45,9 @@ p {
 .container {
     display: flex;
     margin: auto;
-    height: 80%;
     padding-top: 1em;
     width: 90%;
-    padding-left: 1%;
-    overflow:scroll;
+    padding-left: 3%;
 }
 
 .space {
@@ -60,7 +64,6 @@ h2{
 
 .cont h2, transbtn{
     display: inline-grid;
-    margin-left: 6%;
 }
 
 /* Add Transaction Button */
@@ -72,7 +75,7 @@ h2{
     color: white;
     width: 150px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 10px;
     margin-left: 835px;
 
 }
@@ -234,14 +237,14 @@ td{
 
 .button1 {
     text-align: center;
-    font-size: 1em;
+    font-size: 30x;
     padding: 5px;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease-out;
     background: #5F46A6;
-    border-radius: 50px;
+    border-radius: 10px;
     letter-spacing: 1 px;
 }
 
@@ -256,9 +259,12 @@ td{
 
 /* ADD BUTTON   */
 
+.row1{
+    
+}
 .add-btn {
     text-align: center;
-    padding-left: 850px;
+    padding-left: 83%;
     padding-top: 23px;
 }
 
@@ -316,10 +322,11 @@ td{
     padding: 20px;
     background: #e7e7e7;
     border-radius: 10px;
-    width: 80%;
-    height: 90%;
+    width: 70%;
+    height: 70%;
     position: relative;
     transition: all 5s ease-in-out;
+    overflow:scroll;
 }
 
 .wrapper h2 {
@@ -344,11 +351,9 @@ td{
 }
 
 
-
-
 .container1 {
     margin-left: -30px;
-    margin-top: 10px;
+    margin-top: 1px;
 }
 
 
@@ -381,9 +386,6 @@ form .input-box input {
     transition: all 0.3s ease;
     padding-left: 20px; 
 }
-
-
-
 
 
 
@@ -660,6 +662,10 @@ input[type=text], select, textarea {
     color: #4a5ac4;
 }
 
+.wrapper1 .content {
+ 
+    overflow: auto;
+}
 
 
 .containerr1 {

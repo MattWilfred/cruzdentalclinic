@@ -205,14 +205,16 @@ function fetchUniqueDentalBG($dbgid){
                         <span>Address</span>
                         <p><?php echo $address ?></p>
                     </div>
-                    <!--<div class="edit=prf" style="text-align: center; margin-top: 15%;">
-                        <a href="patientlist.php">
+                    
+                    <div class="edit=prf" style="text-align: center; margin-top: 15%;">
+                    <a href="editpatientprofile.php?id=<?php echo $id; ?>">
                             <button>
                                 <i class="fa-solid fa-pen"></i>
                                 Edit Profile
                             </button>
                         </a>
-                    </div>-->
+                    </div>
+                    
 
                 
                 </div>

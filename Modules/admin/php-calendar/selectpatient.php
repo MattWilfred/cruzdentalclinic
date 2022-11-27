@@ -31,7 +31,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                 </div>
             </div>
         </header>
-<!--========== NAV ==========-->
+
+        <!--========== NAV ==========-->
 
 
 <div class="nav" id="navbar">
@@ -64,7 +65,8 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
+                                <a href="/Modules/admin/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                              
                             </div>
                         </div>
                     </div>
@@ -105,6 +107,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
         </a>
     </nav>
 </div>
+
 
       <!--sidebar end-->
       <main>

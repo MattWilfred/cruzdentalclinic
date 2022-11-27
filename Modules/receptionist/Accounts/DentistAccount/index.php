@@ -49,7 +49,7 @@
         <div>
             <a href="#" class="nav__link nav__logo">
            <i class='nav__icon'>
-           <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">  
+           <img src="/Modules/receptionist/assets/img/logo dental.png" alt="" class="header__img">
            </i>
                 <span class="nav__logo-name">Cruz Dental Clinic</span>
             </a>
@@ -63,7 +63,7 @@
                     </a>
                     
                     <div class="nav__dropdown">
-                        <a href="#" class="nav__link">
+                        <a href="/Modules/receptionist/index.php" class="nav__link">
                             <i class='bx bxs-calendar nav__icon' ></i>
                             
                             <span class="nav__name">Schedule</span>
@@ -74,7 +74,8 @@
                             <div class="nav__dropdown-content">
                                 <a href="/Modules/receptionist/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/receptionist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                               
+                                <a href="/Modules/receptionist/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -89,9 +90,9 @@
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
                             <a href="/Modules/receptionist/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                               
+                                    <a href="/Modules/receptionist/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>    
+                                    <a href="/Modules/receptionist/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                           
                             </div>
                         </div>
                     </div>
@@ -109,12 +110,13 @@
                 </a>
             </div>
 
-        <a href="#" class="nav__link nav__logout">
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
             <i class='bx bx-log-out nav__icon' ></i>
             <span class="nav__name">Log Out</span>
         </a>
     </nav>
 </div>
+
 
 
         <!--========== CONTENTS ==========-->

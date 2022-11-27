@@ -152,7 +152,6 @@ function fetchUniqueMedicalBG($id){
 
     <div class="container">
     <?php
-            //include 'dbcon.php';
             $currentid = $_GET['id'];
 
             $sql = "SELECT * from users where id = $currentid";
@@ -204,6 +203,16 @@ function fetchUniqueMedicalBG($id){
                         <p><?php echo $address ?></p>
                     </div>
 
+                    <div class="edit=prf" style="text-align: center; margin-top: 15%;">
+                    <a href="editpatientprofile.php?id=<?php echo $id; ?>">
+                            <button>
+                                <i class="fa-solid fa-pen"></i>
+                                Edit Profile
+                            </button>
+                        </a>
+                    </div>
+                
+
                 
                 </div>
             <?php
@@ -242,7 +251,7 @@ function fetchUniqueMedicalBG($id){
                 if(mysqli_num_rows($query) !== 0){
 
                     echo '<div class="mbg-edit"><button id="edit-button" class="mbg-button">Edit</button></div>';
-                    echo '<div class="mbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="mbg-vbutton">View Previous Entries</button></div>';
+                    echo '<div class="mbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="mbg-vbutton">Medical Background History</button></div>';
                 }
 
                 ?>

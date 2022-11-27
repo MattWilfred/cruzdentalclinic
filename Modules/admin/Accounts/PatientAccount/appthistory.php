@@ -1,6 +1,5 @@
 <?php
     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-    include('../../../../Database/sessioncheck.php');
     $id = $_GET['id'];
 ?>
 
@@ -193,6 +192,7 @@
                         </a>
                     </div>
                 </div>
+                
             <?php
             }          
             ?>

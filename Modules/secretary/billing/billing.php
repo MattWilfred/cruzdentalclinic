@@ -1,17 +1,13 @@
 <?php
   //include_once 'userlogs.php';
 
-  require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
+require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
-function fetchTransactions(){
-    global $connection;
-    $transactions = mysqli_query($connection, "SELECT * FROM transaction");
-    return $transactions;
-  }
+
 
 function fetchPName(){
     global $connection;
-    $pname = mysqli_query($connection, "SELECT * FROM users WHERE accrole = 'Patient'");
+    $pname = mysqli_query($connection, "SELECT * FROM users WHERE accrole = 'Patient' ORDER BY lname");
     return $pname;
   }
 
@@ -32,134 +28,112 @@ function getSOAid($uid){
 
 ?>
 
-
-<!DOCTYPE html lang=e n dir="ltr">
+<!DOCTYPE html lang=en dir="ltr">
 <html>
     <head>
-                <!--========== CSS ==========-->
-                <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
-                <link href="billing.css" rel="stylesheet">
-        <link href="css/all.min.css?v=<?php echo time(); ?>" rel="stylesheet">
-      
-        
-        
-         <!--========== BOX ICONS ==========-->
+        <link rel="stylesheet" href="/Modules/admin/assets/css/styles.css">
+        <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="billing.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset="UTF-8">
-        
-        <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-        
         <meta name="description" content="Admin Dental Clinic Web Page">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <title>Cruz Dental Clinic Website</title>
     </head>
-    
     <body>
-       <header class="header">
-        <div class="header__container">
-            <img src="assets/img/logo dental.png" alt="" class="header__img">
-
-            <a href="#" class="header__logo">BILLING</a>
-
-
-            <div class="header__toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
+          <!--========== HEADER ==========-->
+          <header class="header">
+            <div class="header__container">
+                <!--<img src="assets/img/logo dental.png" alt="" class="header__img">-->
+                <a href="#" class="header__logo">Cruz Dental Clinic</a>
+    
+            
+    
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
+                </div>
             </div>
-        </div>
-    </header>
-  <!--========== HEADER ==========-->
-  <header class="header">
-        <div class="header__container">
-            <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
-            <a href="#" class="header__logo">Cruz Dental Clinic</a>
+        </header>
 
-         
+      <!--========== NAV ==========-->
 
-            <div class="header__toggle">
-                <i class='bx bx-menu' id="header-toggle"></i>
-            </div>
-        </div>
-    </header>
 
-    <!--========== NAV ==========-->
-   
+<div class="nav" id="navbar">
+    <nav class="nav__container">
+        <div>
+            <a href="#" class="nav__link nav__logo">
+           <i class='nav__icon'>
+           <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
+           </i>
+                <span class="nav__logo-name">Cruz Dental Clinic</span>
+            </a>
 
-    <div class="nav" id="navbar">
-        <nav class="nav__container">
-            <div>
-                <a href="#" class="nav__link nav__logo">
-               <i class='nav__icon'>
-               <img src="/Modules/secretary/assets/img/logo dental.png" alt="" class="header__img">
-               </i>
-                    <span class="nav__logo-name">Cruz Dental Clinic</span>
-                </a>
+            <div class="nav__list">
+                <div class="nav__items">
 
-                <div class="nav__list">
-                    <div class="nav__items">
-
-                        <a href="/Modules/secretary/index.php" class="nav__link active">
-                            <i class='bx bx-home nav__icon' ></i>
-                            <span class="nav__name">Dashboard</span>
+                    <a href="/Modules/secretary/index.php" class="nav__link active">
+                        <i class='bx bx-home nav__icon' ></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+                    
+                    <div class="nav__dropdown">
+                        <a href="/Modules/secretary/index.php" class="nav__link">
+                            <i class='bx bxs-calendar nav__icon' ></i>
+                            
+                            <span class="nav__name">Schedule</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                         </a>
-                        
-                        <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
-                                <i class='bx bxs-calendar nav__icon' ></i>
-                                
-                                <span class="nav__name">Schedule</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                            </a>
 
-                            <div class="nav__dropdown-collapse">
-                                <div class="nav__dropdown-content">
-                                    <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
-                                    <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
-                                   
-                                </div>
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/secretary/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                                <a href="/Modules/secretary/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/secretary/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                              
                             </div>
                         </div>
-
-                        <div class="nav__dropdown">
-                            <a href="#" class="nav__link">
-                                <i class='bx bx-user nav__icon' ></i>
-                                <span class="nav__name">Accounts</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                            </a>
-
-                            <div class="nav__dropdown-collapse">
-                                <div class="nav__dropdown-content">
-                                <a href="/Modules/secretary/Accounts/SecretaryAccount/index.php" class="nav__dropdown-item">Employees</a>
-                                    <a href="/Modules/secretary/Accounts/DentistAccount/index.php" class="nav__dropdown-item">Dentist</a>
-                                    <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
-                                   
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <a href="/Modules/secretary/billing/billing.php" class="nav__link">
-                            <i class='bx bx-money nav__icon' ></i>
-                            <span class="nav__name">Billing</span>
-                        </a>
                     </div>
 
-                    <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
-                        <i class='bx bxs-megaphone nav__icon'></i>
-                        <span class="nav__name">Announcement</span>
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Accounts</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/Modules/secretary/Accounts/PatientAccount/index.php" class="nav__dropdown-item">Patients</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="/Modules/secretary/billing/billing.php" class="nav__link">
+                        <i class='bx bx-money nav__icon' ></i>
+                        <span class="nav__name">Billing</span>
                     </a>
                 </div>
 
-            <a href="#" class="nav__link nav__logout">
-                <i class='bx bx-log-out nav__icon' ></i>
-                <span class="nav__name">Log Out</span>
-            </a>
-        </nav>
-    </div>
-        
-    <div class="body_content">
+                <a href="/Modules/secretary/announcement/announcement.php" class="nav__link">
+                    <i class='bx bxs-megaphone nav__icon'></i>
+                    <span class="nav__name">Announcement</span>
+                </a>
+            </div>
+
+        <a href="/LoginPage/login-page.php" class="nav__link nav__logout">
+            <i class='bx bx-log-out nav__icon' ></i>
+            <span class="nav__name">Log Out</span>
+        </a>
+    </nav>
+</div>
+
+        <br /> <br />
+        <div class="body_content">
             <h1>Billing</h1>
         </div>
             
@@ -183,9 +157,10 @@ function getSOAid($uid){
                     <th>Amount Paid</th>
                     <th>Balance</th>
                     <th>Transaction Type</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
+
+                <form name="fetch-id-form" method="GET" action="edittransactions.php">
 
                 <?php
 
@@ -204,23 +179,32 @@ function getSOAid($uid){
                                 echo "<td>" .$rows['total_amount']. "</td>";
                                 echo "<td>" .$singleBalance. "</td>";
                                 echo "<td>" .$rows['transaction_type']. "</td>";
-                                echo "<td>" .$rows["status"]. "</td>";
-                                echo '<td> <div class="up-btn"><a class="button1" href="#divTwo">Edit</a></div></td>';
+                                //echo "<td> <input class='edit-transaction-h' type='hidden' name='soa-hidden' value='" .$rows['soa_id']. "'></td>";
+                                echo "<td><button style='font-size: 20px;' class='edit-transaction' type='submit' name='edit-button' value='" .$rows['transaction_id']. "'>Edit</button></td>";
+                                //echo '<td> <div class="up-btn"><a class="button" href="#divTwo">Edit</a></div></td>';
+
+                                //echo "<td><button class='mbg-viewbutton' type='submit' name='view-button' value='" .$hrow['medicalbackground_id']. "'>View</button></td>";
+
+                                //<a class="button" href="#divOne">Add Transaction</a>
                             echo "</tr>";
                         }
                     } else {
                         echo "";
                     }
                 ?>
+
+                </form>
            
             </table>
         </div>
         </div> 
         </div>
-        
+
+        <!-- Div One -->
+            
              <div class="overlay" id="divOne">
-                        <div class="wrapper">
-                        <h2>Add Transaction</h2><a class="close" href="#">&times;</a>
+                <div class="wrapper">
+                    <h2>Add Transaction</h2><a class="close" href="#">&times;</a>
                 <div class="content">
 
                 <!-- start of form -->
@@ -268,9 +252,9 @@ function getSOAid($uid){
                                 <option value="Dental Bridge">Dental Bridge</option>
                                 <option value="Orthiontics">Orthiontics</option>
                                 <option value="Restoration">Restoration</option>
-                                <option value="Fluoride Application">Fluoride Application </option>
+                                <option value="Fluoride Application"> Fluoride Application </option>
                                 <option value="Odontectomy">Odontectomy</option>
-                            </select>
+                                </select>
                         </div>
                         
                         <div class="input-box1" id="in-div-right">
@@ -314,16 +298,13 @@ function getSOAid($uid){
                         
                     </form>
         
-                    </div>
-                </div>
-            </div>
-                            </div>                       
+        </div>              
             <!-- Klyde's additional code -->
 
             <div class="overlay" id="divTwo">
-                        <div class="wrapper1">
+                <div class="wrapper">
                        <h2>Edit Transaction</h2><a class="close" href="#">&times;</a>
-                <div class="containerr1">
+                <div class="container">
                     <div class="content">
 
                     
@@ -419,10 +400,9 @@ function getSOAid($uid){
                     <input type="submit" value="Save" id="save-btn1"></input>
                     </div>
             
-                    </form>
+                </form>
                       
-                </div>
-              </div>
+            </div>
             
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
