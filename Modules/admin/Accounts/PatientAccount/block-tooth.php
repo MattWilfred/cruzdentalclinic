@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function checkIfMissing($toothNum, $uid){

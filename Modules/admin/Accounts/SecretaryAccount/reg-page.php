@@ -12,9 +12,9 @@
 
     <body>
 
-        <div id="bg">
+       <!--<div id="bg">
             <img src="/Modules/admin/assets/img/background.png" alt="background">
-        </div>
+        </div>-->
 
         <div class="container">
                   

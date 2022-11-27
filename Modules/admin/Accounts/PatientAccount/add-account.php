@@ -24,9 +24,9 @@ if (isset($_POST['create'])){
   $cuserpassword = $_POST['cpassword'];
   $accrole = $_POST['role'];
 
-  $un_sql = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
-  $em_sql = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
-  $pw_sql = mysqli_query($conn, "SELECT * FROM users WHERE userpassword='$userpassword'");
+  $un_sql = mysqli_query($connection, "SELECT * FROM users WHERE username='$username'");
+  $em_sql = mysqli_query($connection, "SELECT * FROM users WHERE email='$email'");
+  $pw_sql = mysqli_query($connection, "SELECT * FROM users WHERE userpassword='$userpassword'");
 
   if (mysqli_num_rows($un_sql) > 0) {
     echo '<script> alert("Sorry... Username already taken"); </script>';

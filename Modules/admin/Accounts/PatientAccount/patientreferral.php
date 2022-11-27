@@ -117,6 +117,10 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
     </nav>
 </div>
 
+<div class="body_content">
+        <h1>Patient Profile</h1>
+    </div>
+
 
 
 

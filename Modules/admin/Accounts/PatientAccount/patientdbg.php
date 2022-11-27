@@ -207,7 +207,7 @@ function fetchUniqueDentalBG($dbgid){
                     </div>
                     
                     <div class="edit=prf" style="text-align: center; margin-top: 15%;">
-                    <a href="editpatientprofile.php?id=<?php echo $id; ?>">
+                    <a href="editpatientprofile.php?id=<?php echo $currentid; ?>">
                             <button>
                                 <i class="fa-solid fa-pen"></i>
                                 Edit Profile
