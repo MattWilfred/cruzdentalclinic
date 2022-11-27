@@ -2,7 +2,6 @@
   //include_once 'userlogs.php';
 
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-include('/Database/sessioncheck.php');	
 
 session_start();
 $uid = $_SESSION['id'];
@@ -107,7 +106,7 @@ function getSOAid($uid){
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $id;?>" class="nav__dropdown-item">Profile</a>
+                                    <a href="/Patient/PatientAccount/appthistory.php?id=<?php echo $uid;?>" class="nav__dropdown-item">Profile</a>
 
                                 </div>
                             </div>
@@ -158,6 +157,9 @@ function getSOAid($uid){
                 $query = fetchSOADetails($uid);
 
                 $row= mysqli_fetch_assoc($query);
+
+                $totalAmountPaid = 0;
+                $totalBalance = 0;
 
 
                     if(mysqli_num_rows($query) > 0){

@@ -7,7 +7,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function fetchPName(){
     global $connection;
-    $pname = mysqli_query($connection, "SELECT * FROM users WHERE accrole = 'Patient'");
+    $pname = mysqli_query($connection, "SELECT * FROM users WHERE accrole = 'Patient' ORDER BY lname");
     return $pname;
   }
 

@@ -1,6 +1,5 @@
 <?php
     require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
-    include('/Database/sessioncheck.php');
     $id = $_GET['id'];
 ?>
 
@@ -207,7 +206,6 @@
                         <div class="each-presc">
 
                         <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='3' ";
                                 $res = mysqli_query($connection,$query_presc);

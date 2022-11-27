@@ -6,12 +6,15 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
  }
 
+ $query = "SELECT * FROM bookings ORDER BY sched_id AND timeslot asc";  
+ $result = mysqli_query($connection, $query);  
+
 
  //Get Update id and status  
  if (isset($_GET['sched_id']) && isset($_GET['status'])) {  
     $id=$_GET['sched_id'];  
     $status=$_GET['status'];  
-    mysqli_query($connect,"update bookings set status='$status' where sched_id='$id'");  
+    mysqli_query($connection,"update bookings set status='$status' where sched_id='$id'");  
     header("location: schedule-list.php");  
     die();  
 }  

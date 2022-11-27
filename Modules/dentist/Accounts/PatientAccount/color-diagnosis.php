@@ -1,11 +1,8 @@
 <?php
-
-
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function getToothArray($uid){
     global $connection;
-    //read rows from the database
     $fetchteeth = mysqli_query($connection, "SELECT tooth_number FROM diagnosis where userid = $uid");
 
     $tootharray = array();
@@ -20,10 +17,8 @@ function getToothArray($uid){
 function colorTooth($toothNum, $uid){
 
   global $connection;
-    //read rows from the database
   $fetchteeth = mysqli_query($connection, "SELECT tooth_number, findings FROM diagnosis where userid = $uid AND tooth_number = $toothNum");
 
-  //$teethquery = mysqli_fetch_assoc($fetchteeth);
 
   while($row = mysqli_fetch_array($fetchteeth)){
 

@@ -15,9 +15,9 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 }**/
 
 function getToothInfo($toothNum, $uid){
-  global $conn;
+  global $connection;
   //read rows from the database
-  $toothinfo = mysqli_query($conn, "SELECT * FROM diagnosis where userid = $uid AND tooth_number = $toothNum ORDER BY date_added desc");
+  $toothinfo = mysqli_query($connection, "SELECT * FROM diagnosis where userid = $uid AND tooth_number = $toothNum ORDER BY date_added desc");
   return $toothinfo;
 }
 

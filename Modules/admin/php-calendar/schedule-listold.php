@@ -1,8 +1,10 @@
 <?php  
 
 require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
- $query = "SELECT * FROM bookings ORDER BY sched_id AND timeslot asc";  
- $result = mysqli_query($connection, $query);  
+
+
+$query = "SELECT * FROM bookings ORDER BY sched_id AND timeslot asc";  
+$result = mysqli_query($connection, $query);  
 
  if(isset($_POST['ongoing'])){
 

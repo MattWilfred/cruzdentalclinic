@@ -7,7 +7,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
 function fetchPName(){
     global $connection;
-    $pname = mysqli_query($connection, "SELECT * FROM users WHERE accrole = 'Patient'");
+    $pname = mysqli_query($connection, "SELECT * FROM users WHERE accrole = 'Patient' ORDER BY lname");
     return $pname;
   }
 
@@ -224,7 +224,7 @@ function getSOAid($uid){
                                 echo "<select style='width: 200px' id='dropdown' name='pname-dd' class='dropdown' style='width: 20%'>";
 
                                 while ($row = mysqli_fetch_assoc($qp)){
-                                    echo "<option style='width:100px' value='" .$row['user_id']. "'>" .$row['patient_first_name']. " ".$row['patient_surname']. "</option>";
+                                    echo "<option style='width:100px' value='" .$row['id']. "'>" .$row['fname']. " ".$row['lname']. "</option>";
                                 }
                                 
                                 echo "</select>";

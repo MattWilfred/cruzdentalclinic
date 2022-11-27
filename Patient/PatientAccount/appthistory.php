@@ -206,7 +206,6 @@
                         <div class="each-presc">
 
                         <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from bookings WHERE patient_id='$id' AND status='3' ORDER BY date DESC";
                                 $res = mysqli_query($connection,$query_presc);

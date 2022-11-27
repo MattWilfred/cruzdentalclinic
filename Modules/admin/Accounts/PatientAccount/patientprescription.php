@@ -221,7 +221,6 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                     <div class="data-containter">
                         <div class="each-presc">
                             <?php
-                                include 'dbcon.php';
 
                                 $query_presc = "SELECT * from prescription WHERE user_id=$currentid ORDER by date_added DESC";
                                 $res = mysqli_query($connection,$query_presc);

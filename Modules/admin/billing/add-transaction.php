@@ -120,6 +120,8 @@ function checkTransactionType($total, $amountpd){
 
     if ($difference === 0){
         $status = "FULL PAYMENT";
+    } else if ($difference < 0){
+        $status = "OVERPAYMENT";
     } else {
         $status = "INSTALLMENT";
     }
