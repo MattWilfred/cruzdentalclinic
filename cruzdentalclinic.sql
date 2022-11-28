@@ -528,7 +528,7 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `paddress`, `birthdate`, `username`
 (52, 'David', 'Norton', 'Bulacan', '2005-01-04', 'davidnorton', '9153694569', 'Male', 'davidnorton@gmail.com', 'davidnorton', 'Patient', NULL, 0, NULL, NULL),
 (53, 'Michelle', 'Evangelista', 'Bulacan', '1999-07-11', 'michelle', '09063327852', 'Female', 'michelleevangelista@gmail.com', 'evangelista', 'Patient', NULL, 0, NULL, NULL),
 (54, 'Aleyn', 'Caesar', 'Bulacan', '1994-03-16', 'aleyncy', '9164553265', 'Male', 'aleyncaesar@gmail.com', 'aleyncy123', 'Patient', NULL, 0, NULL, NULL),
-(55, 'Dental', 'Administrator', 'Borol 1st Balagtas, Bulacan', '2022-11-27', 'admin', '09061523654', 'Male', 'cruzdentaladmin@gmail.com', 'admin', 'Administrator', NULL, 1, NULL, NULL),
+(55, 'admin', 'admin', 'Borol 1st Balagtas, Bulacan', '2022-11-27', 'admin', '09061523654', 'Male', 'cruzdentaladmin@gmail.com', 'admin', 'Administrator', NULL, 1, NULL, NULL),
 (56, 'Geremy', 'Tuclao', 'Bulacan', '2008-03-08', 'geremytuclao', '9146543210', 'Male', 'geremytuclao@gmail.com', 'geremytuclao', 'Patient', NULL, 0, NULL, NULL),
 (57, 'Joshua', 'Aquino', 'Bulacan', '2000-05-11', 'joshuaaquino', '9164446598', 'Male', 'joshuaquino@gmail.com', 'joshuamoto', 'Patient', NULL, 0, NULL, NULL),
 (58, 'Cristiano', 'Hernandez', 'Bulacan', '2010-06-16', 'cristiano', '9145632885', 'Male', 'cristianohernandez@gmail.com', 'cristianohernando', 'Patient', NULL, 0, NULL, NULL),
