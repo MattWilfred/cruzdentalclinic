@@ -249,8 +249,8 @@ function fetchUniqueDentalBG($dbgid){
 
                 if(mysqli_num_rows($query) !== 0){
 
-                    echo '<div class="dbg-edit"><button id="edit-button" class="dbg-button">Edit</button></div>';
-                    echo '<div class="dbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="dbg-vbutton">View Previous Entries</button></div>';
+                    echo '<div class="dbg-edit"><button id="edit-button" class="dbg-button">Add</button></div>';
+                    echo '<div class="dbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="dbg-vbutton">Dental Background History</button></div>';
                 }
 
                 ?>
