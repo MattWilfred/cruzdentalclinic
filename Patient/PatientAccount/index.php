@@ -23,7 +23,7 @@
        
     
 
-        <title>Dentist Account List</title>
+        <title>Patient Account List</title>
     </head>
     <body>
          <!--========== HEADER ==========-->
@@ -132,7 +132,7 @@
                 <div class="addpatient-btn">
                     <div>
                         <i class="fa-solid fa-user-plus"></i>
-                        <a class="" type="button" href="createaccount.php">Add New Patient</a>
+                        <a class="" type="button" href="reg-page.php">Add New Patient</a>
                     </div>
                 </div>
             </div>

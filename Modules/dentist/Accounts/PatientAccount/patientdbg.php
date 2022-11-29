@@ -57,7 +57,7 @@ function fetchUniqueDentalBG($dbgid){
 <header class="header">
         <div class="header__container">
 
-            <a href="patientlist.php">
+        <a href="/Modules/dentist/Accounts/PatientAccount/index.php">
                 <button>
                     <i class="fa-solid fa-angle-left"></i>
                     Back to Patient List
@@ -105,7 +105,9 @@ function fetchUniqueDentalBG($dbgid){
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                            <a href="/Modules/dentist/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/dentist/blockdate.php" class="nav__dropdown-item">Block Date</a>
+                               
                                
                             </div>
                         </div>

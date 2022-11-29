@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang=e n dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dental Clinic Web Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Dra Marites Cruz Dental Clinic Website</title>
+
+</head>
+
+<body>
+    <nav>
+
+        <header>
+            <div class="logo"> <img src="logo dental.png" alt="dental logo"></div>
+            Cruz Dental Clinic
+        </header>
+
+
+        <ul>
+
+             <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="sched-btn">
+                    <i class="fa-solid fa-calendar-days"></i> Schedule
+                    <span class="fas fa-caret-down first"></span>
+                </a>
+                <ul class="sched-show">
+                    <li><a href="booksched.html">Calendar</a></li>
+                    <li><a href="ScheduleList.html">Schedule List</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="acct-btn">
+                    <i class="fa-solid fa-user-group"></i> Accounts
+                    <span class="fas fa-caret-down second"></span>
+                </a>
+                <ul class="acct-show">
+                    <li><a href="#">Dentist</a></li>
+                    <li><a href="patient.html">Patients</a></li>
+                    <li><a href="#">Administrator</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#about"> <i class="fa-solid fa-money-bill-wave"></i> Billing </a>
+            </li>
+            <li><a href="announcement.php"><i class="fa-solid fa-bullhorn"></i> Announcements </a></li>
+        </ul>
+        
+
+        <div class="logout">
+            <li><a href="#logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+            
+        </div>
+       
+
+
+    </nav>
+
+
+    <div class="body_content">
+        
+            <h1>Dashboard</h1>
+            <br/>
+                  <!-------  LINE CHART ------>
+                <div class = "charts">
+                <div class = "chart">
+                    <canvas id="lineChart" width="50" height="20"></canvas>
+                </div>
+            
+            
+            <!--BOX CONTAINET FOR TOTAL APPOINTMENTS AND CANCEL APPOINTMENTS-->
+            <div class="grid-container">
+
+                <div class="grid-child magenta">
+                    <p id="title"><b>Confirmed Appointment </b></p>
+                  <br/>
+                    <!--Total Appointments NUMBER-->
+                    <p>0</p>
+
+                </div>
+                
+                <div class="grid-child green">
+                    <p id="title"><b>Cancelled Appointment </b></p>
+                  <br/>
+                  <!--Total Cancel Appointments NUMBER-->
+                  <p>0</p>
+                </div>
+                
+            </div>
+
+
+        
+        <div class="flex-container">
+                
+                <div class="flex-upcoming">
+                    <p id="title"><b>Upcoming Appointment </b></p>
+                  <br/>
+                    <!--Upcoming Appointment NUMBER-->
+                    <p>0</p>
+                    
+                    <button class="up-seebutton"><b>See More</b></button>
+                </div>
+                
+                <div class="flex-total">
+                    <p id="title"><b>Total No. of Patients this Week </b></p>
+                  <br/>
+                  <!--Total Appointments this week NUMBER-->
+                  <p></p>
+                    <br/>
+                    <br/>
+                    <p id="title"><b>Total No. of Patients </b></p>
+                  <br/>
+                  <!--Total No of Patients NUMBER-->
+                  <p>150</p>
+                    
+                    <button class="tnop-seebutton"><b>See More</b></button>
+                </div>
+            
+                 <div class="flex-profit">
+                    <p id="title"><b>Profit for this Month so far </b></p>
+                  <br/>
+                  <!--Profit this month NUMBER-->
+                  <p>₱ 15, 990.00</p>
+                     <br/>
+                     <br/>
+                    <p id="title"><b>Total Amount of Profit </b></p>
+                  <br/>
+                  <!--Total Amount NUMBER-->
+                  <p>₱ 53, 000.00</p>
+                 
+                     <button class="tap-seebutton"><b>See More</b></button>
+                </div>
+            
+        </div>
+              
+            
+          
+                
+        
+        
+        
+        
+        
+        
+        
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>>
+        <script src="chart1.js"></script>> 
+
+
+
+
+    <!--Script for calendar-->
+
+    <script>
+        $('.sched-btn').click(function() {
+            $('nav ul .sched-show').toggleClass("show");
+            $('nav ul .first').toggleClass("rotate");
+        });
+        $('.acct-btn').click(function() {
+            $('nav ul .acct-show').toggleClass("show1");
+            $('nav ul .second').toggleClass("rotate");
+        });
+        $('nav ul li').click(function() {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    </script>>
+
+</body>
+
+</html>

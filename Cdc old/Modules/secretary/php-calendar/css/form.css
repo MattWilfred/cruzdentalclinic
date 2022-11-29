@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+.body_content {
+    padding-left: 16.5%;
+    
+}
+
+.h1-title {
+    padding-left: 1px;
+}
+
+
+
+
+
+/* MAIN CONTENT*/
+
+
+
+
+/* Add Transaction Button */
+.transbtn{
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: #69149b;
+    color: white;
+    width: 150px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 835px;
+
+}
+
+
+.tabPanel {
+    display: none;
+}
+
+
+button{
+background-color: white;
+  border: blueviolet 2px solid;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28px;
+  border-radius: 0.5em;
+  margin-left: 15px;
+  
+}
+
+button:hover{
+    background-color: rgb(107, 15, 193);
+    cursor: pointer;
+    color: white;
+}
+
+
+/*-----------------------------------------------------------------------------------------*/
+
+/*BLOCK FORM */
+
+.add-btn {
+    padding-left: 15%;
+    padding-top: 23px;
+    
+}
+
+.button {
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    background: #5F46A6;
+    border-radius: 10px;
+    position: fixed;
+    top: 18%;
+    left: 21%;
+  
+}
+
+/* BUTTON TRANSITION   */
+
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wrapper {
+    margin: 100px auto;
+    padding: 20px;
+    background: #e7e7e7;
+    border-radius: 10px;
+    width: 28%;
+    height: 50%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    margin-top: 100px;
+}
+
+.wrapper h2 {
+    margin-left: 10px;
+    margin-top: 0;
+    color: #5F46A6;
+}
+
+.wrapper .close {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #5F46A6;
+}
+
+.wrapper .close:hover {
+    color: #4a5ac4;
+}
+
+.wrapper .content {
+    
+    overflow: auto;
+}
+
+
+
+
+/*FORM*/
+
+.form label{
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+input[type=text]{
+    width: 82%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form span.details {
+    display: flex;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 10px;
+    
+}
+
+.form .input-box {
+   padding-left: 10px;
+}
+
+.form .input-box input {
+    height: 25px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    padding-left: 20px; 
+}
+
+
+
+
+
+/*BUTTON STYLE*/
+
+#block-btn, #cancel-btn{
+    margin: 10px;
+}
+
+#block-btn{
+    border: 2px solid blueviolet;
+    background-color: white;
+    color: blueviolet ;
+    border-radius: 1.0em;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    float: right;
+    margin-right: 70px;
+    margin-top: 90px;
+    cursor: pointer;
+}
+
+#cancel-btn{
+    border: 2px solid blueviolet;
+    background-color: white;
+    color: blueviolet;
+    border-radius: 1.0em;
+    font-size: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    float: left;
+    margin-left: 60px;
+    margin-top: 90px;
+    cursor: pointer;
+}
+
+#cancel-btn:hover{
+    color: white;
+    background-color:#8d1ecd;
+}
+
+#block-btn:hover{
+    color: white;
+    background-color:#8d1ecd;
+}
+
+/*-----------------------------------   END   -------------------------------------*/
+
+
+
+
+
+/*-------------------------------- Responsive for TABLET ------------------------------*/
+
+
+@media screen and (max-width: 760px) {
+    
+    
+}
+
+
+

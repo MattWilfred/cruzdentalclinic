@@ -1,7 +1,4 @@
-
-
 /* ---------------------end of sidebar menu--------------------- */
-
 
 .annc-header {
     display: flex;
@@ -16,7 +13,6 @@
     background: #8d1ecd;
     width: 250px;
     height: 100%;
-    margin-top: 21px;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
@@ -103,7 +99,7 @@
 .annc-cont {
     margin-top: 10px;
     height: 700px;
-    overflow:visible;
+    overflow: visible;
 }
 
 .each-annc div {

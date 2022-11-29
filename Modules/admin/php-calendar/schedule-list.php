@@ -198,7 +198,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                 <option value="3">Done</option>
                                 </select>
                                 
-                                <a href="cancelappointment.php?id=<?php echo $row['sched_id']?>"><button>Cancel</button></a>
+                                <a href="cancelappointment.php?id=<?php echo $row['sched_id']?>"><button class="btn btn-danger btn-sm">Cancel</button></a>
                                 </td> 
                                 
           <td><?php echo $row['status']?></td>

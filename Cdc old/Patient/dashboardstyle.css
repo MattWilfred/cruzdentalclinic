@@ -1,0 +1,154 @@
+/*  import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: rgb(219, 219, 219);
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 20px;
+  background: #fff;
+}
+.logo{
+  display: flex;
+  align-items: center;
+}
+.logo a{
+  color: rgb(60, 15, 100);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 2rem 8rem 2rem 2rem;
+}
+.header-icons{
+  display: flex;
+  align-items: center;
+}
+.header-icons i{
+  margin-right: 2rem;
+  cursor: pointer;
+}
+.header-icons .account{
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-icons .account img{
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.container{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main Body Section */
+.main-body{
+  width: 70%;
+  padding: 1rem;
+}
+.promo_card{
+  width: 145%;
+  color: #fff;
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 0.5rem 1rem 1rem 4rem;
+  background: rgb(104, 15, 173);
+}
+.promo_card h1, .promo_card span, button{
+  margin: 10px;
+}
+.promo_card button{
+  display: block;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.history_lists{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin:auto;
+}
+
+.appt_lists{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:auto;
+
+  }
+
+.row1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 11rem;
+  }
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 2rem;
+}
+table{
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+  margin: 50px;
+  border-radius: 10px;
+}
+
+.tbl_appt{
+    background: #fff;
+    padding: 2rem;
+    text-align: center;
+    margin: 50px;
+    border-radius: 10px;
+  
+}
+
+
+#tbl_appt #appt_td, #appt_th{
+  padding: 0.5rem 7rem;
+}
+
+table td, th{
+  padding: 0.2rem 10rem;
+}
+
+table th{
+  font-size: 15px;
+}
+table td{
+  font-size: 13px;
+  color: rgb(100, 100, 100);
+}
+
+#date{
+   padding-left: 10px;
+}
+
+
+#heaad{
+    margin-left: 140px;
+ }
+
+ .indent{
+    padding-left: 5%;
+ }

@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/*RADIO BUTTON*/
+
+label{
+  border-style: solid;
+  border-radius: 26px;
+  font-size: 25px;
+}
+
+input[type="radio"]:checked + label {
+  font-weight: bold;
+  background-color: pink;
+  border-radius: 26px;
+  border-style: solid;
+}
+
+input[type="radio"]{
+visibility:hidden;
+}
+
+ input[type="submit"]{
+  font-size: 30px;
+  border-radius: 30px;
+  color:  rgb(107, 15, 193);
+}
+
+label:hover{
+  font-size: 22px;
+}
+
+label:active{
+  font-weight: bold;
+}
+
+#datepicker{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 35px;
+}
+
+.ui-datepicker {
+  background: #333;
+  border: 1px solid #555;
+  color: #EEE;
+}
+
+/*Time Selection*/
+
+.flex-container {
+  display: flex;
+  border: 2px solid violet;
+}
+
+.calen {
+  flex: 1;
+}  
+
+.calen:time111 {
+  margin-right: 20px;
+} 
+
+#add-app{
+  border-radius: 1em;
+  border: 1px solid black;
+  background-color: blueviolet;
+  float: right;
+  margin-right: 200px;
+}

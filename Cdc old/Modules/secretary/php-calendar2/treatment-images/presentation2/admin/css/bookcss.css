@@ -1,0 +1,313 @@
+h1,h3{
+
+    color:  blueviolet;
+    font-weight: bold;
+    padding-left: 20px;        /* <----    added*/
+}
+
+h2{
+  padding-left: 55px;
+}
+
+.spacing{                       /* edited*/
+    margin-bottom: 10px;
+}
+
+/* LIST FOR IMAGES*/
+
+ul#treat-list {
+    list-style-type: none;
+    
+  }
+  
+  li  {
+    display: inline-block;
+   
+  }
+  
+  input[type="checkbox"][id^="myCheckbox"] {
+    display: none;
+  }
+  
+  label {
+    border: 1px solid #fff;
+    padding: 10px;
+    display: block;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  label:before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+  }
+  
+  label img {
+    height: 90px;               /* <----    edited */
+    width: 90px;                /* <----    edited */
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+    border: 2px solid #c45eff;
+    border-radius: 1em;
+  }
+  
+  input[type="checkbox"]:checked + label {
+    border-color: #ddd;
+    background-color: blueviolet;
+  }
+
+  input[type="radio"]:checked + label {
+    border-color: #ddd;
+    background-color: blueviolet;
+  }
+
+  ::placeholder {
+    color: grey;
+    font-size: 22px;
+  }
+
+
+  #dentist-btn label{
+    border: 2px solid black;
+    border-radius: 0.5em;    /* <----    edited   */
+    margin-left: -10px;      /* <----    added   */
+      
+}
+
+
+  
+  /*Calendar Style*/
+  .calen{
+    font-size: 23px;
+  }
+  
+  /*Time Style*/
+
+
+.time111{
+  margin-left: 1.5%;
+}
+
+  .time111 label{
+    border: 2px solid black;
+    border-radius: 1em;
+    text-align: center;
+    display: inline-block;
+  }
+
+   label:hover{
+    background-color: blueviolet;
+  }
+
+  input[type="radio"] {
+    visibility:hidden;
+  }
+
+  #disabled, #disable:hover{ /*disable selecting time*/
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: unset;
+    
+  }
+
+
+  /*Alignment and spacing of Time btns*/
+.column1 {
+  margin-top: 5px;
+  float: left;
+  width: 50%;
+    
+    
+}
+.column1 label {
+   float: left;
+   margin-left:120px;
+   border-radius: 0.5em;   /* <----    added   */
+}
+
+.column2 {
+  margin-top: 5px;
+  float:left;
+  width: 50%;
+
+}
+.column2 label {
+   float: left;
+   margin-left:auto; 
+   left: 20px;
+   border-radius: 0.5em;   /* <----    added   */
+}
+
+.column3{
+  float:left;
+}
+
+#select-user{
+  margin-left:10%;
+}
+
+#select-user input{
+  padding-top: 15px;        /* <----    edited  */
+  padding-bottom: 10px;     /* <----    added   */
+  padding-left:10px;        /* <----    added   */
+  padding-right: 190px;     /* <----    edited  */
+  margin-left: 65px;        /* <----    added   */
+    margin-top: 10px;       /* <----    added   */
+    margin-bottom: 10px;    /* <----    added   */
+}
+
+h4{
+  font-size: 25px;
+}
+
+
+/*-------Button Style-------*/
+#add-event{
+  float: left;
+  margin-top: 30px;
+  margin-left: 60px; 
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  background-color: blueviolet;
+  border: blueviolet;
+  color: white;
+}
+
+#add-appoint{
+  float: right;
+  margin-top: 35px;
+  border: blueviolet;
+  margin-right: 15%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  background-color: blueviolet;
+  color: white;
+}
+
+#user-icon{
+  color: white;
+  font-size:28px;
+  background-color: blueviolet;
+  padding-top: 4px;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+#dentist-btn #dr-icon{
+  color: white;
+  font-size:28px;
+  border-radius: 50em;
+  background-color: blueviolet;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+#dentist-btn label{
+  font-size: 25px;
+}
+
+
+
+#user-btn{
+  cursor: pointer;
+}
+
+/*==========MODAL STYLE===============*/
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#text p{
+  font-size: 35px;
+}
+
+
+/*Added - positioning of text*/
+h4, h2{
+color: blueviolet;  
+}
+
+h4{
+    padding-left: 65px;
+}
+
+h2{
+    padding-left: 120px;
+}
+
+h3{
+    margin-top: -10px;    
+}
+
+
+#book{
+  border: 2px solid black;
+  border-radius: 1em;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 2px;
+  font-size: 22px;
+  color: #fefefe;
+  background-color: #531585;
+  float: right;
+  margin-left: 150px;
+}

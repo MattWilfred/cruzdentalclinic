@@ -131,7 +131,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                 <i class="fa-solid fa-bullhorn"></i>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" style="color:white;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                  Add New Announcement
                 </button>
                 

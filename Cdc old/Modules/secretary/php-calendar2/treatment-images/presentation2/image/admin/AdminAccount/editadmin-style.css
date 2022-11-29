@@ -1,0 +1,592 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+header {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 35px;
+    background: #c45eff;
+    user-select: none;
+    display: flex;
+}
+
+nav img {
+    height: 33px;
+    width: 30px;
+}
+
+nav {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    overflow-y: hidden;
+    background-color: blueviolet;
+}
+
+nav ul li {
+    line-height: 3em;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    padding-left: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+nav i {
+    color: white;
+}
+
+.logout li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding-top: 16em;
+    font-size: 19px;
+}
+
+.logout a {
+    color: white;
+    padding-left: 2em;
+    text-decoration: none;
+}
+
+
+/*TEXT FORMAT*/
+
+h1 {
+    padding-top: 0.5em;
+}
+
+#title {
+    font-size: 23px;
+}
+
+nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+    list-style: none;
+}
+
+nav ul li.active a {
+    color: rgb(244, 244, 244);
+    background: rgb(107, 15, 193);
+    border-left-color: rgb(255, 255, 255);
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul .sched-show.show {
+    display: block;
+}
+
+nav ul .acct-show.show1 {
+    display: block;
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-bottom: none;
+}
+
+nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 75px;
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: rgb(107, 15, 193);
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: rgb(177, 167, 221);
+    background: rgb(107, 15, 193);
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+
+/* ---------------------end of sidebar menu--------------------- */
+
+
+/* ---------------------View Patient List--------------------- */
+
+.page-profile h1 {
+    padding-left: 2%;
+    color: #883ab5;
+    font-weight: bold;
+}
+
+.main-cont {
+    width: 83%;
+    margin-left: 16.8%;
+}
+
+.subh {
+    display: flex;
+    justify-items: center;
+}
+
+
+/* search bar */
+
+.box-cont {
+    margin-top: -3.9%;
+    margin-left: 50%;
+    padding-left: 20px;
+    padding-right: 12px;
+    width: 250px;
+    border: 2px solid black;
+    height: 35px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.elem-cont {
+    width: 100%;
+    height: 100%;
+}
+
+.elem-cont div {
+    display: flex;
+}
+
+.search {
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.transaction {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 50px;
+    background: white;
+    position: absolute;
+    top: 6.5%;
+    left: 53%;
+    text-align: center;
+}
+
+.transaction:hover {
+    border: 1px solid #883ab5;
+    background: #883ab5;
+}
+
+.transaction a:hover {
+    background-color: none!important;
+    background: none!important;
+}
+
+.transaction a {
+    border: none;
+    background: none;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.transaction i {
+    color: black;
+}
+
+
+/* ---------------------End View Patient List--------------------- */
+
+
+/* ---------------------edit Patient List--------------------- */
+
+.page-profile h1 {
+    padding-left: 3%;
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.main-profile {
+    width: 83%;
+    height: 785px;
+    margin-left: 16.8%;
+}
+
+.profile-pic-div h1 {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: #222;
+}
+
+.profile-pic-div {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    top: 23%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+#photo {
+    height: 100%;
+    width: 100%;
+}
+
+#file {
+    display: none;
+}
+
+#uploadBtn {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.account-info h1 {
+    padding-left: 10%;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 5%;
+}
+
+.edit-form {
+    border: 1px solid black;
+}
+
+#form-outer {
+    background-color: rgb(250, 250, 250);
+    margin: 0 auto;
+    border-radius: 4px;
+    width: 75%;
+    max-width: 900px;
+    padding: 10px;
+    padding-top: 20px;
+}
+
+.dropdown {
+    height: 35px;
+    width: 180px;
+    padding: 5px;
+    margin: 10px;
+    margin-top: 15px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#submit {
+    background-color: blueviolet;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    width: 150px;
+    border: 0px solid;
+}
+
+#discard {
+    background-color: transparent;
+    border-radius: 5px;
+    color: blueviolet;
+    font-size: 1em;
+    height: 40px;
+    width: 200px;
+    border: 1px solid blueviolet;
+}
+
+
+/*Edit Account form responsive */
+
+@media screen and (max-width: 833px) {
+    .input-field {
+        width: 80%;
+    }
+    select {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .labels {
+        width: 100%;
+        text-align: left;
+    }
+    .rightTab {
+        width: 80%;
+        float: left;
+    }
+    .input-field {
+        width: 100%;
+    }
+    select {
+        width: 100%;
+    }
+}
+
+div h4 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.reg-form {
+    border-color: white;
+    background-color: white;
+    width: 90%;
+    height: 70%;
+    margin-left: 5%;
+    border-radius: 7px;
+    box-shadow: 15px 15px 30px 10px #a798f1;
+    background-color: rgba(255, 255, 255, 0.519);
+}
+
+.content {
+    padding-top: 65px;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.content form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 5px 0 12px 0;
+}
+
+form .user-details .input-box {
+    margin-bottom: 2px;
+    width: calc(100% / 2 - 15px);
+}
+
+form .input-box span.details {
+    display: block;
+    font-weight: 1000;
+    margin-bottom: 3px;
+    font-size: 1rem;
+}
+
+.user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.gender {
+    margin-left: 33%;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+    border-color: #9b59b6;
+}
+
+@media(max-width: 584px) {
+    .container {
+        max-width: 100%;
+    }
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    form .category {
+        width: 100%;
+    }
+    .content form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+@media(max-width: 459px) {
+    .container .content {
+        flex-direction: column;
+    }
+}
+
+
+/*  */
+
+@media(max-width: 459px) {
+    .container .content {
+        flex-direction: column;
+    }
+}
+
+
+/* search bar */
+
+.box-cont {
+    margin-top: -3.9%;
+    margin-left: 50%;
+    padding-left: 20px;
+    padding-right: 12px;
+    width: 250px;
+    border: 2px solid black;
+    height: 35px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.elem-cont {
+    width: 100%;
+    height: 100%;
+}
+
+.elem-cont div {
+    display: flex;
+}
+
+.search {
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.transaction {
+    border: 2px solid black;
+    padding:10px;
+    border-radius:50px;
+    background:white;
+    position: absolute;
+    top: 6.5%;
+    left: 53%;
+    text-align: center;
+}
+
+
+.transaction:hover {
+    border: 1px solid #883ab5;
+    background: #883ab5;
+}
+
+.transaction a:hover {
+    background-color: none!important;
+    background: none!important;
+}
+
+.transaction a {
+    border: none;
+    background: none;
+    color:black;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.transaction i {
+    color: black;
+}
+
+#rcorners2 {
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    width: 500px;
+    height:40px; 
+    text-align: center; 
+    font-size: 20px;
+  
+}
+
+    
+
+  

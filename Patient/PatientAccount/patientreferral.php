@@ -207,7 +207,7 @@
                     <div class="data-containter">
                         <div class="each-presc">
                             <?php
-                                include 'dbcon.php';
+                                //include 'dbcon.php';
 
                                 $query_presc = "SELECT * from referral WHERE user_id=$currentid ORDER by date_added DESC";
                                 $res = mysqli_query($connection,$query_presc);

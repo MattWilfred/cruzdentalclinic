@@ -11,7 +11,7 @@ session_start();
 <head>
     <!--========== CSS ==========-->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="css/patientschedulelist-style.css">
+    <link rel="stylesheet" href="css/patientschedulelist-style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/all.min.css">
     <!--========== BOX ICONS ==========-->
 
@@ -198,7 +198,7 @@ $res = mysqli_query($connection,$sql);
                                   
                                     ?>
                                         <div class="no-presc">
-                                            <h5>No prescriptions</h5>
+                                            <h2>No appointments</h2>
                                         
                                         </div>
                                     <?php

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cruz Dental Clinic</title>
+        <link rel="stylesheet"href="css/createaccount.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <script src="https://kit.fontawesome.com/44763be3ea.js" crossorigin="anonymous"></script>
+        
+    </head>
+
+    <body>
+
+        
+        <!-- NavBAr -->
+        <div class="topnav" id="myTopnav">
+            <a href="LoginPage.html">
+            <button style='font-size:50px;color:white;background: #A14FD3;border: none;'><i class="fa-solid fa-circle-arrow-left"></i></button>
+                  
+            <div class="logo"> <a href="#"><img src="images/298783880_5652912168104978_7318141653551353703_n.png"></a></div>
+            <span class="text">DENTAL CRUZ CLINIC</span>
+                
+         
+          </div>
+        <!-- create heading -->
+          <div class="create">
+            <div class="creates">
+                <H1>Create User Account</H1>
+                <label for="department">User Role </label>
+                    <select id="dropdown" name="department" class="dropdown">
+                    <option disabled value>roles</option>
+                    <option value="admin">Admin</option>
+                    <option value="dentist">Dentist</option>
+                    <option value="patient">Patient</option>
+                    <option value="receptionist">Receptionist</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+    
+          <!-- Form -->
+          <form id="survey-form" method="GET" action="">
+          <div class="rowTab">
+            <div class="labels">
+              <label id="Firstname-label" for="Firstname">Firstname: </label>
+              <input autofocus type="text" name="Firstname" id="Firstname" class="input-field" placeholder="Enter your Firstname" required>
+            </div>
+              <div class="labels">
+                <label id="Lastname-label" for="Lastname">Lastname: </label>
+                <input autofocus type="text" name="Lastname" id="Lastname" class="input-field" placeholder="Enter your Lastname" required>
+              </div>
+            </div>
+            
+
+            <div class="rowTab">
+                <div class="labels">
+                  <label id="Address-label" for="Address">Address: </label>
+                  <input autofocus type="text" name="Address" id="Address" class="input-field" placeholder="Enter your Address" required>
+                </div>
+                <div class="labels">
+                  <label id="dob-label" for="dob">Birthday: </label>
+                  <input type="date" name="dob" id="iddob" class="input-field" required>
+                </div>
+              </div>
+                
+                
+                <div class="rowTab">
+                    <div class="labels">
+                      <label id="MobileNumber-label" for="Mobile Number">Mobile Number: </label>
+                      <input autofocus type="text" name="MobileNumber" id="MobileNumber" class="input-field" placeholder="Enter your Mobile Number" required>
+                    </div>
+                    <div class="labels">
+                      <label for="department">Gender: </label>
+                          <select id="dropdown" name="Gender" class="dropdown">
+                          <option disabled value>Gender</option>
+                          <option value="admin">Male</option>
+                          <option value="dentist">Female</option>
+                          <option value="patient">Others</option>
+                          </select>
+                        </div>
+                      </div>
+                  
+        
+
+                    <div class="rowTab">
+                        <div class="labels">
+                          <label id="email-label" for="email">Email: </label>
+                          <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your Email">
+                        </div>
+                        <div class="labels">
+                          <label id="Username-label" for="email">Username: </label>
+                          <input type="Username" name="Username" id="Username" class="input-field" required placeholder="Enter your Username">
+                        </div>
+                      </div>
+
+
+                        <div class="rowTab">
+                            <div class="labels">
+                              <label id="password-label" for="password">Password: </label>
+                              <input type="password" name="password" id="password" class="input-field" required placeholder="Enter your Password">
+                            </div>
+                            <div class="labels">
+                              <label id="passwords-label" for="password">Confirm Password: </label>
+                              <input type="passwords" name="password" id="passwords" class="input-field" required placeholder="Confirm  your Password">
+                            </div>
+                          </div>
+
+                          <button id="submit" type="submit">Submit</button>
+                        </form>
+
+
+                            
+                    
+
+        <!-- navbar -->
+          <script>
+            function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                x.className += " responsive";
+              } else {
+                x.className = "topnav";
+              }
+            }
+            </script>
+
+
+
+<!-- password -->
+<script>
+    function verifyPassword() {
+      var pw = document.getElementById("pswd").value;
+      //check empty password field
+      if(pw == "") {
+         document.getElementById("message").innerHTML = "**Fill the password please!";
+         return false;
+      }
+     
+     //minimum password length validation
+      if(pw.length < 8) {
+         document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";
+         return false;
+      }
+    
+    //maximum length of password validation
+      if(pw.length > 15) {
+         document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";
+         return false;
+      } else {
+         alert("Password is correct");
+      }
+    }
+    </script>
+     
+         </body>
+</html>

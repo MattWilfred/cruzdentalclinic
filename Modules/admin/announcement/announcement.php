@@ -73,8 +73,9 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
-                                <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
+                            <a href="/Modules/admin/php-calendar/selectdentist.php" class="nav__dropdown-item">Calendar</a>
                                 <a href="/Modules/admin/php-calendar/schedule-list.php" class="nav__dropdown-item">Schedule List</a>
+                                <a href="/Modules/admin/blockdate.php" class="nav__dropdown-item">Block Date</a>
                                
                             </div>
                         </div>
@@ -148,10 +149,7 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
          
 
 
-        <div class="annc-cont">
-            <div class= "data-container">
-                <div class="each-annc">
-                            <?php
+        <?php
                             require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                             $query = "SELECT * FROM `announcement` ORDER BY date DESC";
@@ -162,6 +160,10 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
                                         foreach($query_run as $cruzdentalclinic)
                                         {
                                             ?>
+        <div class="annc-cont">
+            <div class= "data-container">
+                <div class="each-annc">
+                           
                                             <div>
                                             <h3><?php echo $cruzdentalclinic['title'] ?></h3>
                                             <p><?php echo $cruzdentalclinic['date'] ?></p>
@@ -181,7 +183,12 @@ require ("$_SERVER[DOCUMENT_ROOT]/Database/connect.php");
 
                                     else
                                     {
-                                        echo "<h5> No Record Found </h5>";
+                                        ?>
+                                        <div class="no-presc">
+                                            <h2>No announcements</h2>
+                                        
+                                        </div>
+                                    <?php
                                     }
   
 

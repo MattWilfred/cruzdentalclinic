@@ -1,7 +1,4 @@
-
-
 /* ---------------------end of sidebar menu--------------------- */
-
 
 .annc-header {
     display: flex;
@@ -16,7 +13,6 @@
     background: #8d1ecd;
     width: 250px;
     height: 100%;
-    margin-top: 21px;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
@@ -48,12 +44,6 @@
 
 
 /* drop down menu */
-
-.select-menu {
-    width: 150px;
-    margin-left: 10%;
-    margin-top: 26px;
-}
 
 .select-menu form {
     display: flex;
@@ -103,7 +93,7 @@
 .annc-cont {
     margin-top: 10px;
     height: 700px;
-    overflow:visible;
+    overflow: visible;
 }
 
 .each-annc div {
@@ -144,4 +134,9 @@
     display: flex;
     margin-left: 1010px;
     padding: 2px;
+}
+
+.no-presc {
+    text-align: center;
+    margin-top: 20%;
 }

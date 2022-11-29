@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.body_content {
+    padding-left: 16.5%;
+}
+
+.h1-title {
+    padding-left: 1px;
+}
+
+#brand {
+    background-color: rgb(166, 40, 166);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*.logo_content{
+    line-height: 20px;
+    background:#c45eff;
+    width: 100%;
+    height: 5%;
+}*/
+
+header {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 35px;
+    background: #c45eff;
+    user-select: none;
+    display: flex;
+}
+
+nav img {
+    height: 33px;
+    width: 30px;
+}
+
+#icon_announce img {
+    height: 50%;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    overflow-y: hidden;
+    background-color: blueviolet;
+}
+
+nav ul li {
+    line-height: 3em;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+}
+
+nav ul li a {
+    display: block;
+    padding-left: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+nav i {
+    color: white;
+}
+
+.logout li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding-top: 16em;
+    font-size: 19px;
+}
+
+.logout a {
+    color: white;
+    padding-left: 2em;
+    text-decoration: none;
+}
+
+
+/*TEXT FORMAT*/
+
+h1 {
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+#title {
+    font-size: 23px;
+}
+
+p {
+    font-size: 150px;
+    padding-top: 0.01em;
+}
+
+
+/* MAIN CONTENT*/
+
+.container {
+    display: flex;
+    margin: auto;
+    padding-top: 1em;
+    width: 90%;
+    padding-left: 14%;
+}
+
+.space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
+  }
+
+h2{
+    margin-top: 15px;
+    margin-left: 300px;
+}
+
+
+.cont h2, transbtn{
+    display: inline-grid;
+}
+
+/* Add Transaction Button */
+.transbtn{
+    border: solid 1px #69149b;
+    border-radius: 10px;
+    padding: 5px;
+    background: #69149b;
+    color: white;
+    width: 150px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 835px;
+
+}
+
+
+
+
+
+
+.tabPanel {
+    display: none;
+}
+
+nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+nav ul li.active a {
+    color: rgb(244, 244, 244);
+    background: rgb(107, 15, 193);
+    border-left-color: rgb(255, 255, 255);
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul .sched-show.show {
+    display: block;
+}
+
+nav ul .acct-show.show1 {
+    display: block;
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-bottom: none;
+}
+
+nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 75px;
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: rgb(107, 15, 193);
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: rgb(177, 167, 221)!important;
+    background: rgb(107, 15, 193)!important;
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+
+/*-----------------------------------------------------------------------------------------*/
+
+
+
+.form {
+    border-color: white;
+    background-color: white;
+    width: 60%;
+    height: 60%;
+    margin-top: 2%;
+    margin-left: 25%;
+    border-radius: 7px;
+    border: 2px solid grey;
+    background-color: #D3D3D3;
+}
+
+
+.content {
+    padding-top: 60px;
+    padding-bottom: 10px;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.content h2{
+    margin-top: -30px;
+    margin-left:00px;
+    font-size: 20px;
+}
+
+.content h4{
+    margin-top: 10px;
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+.content .view-details {
+    margin-left:-100px;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container span.details{
+    padding-right: 10px;
+}
+.container .view-details  input{
+    float: right;
+}
+
+.container {
+    width: 50%;
+    margin-left: 1px;
+    margin-top: -30px;
+}
+
+.container1 {
+    margin-top: -43px;
+    margin-right: 10px;
+    padding-right: 20px;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container1 span.details{
+    padding-right: 10px;
+}
+
+.container1 input{
+    float: right;
+}
+
+
+.container2{
+    margin-top: -180px;
+    margin-left: 623px;
+    padding-bottom: 70px; 
+}
+.container2 input{
+    margin-top: 6px;
+
+}
+
+.container2 h2{
+    margin-bottom: 10px;
+    margin-left: 45px;
+}
+
+
+
+.container3 {
+    width: 100%;
+    height: 10%;
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-right: 80px;
+    border-top: 2px solid grey;
+}
+
+.container3 span.details{
+    padding-right: 10px;
+}
+
+
+.container3 input{
+    float: right;
+}

@@ -1,0 +1,147 @@
+
+
+/* ---------------------end of sidebar menu--------------------- */
+
+
+.annc-header {
+    display: flex;
+}
+
+
+/* add new announcement button */
+
+.add-annc {
+    margin-left: 15%;
+    border: 1px solid #8d1ecd;
+    background: #8d1ecd;
+    width: 250px;
+    height: 100%;
+    margin-top: 21px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.add-annc a {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.add-annc i {
+    color: #fff;
+}
+
+.add-annc button {
+    background-color: transparent;
+    border: none;
+    padding: 1px;
+}
+
+.add-annc button :hover {
+    background: blueviolet!important;
+    background-color: blueviolet!important;
+}
+
+
+/* drop down menu */
+
+.select-menu {
+    width: 150px;
+    margin-left: 10%;
+    margin-top: 26px;
+}
+
+.select-menu form {
+    display: flex;
+    line-height: 15px;
+}
+
+.select-menu select {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.select-menu button {
+    border: 1px solid #8d1ecd;
+    background: #8d1ecd;
+}
+
+.select-menu button:hover {
+    background: blueviolet!important;
+    background-color: blueviolet!important;
+}
+
+
+/* for pop up window */
+
+.modal-title {
+    color: blueviolet;
+    font-weight: 800;
+}
+
+.modal-body label {
+    color: blueviolet;
+}
+
+#closebtn {
+    background: none;
+    border-color: blueviolet;
+    color: blueviolet;
+}
+
+#savebtn {
+    background-color: blueviolet;
+}
+
+
+/* */
+
+.annc-cont {
+    margin-top: 10px;
+    height: 700px;
+    overflow:visible;
+}
+
+.each-annc div {
+    border: 2px solid rgba(0, 0, 0, 0.359);
+    border-radius: 2px;
+    margin-bottom: 5px;
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.each-annc div h3 {
+    color: blueviolet;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.each-annc div p {
+    color: rgba(51, 51, 51, 0.615);
+    padding-left: 50px;
+    font-size: 11px;
+}
+
+.each-annc div h5 {
+    color: #333;
+    padding-left: 50px;
+    font-weight: 500;
+}
+
+.each-annc div h6 {
+    color: rgba(51, 51, 51, 0.85);
+    padding-left: 50px;
+    font-size: 15px;
+    padding-top: 15px;
+}
+
+.each-annc div section {
+    display: flex;
+    margin-left: 1010px;
+    padding: 2px;
+}

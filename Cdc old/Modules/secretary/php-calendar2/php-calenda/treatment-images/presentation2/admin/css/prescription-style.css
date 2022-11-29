@@ -1,0 +1,731 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.body_content {
+    padding-left: 16.5%;
+}
+
+.h1-title {
+    padding-left: 1px;
+}
+
+#brand {
+    background-color: rgb(166, 40, 166);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*.logo_content{
+    line-height: 20px;
+    background:#c45eff;
+    width: 100%;
+    height: 5%;
+}*/
+
+header {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 35px;
+    background: #c45eff;
+    user-select: none;
+    display: flex;
+}
+
+nav img {
+    height: 33px;
+    width: 30px;
+}
+
+#icon_announce img {
+    height: 50%;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    overflow-y: hidden;
+    background-color: blueviolet;
+}
+
+nav ul li {
+    line-height: 3em;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+}
+
+nav ul li a {
+    display: block;
+    padding-left: 2em;
+    color: white;
+    text-decoration: none;
+}
+
+nav i {
+    color: white;
+}
+
+.logout li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding-top: 16em;
+    font-size: 19px;
+}
+
+.logout a {
+    color: white;
+    padding-left: 2em;
+    text-decoration: none;
+}
+
+
+/*TEXT FORMAT*/
+
+h1 {
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+#title {
+    font-size: 23px;
+}
+
+p {
+    font-size: 150px;
+    padding-top: 0.01em;
+}
+
+
+/* MAIN CONTENT*/
+
+.container {                          /* --aaa----------------------------edited---------------------  */ 
+    display: flex;
+    margin: auto;
+    padding-top: 1em;
+    width: 90%;
+    padding-left: 14%;
+}
+
+.patient-info {
+    border: 2px solid #8d1ecd;
+    width: 33%;
+    height: 650px;
+    color: black;
+    text-align: center;
+}
+
+.patient-info img {
+    height: 140px;
+    width: 137px;
+    margin-top: 3rem;
+}
+
+.patient-tabs {
+    margin-left: 5px;
+    border: 2px solid #8d1ecd;
+    width: 80%;
+}
+
+.btn-cont button {
+    width: 16.6%;
+    float: left;
+    height: 100%;
+    border: 1px solid #8d1ecd;
+    font-family: "Poppins" sans-serif;
+    cursor: pointer;
+    background: white;
+}
+
+.btn-cont button :hover {
+    background-color: rgb(177, 167, 221);
+}
+
+.tabPanel {
+    display: none;
+}
+
+nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+nav ul li.active a {
+    color: rgb(244, 244, 244);
+    background: rgb(107, 15, 193);
+    border-left-color: rgb(255, 255, 255);
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul .sched-show.show {
+    display: block;
+}
+
+nav ul .acct-show.show1 {
+    display: block;
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-bottom: none;
+}
+
+nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 75px;
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: rgb(107, 15, 193);
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: rgb(177, 167, 221)!important;
+    background: rgb(107, 15, 193)!important;
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+
+
+    
+
+/*-----------------------------------------------------------------------------------------*/
+
+/* TAB */
+
+
+
+/* ADD BUTTON   */
+
+.add-btn {
+    text-align: none;
+    padding-left: 350px;
+    padding-top: 5px;
+}
+
+.button {
+    text-align: center;
+    font-size: 1em;
+    padding: 5px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    background: #5F46A6;
+    border-radius: 50px;
+    letter-spacing: 1 px;
+}
+
+.button, .submit{
+    margin-right: 110px;
+    
+}
+
+
+/* BUTTON TRANSITION   */
+.cont {
+    display: flex;
+}
+
+.logout li {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    padding-top: 18em;
+}
+
+.logout a {
+    color: white;
+    padding-left: 2em;
+    text-decoration: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*BOUNDARY OF FORM*/                  /* ------------------------------edited---------------------  */ 
+.wrapper {
+    margin: 10px auto;
+    padding: 0px;
+    background: #e7e7e7;
+    border-radius: 10px;
+    width: 50%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    padding-left: 1px;
+}
+
+.wrapper h2 {
+    margin-top: 0;
+    color: #5F46A6;
+    padding-left: 240px;
+}
+
+.wrapper .close {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #5F46A6;
+}
+
+.wrapper .close:hover {
+    color: #4a5ac4;
+}
+
+.wrapper .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+
+/*FORM*/
+
+form label {
+    font-weight: 350;
+    text-transform: uppercase;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    background-color: #5F46A6;
+    color: #fff;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}     
+
+
+
+
+
+
+/*------------------------------------------ PRESCRIPTION FORM  ---------------------------------------*/
+
+
+.column1 {
+  float: left;
+  width: 50%;
+}
+
+.column2 {
+  float: right;
+  width: 50%;
+}
+
+.column3 {
+  float: none;
+  width: 30%;
+}
+
+.container1:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+
+
+
+
+.form, .wrapper h1 {
+    margin-bottom: 10px;
+    color: #5F46A6;
+    font-size: 15px;
+    
+}
+
+
+
+/*TITLE FONT SIZE*/
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+
+
+/*PATIENT INFO*/
+.container form .user-details{
+    display: flex; 
+    flex-wrap: wrap;
+    margin: 0px 0 12px 100px;
+    margin-left:-10%;
+    
+    
+}
+
+/*SPACING OF EACH INPUT BAR*/
+form .user-details .input-box{
+    margin-bottom: -15px;
+    width: calc(100% / 1 - 10px);
+    
+}
+
+.user-details .input-box .details{
+    display:grid;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/*ALIGNMENT AND SIZING OF THE INPUT BAR w/ TEXT INSIDE*/
+.user-details .input-box input{
+    height: 35px;
+    width: 80%;
+    outline:none;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 13px;
+  
+}
+
+
+
+
+
+
+/*PRESCRIPTION INFO*/
+
+.container form .pres-details{
+    display: flex; 
+    flex-wrap: wrap;
+    margin: 0px 0 12px 100px;
+    margin-left:-15%;
+}
+
+/*SPACING OF EACH INPUT BAR*/
+form .pres-details .input-box{
+    margin-bottom: -15px;
+    width: calc(100% / 1 - 10px);
+    
+}
+
+.pres-details .input-box .details{
+    display: grid;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+
+.pres-details .input-box input{
+    height: 35px;
+    width: 130%;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    font-size: 13px;
+    
+} 
+
+
+
+
+
+
+/*PROFESSIONAL INFO*/
+
+.container form .pro-details{
+    display: flex; 
+    flex-wrap: wrap;
+    margin: 0px 0 12px 100px;
+    margin-left:-15%;
+}
+
+/*SPACING OF EACH INPUT BAR*/
+form .pro-details .input-box{
+    margin-bottom: -15px;
+    width: calc(100% / 1 - 10px);
+    
+}
+
+.pro-details .input-box .details{
+    display: grid;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+
+.pro-details .input-box input{
+    height: 35px;
+    width: 80%;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    font-size: 13px;  
+} 
+
+
+/* prescription tab outside the form */
+.tabPanel h2 {
+    margin-top: 3%;
+    margin-left: 2%;
+}
+
+.tabPanel h3 {
+    margin-left: 5%;
+}
+
+.tabPanel p {
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 10%;
+}
+
+tab div {
+    margin-top: 3%;
+}
+
+.personal-info,
+.prescr-info,
+.prof-info {
+    border: solid 1px #8d1ecd;
+    width: 700px;
+    margin-top: 2%;
+    border-style: dashed;
+    margin-left: 4%;
+}
+
+
+
+/*------------------------------------------ END OF PRESCIPTION FORM ----------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*Create Account form right */
+    .creates{
+      display: inline-block;
+     top: 10%;
+     width: 100%;
+      text-align: center;
+       font-size: 18px;
+    }
+    
+  
+
+   /*Create Account form right */
+   #form-outer {
+    background-color: rgb(250, 250, 250);
+    margin: 0 auto;
+    border-radius: 4px;
+    width: 75%;
+    max-width: 900px;
+    padding: 10px;
+    padding-top: 20px;
+  }
+   .labels {
+    display: inline-block;
+    text-align: center;
+    width: 45%;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+ 
+
+  .rightTab {
+    display: inline-block;
+    text-align: left;
+    width: 48%;
+    vertical-align: middle;
+  }
+  
+  
+  .input-field {
+    height: 20px;
+    width: 280px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+  }
+  
+  #userAge {
+    width: 40px;
+  }
+  
+  .userRatings,
+  input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
+  }
+  
+  #submit {
+    background-color: #1a8cff;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    width: 96px;
+    margin: 10px;
+    border: 0px solid;
+  }
+
+  #reset {
+    background-color: #1a8cff;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    height: 40px;
+    width: 96px;
+    margin: 10px;
+    border: 0px solid;
+  }
+  .dropdown {
+    height: 35px;
+    width: 140px;
+    padding: 5px;
+    margin: 10px;  
+    margin-top: 15px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+  }
+  
+  .radio, .checkbox {
+    position: relative;
+    left: -43px;
+    margin-left: 10px;
+    display: block;
+    padding-bottom: 10px;
+  }
+  
+  @media screen and (max-width: 833px) {
+    .input-field {
+      width: 80%;
+    }
+    select {
+      width: 90%;
+    }
+  }
+  
+  @media screen and (max-width: 520px) {
+    .labels {
+      width: 100%;
+      text-align: left;
+    }
+    .rightTab {
+      width: 80%;
+      float: left;
+    }
+    .input-field {
+      width: 100%;
+    }
+    select {
+      width: 100%;
+    }
+  }
+
+

@@ -61,12 +61,12 @@ body {
 .app-body {
     display: flex;
     justify-content: space-between;
-    margin-left: 10%;
+    margin-left: 2%;
     margin-right: 10%;
 }
 
 .col1 {
-    margin-top: 3%;
+    margin-top: 4%;
 }
 
 .col2,
@@ -75,7 +75,7 @@ body {
 }
 
 .col4 {
-    margin-top: 13%;
+    margin-top: 10%;
     margin-right: -8%;
 }
 
@@ -190,6 +190,11 @@ body {
         margin-top: 5px;
         margin-left: 120px;
     }
+}
+
+.no-presc {
+    text-align: center;
+    margin-top: 20%;
 }
 
 

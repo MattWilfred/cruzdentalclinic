@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang=e n dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dental Clinic Web Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Dra Marites Cruz Dental Clinic Website</title>
+
+</head>
+
+<body>
+    <nav>
+
+        <header>
+            <div class="logo"> <img src="logo dental.png" alt="dental logo"></div>
+            Cruz Dental Clinic
+        </header>
+
+
+        <ul>
+
+             <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="sched-btn">
+                    <i class="fa-solid fa-calendar-days"></i> Schedule
+                    <span class="fas fa-caret-down first"></span>
+                </a>
+                <ul class="sched-show">
+                    <li><a href="booksched.html">Calendar</a></li>
+                    <li><a href="ScheduleList.html">Schedule List</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="acct-btn">
+                    <i class="fa-solid fa-user-group"></i> Accounts
+                    <span class="fas fa-caret-down second"></span>
+                </a>
+                <ul class="acct-show">
+                    <li><a href="#">Dentist</a></li>
+                    <li><a href="patient.html">Patients</a></li>
+                    <li><a href="#">Administrator</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#about"> <i class="fa-solid fa-money-bill-wave"></i> Billing </a>
+            </li>
+            <li><a href="announcement.php"><i class="fa-solid fa-bullhorn"></i> Announcements </a></li>
+        </ul>
+        
+
+        <div class="logout">
+            <li><a href="#logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+            
+        </div>
+       
+
+
+    </nav>
+
+
+    <div class="body_content">
+        
+            <h1>Dashboard</h1>
+            <br/>
+                    
+            <!-------  HEADING ------>
+            <div class="contain">
+            <div class="contain1">
+                <p><b>Welcome!</b></p></div>
+              <div class="contain2">
+                  <p><b>Dra. Marites Cruz</b></p></div>
+        
+             <img src="dendashboard.png" lt="Trulli" width="75" height="75">
+        
+                <div class="lefthead-container">
+                     
+                   <div class="leftcon">
+                    <p>Monday,</p>
+                    <p>October 24, 2022</p>
+                    <p>2:00 P.M.</p>
+                </div>
+                </div>
+  
+            
+            <!--BOX CONTAINET FOR TOTAL APPOINTMENTS AND CANCEL APPOINTMENTS-->
+            <div class="grid-container">
+
+                <div class="grid-child magenta">
+                    <p id="title"><b>Confirmed Appointment </b></p>
+                  <br/>
+                    <!--Total Appointments NUMBER-->
+                    <p>11</p>
+
+                </div>
+                
+                <div class="grid-child green">
+                    <p id="title"><b>Cancelled Appointment </b></p>
+                  <br/>
+                  <!--Total Cancel Appointments NUMBER-->
+                  <p>7</p>
+                </div>
+                
+            </div>
+
+  
+        
+        <div class="flex-container">
+                
+                <div class="flex-total">
+                    <br/>
+                    <p id="title"><b>Upcoming Appointment </b></p>
+                    <br/>
+                    <p>0</p>
+                    
+                    <button class="up-seebutton"><b>See More</b></button>
+                </div>
+                
+                <div class="row">
+                <div class="column1">
+                <br/>
+                <br/>    
+                <br/>
+                <br/>     
+                <h2>Total No. of Patients</h2>
+                <h2>Accomodated in a Day</h2>
+                <br/>
+                    <p>8</p>
+                </div>
+                <div class="column2">
+                <br/>  
+                <h2>Total No. of Patients this</h2>
+                <h2>Week</h2>  
+                    <p>27</p>
+                <br/>
+                <h2>Total No. of Patients </h2>
+                    <p>150</p>
+                    
+                    <button class="tap-seebutton"><b>See More</b></button>
+                </div>   
+                </div>
+            
+        </div>
+                
+                
+                
+                
+                
+              
+        </div>
+
+      </div>
+
+
+    <!--Script for calendar-->
+
+    <script>
+        $('.sched-btn').click(function() {
+            $('nav ul .sched-show').toggleClass("show");
+            $('nav ul .first').toggleClass("rotate");
+        });
+        $('.acct-btn').click(function() {
+            $('nav ul .acct-show').toggleClass("show1");
+            $('nav ul .second').toggleClass("rotate");
+        });
+        $('nav ul li').click(function() {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    </script>
+
+</body>
+
+</html>

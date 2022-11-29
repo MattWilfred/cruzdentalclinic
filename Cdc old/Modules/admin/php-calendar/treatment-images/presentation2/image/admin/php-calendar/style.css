@@ -1,0 +1,38 @@
+input[type="submit"]{
+    border-color: #ddd;
+    background-color: blueviolet; 
+    display: block;
+    color: white;
+    margin-bottom: 45px;
+    border-radius: 0.6em;
+  }
+
+input[value^="Dra. Marites Cruz"] {
+    font-size: 34px;
+    padding-top: 40px;
+    padding-right: 35px;
+    padding-bottom: 40px;
+    padding-left: 28px;
+}
+
+input[value^="Dr. Klyde Formoso"] {
+  font-size: 34px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 28px;
+  padding-left: 28px;
+}
+
+.icon-input-btn{
+  display: block;
+  position: relative;
+}
+.icon-input-btn input[type="submit"]{
+  padding-left: 2em;
+}
+.icon-input-btn .fa{
+  display: inline-block;
+  position: absolute;
+  left: 0.65em;
+  top: 30%;
+}
