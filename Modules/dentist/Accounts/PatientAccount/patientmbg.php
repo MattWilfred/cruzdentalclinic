@@ -247,8 +247,8 @@ function fetchUniqueMedicalBG($mbgid){
 
                 if(mysqli_num_rows($query) !== 0){
 
-                    echo '<div class="mbg-edit"><button id="edit-button" class="mbg-button">Edit</button></div>';
-                    echo '<div class="mbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="mbg-vbutton">View Previous Entries</button></div>';
+                    echo '<div class="mbg-edit"><button id="edit-button" class="mbg-button">Add</button></div>';
+                    echo '<div class="mbg-view"><button id="view-button" type="button" data-bs-target="#viewprev" data-bs-toggle="modal" class="mbg-vbutton">Medical Background History</button></div>';
                 }
 
                 ?>
