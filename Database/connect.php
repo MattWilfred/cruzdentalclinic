@@ -1,9 +1,9 @@
 <?php
 //created by Bryan Joshua Bucu
 	//connect to database
-	$host = "localhost:8889";
+	$host = "127.0.0.1";
 	$user = "root";
-	$password = "root";
+	$password = "cdc@123";
 	$database = "cruzdentalclinic";
 	
 	$connection = mysqli_connect($host, $user, $password, $database);
